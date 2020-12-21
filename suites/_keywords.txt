@@ -1,0 +1,239 @@
+*** Keywords ***
+Open Chrome Browser
+    ${options}    Evaluate    sys.modules['selenium.webdriver'].ChromeOptions()    sys, selenium.webdriver
+    Call Method    ${options}    add_argument    --no-sandbox
+    ${prefs}    Create Dictionary    download.default_directory=${TMP_PATH}
+    Call Method    ${options}    add_experimental_option    prefs    ${prefs}
+    Create Webdriver    Chrome    chrome_options=${options}
+
+Open Testbrowser
+    ${system}=    Evaluate    platform.system()    platform
+    Run Keyword If    '${system}' == 'Linux'    Start Virtual Display    1920    1080
+    Open Chrome Browser
+
+Login modal dialog
+    Wait Until Element Is Visible    class:loginCard
+    Element Should Be Visible    class:closeModal
+    Element Should Be Visible    xpath://h2[contains(text(),'Log In')]
+    Element Text Should Be    xpath://h2[contains(text(),'Log In')]    Log In
+    Element Should Be Visible    xpath://p[contains(text(),'With')]
+    Element Text Should Be    xpath://p[contains(text(),'With')]    With
+    Element Should Be Visible    class:facebookLogin
+    Element Should Be Visible    class:googleLogin
+    Element Should Be Visible    class:linkedinLogin
+    Element Text Should Be    xpath://div[contains(text(),'Email or Username')]    Email or Username
+    Wait Until Element Is Visible    class:loginCard
+    Element Should Be Enabled    name:username
+    Element Should Be Visible    name:username
+    Element Should Be Enabled    name:password
+    Element Text Should Be    xpath://div[contains(text(),'Password')]    Password
+    Element Should Be Visible    class:checkboxContainer
+    #Checkbox Should Not Be Selected    xpath;/html[1]/body[1]/div[4]/div[1]/div[1]/div[1]/div[7]/input[1]
+    Element Text Should Be    xpath://p[contains(text(),'Remember me')]    Remember me
+    Element Should Be Visible    id:login
+    Element Should Be Enabled    id:login
+    Element Should Be Visible    class:forgotPasswordModal
+    Element Text Should Be    xpath://button[contains(text(),'Forgot Password?')]    Forgot Password?
+    Element Text Should Be    xpath://p[contains(text(),'Not Registered?')]    Not Registered?
+    Element Should Be Visible    class:haveAccount    #button sign up
+    Element Text Should Be    xpath://button[contains(text(),'Sign up')]    Sign up
+    Capture Page Screenshot    login-modal-{index}.png
+
+Register modal dialog
+    Wait Until Element Is Visible    xpath://h3[contains(text(),'Join Us!')]
+    Element Text Should Be    xpath://h3[contains(text(),'Join Us!')]    Join Us!
+    Wait Until Element Is Visible    xpath://h4[contains(text(),'Are You looking to hire or get hired?')]
+    Element Text Should Be    xpath://h4[contains(text(),'Are You looking to hire or get hired?')]    Are You looking to hire or get hired?
+    Wait Until Element Is Visible    class:checkboxWrap
+    Element Should Be Visible    class:checkboxContainer
+    Element Text Should Be    xpath://div[@class="checkboxContainer"]/div[1]/label    Hire
+    Element Text Should Be    //label[contains(text(),'get hired')]    Get Hired
+    Element Text Should Be    xpath://p[contains(text(),'With')]    With
+    Element Should Be Visible    class:facebookLogin
+    Element Should Be Visible    class:googleLogin
+    Element Should Be Visible    class:linkedinLogin
+    Element Should Be Visible    xpath://p[contains(text(),'Or enter your email address')]
+    Element Text Should Be    xpath://p[contains(text(),'Or enter your email address')]    Or enter your email address
+    Element Should Be Enabled    name:email
+    Element Text Should Be    xpath://div[contains(text(),'Add username')]    Add username
+    Element Should Be Enabled    name:username
+    Element Text Should Be    xpath://div[contains(text(),'Add password')]    Add password
+    Element Should Be Enabled    name:password
+    Element Should Be Visible    class:fa-eye-slash
+    Element Should Be Visible    class:signUp
+    Element Text Should Be    xpath://p[contains(text(),'Already have an account?')]    Already have an account?
+    Element Should Be Visible    class:btnLogin
+    Capture Page Screenshot    sign-up-modal-dialog-{index}.png
+
+Forgot Password modal dialog
+    Element Should Be Visible    class:forgetPasswordCard
+    Element Should Be Visible    class:closeModal
+    Element Should Be Visible    class:textContainer
+    Element Should Be Visible    name:email
+    Element Should Be Enabled    name:email
+    Element Text Should Be    xpath://button[@class="buttonBtn btnNext forgotPassword"]    Next
+    Element Should Be Visible    class:btnNext
+    Element Should Be Enabled    class:btnNext
+    Element Should Be Visible    class:buttonBtnContainer
+    Element Text Should Be    xpath://p[contains(text(),'Go back to')]    Go back to
+    Element Should Be Visible    class:btnLogin
+    Element Text Should Be    xpath://button[@class="buttonBtn btnLogin"]    Login
+
+Prelounch login
+    Go To    ${PRELOUNCH}
+    #${radnom_name} =    Set Variable    ${radnom_email}
+    ${radnom_name} =    Generate Random String    5    [UPPER]
+    Set Suite Variable    ${radnom_name}
+    Input Text    name:name    ${radnom_name}
+    ${radnom_email} =    Generate Random String    5    [NUMBERS]
+    #${radnom_email} =    Set Variable    ${radnom_email}
+    Set Suite Variable    ${radnom_email}
+    Input Text    name:email    ${radnom_name}user${radnom_email}@mailinator.com
+    Capture Page Screenshot    before-submit-{index}.png
+    Submit Form
+    Wait Until Element Is Not Visible    xpath://a[contains(text(),'Our Privacy Policy')]
+    Wait Until Element Is Visible    class:ShareEmail_congratulationsContainer__2tuWi
+    Capture Page Screenshot    after-submit-{index}.png
+
+Enter email
+    Prelounch login
+    Input Text    name:email    ${radnom_name}user${radnom_email}@mailinator.com
+    Capture Page Screenshot    pic-{index}.png
+    Press Keys    name:email    RETURN
+    Submit Form
+    Capture Page Screenshot    pic-{index}.png
+
+return email
+    Click Element    name:email
+    Input Text    name:email    ${radnom_name}${radnom_email}@mailinator.com
+    Capture Page Screenshot    pic-{index}.png
+    Press Keys    name:email    RETURN
+    Sleep    1
+    Click Element    name:email
+    Input Text    name:email    2${radnom_name}${radnom_email}@mailinator.com
+    Capture Page Screenshot    pic-{index}.png
+    Press Keys    name:email    RETURN
+    Sleep    1
+    Input Text    name:email    3${radnom_name}user${radnom_email}@mailinator.com
+    Capture Page Screenshot    pic-{index}.png
+    Press Keys    name:email    RETURN
+    Click Element    name:email
+    Input Text    name:email    4${radnom_name}user${radnom_email}@mailinator.com
+    Capture Page Screenshot    pic-{index}.png
+    Press Keys    name:email    RETURN
+    Input Text    name:email    5${radnom_name}user${radnom_email}@mailinator.com
+    Capture Page Screenshot    pic-{index}.png
+    Press Keys    name:email    RETURN
+    Click Element    name:email
+    Input Text    name:email    6${radnom_name}user${radnom_email}@mailinator.com
+    Capture Page Screenshot    pic-{index}.png
+    Press Keys    name:email    RETURN
+    Input Text    name:email    7${radnom_name}user${radnom_email}@mailinator.com
+    Capture Page Screenshot    pic-{index}.png
+    Press Keys    name:email    RETURN
+    Click Element    name:email
+    Input Text    name:email    8${radnom_name}user${radnom_email}@mailinator.com
+    Capture Page Screenshot    pic-{index}.png
+    Press Keys    name:email    RETURN
+    Input Text    name:email    9${radnom_name}user${radnom_email}@mailinator.com
+    Capture Page Screenshot    pic-{index}.png
+    Press Keys    name:email    RETURN
+    Click Element    name:email
+    Input Text    name:email    10${radnom_name}user${radnom_email}@mailinator.com
+    Capture Page Screenshot    pic-{index}.png
+    Press Keys    name:email    RETURN
+
+Random Login
+    Go To    ${PRELOUNCH}
+    ${random_name}    Generate Random String    10    [NUMBERS]
+    Input Text    name:name    ${random_name}
+    ${random_email}    Generate Random String    8    [NUMBERS]
+    Input Text    name:email    ${random_email}@mailinator.com
+    Submit Form
+    Wait Until Element Is Visible    class:ShareEmail_congratulationsContainer__2tuWi
+
+1
+    Prelounch login
+    Prelounch login
+    Prelounch login
+    Prelounch login
+    Prelounch login
+    Prelounch login
+    Prelounch login
+    Prelounch login
+    Prelounch login
+    Prelounch login
+    Prelounch login
+    Prelounch login
+    Prelounch login
+    Prelounch login
+    Prelounch login
+
+Login modal
+    #login form
+    Element Should Be Visible    class:closeModal
+    Element Should Be Visible    xpath://h2[contains(text(),'Log In')]
+    Element Text Should Be    xpath://h2[contains(text(),'Log In')]    Log In
+    Element Should Be Visible    xpath://p[contains(text(),'With')]
+    Element Text Should Be    xpath://p[contains(text(),'With')]    With
+    Element Should Be Visible    class:facebookLogin
+    Element Should Be Visible    class:googleLogin
+    Element Should Be Visible    class:linkedinLogin
+    Element Text Should Be    xpath://div[contains(text(),'Email or Username')]    Email or Username
+    Element Should Be Enabled    xpath://div[4]/input[1]
+    Element Text Should Be    xpath://div[contains(text(),'Password')]    Password
+    #Element Should Be Enabled    xpath://div[6]/input[1]
+    Element Should Be Enabled    name:username
+    Element Should Be Visible    name:username
+    Checkbox Should Not Be Selected    xpath://header/nav[@id='nav-bar']/div[1]/div[1]/div[7]/input[1]
+    Element Text Should Be    xpath://p[contains(text(),'Remember me')]    Remember me
+    Element Should Be Visible    xpath://header/nav[@id='nav-bar']/div[1]/div[1]/button[1]    #name
+    Element Should Be Enabled    xpath://header/nav[@id='nav-bar']/div[1]/div[1]/button[1]
+    Element Text Should Be    xpath://button[contains(text(),'Forgot Password?')]    Forgot Password?
+    Element Text Should Be    xpath://p[contains(text(),'Not Registered?')]    Not Registered?
+    Element Should Be Visible    class:haveAccount    #button sign up
+    Element Text Should Be    xpath://button[contains(text(),'Sign up')]    Sign up
+    Capture Page Screenshot    login-modal-{index}.png
+    Click Element    class:closeModal
+
+Footer
+    Element Should Be Visible    class:footerContainer
+    Element Should Be Visible    class:logoInfo
+    Element Text Should Be    xpath://h3[contains(text(),'UP FOR JOBS')]    UP FOR JOBS
+    Element Text Should Be    xpath://body/div[@id='root']/div[1]/section[1]/footer[1]/div[1]/div[1]/div[1]/p[1]    Do Good by Doing Good
+    Element Should Be Visible    class:footerCardWrapper
+    Element Should Be Visible    xpath://h2[contains(text(),'CATEGORIES')]
+    Element Text Should Be    xpath://h2[contains(text(),'CATEGORIES')]    CATEGORIES
+    Element Should Be Visible    xpath://h2[contains(text(),'ABOUT')]
+    Element Text Should Be    xpath://h2[contains(text(),'ABOUT')]    ABOUT
+    Element Should Be Visible    xpath://a[contains(text(),'Our Vision')]
+    Element Text Should Be    xpath://a[contains(text(),'Our Vision')]    Our Vision
+    Element Should Be Visible    xpath://div[2]/div[2]/a[2]
+    Element Text Should Be    xpath://div[2]/div[2]/a[2]    About Us
+
+Login KW
+    Input Text    name:username    ${user1}
+    Input Text    name:password    ${password}
+    Click Element    xpath://header/nav[@id='nav-bar']/div[1]/div[1]/button[1]
+    Wait Until Element Is Visible    xpath://header/nav[@id='nav-bar']/div[1]/div[2]/div[4]/div[1]/div[1]
+    Click Link    /profile
+    Wait Until Element Is Not Visible    xpath://a[contains(text(),'Hi ${user1},')]
+
+Logout modal
+    Wait Until Element Is Visible    class:LogoutModal_logoutModal__20aGM
+    Wait Until Element Is Visible    xpath://i[@class="light undefined fas fa-times"]
+    Wait Until Element Is Visible    xpath://button[text()='Cancel']
+    Wait Until Element Is Visible    xpath://button[@class="buttonBtn LogoutModal_logoutModalBtn__2fBDP"]
+    Wait Until Element Is Visible    xpath://button[@class='buttonBtn LogoutModal_logoutCancelBtn__2taCj']
+
+Logout
+    Click Element    xpath://div[@class="Avatar_avatar__container__6SBhX"]
+    Wait Until Element Is Visible    xpath://div[@class="Avatar_avatar__container__6SBhX"]
+    Wait Until Element Is Visible    class:navLogoutBtn
+    Capture Page Screenshot    click-avatar-picture-logout-{index}.png
+    Click Element    class:navLogoutBtn
+    Capture Page Screenshot    click-avatar-picture-logout-{index}.png
+    Logout modal
+    Click Element    xpath://button[@class="buttonBtn LogoutModal_logoutModalBtn__2fBDP"]
+    Wait Until Element Is Visible    xpath://section[@class="hero"]
+    Capture Page Screenshot    logout-{index}.png
