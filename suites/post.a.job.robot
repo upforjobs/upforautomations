@@ -38,10 +38,11 @@ Post a Job - 1 step * Required
     Element Text Should Be    xpath://div[@class="PostAJobStep1_inputWrapper__EnaEv"]/div[2]/div[@class="PostAJobStep1_error__4U_QJ"]    * Too Long
     #clear / edit
     SeleniumLibrary.Clear Element Text    xpath://input[@id="title"]
-    Clear Element Text    xpath://input[@id="title"]
+    Input Text    id:title    .
+    Clear Element Text    id:title
     Sleep    1
     Capture Page Screenshot    clear-title-{index}.png
-    Clear Element Text    xpath://textarea[@id="description"]
+    Clear Element Text    id:description
 
 Post a Job - 1 step
     [Documentation]    User go to post a job 1st step [tag] postajob
