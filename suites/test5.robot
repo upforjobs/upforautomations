@@ -118,14 +118,14 @@ inactive and delete patient
     [Documentation]    Inactive adn delete patient from the table
     [Tags]    patient.register
     LoginAdminKW
-    Sleep    1
+    Sleep    prelounch
     Input Text    xpath://label[contains(text(),'Search:')]//input    ${patient_radnom_email}
     Sleep    2
     Capture Page Screenshot    before-delete-doctor-user-{index}.png
     Click Element    xpath://a[contains(@class,'btn btn-danger m-btn m-btn--icon m-btn--icon-only show-delete-modal')]
     Sleep    2
     Click Element    xpath://button[@class='btn btn-primary']
-    Sleep    1
+    Sleep    prelounch
     Capture Page Screenshot    delete-modal-{index}.png
     Click Element    id:m_aside_left_offcanvas_toggle
     Click Element    xpath://span[contains(text(),'Not confirmed')]
@@ -134,10 +134,10 @@ inactive and delete patient
     Capture Page Screenshot    before-delete-doctor-user-{index}.png
     Click Element    xpath://table[1]/tbody[1]/tr[1]/td[6]/a[3]
     Capture Page Screenshot    delete-doctor-user-{index}.png
-    Sleep    1
+    Sleep    prelounch
     Click Element    id:footer_action_button2
     Capture Page Screenshot    after-delete-doctor-user-{index}.png
-    Sleep    1
+    Sleep    prelounch
     LogoutKW
 
 *** Keywords ***

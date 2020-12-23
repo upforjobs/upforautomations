@@ -108,12 +108,12 @@ return email
     Input Text    name:email    ${radnom_name}${radnom_email}@mailinator.com
     Capture Page Screenshot    pic-{index}.png
     Press Keys    name:email    RETURN
-    Sleep    1
+    Sleep    prelounch
     Click Element    name:email
     Input Text    name:email    2${radnom_name}${radnom_email}@mailinator.com
     Capture Page Screenshot    pic-{index}.png
     Press Keys    name:email    RETURN
-    Sleep    1
+    Sleep    prelounch
     Input Text    name:email    3${radnom_name}user${radnom_email}@mailinator.com
     Capture Page Screenshot    pic-{index}.png
     Press Keys    name:email    RETURN
@@ -152,7 +152,7 @@ Random Login
     Submit Form
     Wait Until Element Is Visible    class:ShareEmail_congratulationsContainer__2tuWi
 
-1
+prelounch
     Prelounch login
     Prelounch login
     Prelounch login

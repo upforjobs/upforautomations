@@ -25,10 +25,21 @@ Post a Job - 1 step * Required
     Element Text Should Be    xpath://div[@class="PostAJobStep1_inputWrapper__EnaEv"]/div[2]/div[@class="PostAJobStep1_error__4U_QJ"]    * Required
     Element Should Be Disabled    xpath://button[@class="buttonBtn PostAJobStep1_btnNext__29SID"]
     #edit form    title/description
+    #clear / edit
+    SeleniumLibrary.Clear Element Text    xpath://input[@id="title"]
+    Input Text    id:title    .
+    Clear Element Text    id:title
+    Sleep    prelounch
+    Capture Page Screenshot    clear-title-{index}.png
+    Clear Element Text    id:description
+
+Post a Job - 1 step * Too Long
+    Maximize Browser Window
+    Go To    ${TESTURL}/postt-a-job/step-1
     ${random_title}    Generate Random String    101    [LETTERS]
     Input Text    id:title    ${random_title}
     Capture Page Screenshot    title-{index}.png
-    ${random_description}    Generate Random String    1001    [LETTERS]
+    ${random_description}    Generate Random String    5001    [LETTERS]
     Input Text    id:description    ${random_description}
     Capture Page Screenshot    title-{index}.png
     Wait Until Element Is Visible    xpath://div[@class="PostAJobStep1_inputWrapper__EnaEv"]/div[1]/div[@class="PostAJobStep1_error__4U_QJ"]
@@ -36,13 +47,36 @@ Post a Job - 1 step * Required
     Capture Page Screenshot    description-{index}.png
     Wait Until Element Is Visible    xpath://div[@class="PostAJobStep1_inputWrapper__EnaEv"]/div[2]/div[@class="PostAJobStep1_error__4U_QJ"]
     Element Text Should Be    xpath://div[@class="PostAJobStep1_inputWrapper__EnaEv"]/div[2]/div[@class="PostAJobStep1_error__4U_QJ"]    * Too Long
-    #clear / edit
-    SeleniumLibrary.Clear Element Text    xpath://input[@id="title"]
-    Input Text    id:title    .
-    Clear Element Text    id:title
-    Sleep    1
-    Capture Page Screenshot    clear-title-{index}.png
-    Clear Element Text    id:description
+
+Post a Job - 1 step * Too Short
+    Maximize Browser Window
+    Go To    ${TESTURL}/postt-a-job/step-1
+    ${random_title}    Generate Random String    1    [LETTERS]
+    Input Text    id:title    ${random_title}
+    Capture Page Screenshot    title-{index}.png
+    ${random_description}    Generate Random String    1    [LETTERS]
+    Input Text    id:description    ${random_description}
+    Capture Page Screenshot    title-{index}.png
+    Click Element    class:PostAJobStep1_btnNext__29SID
+    Wait Until Element Is Visible    xpath://div[@class="PostAJobStep1_inputWrapper__EnaEv"]/div[1]/div[@class="PostAJobStep1_error__4U_QJ"]
+    Element Text Should Be    xpath://div[@class="PostAJobStep1_inputWrapper__EnaEv"]/div[1]/div[@class="PostAJobStep1_error__4U_QJ"]    * Too Short
+    Capture Page Screenshot    description-{index}.png
+    Wait Until Element Is Visible    xpath://div[@class="PostAJobStep1_inputWrapper__EnaEv"]/div[2]/div[@class="PostAJobStep1_error__4U_QJ"]
+    Element Text Should Be    xpath://div[@class="PostAJobStep1_inputWrapper__EnaEv"]/div[2]/div[@class="PostAJobStep1_error__4U_QJ"]    * Too Short
+
+Post a Job - 1 step * Invalid characters
+    Maximize Browser Window
+    Go To    ${TESTURL}/postt-a-job/step-1
+    Input Text    id:title    ~^!%#*&@$(*&#(!@#*^&*%@#&!@#/.,?><
+    Capture Page Screenshot    title-{index}.png
+    Input Text    id:description    ~^!%#*&@$(*&#(!@#*^&*%@#&!@#/.,?><
+    Capture Page Screenshot    title-{index}.png
+    Click Element    class:PostAJobStep1_btnNext__29SID
+    Wait Until Element Is Visible    xpath://div[@class="PostAJobStep1_inputWrapper__EnaEv"]/div[1]/div[@class="PostAJobStep1_error__4U_QJ"]
+    Element Text Should Be    xpath://div[@class="PostAJobStep1_inputWrapper__EnaEv"]/div[1]/div[@class="PostAJobStep1_error__4U_QJ"]    * Invalid characters
+    Capture Page Screenshot    description-{index}.png
+    Wait Until Element Is Visible    xpath://div[@class="PostAJobStep1_inputWrapper__EnaEv"]/div[2]/div[@class="PostAJobStep1_error__4U_QJ"]
+    Element Text Should Be    xpath://div[@class="PostAJobStep1_inputWrapper__EnaEv"]/div[2]/div[@class="PostAJobStep1_error__4U_QJ"]    * Invalid characters
 
 Post a Job - 1 step
     [Documentation]    User go to post a job 1st step [tag] postajob
@@ -55,6 +89,7 @@ Post a Job - 1 step
     Log to console    ${url}
     Click Element    class:PostAJobStep1_btnNext__29SID
     Capture Page Screenshot    postt-a-job/step-1-{index}.png
+    Element Text Should Be    xpath://h2[contains(text(),'Describe & Attach files')]    Describe & Attach files
     ${random_title}    Generate Random String    20    [LETTERS]
     Input Text    id:title    ${random_title}
     Capture Page Screenshot    title-{index}.png
@@ -69,8 +104,32 @@ Post a Job - 2nd step
     [Tags]    postajob
     ${url} =    Get Location
     Log to console    ${url}
-    Element Text Should Be    xpath://h2[@class="PostAJobTitle_stepTitle__2QE1D"]    Select category
-    Wait Until Element Is Visible    xpath://div[@class="PostAJobStep2_postAJobStep2__3Xh9W"]
+    # 2nd step page
+    Wait Until Element Is Visible    xpath://h2[contains(text(),'Select category')]
+    Element Text Should Be    xpath://h2[contains(text(),'Select category')]    Select category
+    Wait Until Element Is Visible    xpath://p[contains(text(),'Graphic & Design')]
+    Element Text Should Be    xpath://p[contains(text(),'Graphic & Design')]    Graphic & Design
+    Wait Until Element Is Visible    xpath://p[contains(text(),'Writing & Translation')]
+    Element Text Should Be    xpath://p[contains(text(),'Writing & Translation')]    Writing & Translation
+    Wait Until Element Is Visible    xpath://p[contains(text(),'Digital Marketing')]
+    Element Text Should Be    xpath://p[contains(text(),'Digital Marketing')]    Digital Marketing
+    Wait Until Element Is Visible    xpath://p[contains(text(),'Programming & Tech')]
+    Element Text Should Be    xpath://p[contains(text(),'Programming & Tech')]    Programming & Tech
+    Wait Until Element Is Visible    xpath://p[contains(text(),'Business')]
+    Element Text Should Be    xpath://p[contains(text(),'Business')]    Business
+    Wait Until Element Is Visible    xpath://p[contains(text(),'Music & Audio')]
+    Element Text Should Be    xpath://p[contains(text(),'Music & Audio')]    Music & Audio
+    Wait Until Element Is Visible    xpath://p[contains(text(),'Lifestyle')]
+    Element Text Should Be    xpath://p[contains(text(),'Lifestyle')]    Lifestyle
+    Wait Until Element Is Visible    xpath://p[contains(text(),'Other')]
+    Element Text Should Be    xpath://p[contains(text(),'Other')]    Other
+    Wait Until Element Is Visible    xpath://a[contains(text(),'Back')]
+    Element Should Be Enabled    xpath://a[contains(text(),'Back')]
+    Element Text Should Be    xpath://a[contains(text(),'Back')]    Back
+    Wait Until Element Is Visible    xpath://button[contains(text(),'Next')]
+    Element Should Be Disabled    xpath://button[contains(text(),'Next')]
+    Element Text Should Be    xpath://button[contains(text(),'Next')]    Next
+    #set 2nd step
     Click Element    id:vector
     Capture Page Screenshot    vector-{index}.png
     Element Should Be Visible    xpath://div[@class="MultipleSelectHeading_multipleSelectHeading__1WmGV PostAJobStep2_subCategorySelectHeading__2im8-"]
@@ -83,7 +142,7 @@ Post a Job - 2nd step
     Capture Page Screenshot    vector-{index}.png
     Input Text    xpath://input[@class="input undefined"]    Skills
     Click Element    xpath://i[@class="light undefined fa fa-plus"]
-    Element Should Be Visible    xpath://div[@class="Tag_tag__3sBKJ "]/p
+    Element Should Be Visible    xpath://div[@class="PostAJobStep2_categoryData__1Aa-r"]/p
     Capture Page Screenshot    skills-{index}.png
     Click Element    xpath://i[@class="light undefined fa fa-times undefined"]
     Element Should Not Be Visible    xpath://div[@class="Tag_tag__3sBKJ "]/p

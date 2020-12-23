@@ -48,13 +48,13 @@ Login user
     Input Text    name:password    ${password}
     Click Element    id:login
     Wait Until Element Is Not Visible    xpath://button[contains(text(),'Login')]
-    Wait Until Element Is Visible
+    Wait Until Element Is Visible    name:firstNameTutorial
     Capture Page Screenshot    register-user-{index}.png
     Logout
 
 Email activation
     Go To    ${email_server}
-    Sleep    1
+    Sleep    prelounch
     Wait Until Element Is Visible    id:go_inbox
     Clear Element Text    id:inbox_field
     Input Text    id:inbox_field    ${radnom_email}
@@ -77,7 +77,7 @@ Login
     Sleep    3
 
 Profile settings
-    Sleep    1
+    Sleep    prelounch
     Element Should Be Visible    class:Form_tutorial__text__1VWmD
     Click Element    name:firstNameTutorial
     #name
@@ -114,11 +114,11 @@ Profile settings
     #Click Element    class:DropDownSearch_input__fUy8M
     Input Text    class:DropDownSearch_input__fUy8M    Serbian
     Click Element    xpath://option[contains(text(),'Serbian')]
-    Sleep    1
+    Sleep    prelounch
     Click Element    class:DropDown_head__uLqnn
     Click Element    xpath://option[contains(text(),'Conversational')]
     Click Element    xpath://button[contains(text(),'Save')]
-    Sleep    1
+    Sleep    prelounch
     Wait Until Element Is Visible    xpath://div[contains(text(),'Profile Saved Successfully')]
     Capture Page Screenshot    save-profile-{index}.png
 

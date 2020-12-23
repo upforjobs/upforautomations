@@ -21,7 +21,7 @@ Patient make 3 withdraw request
     Click Button    xpath://button[@class='send-modal btn btn-primary']
     Patient Withdraw Request modal
     Wait Until Element Is Visible    id:amount
-    ${withdraw} =    Generate Random String    1    [NUMBERS]
+    ${withdraw} =    Generate Random String    prelounch    [NUMBERS]
     Input Text    id:amount    1${withdraw}
     Capture Page Screenshot    first-request-{index}.png
     Click Button    xpath://button[@class='btn actionBtn btn-primary runAjaxSend']

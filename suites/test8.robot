@@ -26,7 +26,7 @@ go to session room - patient
     LoginKW
     #Wait Until Element Is Visible    xpath://div[@class='toast-message']
     #Click Element    xpath://div[@class='toast-message']
-    Sleep    1
+    Sleep    prelounch
     Wait Until Element Is Visible    id:m_aside_left_offcanvas_toggle
     Click Element    id:m_aside_left_offcanvas_toggle
     Click Element    xpath://span[contains(text(),'My appointments')]
@@ -41,7 +41,7 @@ go to session room - patient
     [Teardown]
 
 doctor response chat msg
-    Switch Browser    1
+    Switch Browser    prelounch
     Sleep    5
     Input Text    xpath://input[@id='input-text-chat']    I am test patient and this is my text
     Sleep    5

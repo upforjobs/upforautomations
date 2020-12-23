@@ -58,7 +58,7 @@ Already taken username
     Capture Page Screenshot    register-{index}.png
     Wait Until Element Is Visible    xpath://div[contains(text(),'Email or Username is taken')]
     Element Text Should Be    xpath://div[contains(text(),'Email or Username is taken')]    Email or Username is taken
-    Sleep    1
+    Sleep    prelounch
     Wait Until Element Is Visible    xpath://div[contains(text(),'Email or Username is taken')]
     Click Element    xpath://div[contains(text(),'Email or Username is taken')]
     Wait Until Element Is Not Visible    xpath://div[contains(text(),'Email or Username is taken')]

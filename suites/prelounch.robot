@@ -13,7 +13,7 @@ ${TMP_PATH}       /tmp
 *** Test Cases ***
 Login - Prelounch page
     [Tags]
-    1
+    prelounch
 
 *** Keywords ***
 Open Testbrowser
