@@ -19,7 +19,7 @@ Login fresh user
     Input Text    name:username    ${user1}
     Input Text    name:password    ${password}
     Click Element    id:login
-    Wait Until Element Is Visible    class:FullLoader_container__3azEP
+    #Wait Until Element Is Visible    class:FullLoader_container__3azEP
     Wait Until Element Is Not Visible    class:FullLoader_container__3azEP
     #Wait Until Element Is Not Visible    xpath://button[contains(text(),'Login')]
     Wait Until Element Is Visible    xpath://div[@class="MiniDashboard_miniDashboard__2g2df"]

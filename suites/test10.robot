@@ -4,17 +4,9 @@ Library           RequestsLibrary
 Resource          _mysetup.txt
 
 *** Test Cases ***
-login
-    [Tags]    api
-    create session    get_login_details    ${TESTURL}
-    ${response}=    get request    get_login_details    api/specialityListApi/
-    Log To Console    ${response.status_code}
-    Log To Console    ${response.content}
-    Log To Console    ${response.headers}
-    ${actual_code} =    Convert To String    ${response.status_code}
-    Should Be Equal    ${actual_code}    200
-    ${content_type_value}=    Get From Dictionary    ${response.headers}    Content-Type
-    Should Be Equal    ${content_type_value}    text/html; charset=UTF-8
+go to
+    [Tags]
+    ${LOG_FILE}
 
 forgot password
     [Tags]    api

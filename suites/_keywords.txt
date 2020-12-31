@@ -237,3 +237,39 @@ Logout
     Click Element    xpath://button[@class="buttonBtn LogoutModal_logoutModalBtn__2fBDP"]
     Wait Until Element Is Visible    xpath://section[@class="hero"]
     Capture Page Screenshot    logout-{index}.png
+
+Header Post a Job
+    Wait Until Element Is Visible    xpath://a[contains(text(),'Up For Jobs')]
+    Element Text Should Be    xpath://a[contains(text(),'Up For Jobs')]    Up For Jobs
+    Wait Until Element Is Visible    xpath://body/div[@id='root']/div[1]/section[1]/div[1]/a[2]
+    Element Text Should Be    xpath://body/div[@id='root']/div[1]/section[1]/div[1]/a[2]    Post a Job
+    Wait Until Element Is Visible    xpath://body/div[@id='root']/div[1]/section[1]/div[2]/h2[1]/span[1]
+    Element Text Should Be    xpath://body/div[@id='root']/div[1]/section[1]/div[2]/h2[1]    Post a Job
+    Wait Until Element Is Visible    xpath://p[contains(text(),'Post a job in four easy steps.')]
+    Element Text Should Be    xpath://p[contains(text(),'Post a job in four easy steps.')]    Post a job in four easy steps.
+
+Landing page request
+    create session    get_login_details    ${TESTURL}
+    ${response}=    get request    get_login_details    api/specialityListApi/
+    Log To Console    ${response.status_code}
+    Log To Console    ${response.content}
+    Log To Console    ${response.headers}
+    ${actual_code} =    Convert To String    ${response.status_code}
+    Should Be Equal    ${actual_code}    200
+    ${content_type_value}=    Get From Dictionary    ${response.headers}    Content-Type
+    Should Be Equal    ${content_type_value}    text/html; charset=UTF-8
+
+mini-dashboard
+    Wait Until Element Is Visible    xpath://body/div[@id='root']/div[1]/section[1]/section[1]/div[1]/div[2]
+    Element Should Be Visible    xpath://body/div[@id='root']/div[1]/section[1]/section[1]/div[1]/div[2]
+    #mode
+    Element Should Be Visible    xpath://a[contains(text(),'Hi ${user1},')]
+    Element Text Should Be    xpath://a[contains(text(),'Hi ${user1},')]    Hi ${user1},
+    Element Should Be Visible    xpath://body/div[@id='root']/div[1]/section[1]/section[1]/div[1]/div[2]/div[1]/div[2]
+    Element Text Should Be    xpath://body/div[@id='root']/div[1]/section[1]/section[1]/div[1]/div[2]/div[1]/div[2]/p[1]    mode:
+    Element Text Should Be    xpath://h4[contains(text(),'You are logged in.')]    You are logged in.
+    Element Text Should Be    xpath://h4[contains(text(),'My Profile Viewers')]    My Profile Viewers
+    Element Text Should Be    xpath://h4[contains(text(),'Complete your profile')]    Complete your profile
+    Element Text Should Be    xpath://h4[contains(text(),'My Jobs')]    My Jobs
+    Element Text Should Be    xpath://h4[contains(text(),'Finance')]    Finance
+    Element Text Should Be    xpath://h4[contains(text(),'Bookmarks')]    Bookmarks

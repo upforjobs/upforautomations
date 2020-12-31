@@ -1,7 +1,7 @@
 *** Variables ***
 # env:test
 ${BASEURL}        http://go.upforjobs.com/
-${TESTURL}        https://amazing-northcutt-6c665b.netlify.app
+${TESTURL}        https://hopeful-einstein-1f4c6b.netlify.app
 #${PRELOUNCH}     https://compassionate-northcutt-2e6540.netlify.app/
 ${BROWSER}        Chrome
 #users
