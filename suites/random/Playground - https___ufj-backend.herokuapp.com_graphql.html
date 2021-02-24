@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<!-- saved from url=(0041)https://ufj-backend.herokuapp.com/graphql -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, minimal-ui">
+    <link href="./Playground - https___ufj-backend.herokuapp.com_graphql_files/css" rel="stylesheet">
+    <title>Playground - https://ufj-backend.herokuapp.com/graphql</title>
+    
+    <link rel="stylesheet" href="./Playground - https___ufj-backend.herokuapp.com_graphql_files/index.css">
+    
+    <link rel="shortcut icon" href="https://cdn.jsdelivr.net/npm/@apollographql/graphql-playground-react@1.7.33/build/favicon.png">
+    <script src="./Playground - https___ufj-backend.herokuapp.com_graphql_files/middleware.js.download"></script><style data-styled="" data-styled-version="4.0.0"></style>
+
+  <script src="chrome-extension://mooikfkahbdckldjjndioackbalphokd/assets/prompt.js"></script></head>
+  <body data-new-gr-c-s-check-loaded="14.996.0" data-gr-ext-installed="" data-new-gr-c-s-loaded="14.996.0">
+    <style type="text/css">
+      html {
+        font-family: "Open Sans", sans-serif;
+        overflow: hidden;
+      }
+
+      body {
+        margin: 0;
+        background: #172a3a;
+      }
+
+      .playgroundIn {
+        -webkit-animation: playgroundIn 0.5s ease-out forwards;
+        animation: playgroundIn 0.5s ease-out forwards;
+      }
+
+      @-webkit-keyframes playgroundIn {
+        from {
+          opacity: 0;
+          -webkit-transform: translateY(10px);
+          -ms-transform: translateY(10px);
+          transform: translateY(10px);
+        }
+        to {
+          opacity: 1;
+          -webkit-transform: translateY(0);
+          -ms-transform: translateY(0);
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes playgroundIn {
+        from {
+          opacity: 0;
+          -webkit-transform: translateY(10px);
+          -ms-transform: translateY(10px);
+          transform: translateY(10px);
+        }
+        to {
+          opacity: 1;
+          -webkit-transform: translateY(0);
+          -ms-transform: translateY(0);
+          transform: translateY(0);
+        }
+      }
+    </style>
+    
+<style type="text/css">
+.fadeOut {
+  -webkit-animation: fadeOut 0.5s ease-out forwards;
+  animation: fadeOut 0.5s ease-out forwards;
+}
+
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0;
+    -webkit-transform: translateY(-10px);
+    -ms-transform: translateY(-10px);
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+    -ms-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    -webkit-transform: translateY(-10px);
+    -ms-transform: translateY(-10px);
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+    -ms-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+
+@-webkit-keyframes fadeOut {
+  from {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+    -ms-transform: translateY(0);
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    -webkit-transform: translateY(-10px);
+    -ms-transform: translateY(-10px);
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+    -ms-transform: translateY(0);
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    -webkit-transform: translateY(-10px);
+    -ms-transform: translateY(-10px);
+    transform: translateY(-10px);
+  }
+}
+
+@-webkit-keyframes appearIn {
+  from {
+    opacity: 0;
+    -webkit-transform: translateY(0px);
+    -ms-transform: translateY(0px);
+    transform: translateY(0px);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+    -ms-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+
+@keyframes appearIn {
+  from {
+    opacity: 0;
+    -webkit-transform: translateY(0px);
+    -ms-transform: translateY(0px);
+    transform: translateY(0px);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+    -ms-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+
+@-webkit-keyframes scaleIn {
+  from {
+    -webkit-transform: scale(0);
+    -ms-transform: scale(0);
+    transform: scale(0);
+  }
+  to {
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    -webkit-transform: scale(0);
+    -ms-transform: scale(0);
+    transform: scale(0);
+  }
+  to {
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+  }
+}
+
+@-webkit-keyframes innerDrawIn {
+  0% {
+    stroke-dashoffset: 70;
+  }
+  50% {
+    stroke-dashoffset: 140;
+  }
+  100% {
+    stroke-dashoffset: 210;
+  }
+}
+
+@keyframes innerDrawIn {
+  0% {
+    stroke-dashoffset: 70;
+  }
+  50% {
+    stroke-dashoffset: 140;
+  }
+  100% {
+    stroke-dashoffset: 210;
+  }
+}
+
+@-webkit-keyframes outerDrawIn {
+  0% {
+    stroke-dashoffset: 76;
+  }
+  100% {
+    stroke-dashoffset: 152;
+  }
+}
+
+@keyframes outerDrawIn {
+  0% {
+    stroke-dashoffset: 76;
+  }
+  100% {
+    stroke-dashoffset: 152;
+  }
+}
+
+.hHWjkv {
+  -webkit-transform-origin: 0px 0px;
+  -ms-transform-origin: 0px 0px;
+  transform-origin: 0px 0px;
+  -webkit-transform: scale(0);
+  -ms-transform: scale(0);
+  transform: scale(0);
+  -webkit-animation: scaleIn 0.25s linear forwards 0.2222222222222222s;
+  animation: scaleIn 0.25s linear forwards 0.2222222222222222s;
+}
+
+.gCDOzd {
+  -webkit-transform-origin: 0px 0px;
+  -ms-transform-origin: 0px 0px;
+  transform-origin: 0px 0px;
+  -webkit-transform: scale(0);
+  -ms-transform: scale(0);
+  transform: scale(0);
+  -webkit-animation: scaleIn 0.25s linear forwards 0.4222222222222222s;
+  animation: scaleIn 0.25s linear forwards 0.4222222222222222s;
+}
+
+.hmCcxi {
+  -webkit-transform-origin: 0px 0px;
+  -ms-transform-origin: 0px 0px;
+  transform-origin: 0px 0px;
+  -webkit-transform: scale(0);
+  -ms-transform: scale(0);
+  transform: scale(0);
+  -webkit-animation: scaleIn 0.25s linear forwards 0.6222222222222222s;
+  animation: scaleIn 0.25s linear forwards 0.6222222222222222s;
+}
+
+.eHamQi {
+  -webkit-transform-origin: 0px 0px;
+  -ms-transform-origin: 0px 0px;
+  transform-origin: 0px 0px;
+  -webkit-transform: scale(0);
+  -ms-transform: scale(0);
+  transform: scale(0);
+  -webkit-animation: scaleIn 0.25s linear forwards 0.8222222222222223s;
+  animation: scaleIn 0.25s linear forwards 0.8222222222222223s;
+}
+
+.byhgGu {
+  -webkit-transform-origin: 0px 0px;
+  -ms-transform-origin: 0px 0px;
+  transform-origin: 0px 0px;
+  -webkit-transform: scale(0);
+  -ms-transform: scale(0);
+  transform: scale(0);
+  -webkit-animation: scaleIn 0.25s linear forwards 1.0222222222222221s;
+  animation: scaleIn 0.25s linear forwards 1.0222222222222221s;
+}
+
+.llAKP {
+  -webkit-transform-origin: 0px 0px;
+  -ms-transform-origin: 0px 0px;
+  transform-origin: 0px 0px;
+  -webkit-transform: scale(0);
+  -ms-transform: scale(0);
+  transform: scale(0);
+  -webkit-animation: scaleIn 0.25s linear forwards 1.2222222222222223s;
+  animation: scaleIn 0.25s linear forwards 1.2222222222222223s;
+}
+
+.bglIGM {
+  -webkit-transform-origin: 64px 28px;
+  -ms-transform-origin: 64px 28px;
+  transform-origin: 64px 28px;
+  -webkit-transform: scale(0);
+  -ms-transform: scale(0);
+  transform: scale(0);
+  -webkit-animation: scaleIn 0.25s linear forwards 0.2222222222222222s;
+  animation: scaleIn 0.25s linear forwards 0.2222222222222222s;
+}
+
+.ksxRII {
+  -webkit-transform-origin: 95.98500061035156px 46.510000228881836px;
+  -ms-transform-origin: 95.98500061035156px 46.510000228881836px;
+  transform-origin: 95.98500061035156px 46.510000228881836px;
+  -webkit-transform: scale(0);
+  -ms-transform: scale(0);
+  transform: scale(0);
+  -webkit-animation: scaleIn 0.25s linear forwards 0.4222222222222222s;
+  animation: scaleIn 0.25s linear forwards 0.4222222222222222s;
+}
+
+.cWrBmb {
+  -webkit-transform-origin: 95.97162628173828px 83.4900016784668px;
+  -ms-transform-origin: 95.97162628173828px 83.4900016784668px;
+  transform-origin: 95.97162628173828px 83.4900016784668px;
+  -webkit-transform: scale(0);
+  -ms-transform: scale(0);
+  transform: scale(0);
+  -webkit-animation: scaleIn 0.25s linear forwards 0.6222222222222222s;
+  animation: scaleIn 0.25s linear forwards 0.6222222222222222s;
+}
+
+.Wnusb {
+  -webkit-transform-origin: 64px 101.97999572753906px;
+  -ms-transform-origin: 64px 101.97999572753906px;
+  transform-origin: 64px 101.97999572753906px;
+  -webkit-transform: scale(0);
+  -ms-transform: scale(0);
+  transform: scale(0);
+  -webkit-animation: scaleIn 0.25s linear forwards 0.8222222222222223s;
+  animation: scaleIn 0.25s linear forwards 0.8222222222222223s;
+}
+
+.bfPqf {
+  -webkit-transform-origin: 32.03982162475586px 83.4900016784668px;
+  -ms-transform-origin: 32.03982162475586px 83.4900016784668px;
+  transform-origin: 32.03982162475586px 83.4900016784668px;
+  -webkit-transform: scale(0);
+  -ms-transform: scale(0);
+  transform: scale(0);
+  -webkit-animation: scaleIn 0.25s linear forwards 1.0222222222222221s;
+  animation: scaleIn 0.25s linear forwards 1.0222222222222221s;
+}
+
+.edRCTN {
+  -webkit-transform-origin: 32.033552169799805px 46.510000228881836px;
+  -ms-transform-origin: 32.033552169799805px 46.510000228881836px;
+  transform-origin: 32.033552169799805px 46.510000228881836px;
+  -webkit-transform: scale(0);
+  -ms-transform: scale(0);
+  transform: scale(0);
+  -webkit-animation: scaleIn 0.25s linear forwards 1.2222222222222223s;
+  animation: scaleIn 0.25s linear forwards 1.2222222222222223s;
+}
+
+.iEGVWn {
+  opacity: 0;
+  stroke-dasharray: 76;
+  -webkit-animation: outerDrawIn 0.5s ease-out forwards 0.3333333333333333s, appearIn 0.1s ease-out forwards 0.3333333333333333s;
+  animation: outerDrawIn 0.5s ease-out forwards 0.3333333333333333s, appearIn 0.1s ease-out forwards 0.3333333333333333s;
+  -webkit-animation-iteration-count: 1, 1;
+  animation-iteration-count: 1, 1;
+}
+
+.bsocdx {
+  opacity: 0;
+  stroke-dasharray: 76;
+  -webkit-animation: outerDrawIn 0.5s ease-out forwards 0.5333333333333333s, appearIn 0.1s ease-out forwards 0.5333333333333333s;
+  animation: outerDrawIn 0.5s ease-out forwards 0.5333333333333333s, appearIn 0.1s ease-out forwards 0.5333333333333333s;
+  -webkit-animation-iteration-count: 1, 1;
+  animation-iteration-count: 1, 1;
+}
+
+.jAZXmP {
+  opacity: 0;
+  stroke-dasharray: 76;
+  -webkit-animation: outerDrawIn 0.5s ease-out forwards 0.7333333333333334s, appearIn 0.1s ease-out forwards 0.7333333333333334s;
+  animation: outerDrawIn 0.5s ease-out forwards 0.7333333333333334s, appearIn 0.1s ease-out forwards 0.7333333333333334s;
+  -webkit-animation-iteration-count: 1, 1;
+  animation-iteration-count: 1, 1;
+}
+
+.hSeArx {
+  opacity: 0;
+  stroke-dasharray: 76;
+  -webkit-animation: outerDrawIn 0.5s ease-out forwards 0.9333333333333333s, appearIn 0.1s ease-out forwards 0.9333333333333333s;
+  animation: outerDrawIn 0.5s ease-out forwards 0.9333333333333333s, appearIn 0.1s ease-out forwards 0.9333333333333333s;
+  -webkit-animation-iteration-count: 1, 1;
+  animation-iteration-count: 1, 1;
+}
+
+.bVgqGk {
+  opacity: 0;
+  stroke-dasharray: 76;
+  -webkit-animation: outerDrawIn 0.5s ease-out forwards 1.1333333333333333s, appearIn 0.1s ease-out forwards 1.1333333333333333s;
+  animation: outerDrawIn 0.5s ease-out forwards 1.1333333333333333s, appearIn 0.1s ease-out forwards 1.1333333333333333s;
+  -webkit-animation-iteration-count: 1, 1;
+  animation-iteration-count: 1, 1;
+}
+
+.hEFqBt {
+  opacity: 0;
+  stroke-dasharray: 76;
+  -webkit-animation: outerDrawIn 0.5s ease-out forwards 1.3333333333333333s, appearIn 0.1s ease-out forwards 1.3333333333333333s;
+  animation: outerDrawIn 0.5s ease-out forwards 1.3333333333333333s, appearIn 0.1s ease-out forwards 1.3333333333333333s;
+  -webkit-animation-iteration-count: 1, 1;
+  animation-iteration-count: 1, 1;
+}
+
+.dzEKCM {
+  opacity: 0;
+  stroke-dasharray: 70;
+  -webkit-animation: innerDrawIn 1s ease-in-out forwards 1.3666666666666667s, appearIn 0.1s linear forwards 1.3666666666666667s;
+  animation: innerDrawIn 1s ease-in-out forwards 1.3666666666666667s, appearIn 0.1s linear forwards 1.3666666666666667s;
+  -webkit-animation-iteration-count: infinite, 1;
+  animation-iteration-count: infinite, 1;
+}
+
+.DYnPx {
+  opacity: 0;
+  stroke-dasharray: 70;
+  -webkit-animation: innerDrawIn 1s ease-in-out forwards 1.5333333333333332s, appearIn 0.1s linear forwards 1.5333333333333332s;
+  animation: innerDrawIn 1s ease-in-out forwards 1.5333333333333332s, appearIn 0.1s linear forwards 1.5333333333333332s;
+  -webkit-animation-iteration-count: infinite, 1;
+  animation-iteration-count: infinite, 1;
+}
+
+.hjPEAQ {
+  opacity: 0;
+  stroke-dasharray: 70;
+  -webkit-animation: innerDrawIn 1s ease-in-out forwards 1.7000000000000002s, appearIn 0.1s linear forwards 1.7000000000000002s;
+  animation: innerDrawIn 1s ease-in-out forwards 1.7000000000000002s, appearIn 0.1s linear forwards 1.7000000000000002s;
+  -webkit-animation-iteration-count: infinite, 1;
+  animation-iteration-count: infinite, 1;
+}
+
+#loading-wrapper {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.logo {
+  width: 75px;
+  height: 75px;
+  margin-bottom: 20px;
+  opacity: 0;
+  -webkit-animation: fadeIn 0.5s ease-out forwards;
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+.text {
+  font-size: 32px;
+  font-weight: 200;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.6);
+  opacity: 0;
+  -webkit-animation: fadeIn 0.5s ease-out forwards;
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+.dGfHfc {
+  font-weight: 400;
+}
+</style>
+
+
+    <div id="playground-config" style="display: none;">{"endpoint":"/graphql","subscriptionEndpoint":"/subscriptions","version":"1.7.33","canSaveConfig":false}</div>
+    <div id="root" class=""><div><div class="sc-ebFjAB fdBXMs"><div class="playground sc-VJcYb hIBWzw"><div class="sc-bXGyLb drQNDI"><div class="sc-lkqHmb lcYrgC"><div class="sc-hMFtBS kEYGTn"><div class="sc-hORach eXeKnP"><div class="sc-bMVAic fZHDBn"><div class="sc-iujRgT bGURyW">Q</div></div></div><div class="sc-cLQEGU iJLevG">ALLJOBS</div><div class="close sc-daURTG fHsStO"><svg width="12" height="11" stroke-width="7" viewBox="0 0 50 50"><title>Close Tab</title><line x1="4" y1="4" x2="46" y2="46"></line><line x1="46" y1="4" x2="4" y2="46"></line></svg></div></div><div class="sc-hMFtBS kzBZrp"><div class="sc-hORach jqnDOZ"><div class="sc-bMVAic fZHDBn"><div class="sc-GMQeP jQZbaK">M</div></div></div><div class="sc-cLQEGU bnyEg">createReview</div><div class="close sc-daURTG cxqZmH"><svg width="12" height="11" stroke-width="7" viewBox="0 0 50 50"><title>Close Tab</title><line x1="4" y1="4" x2="46" y2="46"></line><line x1="46" y1="4" x2="4" y2="46"></line></svg></div></div><div class="sc-hMFtBS kEYGTn"><div class="sc-hORach eXeKnP"><div class="sc-bMVAic fZHDBn"><div class="sc-iujRgT bGURyW">Q</div></div></div><div class="sc-cLQEGU iJLevG">getAllUser</div><div class="close sc-daURTG fHsStO"><svg width="12" height="11" stroke-width="7" viewBox="0 0 50 50"><title>Close Tab</title><line x1="4" y1="4" x2="46" y2="46"></line><line x1="46" y1="4" x2="4" y2="46"></line></svg></div></div><div class="sc-eLExRp iVxSHR"><svg width="34" height="34" stroke-width="4" viewBox="0 0 50 50"><title>Opens a New Tab</title><line x1="25" y1="13.1" x2="25" y2="36.9"></line><line x1="36.9" y1="25" x2="13.1" y2="25"></line></svg></div></div></div><div class="sc-ipXKqB bRVPML"><div class="graphiql-wrapper active sc-hmXxxW eqJtBA"><div class="sc-EHOje cIypmL"><div class="sc-ifAKCX cEPVvT"><div class="sc-cvbbAY kOflzg"><button class="sc-eHgmQL dvmgwq">Prettify</button><button class="sc-eHgmQL dvmgwq">History</button><div class="sc-brqgnP kOowTR"><input class="sc-jWBwVP cljqcK" value="https://ufj-backend.herokuapp.com/graphql"><div style="display: flex; flex-direction: row; align-items: center; position: absolute; left: 6px;"><div title="Reload Schema" class="sc-hMqMXs hgXenI"><svg viewBox="0 0 20 20" class="sc-eNQAEJ lfmXRU"><circle cx="9.5" cy="10" r="6" stroke-width="1.5" fill="none" stroke-linecap="round" class="sc-kEYyzF iQdcZq"></circle><path d="M4.83 4.86a6.92 6.92 0 0 1 11.3 2.97l.41-1.23c.13-.4.56-.6.95-.47.4.13.6.56.47.95l-1.13 3.33a.76.76 0 0 1-.7.5.72.72 0 0 1-.43-.12l-2.88-1.92a.76.76 0 0 1-.2-1.04.75.75 0 0 1 1.03-.2l1.06.7A5.34 5.34 0 0 0 9.75 4.5a5.44 5.44 0 0 0-5.64 5.22 5.42 5.42 0 0 0 5.24 5.62c.41 0 .74.36.72.78a.75.75 0 0 1-.75.72H9.3a6.9 6.9 0 0 1-6.68-7.18 6.88 6.88 0 0 1 2.22-4.81z" class="sc-kkGfuU dNLcSQ"></path></svg></div></div></div><button class="sc-eHgmQL dvmgwq">Copy CURL</button></div><div class="sc-RefOD hNpkNv"><div class="sc-iuJeZd gRlVlV"><div class="sc-ifAKCX cEPVvT"><div class="sc-bZQynM imcoIY"><div class="CodeMirror cm-s-graphiql"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 86px; left: 516.344px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-vscrollbar" tabindex="-1" cm-not-content="true" style="width: 18px; pointer-events: none; bottom: 0px; display: block;"><div style="min-width: 1px; height: 334px;"></div></div><div class="CodeMirror-hscrollbar" tabindex="-1" cm-not-content="true" style="right: 0px; left: 39px; height: 18px; pointer-events: none;"><div style="height: 100%; min-height: 1px; width: 0px;"></div></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1" draggable="false"><div class="CodeMirror-sizer" style="margin-left: 39px; margin-bottom: 0px; border-right-width: 30px; min-height: 304px; min-width: 498.219px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre>x</pre><div class="CodeMirror-linenumber CodeMirror-gutter-elt"><div>1</div></div><div class="CodeMirror-linenumber CodeMirror-gutter-elt"><div>12</div></div><div class="CodeMirror-linenumber CodeMirror-gutter-elt"><div>7</div></div><div class="CodeMirror-linenumber CodeMirror-gutter-elt"><div>12</div></div><div class="CodeMirror-linenumber CodeMirror-gutter-elt"><div>6</div></div><div class="CodeMirror-linenumber CodeMirror-gutter-elt"><div>12</div></div><div class="CodeMirror-linenumber CodeMirror-gutter-elt"><div>6</div></div><div class="CodeMirror-linenumber CodeMirror-gutter-elt"><div>12</div></div></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-cursors" style=""><div class="CodeMirror-cursor" style="left: 477.344px; top: 66px; height: 22px;">&nbsp;</div></div><div class="CodeMirror-code" role="presentation" style=""><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -39px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">1</div><div class="CodeMirror-gutter-elt" style="left: 29px; width: 10px;"><div class="CodeMirror-foldgutter-open CodeMirror-guttermarker-subtle"></div></div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">mutation</span><span class="cm-ws"><span class="cm-tab" role="presentation" cm-text="	">  </span></span><span class="cm-punctuation">{</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -39px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">2</div><div class="CodeMirror-gutter-elt" style="left: 29px; width: 10px;"><div class="CodeMirror-foldgutter-open CodeMirror-guttermarker-subtle"></div></div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-ws">  </span><span class="cm-property">createReview</span><span class="cm-ws"> </span><span class="cm-punctuation">(</span><span class="cm-attribute">data</span><span class="cm-punctuation">:</span><span class="cm-ws"> </span><span class="cm-punctuation">{</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -39px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">3</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-ws">    </span><span class="cm-attribute">rating</span><span class="cm-punctuation">:</span><span class="cm-ws"> </span><span class="cm-number">5</span><span class="cm-ws">,</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -39px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">4</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-ws">  <span class="cm-tab" role="presentation" cm-text="	">  </span></span><span class="cm-attribute">reviewedId</span><span class="cm-punctuation">:</span><span class="cm-ws"> </span><span class="cm-string">"a6af777a-99a9-4ebc-8983-54b677da6afd"</span><span class="cm-ws">,</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -39px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">5</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-ws">    </span><span class="cm-attribute">title</span><span class="cm-punctuation">:</span><span class="cm-ws"> </span><span class="cm-string">"Cannot see review title"</span><span class="cm-ws">,</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -39px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">6</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-ws"><span class="cm-tab" role="presentation" cm-text="	">  </span><span class="cm-tab" role="presentation" cm-text="	">  </span></span><span class="cm-attribute">description</span><span class="cm-punctuation">:</span><span class="cm-ws"> </span><span class="cm-string">"Did you viewed my profile?"</span><span class="cm-ws">,</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -39px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">7</div><div class="CodeMirror-gutter-elt" style="left: 29px; width: 10px;"><div class="CodeMirror-foldgutter-open CodeMirror-guttermarker-subtle"></div></div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-ws">  </span><span class="cm-punctuation">})</span><span class="cm-ws"> </span><span class="cm-punctuation">{</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -39px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">8</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-ws">    </span><span class="cm-property">id</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -39px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">9</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-ws"><span class="cm-tab" role="presentation" cm-text="	">  </span><span class="cm-tab" role="presentation" cm-text="	">  </span></span><span class="cm-property">description</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -39px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">10</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-ws">   </span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -39px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">11</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-ws">  </span><span class="cm-punctuation">}</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -39px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">12</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-punctuation">}</span></span></pre></div></div></div></div></div></div><div style="position: absolute; height: 30px; width: 1px; border-bottom: 0px solid transparent; top: 304px;"></div><div class="CodeMirror-gutters" style="height: 334px; left: 0px;"><div class="CodeMirror-gutter CodeMirror-linenumbers" style="width: 29px;"></div><div class="CodeMirror-gutter CodeMirror-foldgutter"></div></div></div></div></div></div><div height="200" class="sc-epnACN iBMcJk"><div class="sc-iQNlJl jbJmKw sc-hXRMBi nfePD"><button class="sc-cMhqgX dNJXrb">Query Variables</button><button class="sc-cMhqgX ftDlTr">HTTP Headers (1)</button></div><div class="sc-gPEVay ihtVGC"><div class="CodeMirror cm-s-graphiql"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 10px; left: 47px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-vscrollbar" tabindex="-1" cm-not-content="true" style="width: 18px; pointer-events: none;"><div style="min-width: 1px; height: 0px;"></div></div><div class="CodeMirror-hscrollbar" tabindex="-1" cm-not-content="true" style="height: 18px; pointer-events: none;"><div style="height: 100%; min-height: 1px; width: 0px;"></div></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 39px; margin-bottom: 0px; border-right-width: 30px; min-height: 52px; min-width: 7px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><div class="CodeMirror-linenumber CodeMirror-gutter-elt"><div>1</div></div></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-cursors"><div class="CodeMirror-cursor" style="left: 4px; top: 0px; height: 22px;">&nbsp;</div></div><div class="CodeMirror-code" role="presentation"><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -39px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">1</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="">​</span></span></pre></div></div></div></div></div></div><div style="position: absolute; height: 30px; width: 1px; border-bottom: 0px solid transparent; top: 52px;"></div><div class="CodeMirror-gutters" style="height: 82px;"><div class="CodeMirror-gutter CodeMirror-linenumbers" style="width: 29px;"></div><div class="CodeMirror-gutter CodeMirror-foldgutter"></div></div></div></div></div></div><div class="sc-hrWEMg kXqECY"></div></div><div class="sc-iQKALj ipyWLO"><div class="sc-eTuwsz hkbSAx"></div><div class="sc-bdVaJa bFURGJ"><div title="Execute Query (Ctrl-Enter)" class="sc-bwzfXH iRpNsC"><svg width="35" height="35" viewBox="4.5,4.5,24,24"><rect fill="#FFFFFF" x="10" y="10" width="13" height="13" rx="1"></rect></svg></div></div><div class="sc-csuQGl hYvhWf"><div class="sc-Rmtcm izeTTo"><div class="sc-jhAzac czBwBS"><div class="sc-gipzik jePooS"><div class="CodeMirror cm-s-graphiql CodeMirror-wrap"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 20px; left: 55px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;" tabindex="0"></textarea></div><div class="CodeMirror-vscrollbar" tabindex="-1" cm-not-content="true" style="width: 18px; pointer-events: none; bottom: 0px; display: block;"><div style="min-width: 1px; height: 2091px;"></div></div><div class="CodeMirror-hscrollbar" tabindex="-1" cm-not-content="true" style="height: 18px; pointer-events: none;"><div style="height: 100%; min-height: 1px; width: 0px;"></div></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 13px; margin-bottom: -7px; border-right-width: 23px; min-height: 2068px; padding-right: 7px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre>x</pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-cursors" style=""><div class="CodeMirror-cursor" style="left: 4px; top: 0px; height: 22px;">&nbsp;</div></div><div class="CodeMirror-code" role="presentation" style=""><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -13px;"><div class="CodeMirror-gutter-elt" style="left: 0px; width: 13px;"><div class="CodeMirror-foldgutter-open CodeMirror-guttermarker-subtle"></div></div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-punctuation">{</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -13px;"><div class="CodeMirror-gutter-elt" style="left: 0px; width: 13px;"><div class="CodeMirror-foldgutter-open CodeMirror-guttermarker-subtle"></div></div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-ws"> &nbsp;</span><span class="cm-def">"errors"</span><span class="cm-punctuation">:</span><span class="cm-ws"> </span><span class="cm-punctuation">[</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -13px;"><div class="CodeMirror-gutter-elt" style="left: 0px; width: 13px;"><div class="CodeMirror-foldgutter-open CodeMirror-guttermarker-subtle"></div></div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-ws"> &nbsp; &nbsp;</span><span class="cm-punctuation">{</span></span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-ws"> &nbsp; &nbsp; &nbsp;</span><span class="cm-property">"message"</span><span class="cm-punctuation">:</span><span class="cm-ws"> </span><span class="cm-string">"invalid input syntax for type uuid: \"Upforjobs\""</span><span class="cm-punctuation">,</span></span></pre><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -13px;"><div class="CodeMirror-gutter-elt" style="left: 0px; width: 13px;"><div class="CodeMirror-foldgutter-open CodeMirror-guttermarker-subtle"></div></div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-ws"> &nbsp; &nbsp; &nbsp;</span><span class="cm-property">"locations"</span><span class="cm-punctuation">:</span><span class="cm-ws"> </span><span class="cm-punctuation">[</span></span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-ws"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="cm-punctuation">{</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-ws"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="cm-property">"line"</span><span class="cm-punctuation">:</span><span class="cm-ws"> </span><span class="cm-number">2</span><span class="cm-punctuation">,</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-ws"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="cm-property">"column"</span><span class="cm-punctuation">:</span><span class="cm-ws"> </span><span class="cm-number">3</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-ws"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="cm-punctuation">}</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-ws"> &nbsp; &nbsp; &nbsp;</span><span class="cm-punctuation">],</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-ws"> &nbsp; &nbsp; &nbsp;</span><span class="cm-property">"path"</span><span class="cm-punctuation">:</span><span class="cm-ws"> </span><span class="cm-punctuation">[</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-ws"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="cm-string">"createReview"</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-ws"> &nbsp; &nbsp; &nbsp;</span><span class="cm-punctuation">],</span></span></pre><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -13px;"><div class="CodeMirror-gutter-elt" style="left: 0px; width: 13px;"><div class="CodeMirror-foldgutter-open CodeMirror-guttermarker-subtle"></div></div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-ws"> &nbsp; &nbsp; &nbsp;</span><span class="cm-property">"extensions"</span><span class="cm-punctuation">:</span><span class="cm-ws"> </span><span class="cm-punctuation">{</span></span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-ws"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="cm-property">"code"</span><span class="cm-punctuation">:</span><span class="cm-ws"> </span><span class="cm-string">"INTERNAL_SERVER_ERROR"</span><span class="cm-punctuation">,</span></span></pre><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -13px;"><div class="CodeMirror-gutter-elt" style="left: 0px; width: 13px;"><div class="CodeMirror-foldgutter-open CodeMirror-guttermarker-subtle"></div></div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-ws"> &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="cm-property">"exception"</span><span class="cm-punctuation">:</span><span class="cm-ws"> </span><span class="cm-punctuation">{</span></span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-ws"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="cm-property">"message"</span><span class="cm-punctuation">:</span><span class="cm-ws"> </span><span class="cm-string">"invalid input syntax for type uuid: \"Upforjobs\""</span><span class="cm-punctuation">,</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-ws"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="cm-property">"length"</span><span class="cm-punctuation">:</span><span class="cm-ws"> </span><span class="cm-number">104</span><span class="cm-punctuation">,</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-ws"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="cm-property">"name"</span><span class="cm-punctuation">:</span><span class="cm-ws"> </span><span class="cm-string">"QueryFailedError"</span><span class="cm-punctuation">,</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-ws"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="cm-property">"severity"</span><span class="cm-punctuation">:</span><span class="cm-ws"> </span><span class="cm-string">"ERROR"</span><span class="cm-punctuation">,</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-ws"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="cm-property">"code"</span><span class="cm-punctuation">:</span><span class="cm-ws"> </span><span class="cm-string">"22P02"</span><span class="cm-punctuation">,</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-ws"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="cm-property">"file"</span><span class="cm-punctuation">:</span><span class="cm-ws"> </span><span class="cm-string">"uuid.c"</span><span class="cm-punctuation">,</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-ws"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="cm-property">"line"</span><span class="cm-punctuation">:</span><span class="cm-ws"> </span><span class="cm-string">"134"</span><span class="cm-punctuation">,</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-ws"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="cm-property">"routine"</span><span class="cm-punctuation">:</span><span class="cm-ws"> </span><span class="cm-string">"string_to_uuid"</span><span class="cm-punctuation">,</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-ws"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="cm-property">"query"</span><span class="cm-punctuation">:</span><span class="cm-ws"> </span><span class="cm-string">"SELECT \"User\".\"id\" AS \"User_id\", \"User\".\"email\" AS \"User_email\", \"User\".\"username\" AS \"User_username\", \"User\".\"password\" AS \"User_password\", \"User\".\"confirmed\" AS \"User_confirmed\", \"User\".\"ballance\" AS \"User_ballance\", \"User\".\"dateOfBirth\" AS \"User_dateOfBirth\", \"User\".\"description\" AS \"User_description\", \"User\".\"documentType\" AS \"User_documentType\", \"User\".\"firstName\" AS \"User_firstName\", \"User\".\"fullName\" AS \"User_fullName\", \"User\".\"gender\" AS \"User_gender\", \"User\".\"lastName\" AS \"User_lastName\", \"User\".\"industry\" AS \"User_industry\", \"User\".\"nickname\" AS \"User_nickname\", \"User\".\"phone\" AS \"User_phone\", \"User\".\"photo\" AS \"User_photo\", \"User\".\"rateAmount\" AS \"User_rateAmount\", \"User\".\"rateCurrency\" AS \"User_rateCurrency\", \"User\".\"defaultName\" AS \"User_defaultName\", \"User\".\"professionTitle\" AS \"User_professionTitle\", \"User\".\"deactivated\" AS \"User_deactivated\", \"User\".\"createdAt\" AS \"User_createdAt\", \"User\".\"updatedAt\" AS \"User_updatedAt\", \"User\".\"isFinanceViewed\" AS \"User_isFinanceViewed\", \"User\".\"isMandatoryComplete\" AS \"User_isMandatoryComplete\", \"User\".\"portfolioId\" AS \"User_portfolioId\", \"User\".\"walletId\" AS \"User_walletId\", \"User__notifications\".\"id\" AS \"User__notifications_id\", \"User__notifications\".\"title\" AS \"User__notifications_title\", \"User__notifications\".\"description\" AS \"User__notifications_description\", \"User__notifications\".\"link\" AS \"User__notifications_link\", \"User__notifications\".\"unread\" AS \"User__notifications_unread\", \"User__notifications\".\"createdAt\" AS \"User__notifications_createdAt\", \"User__notifications\".\"updatedAt\" AS \"User__notifications_updatedAt\", \"User__notifications\".\"userId\" AS \"User__notifications_userId\" FROM \"user\" \"User\" LEFT JOIN \"notification\" \"User__notifications\" ON \"User__notifications\".\"userId\"=\"User\".\"id\" WHERE \"User\".\"id\" IN ($1)"</span><span class="cm-punctuation">,</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-ws"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="cm-property">"parameters"</span><span class="cm-punctuation">:</span><span class="cm-ws"> </span><span class="cm-punctuation">[</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-ws"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="cm-string">"Upforjobs"</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-ws"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="cm-punctuation">],</span></span></pre><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -13px;"><div class="CodeMirror-gutter-elt" style="left: 0px; width: 13px;"><div class="CodeMirror-foldgutter-open CodeMirror-guttermarker-subtle"></div></div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-ws"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="cm-property">"stacktrace"</span><span class="cm-punctuation">:</span><span class="cm-ws"> </span><span class="cm-punctuation">[</span></span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-ws"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="cm-string">"QueryFailedError: invalid input syntax for type uuid: \"Upforjobs\""</span><span class="cm-punctuation">,</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-ws"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="cm-string">" &nbsp;  at new QueryFailedError (/app/node_modules/typeorm/error/QueryFailedError.js:11:28)"</span><span class="cm-punctuation">,</span></span></pre></div></div></div></div></div><div style="position: absolute; height: 23px; width: 1px; border-bottom: 0px solid transparent; top: 2068px;"></div><div class="CodeMirror-gutters" style="height: 2091px; left: 0px;"><div class="CodeMirror-gutter CodeMirror-foldgutter"></div></div></div></div></div></div></div></div><div height="300" class="sc-bsbRJL jvVfGJ"><div class="sc-hZSUBg hQHJtw sc-hXRMBi nfePD"><button class="sc-cMhqgX ftDlTr">Tracing</button><button class="sc-cMhqgX dNJXrb">Query Plan</button></div><div class="sc-kgAjT bMPZxF">This GraphQL server either doesn't support Apollo Federation, or the query plan extensions is disabled. See the <a target="_blank" rel="noopener noreferrer" href="https://www.apollographql.com/docs/apollo-server/federation/introduction">docs</a> for setting up query plan viewing with Apollo Federation.</div></div></div></div></div><div class="sc-ksYbfQ kZixBo" style="width: 0px;"><div class="sc-kvZOFW daelbc"><div class="sc-cJSrbW KzivH">Docs</div><div class="sc-cJSrbW dcNxcw">Schema</div></div><div class="sc-frDJqD dccpJW"></div><div class="sc-hqyNC jYyKHh"></div><div class="sc-hmzhuo kQoVDR"></div></div></div></div></div><div class="sc-itybZL kXDxLI"><div class="sc-eMigcr ONddF"><svg width="23" height="23" viewBox="0 0 50 50"><title>Settings</title><path d="M48,21h-5.71c-0.4-1.58-0.91-3.33-1.56-4.66l4.06-4.06c0.19-0.19,0.29-0.44,0.29-0.71 c0-0.27-0.11-0.52-0.29-0.71L39.14,5.2c-0.39-0.39-1.02-0.39-1.41,0l-4.06,4.06C32.33,8.62,30.58,8.11,29,7.71V2c0-0.55-0.45-1-1-1 h-6c-0.55,0-1,0.45-1,1v5.71c-1.58,0.4-3.33,0.91-4.66,1.55L12.27,5.2c-0.39-0.39-1.02-0.39-1.41,0L5.2,10.86 c-0.39,0.39-0.39,1.02,0,1.41l4.07,4.07C8.62,17.66,8.11,19.42,7.71,21H2c-0.55,0-1,0.45-1,1v6c0,0.55,0.45,1,1,1h5.71 c0.4,1.58,0.91,3.34,1.56,4.66L5.2,37.73c-0.19,0.19-0.29,0.44-0.29,0.71s0.11,0.52,0.29,0.71l5.66,5.66c0.38,0.38,1.04,0.38,1.41,0 l4.07-4.06c1.32,0.65,3.08,1.15,4.66,1.56V48c0,0.55,0.45,1,1,1h6c0.55,0,1-0.45,1-1v-5.71c1.58-0.4,3.34-0.91,4.66-1.56l4.07,4.06 c0.39,0.39,1.02,0.39,1.41,0l5.66-5.66c0.39-0.39,0.39-1.02,0-1.41l-4.06-4.07c0.65-1.33,1.16-3.08,1.56-4.66H48c0.55,0,1-0.45,1-1 v-6C49,21.45,48.55,21,48,21 M25,33c-4.41,0-8-3.59-8-8s3.59-8,8-8s8,3.59,8,8S29.41,33,25,33"></path></svg></div></div></div></div></div></div></body></html>

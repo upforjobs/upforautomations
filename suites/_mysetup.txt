@@ -1,28 +1,46 @@
 *** Variables ***
 # env:test
-${BASEURL}        http://go.upforjobs.com/
-${TESTURL}        https://hopeful-einstein-1f4c6b.netlify.app
-#${PRELOUNCH}     https://compassionate-northcutt-2e6540.netlify.app/
-${BROWSER}        Chrome
-#users
-${PAYPALUSER}     zarko.stepanov10@hotmail.com
-${PAYPALPW}       Tester##99
-${email}          @mailinator.com
+${BASEURL}              https://www.upforjobs.com/
+${TESTURL}              https://hopeful-einstein-1f4c6b.netlify.app
+#${PRELOUNCH}           https://compassionate-northcutt-2e6540.netlify.app/
+${BROWSER}              Chrome
+#Paypall users
+${PAYPALUSER}           zarko.stepanov10@hotmail.com
+${PAYPALPW}             Tester##99
+${email}                @mailinator.com
+#Users
+${new_user}             Korisnik
+${user1}                Zarkotest
+${CURDIR}               C:\\Users\\User\\Desktop\\
 #personal info
-${user}           Zarko
-${user1}          Zarkotest
-${user2}          Milostest
+${nameUser}             Zarko
+${LastNameUser}          Stepanov
+${newUser1}             korisnik
+${user}                 Zarkotest
+${business1}            Upforjobs
+${business2}            Business
+${freelancer}           Freelancer
+${freelancer1}          Milostest
+${freelancer2}          Patricktest
+${freelancer3}          Osamatest
 #milostest@mailinator.com
-${password}       Password##99
-${email_server}    https://www.mailinator.com/v3/#/#inboxpane
+${password}             Password##99
+${email_server}          https://www.mailinator.com/v3/#/#inboxpane
 #assertation
 #credit cards
-${VISA}           4242 4242 4242 4242
-${VISA_DEBIT}     4000 0566 5566 5556
-${MASTERCARD}     5555 5555 5555 4444
-${MASTERCARD_2S}    2223 0031 2200 3222
-${MASTERCARD_DEBIT}    5200 8282 8282 8210
-${MASTERCARD_PREPAID}    5105 1051 0510 5100
-${AMERICAN_EXPRESS_1}    3782 8224 6310 005
-${AMERICAN_EXPRESS_2}    3714 4963 5398 431
-${description}    Some keywords that may cause a page to load take an additional argument dont_wait that is used to determine whether a new page is expected to load or not. By default, a page load is expected to happen whenever a link or image is clicked, or a form submitted.
+${VISA}                 4242 4242 4242 4242
+${VISA_DEBIT}           4000 0566 5566 5556
+${MASTERCARD}           5555 5555 5555 4444
+${MASTERCARD_2S}          2223 0031 2200 3222
+${MASTERCARD_DEBIT}          5200 8282 8282 8210
+${MASTERCARD_PREPAID}          5105 1051 0510 5100
+${AMERICAN_EXPRESS_1}          3782 8224 6310 005
+${AMERICAN_EXPRESS_2}          3714 4963 5398 431
+${description1}          Some keywords that may cause a page to load take an additional argument dont wait that is used to determine whether a new page is expected to load or not. By default, a page load is expected to happen whenever a link or image is clicked, or a form submitted.
+${description}          I would keep the headlines in one color to be distinctive, having split like this can only make confusion. Slider arrows on the left and right could be downsized to 50-75% of this size and placed about 50px away of the carousel on each side. I vote for the carousel with wider boxes.
+#Social Links
+${notconnected}          Not Connected
+${fbsocial}             Connect your Facebook profile with UpForJobs. Become more visible as a freelancer to your connections and increase your chances of getting the right offer.
+${insocial}             Connect your Instagram profile with UpForJobs. Become more visible as a freelancer to your connections and increase your chances of getting the right offer.
+${lnsocial}             Connect your LinkedIn profile with UpForJobs. Become more visible as a freelancer to your connections and increase your chances of getting the right offer.
+${ytsocial}             Connect your YouTube profile with UpForJobs. Become more visible as a freelancer to your connections and increase your chances of getting the right offer.

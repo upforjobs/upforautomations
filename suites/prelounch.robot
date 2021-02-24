@@ -12,7 +12,6 @@ ${TMP_PATH}       /tmp
 
 *** Test Cases ***
 Login - Prelounch page
-    [Tags]
     prelounch
 
 *** Keywords ***
