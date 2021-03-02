@@ -13,14 +13,7 @@ ${TMP_PATH}             /tmp
 *** Test Cases ***
 Register user
           [Tags]          saveSettings
-          Maximize Browser Window
-          Go To          ${TESTURL}
-          Click Button          id=hire
-          Wait Until Element Is Visible          name=get-hired
-          Click Element          name=get-hired
-          #Click Element          xpath://button[contains(text(),'Login')]
-          #Click Element          xpath://button[contains(text(),'Sign up')]
-          Wait Until Element Is Visible          class:SignUp_signupCard__8R2Z8
+          Get Hired KW
           #username
           ${username} =          Generate Random String          5          [UPPER]
           ${username} =          Set Variable          ${username}
@@ -29,27 +22,22 @@ Register user
           ${radnom_email} =          Generate Random String          7          [NUMBERS]
           ${radnom_email}=          Set Variable          ${username}-${radnom_email}${email}
           Set Suite Variable          ${radnom_email}
-          Input Text          name:email          ${radnom_email}
-          Capture Page Screenshot          email-{index}.png
-          Sleep          1
           Input Text          name:username          ${username}
           Capture Page Screenshot          username-{index}.png
-          Sleep          1
+          Input Text          name:email          ${radnom_email}
+          Capture Page Screenshot          email-{index}.png
           Input Password          name:password          ${password}
-          Sleep          1
-          Click Element          xpath://button[contains(text(),'Sign up')]
-          Sleep          1
+          Click Element          id=createAccount
           Capture Page Screenshot          submit-{index}.png
-          Sleep          1
-          Wait Until Element Is Visible          class:modal-body
-          Sleep          1
-          Click Element          xpath://span[contains(text(),'×')]
-          Wait Until Element Is Not Visible          class:modal-body
+          #Click Element          xpath://span[contains(text(),'×')]
+          #Wait Until Element Is Not Visible          class:modal-body
 
 Login user
           [Tags]          saveSettings
-          Click Element          xpath=//div[2]/div[2]/div[1]
+          Wait Until Element Is Visible          xpath=//p[contains(.,'Sign In')]
+          Click Element          xpath=//p[contains(.,'Sign In')]
           Capture Page Screenshot          login-{index}.png
+          Login modal dialog
           Input Text          name:emailOrUserName          ${username}
           Input Text          name:password          ${password}
           Click Element          id:login
@@ -201,9 +189,10 @@ Test input
           Clear Element Text          id=rateAmount
           Input Text          id=rateAmount          ${radnom_amount}
           Capture Page Screenshot          rate-{index}.png
-          Click Element          xpath=//div[contains(text(),'Profession')]
+          #Click Element          xpath=//div[contains(text(),'Profession')]
+          Click Element          xpath=//div[@id='profession']/div
           Capture Page Screenshot          profession-{index}.png
-          Click Element          xpath=//div[contains(text(),'Programming & Tech')]
+          Click Element          xpath=//div[4]
           Capture Page Screenshot          programming-and-tech-{index}.png
           Scroll Element Into View          xpath=//button[contains(text(),'Save')]
           Wait Until Element Is Visible          xpath=//div[contains(text(),'Expertise')]

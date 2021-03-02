@@ -14,17 +14,7 @@ ${TMP_PATH}             /tmp
 
 *** Test Cases ***
 Login
-          Maximize Browser Window
-          Go To          ${TESTURL}
-          Click Element          xpath://button[contains(text(),'Sign in')]
-          Login modal dialog
-          Input Text          name:emailOrUserName          Upforjobs
-          Input Text          name:password          ${password}
-          Click Element          id:login
-          Wait Until Element Is Not Visible          xpath://button[contains(text(),'Login')]
-          Wait Until Element Is Visible          xpath://body/div[@id='root']/div[1]/section[1]/section[1]/div[1]/div[2]
-          Capture Page Screenshot          miniDashboard-{index}.png
-          # Wait Until Element Is Not Visible          xpath://a[contains(text(),'Hi ${user1},')]
+          Login Business KW
 
 Post a Job
           Wait Until Element Is Visible          xpath://section[1]/section[1]/div[1]/div[1]
@@ -44,6 +34,7 @@ Post a Job - 1st step
           Go To          ${TESTURL}/post-a-job/step-1
           ${url} =          Get Location
           Log to console          ${url}
+          Navheader Business
           Header Post a Job
           Wait Until Element Is Visible          xpath://h2[contains(text(),'Describe & Attach files')]
           Element Text Should Be          xpath://h2[contains(text(),'Describe & Attach files')]          Describe & Attach files
@@ -59,7 +50,7 @@ Post a Job - 1st step
           Capture Page Screenshot          title-{index}.png
           Sleep          1
           #define button
-          Click Element          xpath://button[@class="buttonBtn PostAJobStep1_btnNext__29SID"]
+          Click Element          xpath=//button[contains(text(),'Next')]
 
 Post a Job - 2nd step
           ${url} =          Get Location

@@ -198,12 +198,10 @@ Login with FB
           Go To          ${TESTURL}
           Click Element          xpath=//p[contains(.,'Sign In')]
           Login modal dialog
-          Wait Until Element Is Visible          class=Login_iconCircle__2dRuM
-          Click Element          CLASS=FacebookLogin_facebookLogin__3b1gQ
+          Wait Until Element Is Visible          xpath=//div[@id='facebookLogin']
+          Click Element          xpath=//div[@id='facebookLogin']
           Sleep          3
-          Switch Window          1
           Capture Page Screenshot          fb-login-{index}.png
-          FacebookLogin_facebookLogin__3b1gQ
 
 Login with Google
           [Tags]          login
@@ -227,23 +225,18 @@ Login with Linkedin
           Sleep          3
           Capture Page Screenshot          linkedin-login-{index}.png
 
-Login - log out
+Login username - log out
+          [Tags]          login
+          Login Freelancer KW
+          LogoutKW
+
+Login email - log out
           [Tags]          login
           Maximize Browser Window
           Go To          ${TESTURL}
+          Wait Until Element Is Visible          xpath=//p[contains(.,'Sign In')]
           Click Element          xpath=//p[contains(.,'Sign In')]
-          Input Text          name=emailOrUserName          ${user1}
+          Login modal dialog
+          Input Text          name=emailOrUserName          ${freelancer_email}
           Input Text          name=password          ${password}
           Click Element          id=login
-          Wait Until Element Is Visible          xpath://div[@class="MiniDashboard_miniDashboard__2g2df"]
-          Click Element          class:Avatar_avatar__container__6SBhX
-          Wait Until Element Is Visible          class:Avatar_avatar__container__6SBhX
-          Wait Until Element Is Visible          class:navLogoutBtn
-          Capture Page Screenshot          click-avatar-picture-logout-{index}.png
-          Click Element          class:navLogoutBtn
-          Capture Page Screenshot          click-avatar-picture-logout-{index}.png
-          #modal logout
-          Logout modal
-          Click Element          xpath://button[@class="buttonBtn LogoutModal_logoutModalBtn__2fBDP"]
-          Wait Until Element Is Visible          xpath=//p[contains(.,'Sign In')]
-          Capture Page Screenshot          logout-{index}.png

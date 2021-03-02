@@ -9,6 +9,7 @@ ${PAYPALUSER}           zarko.stepanov10@hotmail.com
 ${PAYPALPW}             Tester##99
 ${email}                @mailinator.com
 #Users
+${freelancer_email}          freelancer@mailinator.com
 ${new_user}             Korisnik
 ${user1}                Zarkotest
 ${CURDIR}               C:\\Users\\User\\Desktop\\
@@ -18,7 +19,7 @@ ${LastNameUser}          Stepanov
 ${newUser1}             korisnik
 ${user}                 Zarkotest
 ${business1}            Upforjobs
-${business2}            Business
+${business}             Business
 ${freelancer}           Freelancer
 ${freelancer1}          Milostest
 ${freelancer2}          Patricktest

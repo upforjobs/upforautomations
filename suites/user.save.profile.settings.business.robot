@@ -13,10 +13,11 @@ ${TMP_PATH}             /tmp
 *** Test Cases ***
 Register business
           Maximize Browser Window
-          Go To          ${TESTURL}
-          Click Button          id=hire
-          Wait Until Element Is Visible          id=hire
-          Wait Until Element Is Visible          class:SignUp_signupCard__8R2Z8
+          GoTo          ${TESTURL}
+          Click Element          xpath=//p[contains(.,'Sign In')]
+          Wait Until Element Is Visible          xpath=//a[contains(text(),'Signup')]
+          Click Element          xpath=//a[contains(text(),'Signup')]
+          Sign in modal
           #username
           ${username} =          Generate Random String          5          [UPPER]
           ${username} =          Set Variable          ${username}
@@ -33,17 +34,13 @@ Register business
           Sleep          1
           Input Password          name:password          ${password}
           Sleep          1
-          Click Element          xpath://button[contains(text(),'Sign up')]
+          Click Element          css=.signUp
           Sleep          1
           Capture Page Screenshot          submit-{index}.png
-          Sleep          1
-          Wait Until Element Is Visible          class:modal-body
-          Sleep          1
-          Click Element          xpath://span[contains(text(),'×')]
-          Wait Until Element Is Not Visible          class:modal-body
 
 Login
-          Click Element          xpath=//div[2]/div[2]/div[1]
+          Click Element          xpath=//p[contains(.,'Sign In')]
+          Login modal dialog
           Capture Page Screenshot          login-{index}.png
           Input Text          name:emailOrUserName          ${username}
           Input Text          name:password          ${password}
