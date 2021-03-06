@@ -16,31 +16,20 @@ ${TMP_PATH}             /tmp
 Login
           Login Business KW
 
-Post a Job
-          Wait Until Element Is Visible          xpath://section[1]/section[1]/div[1]/div[1]
-          Element Should Be Visible          xpath://section[1]/section[1]/div[1]/div[1]
+Post a job page
           #mini-dashboard
-          mini-dashboard
           #post a job button
-          Click Element          id=sideMenuToggleIcon
-          Click Element          link=Post a Job
-          #Go To          ${TESTURL}/post-a-job/step-1
-          #header post job 1st page
+          #Click Element          clas=#postAJob
+          Maximize Browser Window
+          Go To          ${TESTURL}/post-job
+          Breadcrumb post a job
+          Post a job header
+          Describe and attach section
+          Select Category and Skills section
+          Select Job Type section
 
 Post a Job - 1st step
           [Documentation]          Add Title and Description
-          Maximize Browser Window
-          Delete All Cookies
-          Go To          ${TESTURL}/post-a-job/step-1
-          ${url} =          Get Location
-          Log to console          ${url}
-          Navheader Business
-          Header Post a Job
-          Wait Until Element Is Visible          xpath://h2[contains(text(),'Describe & Attach files')]
-          Element Text Should Be          xpath://h2[contains(text(),'Describe & Attach files')]          Describe & Attach files
-          Click Element          class:PostAJobStep1_btnNext__29SID
-          Capture Page Screenshot          postt-a-job/step-1-{index}.png
-          Element Text Should Be          xpath://h2[contains(text(),'Describe & Attach files')]          Describe & Attach files
           ${number_title}          Generate Random String          5          [NUMBERS]
           ${random_title}          Generate Random String          5          [LETTERS]
           Input Text          id:title          No: ${number_title} Create and manage Contest ${random_title}

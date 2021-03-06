@@ -228,17 +228,24 @@ Delete Collections
           Element Should Be Visible          xpath=//a[contains(text(),'Edit')]
           Element Should Be Enabled          xpath=//a[contains(text(),'Edit')]
           Element Text Should Be          xpath=//a[contains(text(),'Edit')]          Edit
+          Wait Until Element Is Visible          xpath=//button[contains(text(),'Delete')]
           Click Element          xpath=//button[contains(text(),'Delete')]
           Capture Page Screenshot          delete-modal-dialog-{index}.png
           #collection delete modal
           Delete Collection Modal Dialog
           Wait Until Element Is Visible          xpath=//button[contains(text(),'Delete')]
-          Click Element          id=deleteCollectionButton
+          Click Element          xpath=//button[contains(text(),'Delete')]
+          #Click Element
+          Sleep          2
           Capture Page Screenshot          delete-collection-{index}.png
           Delete Collection KW
+          Sleep          2
           Delete Collection KW
+          Sleep          2
           Delete Collection KW
+          Sleep          2
           Delete Collection KW
+          Sleep          2
           Delete Collection KW
 
 Logout

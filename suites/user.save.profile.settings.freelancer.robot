@@ -43,6 +43,19 @@ Login user
           Click Element          id:login
           Wait Until Element Is Not Visible          xpath://button[contains(text(),'Login')]
           Capture Page Screenshot          login-user-{index}.png
+          Sleep          3
+
+Upload Avatar Picture
+          [Documentation]          In this test we are testing upload avatar picture.
+          Wait Until Element Is Visible          xpath=//h2[contains(text(),'Profile Settings')]
+          Scroll Element Into View          xpath=//h2[contains(text(),'Profile Settings')]
+          Sleep          3
+          Wait Until Element Is Visible          name=add-photo
+          ${id} =          Generate Random String          2          [NUMBERS]
+          Choose File          name=add-photo          ${CURDIR}\\random\\${id}.jpg
+          Capture Element Screenshot          name=add-photo
+          Sleep          2
+          Capture Page Screenshot          capture-{index}.png
 
 Required fields
           [Documentation]          In this test we are verify and assert elements on the page
@@ -125,27 +138,25 @@ Profile Settings
           Input Text          id=city          Las Vegas
           Input Text          id=postal          postal
           Input Text          id=street          Random Street
-          Element Should Be Enabled          id=language__name
+          Element Should Be Enabled          css=.MultipleSelectSearch_input__34N1Q
           #language
           Scroll Element Into View          xpath=//button[contains(.,'Save')]
           Capture Page Screenshot          description-{index}.png
-          Input Text          xpath=//div[@id='language__name']/input          Serbian
-          Click Element          xpath=//div[contains(text(),'Serbian')]
+          Input Text          css=.MultipleSelectSearch_input__34N1Q          English
+          Click Element          xpath=//div[contains(text(),'English')]
           Capture Page Screenshot          language-{index}.png
-          Click Element          id=language__fluency
-          Click Element          xpath=//div[contains(text(),'Native')]          #Fluency Biginner
+          Click Element          xpath=//p[contains(.,'Fluency')]
+          Click Element          xpath=//div[2]/div/div[4]          #Fluency Native
           Sleep          2
-          Wait Until Element Is Visible          xpath=//div[8]/div/div/div[3]
-          Element Should Be Enabled          xpath=//div[8]/div/div/div[3]
           Capture Page Screenshot          language-{index}.png
-          Click Element          xpath=//button[contains(text(),'Save')]
+          Click Element          xpath=//button[@type='submit']
           Wait Until Element Is Visible          xpath=//div[contains(text(),'Profile Saved Successfully')]
           ${alert-success} =          Get Text          xpath=//div[contains(text(),'Profile Saved Successfully')]
           Log To Console          ${alert-success}
           Capture Element Screenshot          xpath://div[contains(text(),'Profile Saved Successfully')]
           Capture Page Screenshot          saved-profile-settings-{index}.png
 
-Upload Avatar Picture
+test - Upload Avatar Picture
           [Documentation]          In this test we are testing upload avatar picture.
           Scroll Element Into View          xpath=//h2[contains(text(),'Profile Settings')]
           Sleep          3
@@ -179,10 +190,10 @@ Require fields
           Element Text Should Be          xpath=//div[contains(text(),'Some items need your attention')]          Some items need your attention
 
 Test input
-          ${professionTitle} =          Generate Random String          5          [UPPER]
+          ${professionTitle} =          Generate Random String          5          [LETTERS]
           ${professionTitle} =          Set Variable          ${professionTitle}
           Set Suite Variable          ${professionTitle}
-          Input Text          id=professionTitle          Virual Trainer ${professionTitle}
+          Input Text          id=professionTitle          Freelancer ${professionTitle}
           ${radnom_amount} =          Generate Random String          2          [NUMBERS]
           ${radnom_amount}=          Set Variable          ${radnom_amount}
           Set Suite Variable          ${radnom_amount}

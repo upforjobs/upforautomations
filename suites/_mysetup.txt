@@ -9,6 +9,8 @@ ${PAYPALUSER}           zarko.stepanov10@hotmail.com
 ${PAYPALPW}             Tester##99
 ${email}                @mailinator.com
 #Users
+${ufjfreelancer)          ufjfreelancer
+${gmail)                @gmail.com
 ${freelancer_email}          freelancer@mailinator.com
 ${new_user}             Korisnik
 ${user1}                Zarkotest

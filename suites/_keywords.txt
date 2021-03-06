@@ -683,7 +683,7 @@ Delete Collection KW
           #collection delete modal
           Delete Collection Modal Dialog
           Wait Until Element Is Visible          xpath=//button[contains(text(),'Delete')]
-          Click Element          id=deleteCollectionButton
+          Click Element          xpath=//button[contains(text(),'Delete')]
           Capture Page Screenshot          delete-collection-{index}.png
           Wait Until Element Is Visible          xpath=//div[contains(text(),'Successfully deleted collection')]
           ${alert} =          Get Text          xpath=//div[contains(text(),'Successfully deleted collection')]
@@ -693,8 +693,8 @@ Delete Collection Modal Dialog
           #Wait Until Element Is Visible          class=DeleteCollectionModal_deleteCollectionModal__1cQO4
           Wait Until Element Is Visible          xpath=//button[contains(text(),'Cancel')]
           Element Should Be Visible          xpath=//button[contains(text(),'Cancel')]
-          Wait Until Element Is Visible          xpath=//button[contains(text(),'Delete')]
-          Element Should Be Visible          xpath=//button[contains(text(),'Delete')]
+          Wait Until Element Is Visible          xpath=//button[@id='deleteCollectionButton']
+          Element Should Be Visible          xpath=//button[@id='deleteCollectionButton']
           Capture Page Screenshot          delete-collection-modal-dialog-{index}.png
 
 Delete Portfolio modal
@@ -869,14 +869,15 @@ Login modal
           Click Element          class:closeModal
 
 Login modal dialog
+          Capture Page Screenshot          login-modal-{index}.png
           Wait Until Element Is Visible          class=Login_loginCard__2skrc
           Element Should Be Visible          class=Login_loginCard__2skrc
-          Wait Until Element Is Visible          xpath=//a[contains(text(),'Signup')]
-          Element Should Be Visible          xpath=//a[contains(text(),'Signup')]
-          Element Text Should Be          xpath=//a[contains(text(),'Signup')]          Signup
-          Wait Until Element Is Visible          xpath=//a[contains(text(),'Login')]
-          Element Should Be Visible          xpath=//a[contains(text(),'Login')]
-          Element Text Should Be          xpath=//a[contains(text(),'Login')]          Login
+          Wait Until Element Is Visible          xpath=//div[contains(text(),'Signup')]
+          Element Should Be Visible          xpath=//div[contains(text(),'Signup')]
+          Element Text Should Be          xpath=//div[contains(text(),'Signup')]          Signup
+          Wait Until Element Is Visible          xpath=//div[contains(text(),'Login')]
+          Element Should Be Visible          xpath=//div[contains(text(),'Login')]
+          Element Text Should Be          xpath=//div[contains(text(),'Login')]          Login
           Wait Until Element Is Visible          xpath=//h2[contains(text(),'Login')]
           Element Should Be Visible          xpath=//h2[contains(text(),'Login')]
           Element Text Should Be          xpath=//h2[contains(text(),'Login')]          Login
@@ -1269,14 +1270,14 @@ Raw Portfolio page
           Element Text Should Be          xpath=//div[1]/div[1]/div[2]/div[1]/div[3]/div[4]          Please upload files and add description to create a collection
 
 Register modal dialog
-          Wait Until Element Is Visible          xpath=//a[contains(text(),'Signup')]
-          Element Should Be Visible          xpath=//a[contains(text(),'Signup')]
-          Element Should Be Enabled          xpath=//a[contains(text(),'Signup')]
-          Element Text Should Be          xpath=//a[contains(text(),'Signup')]          Signup
-          Wait Until Element Is Visible          xpath=//a[contains(text(),'Login')]
-          Element Should Be Visible          xpath=//a[contains(text(),'Login')]
-          Element Should Be Enabled          xpath=//a[contains(text(),'Login')]
-          Element Text Should Be          xpath=//a[contains(text(),'Login')]          Login
+          Wait Until Element Is Visible          xpath=//div[contains(text(),'Signup')]
+          Element Should Be Visible          xpath=//div[contains(text(),'Signup')]
+          Element Should Be Enabled          xpath=//div[contains(text(),'Signup')]
+          Element Text Should Be          xpath=//div[contains(text(),'Signup')]          Signup
+          Wait Until Element Is Visible          xpath=//div[contains(text(),'Login')]
+          Element Should Be Visible          xpath=//div[contains(text(),'Login')]
+          Element Should Be Enabled          xpath=//div[contains(text(),'Login')]
+          Element Text Should Be          xpath=//div[contains(text(),'Login')]          Login
           Wait Until Element Is Visible          xpath=//h3[contains(text(),'Join Us!')]
           Element Should Be Visible          xpath=//h3[contains(text(),'Join Us!')]
           Element Text Should Be          xpath=//h3[contains(text(),'Join Us!')]          Join Us!
@@ -1471,3 +1472,57 @@ Get Hired KW
           Element Text Should Be          id=getHired          Get Hired
           Click Button          id=getHired
           Get Hired modal
+
+Breadcrumb post a job
+          Wait Until Element Is Visible          xpath=//a[contains(text(),'UpForJobs')]
+          Element Should Be Visible          xpath=//a[contains(text(),'UpForJobs')]
+          Element Text Should Be          xpath=//a[contains(text(),'UpForJobs')]          UpForJobs
+          Wait Until Element Is Visible          xpath=//body/div[@id='root']/div[1]/section[1]/div[1]/div[1]/div[1]/a[2]
+          Element Should Be Visible          xpath=//body/div[@id='root']/div[1]/section[1]/div[1]/div[1]/div[1]/a[2]
+          Element Text Should Be          xpath=//body/div[@id='root']/div[1]/section[1]/div[1]/div[1]/div[1]/a[2]          Post a Job
+
+Post a job header
+          Wait Until Element Is Visible          xpath=//h2[contains(text(),'Post a Job')]
+          Element Should Be Visible          xpath=//h2[contains(text(),'Post a Job')]
+          Element Text Should Be          xpath=//h2[contains(text(),'Post a Job')]          Post a Job
+          Wait Until Element Is Visible          xpath=//body/div[@id='root']/div[1]/section[1]/div[1]/div[2]/p[1]
+          Element Should Be Visible          xpath=//body/div[@id='root']/div[1]/section[1]/div[1]/div[2]/p[1]
+
+Describe and attach section
+          Wait Until Element Is Visible          xpath=//h3[contains(text(),'Describe & Attach files')]
+          Element Should Be Visible          xpath=//h3[contains(text(),'Describe & Attach files')]
+          Element Text Should Be          xpath=//h3[contains(text(),'Describe & Attach files')]          Describe & Attach files
+          Element Should Be Enabled          name=title
+          Element Should Be Enabled          name=description
+          Wait Until Element Is Visible          xpath=//p[contains(text(),'Upload files')]
+          Element Should Be Visible          xpath=//p[contains(text(),'Upload files')]
+          Element Text Should Be          xpath=//p[contains(text(),'Upload files')]          Upload files
+          Wait Until Element Is Visible          xpath=//p[contains(text(),'Add files which can give idea to freelancer what d')]
+          Element Should Be Visible          xpath=//p[contains(text(),'Add files which can give idea to freelancer what d')]
+          Element Text Should Be          xpath=//p[contains(text(),'Add files which can give idea to freelancer what d')]          Add files which can give idea to freelancer what do you want
+
+Select Category and Skills section
+          Wait Until Element Is Visible          id=category
+          Element Should Be Visible          id=category
+          Element Should Be Enabled          id=category
+          Wait Until Element Is Visible          xpath=//p[contains(text(),'Sub Category')]
+          Element Should Be Visible          xpath=//p[contains(text(),'Sub Category')]
+          Element Should Be Enabled          xpath=//p[contains(text(),'Sub Category')]
+          Wait Until Element Is Visible          id=skills
+          Element Should Be Visible          id=skills
+          Element Should Be Enabled          id=skills
+
+Select Job Type section
+          Wait Until Element Is Visible          xpath=//h3[contains(text(),'Select Job Type')]
+          Element Should Be Visible          xpath=//h3[contains(text(),'Select Job Type')]
+          Element Text Should Be          xpath=//h3[contains(text(),'Select Job Type')]          Select Job Type
+          Wait Until Element Is Visible          id=project
+          Element Should Be Visible          id=project
+          Element Should Be Enabled          id=project
+          Element Text Should Be          xpath=//h2[contains(text(),'Post a project?')]          Post a project?
+          Element Text Should Be          xpath=//p[contains(text(),'You have a project which needs to be done, and you')]          You have a project which needs to be done, and you need a qualified person to finish it. Post a project, describe what are you looking for, determine the application deadline, and wait for the proposals!
+          Wait Until Element Is Visible          id=contest
+          Element Should Be Visible          id=contest
+          Element Should Be Enabled          id=contest
+          Element Text Should Be          xpath=//h2[contains(text(),'Start a contest?')]          Start a contest?
+          Element Text Should Be          xpath=//p[contains(text(),'You want to choose the product you like the most? ')]          You want to choose the product you like the most? Run a contest, give clear instructions, determine a deadline, and wait for the right product to come to you!

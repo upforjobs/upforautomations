@@ -12,12 +12,7 @@ ${TMP_PATH}             /tmp
 
 *** Test Cases ***
 Register business
-          Maximize Browser Window
-          GoTo          ${TESTURL}
-          Click Element          xpath=//p[contains(.,'Sign In')]
-          Wait Until Element Is Visible          xpath=//a[contains(text(),'Signup')]
-          Click Element          xpath=//a[contains(text(),'Signup')]
-          Sign in modal
+          Hire KW
           #username
           ${username} =          Generate Random String          5          [UPPER]
           ${username} =          Set Variable          ${username}
@@ -50,43 +45,45 @@ Login
 
 Profile settings
           New Profile Settings page
-          Capture Page Screenshot          profile-settings-tutorial-{index}.png
-          Click Element          id=firstName
           Capture Page Screenshot          profile-settings-{index}.png
-          Click Element          xpath=//button[contains(.,'Save')]
-          Capture Page Screenshot          profile-settings-required-fields-{index}.png
-          Log To Console          *Required
-          #Required fields
-          Capture Page Screenshot          required-{index}.png
           Input Text          id=firstName          ${username}
           Input Text          id=lastName          ${username}
-          Input Text          id=dateOfBirth          06-11-1994
           Click Button          id=male
-          Click Element          name=country
-          Input Text          name=country          Serbia
-          Capture Page Screenshot          country-{index}.png
-          #Click Element          xpath=//div[contains(.,'Serbia')]
-          Scroll Element Into View          id=language__fluency
-          Click Element          xpath=//form[1]/div[1]/div[5]/div[1]/div[1]/div[1]/div[1]
-          Input Text          id=city          Random
-          Input Text          id=street          Random Street
-          Capture Page Screenshot          life-{index}.png
-          Click Element          css=.ProfileSetting_profileSettingsContainer__gDCen
-          Input Text          xpath=//div[@id='language__name']/input          Serbian
-          Click Element          xpath=//div[contains(text(),'Serbian')]
-          Capture Page Screenshot          language-{index}.png
-          Click Element          id=language__fluency
-          Click Element          xpath=//form[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[2]/div[1]          #Fluency Biginner
-          Capture Page Screenshot          language-{index}.png
+          ${dob} =          Generate Random String          1          [NUMBERS]
+          Input Text          id=dateOfBirth          06-11-199${dob}
           Input Text          id=description          ${description}
+          #Country
+          Scroll Element Into View          id=language__fluency
+          Click Element          name=country
+          Input Text          name=country          United States
+          Capture Page Screenshot          country-{index}.png
+          Click Element          css=.DropDownSearch_item__5UoLs:nth-child(1)          #United States
+          Wait Until Element Is Not Visible          xpath=//div[5]/div/label/div          #Country
+          Element Should Not Be Visible          xpath=//div[5]/div/label/div
+          Input Text          id=state          Nevada
+          Input Text          id=city          Las Vegas
+          Input Text          id=postal          postal
+          Input Text          id=street          Random Street
+          Element Should Be Enabled          css=.MultipleSelectSearch_input__34N1Q
+          #language
+          Scroll Element Into View          xpath=//button[contains(.,'Save')]
           Capture Page Screenshot          description-{index}.png
-          Click Element          xpath=//button[contains(text(),'Save')]
+          Input Text          css=.MultipleSelectSearch_input__34N1Q          English
+          Click Element          xpath=//div[contains(text(),'English')]
+          Capture Page Screenshot          language-{index}.png
+          Click Element          xpath=//p[contains(.,'Fluency')]
+          Click Element          xpath=//div[2]/div/div[4]          #Fluency Native
           Sleep          2
-          Capture Page Screenshot          saved-profile-settings-{index}.png
-          ${alert-success} =          Get Text          xpath://div[contains(text(),'Profile Saved Successfully')]
+          Capture Page Screenshot          language-{index}.png
+          Click Element          xpath=//button[@type='submit']
+          Wait Until Element Is Visible          xpath=//div[contains(text(),'Profile Saved Successfully')]
+          ${alert-success} =          Get Text          xpath=//div[contains(text(),'Profile Saved Successfully')]
           Log To Console          ${alert-success}
           Capture Element Screenshot          xpath://div[contains(text(),'Profile Saved Successfully')]
-          #avater
+          Capture Page Screenshot          saved-profile-settings-{index}.png
+
+Upload Avatar Picture
+          [Documentation]          In this test we are testing upload avatar picture.
           Scroll Element Into View          xpath=//h2[contains(text(),'Profile Settings')]
           Sleep          3
           ${id} =          Generate Random String          2          [NUMBERS]
