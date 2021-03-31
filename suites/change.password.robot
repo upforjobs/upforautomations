@@ -17,12 +17,11 @@ Login
           Login Freelancer KW
 
 Go to Profile Settings
-          #mini-dashboard
-          Wait Until Element Is Visible
+          mini-dashboard
           Click Link          /profile
           Wait Until Element Is Visible          class=ProfileDashboard_profileSettingsLink__y9D6Y
-          Click Link          /profile-settings
-          Wait Until Element Is Visible          class=ProfileSetting_heading__2K5T1
+          Click Link          /profile-settings/personal
+          Wait Until Element Is Visible          xpath=//a[contains(text(),'Password & Security')]
           Click Link          /profile-settings/security
 
 Go to Password and Security

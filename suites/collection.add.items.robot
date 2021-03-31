@@ -25,9 +25,7 @@ Mini dashboard
           ...          Click on the Username to redirect user to My Profile page.
           #mini-dashboard
           #mode
-          Wait Until Element Is Visible          xpath://a[contains(text(),'Hi ${freelancer} ${freelancer},')]
-          Element Should Be Visible          xpath://a[contains(text(),'Hi ${freelancer} ${freelancer},')]
-          Element Text Should Be          xpath://a[contains(text(),'Hi ${freelancer} ${freelancer},')]          Hi ${freelancer} ${freelancer},
+          Wait Until Element Is Visible          class=MiniDashboard_statusMode__2BWW7
           Element Should Be Visible          class=MiniDashboard_statusMode__2BWW7
           Element Text Should Be          xpath=//h4[contains(.,'You are logged in.')]          You are logged in.
           Element Text Should Be          xpath=//h4[contains(.,'Finance')]          Finance
@@ -37,7 +35,7 @@ Mini dashboard
           Element Text Should Be          xpath=//h4[contains(.,'My Profile Viewers')]          My Profile Viewers
           Element Text Should Be          xpath=//h4[contains(.,'Mode:')]          Mode:
           Capture Page Screenshot          landing-page-{index}.png
-          Click Element          link=Hi ${freelancer} ${freelancer},
+          Click Link          /profile
           Sleep          1
           Capture Page Screenshot          profile-page-{index}.png
 

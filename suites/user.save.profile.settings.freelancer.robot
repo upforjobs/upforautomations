@@ -15,22 +15,20 @@ Register user
           [Tags]          saveSettings
           Get Hired KW
           #username
-          ${username} =          Generate Random String          5          [UPPER]
-          ${username} =          Set Variable          ${username}
-          Set Suite Variable          ${username}
+          ${no} =          Generate Random String          3          [LETTERS]
+          ${no} =          Set Variable          ${no}
+          Set Suite Variable          ${no}
           #email
-          ${radnom_email} =          Generate Random String          7          [NUMBERS]
-          ${radnom_email}=          Set Variable          ${username}-${radnom_email}${email}
-          Set Suite Variable          ${radnom_email}
-          Input Text          name:username          ${username}
+          Input Text          name:username          ${freelancer}${no}
           Capture Page Screenshot          username-{index}.png
-          Input Text          name:email          ${radnom_email}
+          Input Text          name:email          ${freelancer}${no}${freelancer_email}
           Capture Page Screenshot          email-{index}.png
           Input Password          name:password          ${password}
           Click Element          id=createAccount
           Capture Page Screenshot          submit-{index}.png
           #Click Element          xpath://span[contains(text(),'×')]
           #Wait Until Element Is Not Visible          class:modal-body
+          Sleep          3
 
 Login user
           [Tags]          saveSettings
@@ -38,7 +36,7 @@ Login user
           Click Element          xpath=//p[contains(.,'Sign In')]
           Capture Page Screenshot          login-{index}.png
           Login modal dialog
-          Input Text          name:emailOrUserName          ${username}
+          Input Text          name:emailOrUserName          ${freelancer}${no}
           Input Text          name:password          ${password}
           Click Element          id:login
           Wait Until Element Is Not Visible          xpath://button[contains(text(),'Login')]
@@ -86,7 +84,7 @@ Required fields
           Wait Until Element Is Visible          xpath=//div[2]/label/div          #Last Name
           Element Text Should Be          xpath=//div[2]/label/div          * Required
           Wait Until Element Is Visible          xpath=//div[3]/div/label/div          #Username
-          Element Text Should Be          xpath=//div[3]/div/label/div          * Must be 18+
+          Element Text Should Be          xpath=//div[contains(text(),'* Must be 18+')]          * Must be 18+
           Wait Until Element Is Visible          xpath=//div[4]/div/label/div          #Introduction
           Element Text Should Be          xpath=//div[4]/div/label/div          * Required
           Wait Until Element Is Visible          xpath=//div[5]/div/label/div          #Country
@@ -121,8 +119,8 @@ Profile Settings
           ...          assert and verifyy that Alert message with the text for success is present.
           [Tags]          saveSettings
           Capture Page Screenshot          profile-settings-{index}.png
-          Input Text          id=firstName          ${username}
-          Input Text          id=lastName          ${username}
+          Input Text          id=firstName          ${freelancer}${no}
+          Input Text          id=lastName          ${freelancer}${no}
           Click Button          id=male
           Input Text          id=dateOfBirth          06-11-1994
           Input Text          id=description          ${description}
@@ -149,7 +147,7 @@ Profile Settings
           Click Element          xpath=//div[2]/div/div[4]          #Fluency Native
           Sleep          2
           Capture Page Screenshot          language-{index}.png
-          Click Element          xpath=//button[@type='submit']
+          Click Element          xpath=//button[contains(text(),'Save')]
           Wait Until Element Is Visible          xpath=//div[contains(text(),'Profile Saved Successfully')]
           ${alert-success} =          Get Text          xpath=//div[contains(text(),'Profile Saved Successfully')]
           Log To Console          ${alert-success}
@@ -158,7 +156,7 @@ Profile Settings
 
 test - Upload Avatar Picture
           [Documentation]          In this test we are testing upload avatar picture.
-          Scroll Element Into View          xpath=//h2[contains(text(),'Profile Settings')]
+          Scroll Element Into View          xpath=//h2[contains(text(),'Profile & Personal Settings')]
           Sleep          3
           ${id} =          Generate Random String          2          [NUMBERS]
           Choose File          name:add-photo          ${CURDIR}\\random\\${id}.jpg
@@ -168,11 +166,26 @@ test - Upload Avatar Picture
 
 Professional page
           [Tags]          saveSettings
-          Wait Until Element Is Visible          xpath=//h2[contains(text(),'Profile Settings')]
-          Scroll Element Into View          xpath=//h2[contains(text(),'Profile Settings')]
+          Wait Until Element Is Visible          xpath=//h2[contains(text(),'Profile & Personal Settings')]
+          Scroll Element Into View          xpath=//h2[contains(text(),'Profile & Personal Settings')]
           Click Link          /profile-settings/professional
           #Professional Settings
           Professional Settings page
+          Wait Until Element Is Visible          xpath=//div[contains(text(),'Programming & Development')]
+          Click Element          xpath=//div[contains(text(),'Programming & Development')]
+          Capture Page Screenshot          category-{index}.png
+          Wait Until Element Is Visible          xpath=//p[contains(text(),'Sub Category')]
+          Element Should Be Enabled          xpath=//p[contains(text(),'Sub Category')]
+          Click Element          xpath=//p[contains(text(),'Sub Category')]
+          Wait Until Element Is Visible          xpath=//div[contains(text(),'Programming & Software')]
+          Click Element          xpath=//div[contains(text(),'Programming & Software')]
+          Capture Page Screenshot          sub-category-{index}.png
+          Wait Until Element Is Visible          xpath=//p[contains(text(),'Sub Category')]
+          Element Should Be Enabled          xpath=//p[contains(text(),'Sub Category')]
+          Click Element          xpath=//p[contains(text(),'Sub Category')]
+          Wait Until Element Is Visible          xpath=//div[contains(text(),'Web Development & Design')]
+          Click Element          xpath=//div[contains(text(),'Web Development & Design')]
+          Capture Page Screenshot          sub-category-{index}.png
 
 Require fields
           Click Button          xpath=//button[contains(text(),'Update')]

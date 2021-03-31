@@ -1,17 +1,19 @@
 *** Variables ***
 # env:test
 ${BASEURL}              https://www.upforjobs.com/
-${TESTURL}              https://hopeful-einstein-1f4c6b.netlify.app
+${TESTURL}              https://fervent-tesla-2846e8.netlify.app
 #${PRELOUNCH}           https://compassionate-northcutt-2e6540.netlify.app/
 ${BROWSER}              Chrome
 #Paypall users
 ${PAYPALUSER}           zarko.stepanov10@hotmail.com
 ${PAYPALPW}             Tester##99
 ${email}                @mailinator.com
+${PAYPAL}               zarko.paypal2020@gmail.com
+${PAYPALPASS}           Tester##99
 #Users
-${ufjfreelancer)          ufjfreelancer
-${gmail)                @gmail.com
-${freelancer_email}          freelancer@mailinator.com
+${ufjfreelancer}          ufjfreelancer
+${gmail}                @gmail.com
+${freelancer_email}          @mailinator.com
 ${new_user}             Korisnik
 ${user1}                Zarkotest
 ${CURDIR}               C:\\Users\\User\\Desktop\\

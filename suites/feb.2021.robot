@@ -232,3 +232,113 @@ Avatar picture
           Capture Element Screenshot          name=add-photo
           Sleep          2
           Capture Page Screenshot          capture-{index}.png
+
+post a contest
+          [Documentation]          Add Title and Description
+          Login Business KW
+          #mini-dashboard
+          #post a job button
+          #Click Element          clas=#postAJob
+          mini-dashboard
+          Click Element          css=#postAJob
+          Breadcrumb post a job
+          Post a job header
+          Describe and attach section
+          Select Category and Skills section
+          Select Job Type section
+          Scroll Element Into View          xpath=//h2[contains(text(),'Post a project?')]
+          Capture Page Screenshot          title-{index}.png
+          ${number_title}=          Generate Random String          5          [NUMBERS]
+          ${random_title}=          Generate Random String          2          [LETTERS]
+          Element Should Be Visible          id=jobTitle
+          Element Should Be Enabled          id=jobTitle
+          Input Text          id=jobTitle          No: ${number_title} Testing Contest ${random_title}
+          Capture Page Screenshot          title-{index}.png
+          Element Should Be Visible          id=jobDescription
+          Element Should Be Enabled          id=jobDescription
+          ${random_description}=          Generate Random String          20          [LETTERS]
+          Input Text          id=jobDescription          My page is based on scientific and belief announcements or publicationsy${number_title} ${random_title} ${description}
+          Capture Page Screenshot          title-{index}.png
+          Sleep          1
+          ${id} =          Generate Random String          2          [NUMBERS]
+          Element Should Be Enabled          id=upload
+          Choose File          id=upload          ${CURDIR}\\random\\${id}.jpg
+          Capture Page Screenshot          uploaded-file-{index}.png
+          ${letter}          Generate Random String          1          [LETTERS]
+          ${letter1}          Generate Random String          1          [LETTERS]
+          ${letter2}          Generate Random String          1          [LETTERS]
+          Wait Until Element Is Visible          id=category
+          Scroll Element Into View          xpath=//h3[contains(text(),'Select Job Type')]
+          Element Should Be Enabled          id=category
+          Click Element          id=category
+          Wait Until Element Is Visible          xpath=//div[contains(text(),'Development and IT experts')]
+          Click Element          xpath=//div[contains(text(),'Development and IT experts')]
+          Capture Page Screenshot          category-{index}.png
+          Wait Until Element Is Visible          xpath=//p[contains(text(),'Sub Category')]
+          Element Should Be Enabled          xpath=//p[contains(text(),'Sub Category')]
+          Click Element          xpath=//p[contains(text(),'Sub Category')]
+          Wait Until Element Is Visible          xpath=//div[contains(text(),'Development and IT experts')]
+          Click Element          xpath=//div[contains(text(),'Development and IT experts')]
+          Capture Page Screenshot          sub-category-{index}.png
+          Wait Until Element Is Visible          xpath=//p[contains(text(),'Sub Category')]
+          Element Should Be Enabled          xpath=//p[contains(text(),'Sub Category')]
+          Click Element          xpath=//p[contains(text(),'Sub Category')]
+          Wait Until Element Is Visible          xpath=//div[contains(text(),'Airbnb Developers')]
+          Click Element          xpath=//div[contains(text(),'Airbnb Developers')]
+          Click Element          class=fa-times
+          Capture Page Screenshot          sub-category-{index}.png
+          Wait Until Element Is Visible          id=skills
+          Element Should Be Enabled          id=skills
+          Input Text          id=skills          ${letter}a${letter1}a${letter2}a
+          Sleep          1
+          Press Keys          id=skills          RETURN
+          Sleep          3
+          #Select Job Type
+          Scroll Element Into View          xpath=//h3[contains(text(),'Optional Upgrades')]
+          Click Element          id=contest
+          Scroll Element Into View          xpath=//h3[contains(text(),'Optional Upgrades')]
+          Capture Page Screenshot          contest-{index}.png
+          Wait Until Element Is Visible          xpath=//h3[contains(text(),'Number of Days')]
+          Element Should Be Visible          xpath=//h3[contains(text(),'Number of Days')]
+          Element Text Should Be          xpath=//h3[contains(text(),'Number of Days')]          Number of Days
+          Wait Until Element Is Visible          xpath=//button[contains(text(),'1 Day')]
+          Element Should Be Visible          xpath=//button[contains(text(),'1 Day')]
+          Element Text Should Be          xpath=//button[contains(text(),'1 Day')]          1 Day
+          Wait Until Element Is Visible          xpath=//button[contains(text(),'2 Days')]
+          Element Should Be Visible          xpath=//button[contains(text(),'2 Days')]
+          Element Text Should Be          xpath=//button[contains(text(),'2 Days')]          2 Days
+          Wait Until Element Is Visible          name=numberOfDays
+          Element Should Be Enabled          name=numberOfDays
+          Wait Until Element Is Visible          xpath=//h3[contains(text(),'Select Prize Amount')]
+          Element Should Be Visible          xpath=//h3[contains(text(),'Select Prize Amount')]
+          Element Text Should Be          xpath=//h3[contains(text(),'Select Prize Amount')]          Select Prize Amount
+          Wait Until Element Is Visible          name=prize
+          Element Should Be Enabled          name=prize
+          Wait Until Element Is Visible          xpath=//h3[contains(text(),'Optional Upgrades')]
+          Element Should Be Visible          xpath=//h3[contains(text(),'Optional Upgrades')]
+          Element Text Should Be          xpath=//h3[contains(text(),'Optional Upgrades')]          Optional Upgrades
+          Log To Console          class=PostJob_postJobPreview__2iJLy
+          Capture Page Screenshot          preview-contest-{index}.png
+          Capture Element Screenshot          class=PostJob_postJobPreview__2iJLy
+          ${prize}=          Generate Random String          3          [NUMBERS]
+          Input Text          name=prize          ${prize}
+          #Wait Until Element Is Visible          class=TriangleBadge_container__2Eed5          #Urgent
+          Scroll Element Into View          class=PostJob_postJobPreview__2iJLy
+          Log To Console          class=PostJob_postJobPreview__2iJLy
+          Capture Element Screenshot          class=PostJob_postJobPreview__2iJLy
+          #Wait Until Element Is Visible          xpath=//button[contains(text(),'Login and Post')]
+          #Element Should Be Enabled          xpath=//button[contains(text(),'Login and Post')]
+          #Element Text Should Be          xpath=//button[contains(text(),'Login and Post')]          Post
+          Wait Until Element Is Visible          xpath=//button[contains(text(),'Contest')]
+          Scroll Element Into View          xpath=//button[contains(text(),'Contest')]
+          Click Element          xpath=//button[contains(text(),'Contest')]
+          Capture Page Screenshot          post-a-contest-{index}.png
+          Sleep          5
+          Capture Page Screenshot          slika-{index}.png
+          Navheader Business
+          Click Element          id=myJobs
+          Wait Until Element Is Visible          class=MyJobs_myJobsTable__ouUeb
+          Wait Until Element Is Visible          class=MyJobsJobCard_myJobsCard__1S7w0
+          Capture Element Screenshot          class=MyJobs_myJobsTable__ouUeb
+          Capture Page Screenshot          my-jobs-{index}.png
+          LogoutKW

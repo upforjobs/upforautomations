@@ -1,302 +1,4 @@
 *** Keywords ***
-1st step
-          Go To          ${TESTURL}/post-a-job/step-1
-          ${url} =          Get Location
-          Log to console          ${url}
-          Header Post a Job
-          Wait Until Element Is Visible          xpath://h2[contains(text(),'Describe & Attach files')]
-          Element Text Should Be          xpath://h2[contains(text(),'Describe & Attach files')]          Describe & Attach files
-          Click Element          class:PostAJobStep1_btnNext__29SID
-          Capture Page Screenshot          postt-a-job/step-1-{index}.png
-          Element Text Should Be          xpath://h2[contains(text(),'Describe & Attach files')]          Describe & Attach files
-          ${number_title}          Generate Random String          5          [NUMBERS]
-          ${random_title}          Generate Random String          5          [LETTERS]
-          Input Text          id:title          No: ${number_title} Create and manage Contest ${random_title}
-          Capture Page Screenshot          title-{index}.png
-          ${random_description}          Generate Random String          50          [LETTERS]
-          Input Text          id:description          Contest with number ${number_title} ${random_title} ${description}
-          Capture Page Screenshot          title-{index}.png
-          Sleep          1
-          #define button
-          Click Element          xpath://button[@class="buttonBtn PostAJobStep1_btnNext__29SID"]
-
-2nd step
-          ${url} =          Get Location
-          Log to console          ${url}
-          Header Post a Job
-          Wait Until Element Is Visible          xpath://h2[contains(text(),'Select category')]
-          Element Text Should Be          xpath://h2[contains(text(),'Select category')]          Select category
-          2nd step page
-          #set 2nd step
-          Scroll Element Into View          xpath=//a[contains(text(),'Back')]
-          Click Element          xpath://p[contains(text(),'Programming & Tech')]
-          #Click Element          xpath://p[contains(text(),'Graphic & Design')]
-          #Click Element          xpath://body/div[@id='root']/div[1]/section[1]/div[4]/div[1]/div[1]/div[1]/div[1]
-          Capture Page Screenshot          vector-{index}.png
-          Element Should Be Visible          xpath://div[@class="MultipleSelectHeading_multipleSelectHeading__1WmGV PostAJobStep2_subCategorySelectHeading__2im8-"]
-          Click Element          xpath=//body/div[@id='root']/div[1]/section[1]/div[4]/div[1]/div[1]/div[2]/div[1]/i[1]
-          Sleep          1
-          #Click Element          xpath://div[@class="MultipleSelectDropdown_multipleSelectDropdown__2q2u6 PostAJobStep2_subCategoryDropdown__TiR8g"]/button[2]//i[@class="light undefined fas fa-check checkmarkIcon"]
-          Click Element          xpath=//button[@id='qa-&-testing']
-          #Click Element          xpath=//button[@id='logo-design']          QA & Testing
-          #Click Element          xpath=//button[@id='web-&-mobile-design']
-          Click Element          xpath://div[@class="MultipleSelectHeading_multipleSelectHeading__1WmGV PostAJobStep2_subCategorySelectHeading__2im8-"]/h2
-          Capture Page Screenshot          vector-{index}.png
-          Input Text          xpath://input[@class="input undefined"]          Skills
-          Click Element          xpath=//body/div[@id='root']/div[1]/section[1]/div[4]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/i[1]
-          Element Should Be Visible          xpath://div[@class="PostAJobStep2_categoryData__1Aa-r"]/p
-          Get Text          xpath://div[@class="PostAJobStep2_categoryData__1Aa-r"]/p
-          Capture Page Screenshot          skills-{index}.png
-          #Click Element          class=light undefined fa fa-times Tag_tag__remove__icon__1ti4w
-          Element Should Not Be Visible          xpath://div[@class="Tag_tag__3sBKJ "]/p
-          Scroll Element Into View          xpath=//a[contains(text(),'Back')]
-          Capture Page Screenshot          skills-{index}.png
-          Click Element          xpath://button[@class="buttonBtn PostAJobStep2_btnNext__CywN3"]
-
-2nd step page
-          Wait Until Element Is Visible          xpath://p[contains(text(),'Graphic & Design')]
-          Element Text Should Be          xpath://p[contains(text(),'Graphic & Design')]          Graphic & Design
-          Wait Until Element Is Visible          xpath://p[contains(text(),'Writing & Translation')]
-          Element Text Should Be          xpath://p[contains(text(),'Writing & Translation')]          Writing & Translation
-          Wait Until Element Is Visible          xpath://p[contains(text(),'Digital Marketing')]
-          Element Text Should Be          xpath://p[contains(text(),'Digital Marketing')]          Digital Marketing
-          Wait Until Element Is Visible          xpath://p[contains(text(),'Programming & Tech')]
-          Element Text Should Be          xpath://p[contains(text(),'Programming & Tech')]          Programming & Tech
-          Wait Until Element Is Visible          xpath://p[contains(text(),'Business')]
-          Element Text Should Be          xpath://p[contains(text(),'Business')]          Business
-          Wait Until Element Is Visible          xpath://p[contains(text(),'Music & Audio')]
-          Element Text Should Be          xpath://p[contains(text(),'Music & Audio')]          Music & Audio
-          Wait Until Element Is Visible          xpath://p[contains(text(),'Lifestyle')]
-          Element Text Should Be          xpath://p[contains(text(),'Lifestyle')]          Lifestyle
-          Wait Until Element Is Visible          xpath://p[contains(text(),'Other')]
-          Element Text Should Be          xpath://p[contains(text(),'Other')]          Other
-          Wait Until Element Is Visible          xpath://a[contains(text(),'Back')]
-          Element Should Be Enabled          xpath://a[contains(text(),'Back')]
-          Element Text Should Be          xpath://a[contains(text(),'Back')]          Back
-          Wait Until Element Is Visible          xpath://button[contains(text(),'Next')]
-          Element Should Be Disabled          xpath://button[contains(text(),'Next')]
-          Element Text Should Be          xpath://button[contains(text(),'Next')]          Next
-
-3rd step Contest
-          ${url} =          Get Location
-          Log to console          ${url}
-          Header Post a Job
-          Wait Until Element Is Visible          xpath://h2[contains(text(),'Select the type of job')]
-          Element Text Should Be          xpath://h2[contains(text(),'Select the type of job')]          Select the type of job
-          3rd step page
-          Scroll Element Into View          xpath://button[contains(text(),'Next')]
-          Capture Page Screenshot          3rd step-{index}.png
-          Scroll Element Into View          xpath=//a[contains(text(),'Back')]
-          Capture Page Screenshot          select-contest-{index}.png
-          Click Element          xpath://h2[contains(text(),'Start a contest?')]          #Contest
-          #Click Element          xpath://h2[contains(text(),'Post a project?')]
-          Element Should Be Enabled          xpath://button[contains(text(),'Next')]
-          Click Element          xpath://button[contains(text(),'Next')]
-          Sleep          1
-
-3rd step Project
-          ${url} =          Get Location
-          Log to console          ${url}
-          Header Post a Job
-          Wait Until Element Is Visible          xpath://h2[contains(text(),'Select the type of job')]
-          Element Text Should Be          xpath://h2[contains(text(),'Select the type of job')]          Select the type of job
-          3rd step page
-          Scroll Element Into View          xpath://button[contains(text(),'Next')]
-          Capture Page Screenshot          3rd step-{index}.png
-          Scroll Element Into View          xpath=//a[contains(text(),'Back')]
-          Capture Page Screenshot          select-contest-{index}.png
-          #Click Element          xpath://h2[contains(text(),'Start a contest?')]          #Contest
-          Click Element          xpath://h2[contains(text(),'Post a project?')]
-          Element Should Be Enabled          xpath://button[contains(text(),'Next')]
-          Click Element          xpath://button[contains(text(),'Next')]
-          Sleep          1
-
-3rd step page
-          Wait Until Element Is Visible          xpath://h2[contains(text(),'Select the type of job')]
-          Element Text Should Be          xpath://h2[contains(text(),'Select the type of job')]          Select the type of job
-          Element Should Be Visible          class:JobTypeCard_jobTypeCard__3s3DX
-          Element Text Should Be          xpath://h2[contains(text(),'Post a project?')]          Post a project?
-          Element Text Should Be          xpath://h2[contains(text(),'Start a contest?')]          Start a contest?
-          Element Text Should Be          xpath://div[1]/div[1]/div[1]/div[2]/p[1]          You have a project which needs to be done, and you need a qualified person to finish it. Post a project, describe what are you looking for, determine the application deadline, and wait for the proposals!
-          Element Text Should Be          xpath://div[1]/div[1]/div[2]/div[2]          You want to choose the product you like the most? Run a contest, give clear instructions, determine a deadline, and wait for the right product to come to you!
-          Element Should Be Visible          xpath://a[contains(text(),'Back')]
-          Element Should Be Enabled          xpath://a[contains(text(),'Back')]
-          Element Should Be Visible          xpath://button[contains(text(),'Next')]
-          Element Should Be Disabled          xpath://button[contains(text(),'Next')]
-
-4th step Contest
-          ${url} =          Get Location
-          Log to console          ${url}
-          Header Post a Job
-          Wait Until Element Is Visible          xpath://h2[contains(text(),'Add Contest Prize and Duration')]
-          Element Text Should Be          xpath://h2[contains(text(),'Add Contest Prize and Duration')]          Add Contest Prize and Duration
-          #4th step
-          #Add Contest Prize and Duration
-          Scroll Element Into View          xpath=//span[contains(text(),'OR')]
-          Capture Page Screenshot          duration-{index}.png
-          Wait Until Element Is Visible          xpath://h3[contains(text(),'ADD PRICE')]
-          Element Text Should Be          xpath://h3[contains(text(),'ADD PRICE')]          ADD PRICE
-          Wait Until Element Is Visible          xpath://h4[contains(text(),'Select Price Amount')]
-          Element Text Should Be          xpath://h4[contains(text(),'Select Price Amount')]          Select Price Amount
-          #Add Custom Amount
-          Wait Until Element Is Visible          xpath://h4[contains(text(),'Add Custom Amount')]
-          Element Text Should Be          xpath://h4[contains(text(),'Add Custom Amount')]          Add Custom Amount
-          Capture Page Screenshot          Add-Contest-Prize-and-Duration-{index}.png
-          #Wait Until Element Is Visible          xpath=//div[contains(text(),'* minimum of 5 $ required')]
-          #Element Text Should Be          xpath=//div[contains(text(),'* minimum of 5 $ required')]          minimum of 5 $ required
-          Wait Until Element Is Visible          xpath://div[1]/div[1]/div[1]/p[2]
-          Element Text Should Be          xpath://div[1]/div[1]/div[1]/p[2]          $5000
-          Input Text          xpath=//form[1]/div[1]/div[2]/input[1]          3
-          Click Element          xpath=//button[contains(text(),'2 days')]
-          Click Element          xpath=//button[contains(text(),'2 days')]
-          Wait Until Element Is Visible          xpath=//div[contains(text(),'* minimum of 5 $ required')]
-          Element Text Should Be          xpath=//div[contains(text(),'* minimum of 5 $ required')]          * minimum of 5 $ required
-          #Element Should Be Enabled          xpath=//div[contains(text(),'* minimum of 5 $ required')]
-          ${alert} =          Get Text          xpath=//div[contains(text(),'* minimum of 5 $ required')]
-          Log To Console          ${alert}
-          #Sleep          1
-          #Capture Page Screenshot          min-price-5-{index}.png
-          #Click Element          xpath=//div[contains(text(),'Min Price is $5.')]
-          Input Text          name=sliderPrice          50
-          Sleep          1
-          Clear Element Text          xpath=//form[1]/div[1]/div[2]/input[1]
-          Input Text          xpath=//form[1]/div[1]/div[2]/input[1]          5001
-          ${alert} =          Get Text          xpath=//div[contains(text(),'* maximum of 5000 $')]
-          Log To Console          ${alert}
-          Click Element          xpath=//button[contains(text(),'2 days')]
-          #Click Element          xpath=//button[contains(text(),'2 days')]
-          Capture Page Screenshot          max-price-5000-{index}.png
-          #Click Element          xpath=//div[contains(text(),'* maximum of 5000 $')]          #remove dot
-          #input amount
-          Input Text          name=sliderPrice          50
-          Sleep          1
-          Capture Page Screenshot          clear-amount-{index}.png
-          Sleep          1
-          Input Text          xpath=//form[1]/div[1]/div[2]/input[1]          50
-          #Select Number of Days
-          Scroll Element Into View          xpath=//button[contains(text(),'2 days')]
-          #Click Button          xpath://a[contains(text(),'Back')]
-          Capture Page Screenshot          number-of-days-{index}.png
-          Wait Until Element Is Visible          xpath://h4[contains(text(),'Select Number of Days')]
-          Element Text Should Be          xpath://h4[contains(text(),'Select Number of Days')]          Select Number of Days
-          Wait Until Element Is Visible          xpath://p[contains(text(),'3 Days')]
-          Element Text Should Be          xpath://p[contains(text(),'3 Days')]          3 Days
-          Wait Until Element Is Visible          xpath://p[contains(text(),'21 Days')]
-          Element Text Should Be          xpath://p[contains(text(),'21 Days')]          21 Days
-          Scroll Element Into View          xpath://span[contains(text(),'OR')]
-          Wait Until Element Is Visible          xpath://span[contains(text(),'OR')]
-          Element Text Should Be          xpath://span[contains(text(),'OR')]          OR
-          Wait Until Element Is Visible          xpath://button[contains(text(),'1 day')]
-          Element Text Should Be          xpath://button[contains(text(),'1 day')]          1 day
-          Wait Until Element Is Visible          xpath://button[contains(text(),'2 days')]
-          Element Text Should Be          xpath://button[contains(text(),'2 days')]          2 days
-          Wait Until Element Is Visible          xpath://a[contains(text(),'Back')]
-          Element Text Should Be          xpath://a[contains(text(),'Back')]          Back
-          Wait Until Element Is Visible          xpath://button[contains(text(),'Preview')]
-          Element Text Should Be          xpath://button[contains(text(),'Preview')]          Preview
-          #Element Text Should Be          class=PostAJobStep4_totalAmount__W4Zg-          You will Pay: $55 USD
-          Input Text          name=numberOfDays          20
-          Capture Page Screenshot          days-{index}.png
-          Sleep          1
-          Click Button          xpath=//button[contains(text(),'2 days')]
-          Element Should Not Be Visible          xpath://p[contains(text(),'3 Days')]
-          Element Should Not Be Visible          xpath://p[contains(text(),'21 Days')]
-          Element Should Not Be Visible          xpath://span[contains(text(),'OR')]
-          Element Should Not Be Visible          class=PostAJobStep4_daysInputHeading__1qmcQ
-          Scroll Element Into View          xpath=//a[contains(text(),'Back')]
-          Capture Page Screenshot          post-{index}.png
-          Click Button          xpath://button[contains(text(),'Preview')]
-          Capture Page Screenshot          login.-{index}.png
-
-4th step Project
-
-4th step page Contest
-          Wait Until Element Is Visible          xpath://h2[contains(text(),'Add Contest Prize and Duration')]
-          Element Text Should Be          xpath://h2[contains(text(),'Add Contest Prize and Duration')]          Add Contest Prize and Duration
-          #4th step
-          #Add Contest Prize and Duration
-          Scroll Element Into View          xpath=//span[contains(text(),'OR')]
-          Capture Page Screenshot          duration-{index}.png
-          Wait Until Element Is Visible          xpath://h3[contains(text(),'ADD PRICE')]
-          Element Text Should Be          xpath://h3[contains(text(),'ADD PRICE')]          ADD PRICE
-          Wait Until Element Is Visible          xpath://h4[contains(text(),'Select Price Amount')]
-          Element Text Should Be          xpath://h4[contains(text(),'Select Price Amount')]          Select Price Amount
-          #Add Custom Amount
-          Wait Until Element Is Visible          xpath://h4[contains(text(),'Add Custom Amount')]
-          Element Text Should Be          xpath://h4[contains(text(),'Add Custom Amount')]          Add Custom Amount
-          Capture Page Screenshot          Add-Contest-Prize-and-Duration-{index}.png
-          #Wait Until Element Is Visible          xpath://p[contains(text(),'$5')]
-          #Element Text Should Be          xpath://p[contains(text(),'$5')]          $5
-          Wait Until Element Is Visible          xpath://div[1]/div[1]/div[1]/p[2]
-          Element Text Should Be          xpath://div[1]/div[1]/div[1]/p[2]          $5000
-          #Input Text          xpath=//form[1]/div[1]/div[2]/input[1]          3
-          #Element Should Be Enabled          xpath=//div[contains(text(),'Min Price is $5.')]
-          #${alert} =          Get Text          xpath=//div[contains(text(),'Min Price is $5.')]
-          #Log To Console          ${alert}
-          #Sleep          1
-          Capture Page Screenshot          min-price-5-{index}.png
-
-4th step page Project
-          #content
-          Wait Until Element Is Visible          xpath=//form[1]/div[1]/div[1]/div[1]/p[1]
-          Element Should Be Visible          xpath=//form[1]/div[1]/div[1]/div[1]/p[1]
-          Element Text Should Be          xpath=//form[1]/div[1]/div[1]/div[1]/p[1]          Location
-          Element Should Be Enabled          class=MultipleSelect_multipleSelect__3-Cfy
-          Wait Until Element Is Visible          xpath=//form[1]/div[1]/div[1]/div[2]/p[1]
-          Element Should Be Visible          xpath=//form[1]/div[1]/div[1]/div[2]/p[1]
-          Element Text Should Be          xpath=//form[1]/div[1]/div[1]/div[2]/p[1]          Project Type
-          Wait Until Element Is Visible          xpath=//form[1]/div[1]/div[1]/div[3]/p[1]
-          Element Should Be Visible          xpath=//form[1]/div[1]/div[1]/div[3]/p[1]
-          Element Text Should Be          xpath=//form[1]/div[1]/div[1]/div[3]/p[1]          Number of Freelancers
-          Wait Until Element Is Visible          xpath=//form[1]/div[1]/div[1]/div[4]/p[1]
-          Element Should Be Visible          xpath=//form[1]/div[1]/div[1]/div[4]/p[1]
-          Element Should Be Enabled          name=numberOfFreelancers
-          Element Text Should Be          xpath=//form[1]/div[1]/div[1]/div[4]/p[1]          Experience Level
-          Wait Until Element Is Visible          xpath=//form[1]/div[1]/div[1]/div[5]/p[1]
-          Element Should Be Visible          xpath=//form[1]/div[1]/div[1]/div[5]/p[1]
-          Element Text Should Be          xpath=//form[1]/div[1]/div[1]/div[5]/p[1]          Expected Time Requirement
-          Wait Until Element Is Visible          xpath=//form[1]/div[1]/div[1]/div[6]/p[1]
-          Element Should Be Visible          xpath=//form[1]/div[1]/div[1]/div[6]/p[1]
-          Element Text Should Be          xpath=//form[1]/div[1]/div[1]/div[6]/p[1]          Project Length
-          Wait Until Element Is Visible          xpath=//form[1]/div[1]/div[2]/p[1]
-          Element Should Be Visible          xpath=//form[1]/div[1]/div[2]/p[1]
-          Element Text Should Be          xpath=//form[1]/div[1]/div[2]/p[1]          Preferred Range
-          #radio
-          #Radio Button Should Be Set To          name=rateType          hourly
-          #Radio Button Should Not Be Selected          name=rateType          #fixed
-          Element Should Be Enabled          name=hourlyRateFrom
-          Element Should Be Enabled          name=hourlyRateTo
-          Wait Until Element Is Visible          xpath=//form[1]/div[1]/div[3]/div[1]/p[1]
-          Element Should Be Visible          xpath=//form[1]/div[1]/div[3]/div[1]/p[1]
-          Element Text Should Be          xpath=//form[1]/div[1]/div[3]/div[1]/p[1]          How much you want to spend for the project?
-          Element Should Be Enabled          name=totalPrice
-
-5th step Preview job contest
-          Sleep          5
-          Capture Page Screenshot          login-{index}.png
-          Wait Until Element Is Visible          class=PostAJobPreviewJob_postAJobPreviewJobMainContainer__2bq6F
-          Capture Page Screenshot          preview-a-job-{index}.png
-          #header preview a Job
-          Element Should Be Visible          xpath=//body/div[@id='root']/div[1]/section[1]/div[3]/div[1]/button[1]
-          Element Text Should Be          xpath=//body/div[@id='root']/div[1]/section[1]/div[3]/div[1]/button[1]          Urgent
-          ${title} =          Get Text          class=PostAJobPreviewJob_urgentStylesHeading__39LlK
-          Log To Console          ${title}
-          Element Should Be Visible          class=PostAJobPreviewJob_urgentStylesHeading__39LlK          #title
-          ${description} =          Get Text          class=PostAJobPreviewJob_urgentStylesDesc__28Lhz
-          Log To Console          ${description}
-          Element Should Be Visible          class=PostAJobPreviewJob_urgentStylesDesc__28Lhz          #Description
-          Element Should Be Visible          class=PostAJobPreviewJob_postAJobPreviewInfo__2uY5T          #contest
-          ${description} =          Get Text          class=PostAJobPreviewJob_postAJobPreviewInfo__2uY5T
-          Log To Console          ${description}
-          Sleep          5
-          Element Should Be Enabled          xpath=//a[contains(text(),'Edit')]
-          Element Should Be Visible          xpath=//a[contains(text(),'Edit')]
-          Element Text Should Be          xpath=//a[contains(text(),'Edit')]          Edit
-          Element Should Be Enabled          xpath=//button[contains(text(),'Publish Job')]
-          Element Should Be Visible          xpath=//button[contains(text(),'Publish Job')]
-          Element Text Should Be          xpath=//button[contains(text(),'Publish Job')]          Publish Job
-          Click Button          xpath=//button[contains(text(),'Publish Job')]
-
 Business Landing page
           Element Should Be Visible          xpath://body/div[@id='root']/div[1]/section[1]/section[1]/div[1]/div[2]/div[3]/a[1]
           Element Text Should Be          xpath://body/div[@id='root']/div[1]/section[1]/section[1]/div[1]/div[2]/div[3]/a[1]          Post a Job
@@ -837,7 +539,7 @@ Login Freelancer KW
           Wait Until Element Is Visible          xpath=//p[contains(.,'Sign In')]
           Click Element          xpath=//p[contains(.,'Sign In')]
           Login modal dialog
-          Input Text          name=emailOrUserName          ${freelancer}
+          Input Text          name=emailOrUserName          Freelancer
           Input Text          name=password          ${password}
           Click Element          id=login
 
@@ -897,18 +599,18 @@ Login modal dialog
           Wait Until Element Is Visible          xpath=//p[@id='forgotPassword']
           Element Should Be Enabled          xpath=//p[@id='forgotPassword']
           Element Text Should Be          xpath=//p[@id='forgotPassword']          Forgot Password?
-          Wait Until Element Is Visible          xpath=//p[contains(text(),'Or Sign up with')]
-          Element Should Be Visible          xpath=//p[contains(text(),'Or Sign up with')]
-          Element Text Should Be          xpath=//p[contains(text(),'Or Sign up with')]          Or Sign up with
-          Wait Until Element Is Visible          xpath=//div[@id='googleLogin']
-          Element Should Be Visible          xpath=//div[@id='googleLogin']
-          Element Should Be Enabled          xpath=//div[@id='googleLogin']
-          Wait Until Element Is Visible          xpath=//div[@id='facebookLogin']
-          Element Should Be Visible          xpath=//div[@id='facebookLogin']
-          Element Should Be Enabled          xpath=//div[@id='facebookLogin']
-          Wait Until Element Is Visible          xpath=//div[@id='linkedinLogin']
-          Element Should Be Visible          xpath=//div[@id='linkedinLogin']
-          Element Should Be Enabled          xpath=//div[@id='linkedinLogin']
+          Wait Until Element Is Visible          xpath=//p[contains(text(),'Or continue with')]
+          Element Should Be Visible          xpath=//p[contains(text(),'Or continue with')]
+          Element Text Should Be          xpath=//p[contains(text(),'Or continue with')]          Or continue with
+          Wait Until Element Is Visible          css=#googleLogin
+          Element Should Be Visible          css=#googleLogin
+          Element Should Be Enabled          css=#googleLogin
+          Wait Until Element Is Visible          css=#facebookLogin
+          Element Should Be Visible          css=#facebookLogin
+          Element Should Be Enabled          css=#facebookLogin
+          Wait Until Element Is Visible          css=#linkedinLogin
+          Element Should Be Visible          css=#linkedinLogin
+          Element Should Be Enabled          css=#linkedinLogin
           Capture Page Screenshot          login-modal-{index}.png
 
 Logout modal
@@ -960,15 +662,12 @@ Navheader Business
           Wait Until Element Is Visible          id=myJobs
           Element Should Be Visible          id=myJobs
           Element Should Be Enabled          id=myJobs
-          Element Text Should Be          xpath=//a[@id='myJobs']          My Jobs
           Wait Until Element Is Visible          id=messages
           Element Should Be Visible          id=messages
           Element Should Be Enabled          id=messages
-          Element Text Should Be          xpath=//a[@id='messages']          Messages
           Wait Until Element Is Visible          id=notifications
           Element Should Be Visible          id=notifications
           Element Should Be Enabled          id=notifications
-          Element Text Should Be          id=notifications          Notifications
           #Switch
           Wait Until Element Is Visible          id=switchUserEntity
           Element Should Be Visible          id=switchUserEntity
@@ -1003,15 +702,12 @@ Navheader Freelancer
           Wait Until Element Is Visible          id=myJobs
           Element Should Be Visible          id=myJobs
           Element Should Be Enabled          id=myJobs
-          Element Text Should Be          xpath=//a[@id='myJobs']          My Jobs
           Wait Until Element Is Visible          id=messages
           Element Should Be Visible          id=messages
           Element Should Be Enabled          id=messages
-          Element Text Should Be          xpath=//a[@id='messages']          Messages
           Wait Until Element Is Visible          id=notifications
           Element Should Be Visible          id=notifications
           Element Should Be Enabled          id=notifications
-          Element Text Should Be          id=notifications          Notifications
           #Switch
           Wait Until Element Is Visible          id=switchUserEntity
           Element Should Be Visible          id=switchUserEntity
@@ -1232,10 +928,10 @@ Profile Settings page
           #Element Should Be Enabled          class=ProfileSettingLanguage_languageButton__1TdIX
           #Element Should Be Visible          class=ProfileSettingLanguage_languageButton__1TdIX
           #Element Text Should Be          class=ProfileSettingLanguage_languageButton__1TdIX          Add Language
-          Wait Until Element Is Visible          xpath=//button[contains(text(),'Deactivate Account')]
-          Element Should Be Visible          xpath=//button[contains(text(),'Deactivate Account')]
-          Element Text Should Be          xpath=//button[contains(text(),'Deactivate Account')]          Deactivate Account
-          Element Should Be Enabled          xpath=//button[contains(text(),'Deactivate Account')]
+          #Wait Until Element Is Visible          xpath=//button[contains(text(),'Deactivate Account')]
+          #Element Should Be Enabled          xpath=//button[contains(text(),'Deactivate Account')]
+          #Element Should Be Visible          xpath=//button[contains(text(),'Deactivate Account')]          Deactivate Account
+          #Element Text Should Be          xpath=//button[contains(text(),'Deactivate Account')]
           Wait Until Element Is Visible          xpath=//button[contains(text(),'Save')]
           Element Should Be Visible          xpath=//button[contains(text(),'Save')]
           Element Text Should Be          xpath=//button[contains(text(),'Save')]          Save
@@ -1306,18 +1002,18 @@ Register modal dialog
           Element Should Be Visible          css=.signUp
           Element Should Be Enabled          css=.signUp
           Element Text Should Be          xpath=//button[contains(text(),'Create an account')]          Create an account
-          Wait Until Element Is Visible          xpath=//p[contains(text(),'Or Sign up with')]
-          Element Should Be Visible          xpath=//p[contains(text(),'Or Sign up with')]
-          Element Text Should Be          xpath=//p[contains(text(),'Or Sign up with')]          Or Sign up with
-          Wait Until Element Is Visible          xpath=//div[@id='googleLogin']
-          Element Should Be Visible          xpath=//div[@id='googleLogin']
-          Element Should Be Enabled          xpath=//div[@id='googleLogin']
-          Wait Until Element Is Visible          xpath=//div[@id='facebookLogin']
-          Element Should Be Visible          xpath=//div[@id='facebookLogin']
-          Element Should Be Enabled          xpath=//div[@id='facebookLogin']
-          Wait Until Element Is Visible          xpath=//div[@id='linkedinLogin']
-          Element Should Be Visible          xpath=//div[@id='linkedinLogin']
-          Element Should Be Enabled          xpath=//div[@id='linkedinLogin']
+          Wait Until Element Is Visible          xpath=//p[contains(text(),'Or continue with')]
+          Element Should Be Visible          xpath=//p[contains(text(),'Or continue with')]
+          Element Text Should Be          xpath=//p[contains(text(),'Or continue with')]          Or continue with
+          Wait Until Element Is Visible          css=#googleLogin
+          Element Should Be Visible          css=#googleLogin
+          Element Should Be Enabled          css=#googleLogin
+          Wait Until Element Is Visible          css=#facebookLogin
+          Element Should Be Visible          css=#facebookLogin
+          Element Should Be Enabled          css=#facebookLogin
+          Wait Until Element Is Visible          css=#linkedinLogin
+          Element Should Be Visible          css=#linkedinLogin
+          Element Should Be Enabled          css=#linkedinLogin
           Capture Page Screenshot          signin-modal-{index}.png
 
 Security login assertation
@@ -1462,7 +1158,6 @@ Hire KW
           Element Should Be Enabled          id=hire
           Element Text Should Be          id=hire          Hire
           Click Button          id=hire
-          Sign in modal
 
 Get Hired KW
           Maximize Browser Window
@@ -1497,17 +1192,17 @@ Describe and attach section
           Wait Until Element Is Visible          xpath=//p[contains(text(),'Upload files')]
           Element Should Be Visible          xpath=//p[contains(text(),'Upload files')]
           Element Text Should Be          xpath=//p[contains(text(),'Upload files')]          Upload files
-          Wait Until Element Is Visible          xpath=//p[contains(text(),'Add files which can give idea to freelancer what d')]
-          Element Should Be Visible          xpath=//p[contains(text(),'Add files which can give idea to freelancer what d')]
-          Element Text Should Be          xpath=//p[contains(text(),'Add files which can give idea to freelancer what d')]          Add files which can give idea to freelancer what do you want
+          Wait Until Element Is Visible          xpath=//p[contains(text(),'Add files that can give an idea to freelancer what')]
+          Element Should Be Visible          xpath=//p[contains(text(),'Add files that can give an idea to freelancer what')]
+          Element Text Should Be          xpath=//p[contains(text(),'Add files that can give an idea to freelancer what')]          Add files that can give an idea to freelancer what do you want
 
 Select Category and Skills section
           Wait Until Element Is Visible          id=category
           Element Should Be Visible          id=category
           Element Should Be Enabled          id=category
-          Wait Until Element Is Visible          xpath=//p[contains(text(),'Sub Category')]
-          Element Should Be Visible          xpath=//p[contains(text(),'Sub Category')]
-          Element Should Be Enabled          xpath=//p[contains(text(),'Sub Category')]
+          #Wait Until Element Is Visible          xpath=//p[contains(text(),'Sub Category')]
+          #Element Should Be Visible          xpath=//p[contains(text(),'Sub Category')]
+          #Element Should Be Enabled          xpath=//p[contains(text(),'Sub Category')]
           Wait Until Element Is Visible          id=skills
           Element Should Be Visible          id=skills
           Element Should Be Enabled          id=skills
