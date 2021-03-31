@@ -95,7 +95,7 @@ Login with Linkedin
           Login modal dialog
           Wait Until Element Is Visible          class=LinkedinLogin_linkedinLogin__2bBmo
           Click Element          class=LinkedinLogin_linkedinLogin__2bBmo
-          Sleep          3
+          Sleep          5
           Capture Page Screenshot          linkedin-login-{index}.png
 
 Login username - log out
