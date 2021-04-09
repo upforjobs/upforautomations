@@ -34,6 +34,7 @@ Register business
           Capture Page Screenshot          submit-{index}.png
 
 Login
+          Sleep          3
           Click Element          xpath=//p[contains(.,'Sign In')]
           Login modal dialog
           Capture Page Screenshot          login-{index}.png
@@ -48,7 +49,7 @@ Profile settings
           Capture Page Screenshot          profile-settings-{index}.png
           Input Text          id=firstName          ${username}
           Input Text          id=lastName          ${username}
-          Click Button          id=male
+          Click Button          id=MALE
           ${dob} =          Generate Random String          1          [NUMBERS]
           Input Text          id=dateOfBirth          06-11-199${dob}
           Input Text          id=description          ${description}

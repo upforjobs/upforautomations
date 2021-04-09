@@ -318,43 +318,43 @@ Create Collection page
           Element Text Should Be          xpath=//form[1]/div[3]/button[1]          Save Collection
 
 Create Multiple Portfolio
-          Click Element          xpath=//i[@id='sideMenuToggleIcon']
-          Wait Until Element Is Visible          xpath=//header/div[1]/div[2]/a[5]
-          Wait Until Element Is Visible          xpath=//a[contains(text(),'Portfolio')]
-          Click Link          /portfolio
-          #breadcrumb
-          Wait Until Element Is Visible          xpath=//a[contains(text(),'Up For Jobs')]
-          Element Should Be Visible          xpath=//a[contains(text(),'Up For Jobs')]
-          Element Text Should Be          xpath=//a[contains(text(),'Up For Jobs')]          Up For Jobs
-          Element Should Be Enabled          xpath=//a[contains(text(),'Up For Jobs')]
-          Wait Until Element Is Visible          xpath=//a[contains(text(),'My Profile')]
-          Element Should Be Visible          xpath=//a[contains(text(),'My Profile')]
-          Element Text Should Be          xpath=//a[contains(text(),'My Profile')]          My Profile
-          Element Should Be Enabled          xpath=//a[contains(text(),'My Profile')]
-          Wait Until Element Is Visible          xpath=//a[contains(text(),'Manage Portfolio')]
-          Element Should Be Visible          xpath=//a[contains(text(),'Manage Portfolio')]
-          Element Text Should Be          xpath=//a[contains(text(),'Manage Portfolio')]          Manage Portfolio
-          Element Should Be Enabled          xpath=//a[contains(text(),'Manage Portfolio')]
-          #add collection
-          Click Element          xpath=//button[@id='addCollection']
+          Wait Until Element Is Visible          link=Add a new Collection
+          Click Element          link=Add a new Collection
           ${number_title}          Generate Random String          1          [NUMBERS]
           ${random_title}          Generate Random String          5          [LETTERS]
-          Input Text          id=title          No${number_title} Collection
+          Input Text          id=title          No ${number_title} Collection ${random_title}
           Capture Page Screenshot          title-{index}.png
           #description
-          ${number_description}          Generate Random String          1          [NUMBERS]
+          ${number_description}          Generate Random String          1          [LETTERS]
           ${random_description}          Generate Random String          5          [LETTERS]
-          Input Text          id=description          No ${number_description} Collection ${description1} ${random_title} ${random_description}
-          Scroll Element Into View          xpath=//form[1]/div[2]/div[1]/img[1]
+          Input Text          id=description          No ${number_description} Collection ${description1} ${random_description}
           Capture Page Screenshot          description-{index}.png
           #command
-          ${id} =          Generate Random String          1          [NUMBERS]
-          Choose File          class=ManagePortfolio_FileInputSquare__input__39gdc          ${CURDIR}\\random\\c0${id}.jpg
-          Wait Until Element Is Visible          xpath=//body/div[@id='root']/div[1]/div[1]/div[2]/div[1]/div[4]/form[1]/div[2]/div[1]/div[1]
-          Capture Element Screenshot          xpath=//body/div[@id='root']/div[1]/div[1]/div[2]/div[1]/div[4]/form[1]/div[2]/div[1]/div[1]
-          #          //form[1]/div[2]/div[2]/div[1]
-          Sleep          2
-          Scroll Element Into View          xpath=//div[1]/div[1]/div[2]/div[1]/div[5]/div[1]
+          #1
+          Scroll Element Into View          xpath=//button[contains(.,'Add Collection')]
+          ${id1} =          Generate Random String          1          [NUMBERS]
+          Choose File          id=fileUpload          ${CURDIR}\\random\\c0${id1}.jpg
+          Sleep          1
+          ${id2} =          Generate Random String          1          [NUMBERS]
+          Choose File          id=fileUpload          ${CURDIR}\\random\\c0${id2}.jpg
+          Sleep          1
+          ${id3} =          Generate Random String          1          [NUMBERS]
+          Choose File          id=fileUpload          ${CURDIR}\\random\\c0${id3}.jpg
+          Sleep          1
+          Scroll Element Into View          xpath=//button[contains(.,'Add Collection')]
+          ${id4} =          Generate Random String          1          [NUMBERS]
+          Choose File          id=fileUpload          ${CURDIR}\\random\\c2${id4}.jpg
+          Sleep          1
+          Wait Until Element Is Visible          xpath=//button[contains(.,'Add Collection')]
+          Capture Page Screenshot          bedore-save-collection-{index}.png
+          Sleep          1
+          Click Element          xpath=//button[contains(.,'Add Collection')]
+          Sleep          1
+          Wait Until Element Is Visible          xpath=//div[contains(text(),'Successfully added collection')]
+          ${alert} =          Get Text          xpath=//div[contains(text(),'Successfully added collection')]
+          Log To Console          ${alert}
+          Wait Until Element Is Visible          xpath=//h2[contains(text(),'Portfolio Collections')]
+          Capture Page Screenshot          my-profiel-{index}.png
           Capture Page Screenshot          capture-{index}.png
           Click Button          xpath=//form[1]/div[3]/button[1]          #Click \ Save Collection button
           #assertation
@@ -380,23 +380,24 @@ Delete Collection KW
           Element Should Be Visible          xpath=//a[contains(text(),'Edit')]
           Element Should Be Enabled          xpath=//a[contains(text(),'Edit')]
           Element Text Should Be          xpath=//a[contains(text(),'Edit')]          Edit
-          Click Element          xpath=//button[contains(text(),'Delete')]
+          Click Element          xpath=//div[2]/div[1]/div[1]/div[2]/button[1]
           Capture Page Screenshot          delete-modal-dialog-{index}.png
           #collection delete modal
           Delete Collection Modal Dialog
-          Wait Until Element Is Visible          xpath=//button[contains(text(),'Delete')]
-          Click Element          xpath=//button[contains(text(),'Delete')]
+          Wait Until Element Is Visible          id=deleteCollectionButton
+          Click Element          id=deleteCollectionButton
           Capture Page Screenshot          delete-collection-{index}.png
           Wait Until Element Is Visible          xpath=//div[contains(text(),'Successfully deleted collection')]
           ${alert} =          Get Text          xpath=//div[contains(text(),'Successfully deleted collection')]
           Log To Console          ${alert}
+          Click Element          xpath=//div[contains(text(),'Successfully deleted collection')]
 
 Delete Collection Modal Dialog
           #Wait Until Element Is Visible          class=DeleteCollectionModal_deleteCollectionModal__1cQO4
           Wait Until Element Is Visible          xpath=//button[contains(text(),'Cancel')]
           Element Should Be Visible          xpath=//button[contains(text(),'Cancel')]
-          Wait Until Element Is Visible          xpath=//button[@id='deleteCollectionButton']
-          Element Should Be Visible          xpath=//button[@id='deleteCollectionButton']
+          Wait Until Element Is Visible          id=deleteCollectionButton
+          Element Should Be Visible          id=deleteCollectionButton
           Capture Page Screenshot          delete-collection-modal-dialog-{index}.png
 
 Delete Portfolio modal
@@ -524,8 +525,6 @@ Landing page request
           Should Be Equal          ${content_type_value}          text/html; charset=UTF-8
 
 Login Business KW
-          Maximize Browser Window
-          Go To          ${TESTURL}
           Wait Until Element Is Visible          xpath=//p[contains(.,'Sign In')]
           Click Element          xpath=//p[contains(.,'Sign In')]
           Login modal dialog
@@ -534,8 +533,6 @@ Login Business KW
           Click Element          id=login
 
 Login Freelancer KW
-          Maximize Browser Window
-          Go To          ${TESTURL}
           Wait Until Element Is Visible          xpath=//p[contains(.,'Sign In')]
           Click Element          xpath=//p[contains(.,'Sign In')]
           Login modal dialog
@@ -630,6 +627,7 @@ LogoutKW
           Logout modal
           Wait Until Element Is Visible          xpath=//button[contains(.,'Logout')]
           Click Element          xpath=//button[contains(.,'Logout')]
+          Sleep          3
           Wait Until Element Is Visible          xpath=//p[contains(.,'Sign In')]
           Capture Page Screenshot          logout-{index}.png
 
@@ -651,9 +649,9 @@ Navheader Business
           Wait Until Element Is Visible          class=Nav_inputWrapper__2N_eD
           Element Should Be Visible          class=Nav_inputWrapper__2N_eD
           Element Should Be Enabled          class=Nav_inputWrapper__2N_eD
-          Wait Until Element Is Visible          class=fa-search
-          Element Should Be Visible          class=fa-search
-          Element Should Be Enabled          class=fa-search
+          Wait Until Element Is Visible          name=search
+          Element Should Be Visible          name=search
+          Element Should Be Enabled          name=search
           Wait Until Element Is Visible          class=Nav_searchBox__3_6yM
           Element Should Be Visible          class=Nav_searchBox__3_6yM
           Element Should Be Enabled          class=Nav_searchBox__3_6yM
@@ -852,14 +850,18 @@ Professional Settings page
           Element Should Be Visible          xpath=//label[contains(text(),'Rate Per Hour')]
           Element Text Should Be          xpath=//label[contains(text(),'Rate Per Hour')]          Rate Per Hour
           Element Should Be Enabled          id=rateAmount
-          Element Should Be Visible          xpath=//div[1]/div[2]/div[1]/label[1]
-          Element Text Should Be          xpath=//div[1]/div[2]/div[1]/label[1]          Profession
+          Element Should Be Visible          xpath=//p[contains(text(),'Tagline')]
+          Element Text Should Be          xpath=//p[contains(text(),'Tagline')]          Tagline
+          Element Should Be Enabled          id=tagline
+          Element Should Be Visible          xpath=//div[3]/div[1]/label[1]
+          Element Text Should Be          xpath=//div[3]/div[1]/label[1]          Profession
+          Element Should Be Enabled          xpath=//div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]
           Element Should Be Visible          xpath=//label[contains(text(),'Expertise')]
           Element Text Should Be          xpath=//label[contains(text(),'Expertise')]          Expertise
-          Element Should Be Enabled          xpath=//label[contains(text(),'Expertise')]
+          Element Should Be Enabled          xpath=//div[2]/div[1]/div[4]/div[1]/div[1]/div[1]
           Element Should Be Visible          xpath=//label[contains(text(),'Skills')]
           Element Text Should Be          xpath=//label[contains(text(),'Skills')]          Skills
-          Element Should Be Enabled          xpath=//div[4]/div[1]/div[1]/div[1]/div[1]/input[1]
+          Element Should Be Enabled          xpath=//div[2]/div[1]/div[5]/div[1]/label[1]
           Element Should Be Enabled          css=#submit
           Element Should Be Visible          css=#submit
           Element Text Should Be          css=#submit          Update
@@ -1152,16 +1154,12 @@ Get Hired modal
           Capture Page Screenshot          get-hire-modal-{index}.png
 
 Hire KW
-          Maximize Browser Window
-          Go To          ${TESTURL}
           Wait Until Element Is Visible          id=hire
           Element Should Be Enabled          id=hire
           Element Text Should Be          id=hire          Hire
           Click Button          id=hire
 
 Get Hired KW
-          Maximize Browser Window
-          Go To          ${TESTURL}
           Wait Until Element Is Visible          id=getHired
           Element Should Be Enabled          id=getHired
           Element Text Should Be          id=getHired          Get Hired
@@ -1184,17 +1182,6 @@ Post a job header
           Element Should Be Visible          xpath=//body/div[@id='root']/div[1]/section[1]/div[1]/div[2]/p[1]
 
 Describe and attach section
-          Wait Until Element Is Visible          xpath=//h3[contains(text(),'Describe & Attach files')]
-          Element Should Be Visible          xpath=//h3[contains(text(),'Describe & Attach files')]
-          Element Text Should Be          xpath=//h3[contains(text(),'Describe & Attach files')]          Describe & Attach files
-          Element Should Be Enabled          name=title
-          Element Should Be Enabled          name=description
-          Wait Until Element Is Visible          xpath=//p[contains(text(),'Upload files')]
-          Element Should Be Visible          xpath=//p[contains(text(),'Upload files')]
-          Element Text Should Be          xpath=//p[contains(text(),'Upload files')]          Upload files
-          Wait Until Element Is Visible          xpath=//p[contains(text(),'Add files that can give an idea to freelancer what')]
-          Element Should Be Visible          xpath=//p[contains(text(),'Add files that can give an idea to freelancer what')]
-          Element Text Should Be          xpath=//p[contains(text(),'Add files that can give an idea to freelancer what')]          Add files that can give an idea to freelancer what do you want
 
 Select Category and Skills section
           Wait Until Element Is Visible          id=category
@@ -1207,17 +1194,79 @@ Select Category and Skills section
           Element Should Be Visible          id=skills
           Element Should Be Enabled          id=skills
 
-Select Job Type section
-          Wait Until Element Is Visible          xpath=//h3[contains(text(),'Select Job Type')]
-          Element Should Be Visible          xpath=//h3[contains(text(),'Select Job Type')]
-          Element Text Should Be          xpath=//h3[contains(text(),'Select Job Type')]          Select Job Type
-          Wait Until Element Is Visible          id=project
-          Element Should Be Visible          id=project
-          Element Should Be Enabled          id=project
-          Element Text Should Be          xpath=//h2[contains(text(),'Post a project?')]          Post a project?
-          Element Text Should Be          xpath=//p[contains(text(),'You have a project which needs to be done, and you')]          You have a project which needs to be done, and you need a qualified person to finish it. Post a project, describe what are you looking for, determine the application deadline, and wait for the proposals!
-          Wait Until Element Is Visible          id=contest
-          Element Should Be Visible          id=contest
-          Element Should Be Enabled          id=contest
-          Element Text Should Be          xpath=//h2[contains(text(),'Start a contest?')]          Start a contest?
-          Element Text Should Be          xpath=//p[contains(text(),'You want to choose the product you like the most? ')]          You want to choose the product you like the most? Run a contest, give clear instructions, determine a deadline, and wait for the right product to come to you!
+UFJLogin
+          Maximize Browser Window
+          Go To          ${TESTURL}
+          Wait Until Element Is Visible          class=Login_headingText__2QdrP
+          Input Text          id=emailOrUserName          ufj
+          Input Text          id=password          ${ufjpass}
+          Submit Form
+          Sleep          1
+
+Job Description page
+          Wait Until Element Is Visible          xpath=//button[contains(text(),'Job Description')]
+          Element Should Be Visible          xpath=//button[contains(text(),'Job Description')]
+          Element Text Should Be          xpath=//button[contains(text(),'Job Description')]          Job Description
+          Wait Until Element Is Visible          xpath=//h3[contains(text(),'JOB TYPE*')]
+          Element Should Be Visible          xpath=//h3[contains(text(),'JOB TYPE*')]
+          Element Text Should Be          xpath=//h3[contains(text(),'JOB TYPE*')]          JOB TYPE*
+          Wait Until Element Is Visible          xpath=//p[contains(text(),'Post a project?')]
+          Element Should Be Visible          xpath=//p[contains(text(),'Post a project?')]
+          Element Text Should Be          xpath=//p[contains(text(),'Post a project?')]          Post a project?
+          Wait Until Element Is Visible          xpath=//p[contains(text(),'Start a contest?')]
+          Element Should Be Visible          xpath=//p[contains(text(),'Start a contest?')]
+          Element Text Should Be          xpath=//p[contains(text(),'Start a contest?')]          Start a contest?
+          Wait Until Element Is Visible          xpath=//h3[contains(text(),'SELECT CATEGORY AND SUBCATEGORY *')]
+          Element Should Be Visible          xpath=//h3[contains(text(),'SELECT CATEGORY AND SUBCATEGORY *')]
+          Element Text Should Be          xpath=//h3[contains(text(),'SELECT CATEGORY AND SUBCATEGORY *')]          SELECT CATEGORY AND SUBCATEGORY *
+          Wait Until Element Is Visible          id=category
+          Element Should Be Visible          id=category
+          Element Should Be Enabled          id=category
+          Wait Until Element Is Visible          id=skills
+          Element Should Be Visible          id=skills
+          Element Should Be Enabled          id=skills
+          Wait Until Element Is Visible          xpath=//h3[contains(text(),'JOB TITLE *')]
+          Element Should Be Visible          xpath=//h3[contains(text(),'JOB TITLE *')]
+          Element Text Should Be          xpath=//h3[contains(text(),'JOB TITLE *')]          JOB TITLE *
+          Wait Until Element Is Visible          id=jobTitle
+          Element Should Be Visible          id=jobTitle
+          Element Should Be Enabled          id=jobTitle
+          Wait Until Element Is Visible          xpath=//h3[contains(text(),'JOB DESCRIPTION *')]
+          Element Should Be Visible          xpath=//h3[contains(text(),'JOB DESCRIPTION *')]
+          Element Text Should Be          xpath=//h3[contains(text(),'JOB DESCRIPTION *')]          JOB DESCRIPTION *
+          Wait Until Element Is Visible          id=jobDescription
+          Element Should Be Visible          id=jobDescription
+          Element Should Be Enabled          id=jobDescription
+          Wait Until Element Is Visible          xpath=//form[1]/div[4]/div[2]/div[1]/label[1]
+          Element Should Be Visible          xpath=//form[1]/div[4]/div[2]/div[1]/label[1]
+          Element Should Be Enabled          id=upload
+          Wait Until Element Is Visible          xpath=//p[contains(text(),'Add files that can give an idea to freelancer what')]
+          Element Should Be Visible          xpath=//p[contains(text(),'Add files that can give an idea to freelancer what')]
+          Element Text Should Be          xpath=//p[contains(text(),'Add files that can give an idea to freelancer what')]          Add files that can give an idea to freelancer what do you want
+          Wait Until Element Is Visible          xpath=//button[contains(text(),'Continue to Terms & Price')]
+          Element Should Be Visible          xpath=//button[contains(text(),'Continue to Terms & Price')]
+          Element Text Should Be          xpath=//button[contains(text(),'Continue to Terms & Price')]          Continue to Terms & Price
+          Element Should Be Enabled          xpath=//button[contains(text(),'Continue to Terms & Price')]
+
+Terms & Prices pages
+          Wait Until Element Is Visible          xpath=//button[contains(text(),'Terms & Prices')]
+          Element Should Be Visible          xpath=//button[contains(text(),'Terms & Prices')]
+          Element Text Should Be          xpath=//button[contains(text(),'Terms & Prices')]          Terms & Prices
+          Wait Until Element Is Visible          //h3[contains(text(),'NUMBER OF DAYS *')]
+          Element Should Be Visible          //h3[contains(text(),'NUMBER OF DAYS *')]
+          Element Text Should Be          //h3[contains(text(),'NUMBER OF DAYS *')]          NUMBER OF DAYS *
+          Wait Until Element Is Visible          xpath=//button[contains(text(),'1 Day')]
+          Element Should Be Visible          xpath=//button[contains(text(),'1 Day')]
+          Element Should Be Enabled          xpath=//button[contains(text(),'1 Day')]
+          Wait Until Element Is Visible          xpath=//button[contains(text(),'2 Days')]
+          Element Should Be Visible          xpath=//button[contains(text(),'2 Days')]
+          Element Should Be Enabled          xpath=//button[contains(text(),'2 Days')]
+          Wait Until Element Is Visible          name=numberOfDays
+          Element Should Be Visible          name=numberOfDays
+          Element Should Be Enabled          name=numberOfDays
+          Wait Until Element Is Visible          xpath=//h3[contains(text(),'PRICING *')]
+          Element Should Be Visible          xpath=//h3[contains(text(),'PRICING *')]
+          Element Text Should Be          xpath=//h3[contains(text(),'PRICING *')]          PRICING *
+          Wait Until Element Is Visible          name=prize
+          Element Should Be Visible          name=prize
+          Element Should Be Enabled          name=prize

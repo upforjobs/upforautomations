@@ -19,11 +19,11 @@ Invalid password
           ...          Password must contain min 8 characters: at least one lowercase letter, one uppercase letter, one numeric digit, and one special character
           ...          capture screen is attached.
           [Tags]          register
-          Maximize Browser Window
-          GoTo          ${TESTURL}
+          UFJLogin
+          Wait Until Element Is Visible          xpath=//p[contains(.,'Sign In')]
           Click Element          xpath=//p[contains(.,'Sign In')]
-          Wait Until Element Is Visible          xpath=//a[contains(text(),'Signup')]
-          Click Element          xpath=//a[contains(text(),'Signup')]
+          Wait Until Element Is Visible          xpath=//div[contains(text(),'Signup')]
+          Click Element          xpath=//div[contains(text(),'Signup')]
           Sign in modal
           ${RANDOM} =          Generate Random String          4          [NUMBERS]
           Input Text          name:email          short8-${RANDOM}-${email}
@@ -38,8 +38,8 @@ Incorrect input fields
           Maximize Browser Window
           GoTo          ${TESTURL}
           Click Element          xpath=//p[contains(.,'Sign In')]
-          Wait Until Element Is Visible          xpath=//a[contains(text(),'Signup')]
-          Click Element          xpath=//a[contains(text(),'Signup')]
+          Wait Until Element Is Visible          xpath=//div[contains(text(),'Signup')]
+          Click Element          xpath=//div[contains(text(),'Signup')]
           Sign in modal
           Clear Element Text          name:email
           Clear Element Text          name:username
@@ -59,8 +59,8 @@ Incorrect Email format
           Maximize Browser Window
           GoTo          ${TESTURL}
           Click Element          xpath=//p[contains(.,'Sign In')]
-          Wait Until Element Is Visible          xpath=//a[contains(text(),'Signup')]
-          Click Element          xpath=//a[contains(text(),'Signup')]
+          Wait Until Element Is Visible          xpath=//div[contains(text(),'Signup')]
+          Click Element          xpath=//div[contains(text(),'Signup')]
           Sign in modal
           Input Text          name:email          incorrect
           Click Element          css=.signUp
@@ -73,8 +73,8 @@ Already taken username
           Maximize Browser Window
           GoTo          ${TESTURL}
           Click Element          xpath=//p[contains(.,'Sign In')]
-          Wait Until Element Is Visible          xpath=//a[contains(text(),'Signup')]
-          Click Element          xpath=//a[contains(text(),'Signup')]
+          Wait Until Element Is Visible          xpath=//div[contains(text(),'Signup')]
+          Click Element          xpath=//div[contains(text(),'Signup')]
           Sign in modal
           ${RANDOM} =          Generate Random String          4          [NUMBERS]
           Input Text          name:email          zarko${email}
@@ -94,8 +94,8 @@ Register with Google
           Maximize Browser Window
           GoTo          ${TESTURL}
           Click Element          xpath=//p[contains(.,'Sign In')]
-          Wait Until Element Is Visible          xpath=//a[contains(text(),'Signup')]
-          Click Element          xpath=//a[contains(text(),'Signup')]
+          Wait Until Element Is Visible          xpath=//div[contains(text(),'Signup')]
+          Click Element          xpath=//div[contains(text(),'Signup')]
           Sign in modal
           Click Element          xpath=//div[@id='googleLogin']
           Sleep          3
@@ -105,8 +105,8 @@ Register with FB
           Maximize Browser Window
           GoTo          ${TESTURL}
           Click Element          xpath=//p[contains(.,'Sign In')]
-          Wait Until Element Is Visible          xpath=//a[contains(text(),'Signup')]
-          Click Element          xpath=//a[contains(text(),'Signup')]
+          Wait Until Element Is Visible          xpath=//div[contains(text(),'Signup')]
+          Click Element          xpath=//div[contains(text(),'Signup')]
           Sign in modal
           Click Element          xpath=//div[@id='facebookLogin']
           Sleep          3
@@ -116,8 +116,8 @@ Register with Linkedin
           Maximize Browser Window
           GoTo          ${TESTURL}
           Click Element          xpath=//p[contains(.,'Sign In')]
-          Wait Until Element Is Visible          xpath=//a[contains(text(),'Signup')]
-          Click Element          xpath=//a[contains(text(),'Signup')]
+          Wait Until Element Is Visible          xpath=//div[contains(text(),'Signup')]
+          Click Element          xpath=//div[contains(text(),'Signup')]
           Sign in modal
           Click Element          xpath=//div[@id='linkedinLogin']
           Sleep          3

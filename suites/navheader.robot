@@ -1,4 +1,7 @@
 *** Settings ***
+Documentation           In theis test
+...                     we are testin login form
+...                     nav header elements
 Suite Setup             Open Chrome Browsers
 Suite Teardown          Close All Browsers
 Resource                _keywords.txt

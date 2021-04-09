@@ -12,6 +12,12 @@ ${TMP_PATH}             /tmp
 
 *** Test Cases ***
 register
+          Maximize Browser Window
+          Go To          ${TESTURL}
+          Wait Until Element Is Visible          class=Login_headingText__2QdrP
+          Input Text          id=emailOrUserName          ufj
+          Input Text          id=password          ${ufjpass}
+          Submit Form
           Hire KW
           Input Text          name:email          ${ufjfreelancer}${gmail}
           Capture Page Screenshot          email-{index}.png
@@ -50,7 +56,7 @@ Profile settings
           Wait Until Element Is Visible          xpath=//h2[contains(text(),'Profile & Personal Settings')]
           Input Text          id=firstName          ${freelancer}
           Input Text          id=lastName          ${freelancer}
-          Click Element          xpath=//input[@id='female']          #female
+          Click Element          xpath=//input[@id='FEMALE']          #female
           Input Text          xpath=//input[@id='dateOfBirth']          06-11-1994
           Input Text          id=description          ${description1}
           Click Element          name=country

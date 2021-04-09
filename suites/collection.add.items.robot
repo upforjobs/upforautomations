@@ -15,6 +15,14 @@ Library                 String
 ${TMP_PATH}             /tmp
 
 *** Test Cases ***
+Login
+          Maximize Browser Window
+          Go To          ${TESTURL}
+          Wait Until Element Is Visible          class=Login_headingText__2QdrP
+          Input Text          id=emailOrUserName          ufj
+          Input Text          id=password          ${ufjpass}
+          Submit Form
+
 Login user
           [Documentation]          In this test scenario we are testing Login user freelancer,input credentials Freelancer and Password##99
           ...          assert and verify elements in login modal dialog
@@ -121,6 +129,7 @@ Create Collection add 10 items
           Log To Console          ${alert}
           Wait Until Element Is Visible          xpath=//h2[contains(text(),'Portfolio Collections')]
           Capture Page Screenshot          my-profiel-{index}.png
+          Click Element          xpath=//div[contains(text(),'Successfully added collection')]
 
 Edit cancelation
           [Documentation]          Click on the edit button and go to collection
@@ -184,6 +193,7 @@ Go to Collection
           Wait Until Element Is Visible          xpath=//div[contains(text(),'Successfully updated collection')]
           ${alert} =          Get Text          xpath=//div[contains(text(),'Successfully updated collection')]
           Log To Console          ${alert}
+          Click Element          xpath=//div[contains(text(),'Successfully updated collection')]
 
 Create 6 collections
           Capture Page Screenshot          2nd-collection-{index}.png
@@ -192,26 +202,32 @@ Create 6 collections
           ${alert} =          Get Text          xpath=//div[contains(text(),'Successfully added collection')]
           Log To Console          ${alert}
           Capture Page Screenshot          3rd-collection-{index}.png
+          Click Element          xpath=//div[contains(text(),'Successfully added collection')]
           Create collection KW
           Wait Until Element Is Visible          xpath=//div[contains(text(),'Successfully added collection')]
           ${alert} =          Get Text          xpath=//div[contains(text(),'Successfully added collection')]
           Log To Console          ${alert}
           Capture Page Screenshot          4th-collection-{index}.png
+          Click Element          xpath=//div[contains(text(),'Successfully added collection')]
           Create collection KW
           Wait Until Element Is Visible          xpath=//div[contains(text(),'Successfully added collection')]
           ${alert} =          Get Text          xpath=//div[contains(text(),'Successfully added collection')]
           Log To Console          ${alert}
           Capture Page Screenshot          5th-collection-{index}.png
+          Click Element          xpath=//div[contains(text(),'Successfully added collection')]
           Create collection KW
           Wait Until Element Is Visible          xpath=//div[contains(text(),'Successfully added collection')]
           ${alert} =          Get Text          xpath=//div[contains(text(),'Successfully added collection')]
           Log To Console          ${alert}
           Capture Page Screenshot          6th-collection-{index}.png
+          Click Element          xpath=//div[contains(text(),'Successfully added collection')]
           Scroll Element Into View          xpath=//div[1]/div[1]/div[1]/div[1]/div[2]/div[5]/div[1]/div[2]/a[1]
           Create collection KW
           Wait Until Element Is Visible          xpath=//div[contains(text(),'Successfully added collection')]
           ${alert} =          Get Text          xpath=//div[contains(text(),'Successfully added collection')]
           Log To Console          ${alert}
+          Capture Page Screenshot          6th-collection-{index}.png
+          Click Element          xpath=//div[contains(text(),'Successfully added collection')]
 
 Delete Collections
           [Documentation]          In this case we are delete all Collection
@@ -232,7 +248,7 @@ Delete Collections
           #collection delete modal
           Delete Collection Modal Dialog
           Wait Until Element Is Visible          xpath=//button[contains(text(),'Delete')]
-          Click Element          xpath=//button[contains(text(),'Delete')]
+          Click Element          id=deleteCollectionButton
           #Click Element
           Sleep          2
           Capture Page Screenshot          delete-collection-{index}.png

@@ -1,9 +1,13 @@
 *** Variables ***
 # env:test
 ${BASEURL}              https://www.upforjobs.com/
-${TESTURL}              https://fervent-tesla-2846e8.netlify.app
-#${PRELOUNCH}           https://compassionate-northcutt-2e6540.netlify.app/
+${TESTURL}              https://sad-elion-b175c5.netlify.app/
+${PRELOUNCH}            https://www.upforjobs.com
+#${TESTURL}             https://fervent-tesla-2846e8.netlify.app
 ${BROWSER}              Chrome
+#upforjibs
+${ufj}                  ufj
+${ufjpass}              w_Cp}f@*PJtJVh2S
 #Paypall users
 ${PAYPALUSER}           zarko.stepanov10@hotmail.com
 ${PAYPALPW}             Tester##99

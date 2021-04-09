@@ -11,6 +11,14 @@ Library                 String
 ${TMP_PATH}             /tmp
 
 *** Test Cases ***
+Login
+          Maximize Browser Window
+          Go To          ${TESTURL}
+          Wait Until Element Is Visible          class=Login_headingText__2QdrP
+          Input Text          id=emailOrUserName          ufj
+          Input Text          id=password          ${ufjpass}
+          Submit Form
+
 Register user
           [Tags]          saveSettings
           Get Hired KW
@@ -43,18 +51,6 @@ Login user
           Capture Page Screenshot          login-user-{index}.png
           Sleep          3
 
-Upload Avatar Picture
-          [Documentation]          In this test we are testing upload avatar picture.
-          Wait Until Element Is Visible          xpath=//h2[contains(text(),'Profile Settings')]
-          Scroll Element Into View          xpath=//h2[contains(text(),'Profile Settings')]
-          Sleep          3
-          Wait Until Element Is Visible          name=add-photo
-          ${id} =          Generate Random String          2          [NUMBERS]
-          Choose File          name=add-photo          ${CURDIR}\\random\\${id}.jpg
-          Capture Element Screenshot          name=add-photo
-          Sleep          2
-          Capture Page Screenshot          capture-{index}.png
-
 Required fields
           [Documentation]          In this test we are verify and assert elements on the page
           ...          Verify and assert alert message with the text for required fields.
@@ -64,8 +60,8 @@ Required fields
           Click Element          id=firstName
           Element Should Be Enabled          id=firstName
           Element Should Be Enabled          id=lastName
-          Element Should Be Enabled          id=male
-          Element Should Be Enabled          id=female
+          Element Should Be Enabled          id=MALE
+          Element Should Be Enabled          id=FEMALE
           Element Should Be Enabled          id=dateOfBirth
           Element Should Be Enabled          id=description
           Element Should Be Enabled          name=country
@@ -121,7 +117,7 @@ Profile Settings
           Capture Page Screenshot          profile-settings-{index}.png
           Input Text          id=firstName          ${freelancer}${no}
           Input Text          id=lastName          ${freelancer}${no}
-          Click Button          id=male
+          Click Button          id=MALE
           Input Text          id=dateOfBirth          06-11-1994
           Input Text          id=description          ${description}
           #Country
@@ -140,11 +136,13 @@ Profile Settings
           #language
           Scroll Element Into View          xpath=//button[contains(.,'Save')]
           Capture Page Screenshot          description-{index}.png
-          Input Text          css=.MultipleSelectSearch_input__34N1Q          English
+          Click Element          css=.MultipleSelectSearch_input__34N1Q
+          Input Text          css=.MultipleSelectSearch_input__34N1Q          Eng
+          Wait Until Element Is Visible          xpath=//div[contains(text(),'English')]
           Click Element          xpath=//div[contains(text(),'English')]
           Capture Page Screenshot          language-{index}.png
           Click Element          xpath=//p[contains(.,'Fluency')]
-          Click Element          xpath=//div[2]/div/div[4]          #Fluency Native
+          Click Element          xpath=//div[contains(text(),'Native')]          #Fluency Native
           Sleep          2
           Capture Page Screenshot          language-{index}.png
           Click Element          xpath=//button[contains(text(),'Save')]
@@ -154,7 +152,7 @@ Profile Settings
           Capture Element Screenshot          xpath://div[contains(text(),'Profile Saved Successfully')]
           Capture Page Screenshot          saved-profile-settings-{index}.png
 
-test - Upload Avatar Picture
+Upload Avatar Picture
           [Documentation]          In this test we are testing upload avatar picture.
           Scroll Element Into View          xpath=//h2[contains(text(),'Profile & Personal Settings')]
           Sleep          3
@@ -171,21 +169,6 @@ Professional page
           Click Link          /profile-settings/professional
           #Professional Settings
           Professional Settings page
-          Wait Until Element Is Visible          xpath=//div[contains(text(),'Programming & Development')]
-          Click Element          xpath=//div[contains(text(),'Programming & Development')]
-          Capture Page Screenshot          category-{index}.png
-          Wait Until Element Is Visible          xpath=//p[contains(text(),'Sub Category')]
-          Element Should Be Enabled          xpath=//p[contains(text(),'Sub Category')]
-          Click Element          xpath=//p[contains(text(),'Sub Category')]
-          Wait Until Element Is Visible          xpath=//div[contains(text(),'Programming & Software')]
-          Click Element          xpath=//div[contains(text(),'Programming & Software')]
-          Capture Page Screenshot          sub-category-{index}.png
-          Wait Until Element Is Visible          xpath=//p[contains(text(),'Sub Category')]
-          Element Should Be Enabled          xpath=//p[contains(text(),'Sub Category')]
-          Click Element          xpath=//p[contains(text(),'Sub Category')]
-          Wait Until Element Is Visible          xpath=//div[contains(text(),'Web Development & Design')]
-          Click Element          xpath=//div[contains(text(),'Web Development & Design')]
-          Capture Page Screenshot          sub-category-{index}.png
 
 Require fields
           Click Button          xpath=//button[contains(text(),'Update')]
@@ -213,35 +196,33 @@ Test input
           Clear Element Text          id=rateAmount
           Input Text          id=rateAmount          ${radnom_amount}
           Capture Page Screenshot          rate-{index}.png
-          #Click Element          xpath=//div[contains(text(),'Profession')]
+          Input Text          id=tagline          ${no}${no} ${professionTitle}
           Click Element          xpath=//div[@id='profession']/div
+          Wait Until Element Is Visible          xpath=//div[3]/div[1]/div[1]/div[2]/div[1]/div[2]
+          Click Element          xpath=//div[3]/div[1]/div[1]/div[2]/div[1]/div[2]
           Capture Page Screenshot          profession-{index}.png
-          Click Element          xpath=//div[4]
-          Capture Page Screenshot          programming-and-tech-{index}.png
-          Scroll Element Into View          xpath=//button[contains(text(),'Save')]
+          Scroll Element Into View          id=submit
           Wait Until Element Is Visible          xpath=//div[contains(text(),'Expertise')]
           Click Element          xpath=//div[contains(text(),'Expertise')]
           Capture Page Screenshot          expertise-{index}.png
-          Click Element          xpath=//p[contains(text(),'Mobile development')]
+          Click Element          xpath=//p[contains(text(),'Programming & Software')]
           Capture Page Screenshot          1-{index}.png
-          Click Element          xpath=//p[contains(text(),'Desktop Software development')]
+          Click Element          xpath=//p[contains(text(),'Networking, Hardware & System Admin')]
           Capture Page Screenshot          2-{index}.png
-          Click Element          xpath=//p[contains(text(),'Desktop Software development')]
+          Click Element          xpath=//p[contains(text(),'Information Security')]
           Capture Page Screenshot          3-{index}.png
           Click Element          xpath=//p[contains(text(),'QA & Testing')]
           Capture Page Screenshot
           Sleep          1
-          Click Element          xpath=//b[contains(text(),'Sub Categories (optional)')]
-          Input Text          xpath=//form[1]/div[1]/div[5]/div[1]/div[1]/div[1]/div[1]/input[1]          Selenium
+          Click Element          xpath=//div[contains(text(),'Expertise')]
+          Input Text          xpath=//div[5]/div[1]/div[1]/div[1]/div[1]/input[1]          Selenium
           Sleep          1
-          Click Element          xpath=//form[1]/div[1]/div[5]/div[1]/div[1]/div[1]/div[1]/i[1]
+          Click Element          //div[contains(text(),'Selenium Webdriver')]
           Sleep          1
-          Input Text          xpath=//form[1]/div[1]/div[5]/div[1]/div[1]/div[1]/div[1]/input[1]          Automation
-          Click Element          xpath=//form[1]/div[1]/div[5]/div[1]/div[1]/div[1]/div[1]/i[1]
+          Input Text          xpath=//div[5]/div[1]/div[1]/div[1]/div[1]/input[1]          Automation
+          Click Element          xpath=//div[contains(text(),'Test Automation')]
           Sleep          1
-          Input Text          xpath=//form[1]/div[1]/div[5]/div[1]/div[1]/div[1]/div[1]/input[1]          ${professionTitle}
-          Click Element          xpath=//form[1]/div[1]/div[5]/div[1]/div[1]/div[1]/div[1]/i[1]
-          Click Button          xpath=//button[contains(text(),'Save')]
+          Click Button          id=submit
           Sleep          2
           ${alert-success} =          Get Text          xpath://div[contains(text(),'Profile Saved Successfully')]
           Log To Console          ${alert-success}
@@ -585,14 +566,45 @@ Side Main Menu
 
 Portfolio
           Sleep          5
+          Click Link          /profile
           #breadcrumbs
-          Portfolio Breadcrumbs
-          Raw Portfolio page
-          #create collection
-          Click Element          xpath=//div[1]/div[1]/div[2]/div[1]/div[2]/button[1]
-          Sleep          3
-          Create Collection page
-          #Create Collection
+          Wait Until Element Is Visible          link=Add a new Collection
+          Click Element          link=Add a new Collection
+          #manage portfolio
+          Wait Until Element Is Visible          xpath=//h2[contains(text(),'Add a New Collection')]
+          Element Should Be Visible          xpath=//h2[contains(text(),'Add a New Collection')]
+          Element Text Should Be          xpath=//h2[contains(text(),'Add a New Collection')]          Add a New Collection
+          Wait Until Element Is Visible          id=title
+          Element Should Be Visible          id=title
+          Element Should Be Enabled          id=title
+          Wait Until Element Is Visible          id=description
+          Element Should Be Visible          id=description
+          Element Should Be Enabled          id=description
+          Wait Until Element Is Visible          xpath=//p[contains(text(),'Add files')]
+          Element Should Be Visible          xpath=//p[contains(text(),'Add files')]
+          Element Should Be Enabled          xpath=//p[contains(text(),'Add files')]
+          Wait Until Element Is Visible          xpath=//button[contains(.,'Add Collection')]
+          Element Should Be Enabled          xpath=//button[contains(.,'Add Collection')]
+          Wait Until Element Is Visible          xpath=//a[contains(text(),'Cancel')]
+          Element Should Be Enabled          xpath=//a[contains(text(),'Cancel')]
+          #end
+          Click Element          xpath=//button[contains(.,'Add Collection')]
+          #*Required fields
+          Wait Until Element Is Visible          xpath=//body/div[@id='root']/div[1]/section[1]/div[2]/form[1]/div[1]
+          Element Should Be Visible          xpath=//body/div[@id='root']/div[1]/section[1]/div[2]/form[1]/div[1]
+          Element Text Should Be          xpath=//body/div[@id='root']/div[1]/section[1]/div[2]/form[1]/div[1]          * Required
+          Wait Until Element Is Visible          xpath=//body/div[@id='root']/div[1]/section[1]/div[2]/form[1]/div[2]
+          Element Should Be Visible          xpath=//body/div[@id='root']/div[1]/section[1]/div[2]/form[1]/div[2]
+          Element Text Should Be          xpath=//body/div[@id='root']/div[1]/section[1]/div[2]/form[1]/div[2]          * Required
+          Wait Until Element Is Visible          xpath=//div[contains(text(),'* Minimum of one image')]
+          Element Should Be Visible          xpath=//div[contains(text(),'* Minimum of one image')]
+          Element Text Should Be          xpath=//div[contains(text(),'* Minimum of one image')]          * Minimum of one image
+          Capture Page Screenshot          collection-{index}.png
+          Click Element          xpath=//a[contains(text(),'Cancel')]
+
+Create Portfolio
+          Wait Until Element Is Visible          link=Add a new Collection
+          Click Element          link=Add a new Collection
           ${number_title}          Generate Random String          1          [NUMBERS]
           ${random_title}          Generate Random String          5          [LETTERS]
           Input Text          id=title          No ${number_title} Collection ${random_title}
@@ -601,33 +613,34 @@ Portfolio
           ${number_description}          Generate Random String          1          [LETTERS]
           ${random_description}          Generate Random String          5          [LETTERS]
           Input Text          id=description          No ${number_description} Collection ${description1} ${random_description}
-          Scroll Element Into View          xpath=//form[1]/div[2]/div[1]/img[1]
           Capture Page Screenshot          description-{index}.png
           #command
-          ${id} =          Generate Random String          1          [NUMBERS]
-          Choose File          class=ManagePortfolio_FileInputSquare__input__39gdc          ${CURDIR}\\random\\c0${id}.jpg
-          Wait Until Element Is Visible          xpath=//body/div[@id='root']/div[1]/div[1]/div[2]/div[1]/div[4]/form[1]/div[2]/div[1]/div[1]
-          Capture Element Screenshot          xpath=//body/div[@id='root']/div[1]/div[1]/div[2]/div[1]/div[4]/form[1]/div[2]/div[1]/div[1]
-          #          //form[1]/div[2]/div[2]/div[1]
-          Sleep          2
-          Scroll Element Into View          xpath=//div[1]/div[1]/div[2]/div[1]/div[5]/div[1]
+          #1
+          Scroll Element Into View          xpath=//button[contains(.,'Add Collection')]
+          ${id1} =          Generate Random String          1          [NUMBERS]
+          Choose File          id=fileUpload          ${CURDIR}\\random\\c2${id1}.jpg
+          Sleep          1
+          ${id2} =          Generate Random String          1          [NUMBERS]
+          Choose File          id=fileUpload          ${CURDIR}\\random\\c0${id2}.jpg
+          Sleep          1
+          ${id3} =          Generate Random String          1          [NUMBERS]
+          Choose File          id=fileUpload          ${CURDIR}\\random\\c1${id3}.jpg
+          Sleep          1
+          Scroll Element Into View          xpath=//button[contains(.,'Add Collection')]
+          ${id4} =          Generate Random String          1          [NUMBERS]
+          Choose File          id=fileUpload          ${CURDIR}\\random\\c2${id4}.jpg
+          Sleep          1
+          Wait Until Element Is Visible          xpath=//button[contains(.,'Add Collection')]
+          Capture Page Screenshot          bedore-save-collection-{index}.png
+          Sleep          1
+          Click Element          xpath=//button[contains(.,'Add Collection')]
+          Sleep          1
+          Wait Until Element Is Visible          xpath=//div[contains(text(),'Successfully added collection')]
+          ${alert} =          Get Text          xpath=//div[contains(text(),'Successfully added collection')]
+          Log To Console          ${alert}
+          Wait Until Element Is Visible          xpath=//h2[contains(text(),'Portfolio Collections')]
+          Capture Page Screenshot          my-profiel-{index}.png
           Capture Page Screenshot          capture-{index}.png
-          Click Button          xpath=//form[1]/div[3]/button[1]
-          #Save collection
-          Element Should Be Enabled          xpath=//div[1]/div[1]/div[2]/div[1]/div[3]/div[3]/button[1]
-          Click Button          xpath=//div[1]/div[1]/div[2]/div[1]/div[3]/div[3]/button[1]
-          #modal
-          Portfolio modal
-          #command
-          Click Element          xpath=//div[1]/div[1]/div[2]/div[1]/div[4]/div[1]/div[2]/div[3]/a[2]/button[1]
-          Wait Until Element Is Visible          class=Profile_profileRightSideContainer__A6iXd
-          Capture Element Screenshot          class=Profile_profileRightSideContainer__A6iXd
-
-Create Portfolio
-          Create Multiple Portfolio
-          Create Multiple Portfolio
-          Create Multiple Portfolio
-          Create Multiple Portfolio
 
 Post a Contest
           Post a Job Contest

@@ -20,47 +20,37 @@ ${TMP_PATH}             /tmp
 
 *** Test Cases ***
 Login
+          Maximize Browser Window
+          Go To          ${TESTURL}
+          Wait Until Element Is Visible          class=Login_headingText__2QdrP
+          Input Text          id=emailOrUserName          ufj
+          Input Text          id=password          ${ufjpass}
+          Submit Form
           Login Business KW
 
 Post a job page
           #mini-dashboard
           #post a job button
           #Click Element          clas=#postAJob
-          mini-dashboard
-          Click Element          css=#postAJob
+          Navheader Business
+          Wait Until Element Is Visible          id=postAJob
+          Click Element          id=postAJob
           Breadcrumb post a job
           Post a job header
-          Describe and attach section
+          #Describe and attach section
           Select Category and Skills section
-          Select Job Type section
 
-Describe
+Job Description
           [Documentation]          Add Title and Description
-          Scroll Element Into View          xpath=//h2[contains(text(),'Post a project?')]
-          Capture Page Screenshot          title-{index}.png
-          ${number_title}=          Generate Random String          5          [NUMBERS]
-          ${random_title}=          Generate Random String          2          [LETTERS]
-          Element Should Be Visible          id=jobTitle
-          Element Should Be Enabled          id=jobTitle
-          Input Text          id=jobTitle          No: ${number_title} Testing Contest ${random_title}
-          Capture Page Screenshot          title-{index}.png
-          Element Should Be Visible          id=jobDescription
-          Element Should Be Enabled          id=jobDescription
-          ${random_description}=          Generate Random String          20          [LETTERS]
-          Input Text          id=jobDescription          My page is based on scientific and belief announcements or publicationsy${number_title} ${random_title} ${description}
-          Capture Page Screenshot          title-{index}.png
-          Sleep          1
-          ${id} =          Generate Random String          2          [NUMBERS]
-          Element Should Be Enabled          id=upload
-          Choose File          id=upload          ${CURDIR}\\random\\${id}.jpg
-          Capture Page Screenshot          uploaded-file-{index}.png
-
-Select Category and Skills
+          Job Description page
           ${letter}          Generate Random String          1          [LETTERS]
           ${letter1}          Generate Random String          1          [LETTERS]
           ${letter2}          Generate Random String          1          [LETTERS]
+          Sleep          3
+          Scroll Element Into View          xpath=//p[contains(text(),'Start a contest?')]
+          Click Element          xpath=//p[contains(text(),'Start a contest?')]
+          Capture Page Screenshot          title-{index}.png
           Wait Until Element Is Visible          id=category
-          Scroll Element Into View          xpath=//h3[contains(text(),'Select Job Type')]
           Element Should Be Enabled          id=category
           Click Element          id=category
           Wait Until Element Is Visible          xpath=//div[contains(text(),'Programming & Development')]
@@ -82,85 +72,84 @@ Select Category and Skills
           Wait Until Element Is Visible          id=skills
           Element Should Be Enabled          id=skills
           Input Text          id=skills          ${letter}a${letter1}a${letter2}a
-          Sleep          1
           Press Keys          id=skills          RETURN
-          Sleep          3
+          Sleep          1
+          ${number_title}=          Generate Random String          5          [NUMBERS]
+          ${random_title}=          Generate Random String          2          [LETTERS]
+          Element Should Be Visible          id=jobTitle
+          Element Should Be Enabled          id=jobTitle
+          Input Text          id=jobTitle          No: ${number_title} Testing Contest ${random_title}
+          Capture Page Screenshot          title-{index}.png
+          Element Should Be Visible          id=jobDescription
+          Element Should Be Enabled          id=jobDescription
+          ${random_description}=          Generate Random String          20          [LETTERS]
+          Input Text          id=jobDescription          My page is based on scientific and belief announcements or publicationsy${number_title} ${random_title} ${description}
+          Capture Page Screenshot          title-{index}.png
+          Sleep          1
+          ${id} =          Generate Random String          2          [NUMBERS]
+          Element Should Be Enabled          id=upload
+          Choose File          id=upload          ${CURDIR}\\random\\${id}.jpg
+          Capture Page Screenshot          uploaded-file-{index}.png
+          Click Element          xpath=//button[contains(text(),'Continue to Terms & Price')]
+          Capture Page Screenshot          uploaded-file-{index}.png
 
-Select Job Type
-          #Select Job Type
-          Scroll Element Into View          xpath=//h3[contains(text(),'Optional Upgrades')]
-          #CONTEST
-          Click Element          id=contest
-          Scroll Element Into View          xpath=//h3[contains(text(),'Optional Upgrades')]
-          Capture Page Screenshot          contest-{index}.png
-          Wait Until Element Is Visible          xpath=//h3[contains(text(),'Number of Days')]
-          Element Should Be Visible          xpath=//h3[contains(text(),'Number of Days')]
-          Element Text Should Be          xpath=//h3[contains(text(),'Number of Days')]          Number of Days
-          Wait Until Element Is Visible          xpath=//button[contains(text(),'1 Day')]
-          Element Should Be Visible          xpath=//button[contains(text(),'1 Day')]
-          Element Text Should Be          xpath=//button[contains(text(),'1 Day')]          1 Day
-          Wait Until Element Is Visible          xpath=//button[contains(text(),'2 Days')]
-          Element Should Be Visible          xpath=//button[contains(text(),'2 Days')]
-          Element Text Should Be          xpath=//button[contains(text(),'2 Days')]          2 Days
-          Wait Until Element Is Visible          name=numberOfDays
-          Element Should Be Enabled          name=numberOfDays
-          Wait Until Element Is Visible          xpath=//h3[contains(text(),'Select Prize Amount')]
-          Element Should Be Visible          xpath=//h3[contains(text(),'Select Prize Amount')]
-          Element Text Should Be          xpath=//h3[contains(text(),'Select Prize Amount')]          Select Prize Amount
-          Wait Until Element Is Visible          name=prize
-          Element Should Be Enabled          name=prize
-          Wait Until Element Is Visible          xpath=//h3[contains(text(),'Optional Upgrades')]
-          Element Should Be Visible          xpath=//h3[contains(text(),'Optional Upgrades')]
-          Element Text Should Be          xpath=//h3[contains(text(),'Optional Upgrades')]          Optional Upgrades
-          Log To Console          xpath=//div[@id='contest']
-          Capture Page Screenshot          preview-contest-{index}.png
-          Capture Element Screenshot          xpath=//div[@id='contest']
-          ${prize}=          Generate Random String          3          [NUMBERS]
+Terms and Prices
+          #Terms & Prices
+          Terms & Prices pages
+          Clear Element Text          name=numberOfDays
+          Input Text          name=numberOfDays          30
+          ${prize}=          Generate Random String          2          [NUMBERS]
           Input Text          name=prize          ${prize}
-          #Wait Until Element Is Visible          class=TriangleBadge_container__2Eed5          #Urgent
-          Scroll Element Into View          xpath=//div[@id='contest']
-          Capture Element Screenshot          xpath=//div[@id='contest']
-          #Wait Until Element Is Visible          xpath=//button[contains(text(),'Login and Post')]
-          #Element Should Be Enabled          xpath=//button[contains(text(),'Login and Post')]
-          #Element Text Should Be          xpath=//button[contains(text(),'Login and Post')]          Post
-          Wait Until Element Is Visible          xpath=//button[contains(text(),'Contest')]
-          Scroll Element Into View          xpath=//button[contains(text(),'Contest')]
-          Click Element          xpath=//button[contains(text(),'Contest')]
           Capture Page Screenshot          post-a-contest-{index}.png
+          Click Element          xpath=//button[contains(text(),'Continue to Preview')]
+
+Preview
+          #review
+          #Preview page
+          Log To Console          class=JobForm_postJobPreview__3Lqld
+          Wait Until Element Is Visible          xpath=//h3[contains(text(),'Optional Upgrades')]
+          Log To Console          class=JobForm_optionalUpgrades__2B8zy
+          Click Element          xpath=//button[contains(text(),'Contest')]
+          Capture Page Screenshot          preview-contest{index}.png
+          Wait Until Element Is Visible          xpath=//div[contains(text(),'Successfully Posted Job')]
+          Capture Element Screenshot          xpath=//div[contains(text(),'Successfully Posted Job')]
+          Click Element          xpath=//div[contains(text(),'Successfully Posted Job')]
 
 Transaction
-          Wait Until Element Is Visible          xpath=//h2[contains(text(),'Payment Breakdown')]
-          Capture Page Screenshot          slika-{index}.png
-          Sleep          3
-          Select Frame          xpath=//iframe[@id='jsx-iframe-7a76a45c7f']
-          Sleep          15
-          Wait Until Element Is Visible          xpath=//input[@id='email']
-          Input Text          xpath=//input[@id='email']          zarko.paypal2020@gmail.com
-          Capture Page Screenshot          slika-{index}.png
-          Wait Until Element Is Visible          xpath=//input[@id='password']
-          Input Text          xpath=//input[@id='password']          Tester##99
-          Wait Until Element Is Visible          xpath=//button[@id='btnLogin']
-          Click Element          xpath=//button[@id='btnLogin']
-          Sleep          17
-          Wait Until Element Is Visible          xpath=//span[contains(text(),'Hi Paypal,')]
-          Capture Page Screenshot          slika-{index}.png
-          Scroll Element Into View          css=#payment-submit-btn
-          Click Element          css=#payment-submit-btn
-          Capture Page Screenshot          slika-{index}.png
-          Sleep          7
-          #ALERT MESSAGES
+          Wait Until Element Is Visible          xpath=//div[contains(text(),'Details')]
+          Element Should Be Visible          xpath=//div[contains(text(),'Details')]
+          Element Text Should Be          xpath=//div[contains(text(),'Details')]          Details
+          Wait Until Element Is Visible          xpath=//div[contains(text(),'Submissions')]
+          Element Should Be Visible          xpath=//div[contains(text(),'Submissions')]
+          Element Text Should Be          xpath=//div[contains(text(),'Submissions')]          Submissions
+          Capture Page Screenshot          single-job-page-contest{index}.png
+          Wait Until Element Is Visible          id=myJobs
+          Element Should Be Visible          id=myJobs
+          Element Should Be Enabled          id=myJobs
+          Click Element          id=myJobs
+          Wait Until Element Is Visible          xpath=//a[contains(text(),'All Jobs')]
+          Element Should Be Visible          xpath=//a[contains(text(),'All Jobs')]
+          Element Should Be Enabled          xpath=//a[contains(text(),'All Jobs')]
+          Element Text Should Be          xpath=//a[contains(text(),'All Jobs')]          All Jobs
+          Capture Page Screenshot          My-jobs-{index}.png
 
 Contest single job page
-          Sleep          5
-          Capture Page Screenshot          slika-{index}.png
-
-My Jobs
-          Navheader Business
-          Click Element          id=myJobs
-          Wait Until Element Is Visible          class=MyJobs_myJobsTable__ouUeb
-          Wait Until Element Is Visible          class=MyJobsJobCard_myJobsCard__1S7w0
-          Capture Element Screenshot          class=MyJobs_myJobsTable__ouUeb
-          Capture Page Screenshot          my-jobs-{index}.png
+          Wait Until Element Is Visible          css=.Nav_profileImg__u9k60:nth-child(6) > .Avatar_avatar__container__6SBhX
+          Wait Until Element Is Visible          css=.Nav_profileImg__u9k60:nth-child(6) > .Avatar_avatar__container__6SBhX
+          Element Should Be Enabled          css=.Nav_profileImg__u9k60:nth-child(6) > .Avatar_avatar__container__6SBhX
+          Click Element          css=.Nav_profileImg__u9k60:nth-child(6) > .Avatar_avatar__container__6SBhX
+          Capture Page Screenshot          avatar-{index}.png
+          Wait Until Element Is Visible          css=#manageFinances
+          Element Should Be Visible          xpath=//a[@id='manageFinances']
+          Element Should Be Enabled          xpath=//a[@id='manageFinances']
+          Click Element          xpath=//a[@id='manageFinances']
+          Capture Page Screenshot          menu-{index}.png
+          Wait Until Element Is Visible          xpath=//a[contains(text(),'Transaction History')]
+          Element Should Be Visible          xpath=//a[contains(text(),'Transaction History')]
+          Element Should Be Enabled          xpath=//a[contains(text(),'Transaction History')]
+          Click Element          xpath=//a[contains(text(),'Transaction History')]
+          Capture Page Screenshot          transaction-history-{index}.png
+          Log To Console          class=table-responsive
 
 Logout
           LogoutKW

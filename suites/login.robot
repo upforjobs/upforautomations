@@ -15,8 +15,7 @@ ${TMP_PATH}             /tmp
 *** Test Cases ***
 Login password is incorrect
           [Tags]          login
-          Maximize Browser Window
-          Go To          ${TESTURL}
+          UFJLogin
           Wait Until Element Is Visible          xpath=//p[contains(.,'Sign In')]
           Click Element          xpath=//p[contains(.,'Sign In')]
           Login modal dialog
@@ -34,8 +33,7 @@ Login password is incorrect
 
 Login - missing login details
           [Tags]          login
-          Maximize Browser Window
-          Go To          ${TESTURL}
+          UFJLogin
           Click Element          xpath=//p[contains(.,'Sign In')]
           Login modal dialog
           Click Button          id:login
@@ -52,8 +50,7 @@ Login - missing login details
 
 Login - User not found
           [Tags]          login
-          Maximize Browser Window
-          Go To          ${TESTURL}
+          UFJLogin
           Click Element          xpath=//p[contains(.,'Sign In')]
           Login modal dialog
           Input Text          name=emailOrUserName          invalid
@@ -67,8 +64,7 @@ Login - User not found
 
 Login with FB
           [Tags]          login
-          Maximize Browser Window
-          Go To          ${TESTURL}
+          UFJLogin
           Click Element          xpath=//p[contains(.,'Sign In')]
           Login modal dialog
           Wait Until Element Is Visible          xpath=//div[@id='facebookLogin']
