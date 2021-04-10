@@ -730,9 +730,9 @@ Navheader Unregistered
           Wait Until Element Is Visible          class=Nav_inputWrapper__2N_eD
           Element Should Be Visible          class=Nav_inputWrapper__2N_eD
           Element Should Be Enabled          class=Nav_inputWrapper__2N_eD
-          Wait Until Element Is Visible          class=fa-search
-          Element Should Be Visible          class=fa-search
-          Element Should Be Enabled          class=fa-search
+          Wait Until Element Is Visible          xpath=//form[1]/div[2]/div[1]/div[1]/button[1]
+          Element Should Be Visible          xpath=//form[1]/div[2]/div[1]/div[1]/button[1]
+          Element Should Be Enabled          xpath=//form[1]/div[2]/div[1]/div[1]/button[1]
           Wait Until Element Is Visible          class=Nav_searchBox__3_6yM
           Element Should Be Visible          class=Nav_searchBox__3_6yM
           Element Should Be Enabled          class=Nav_searchBox__3_6yM
@@ -1181,19 +1181,6 @@ Post a job header
           Wait Until Element Is Visible          xpath=//body/div[@id='root']/div[1]/section[1]/div[1]/div[2]/p[1]
           Element Should Be Visible          xpath=//body/div[@id='root']/div[1]/section[1]/div[1]/div[2]/p[1]
 
-Describe and attach section
-
-Select Category and Skills section
-          Wait Until Element Is Visible          id=category
-          Element Should Be Visible          id=category
-          Element Should Be Enabled          id=category
-          #Wait Until Element Is Visible          xpath=//p[contains(text(),'Sub Category')]
-          #Element Should Be Visible          xpath=//p[contains(text(),'Sub Category')]
-          #Element Should Be Enabled          xpath=//p[contains(text(),'Sub Category')]
-          Wait Until Element Is Visible          id=skills
-          Element Should Be Visible          id=skills
-          Element Should Be Enabled          id=skills
-
 UFJLogin
           Maximize Browser Window
           Go To          ${TESTURL}
@@ -1248,7 +1235,7 @@ Job Description page
           Element Text Should Be          xpath=//button[contains(text(),'Continue to Terms & Price')]          Continue to Terms & Price
           Element Should Be Enabled          xpath=//button[contains(text(),'Continue to Terms & Price')]
 
-Terms & Prices pages
+Terms & Prices Contest page
           Wait Until Element Is Visible          xpath=//button[contains(text(),'Terms & Prices')]
           Element Should Be Visible          xpath=//button[contains(text(),'Terms & Prices')]
           Element Text Should Be          xpath=//button[contains(text(),'Terms & Prices')]          Terms & Prices
@@ -1270,3 +1257,46 @@ Terms & Prices pages
           Wait Until Element Is Visible          name=prize
           Element Should Be Visible          name=prize
           Element Should Be Enabled          name=prize
+
+Terms & Prices Project page
+          Wait Until Element Is Visible          xpath=//h3[contains(text(),'LOCATION *')]
+          Element Should Be Visible          xpath=//h3[contains(text(),'LOCATION *')]
+          Element Text Should Be          xpath=//h3[contains(text(),'LOCATION *')]          LOCATION *
+          Wait Until Element Is Visible          class=MultipleSelectSearch_input__34N1Q
+          Element Should Be Enabled          class=MultipleSelectSearch_input__34N1Q
+          Wait Until Element Is Visible          xpath=//h3[contains(text(),'PROJECT TYPE *')]
+          Element Should Be Visible          xpath=//h3[contains(text(),'PROJECT TYPE *')]
+          Element Text Should Be          xpath=//h3[contains(text(),'PROJECT TYPE *')]          PROJECT TYPE *
+          Wait Until Element Is Visible          xpath=//p[contains(text(),'Project Type')]
+          Element Should Be Enabled          xpath=//p[contains(text(),'Project Type')]
+          Wait Until Element Is Visible          xpath=//h3[contains(text(),'NO. OF FREELANCERS *')]
+          Element Should Be Visible          xpath=//h3[contains(text(),'NO. OF FREELANCERS *')]
+          Element Text Should Be          xpath=//h3[contains(text(),'NO. OF FREELANCERS *')]          NO. OF FREELANCERS *
+          Wait Until Element Is Visible          id=numberOfFreelancers
+          Element Should Be Enabled          id=numberOfFreelancers
+          Wait Until Element Is Visible          xpath=//h3[contains(text(),'EXPERIENCE LEVEL *')]
+          Element Should Be Visible          xpath=//h3[contains(text(),'EXPERIENCE LEVEL *')]
+          Element Text Should Be          xpath=//h3[contains(text(),'EXPERIENCE LEVEL *')]          EXPERIENCE LEVEL *
+          Wait Until Element Is Visible          xpath=//p[contains(text(),'Experience Level')]
+          Element Should Be Enabled          xpath=//p[contains(text(),'Experience Level')]
+          Wait Until Element Is Visible          xpath=//h3[contains(text(),'EXPECTED TIME *')]
+          Element Should Be Visible          xpath=//h3[contains(text(),'EXPECTED TIME *')]
+          Element Text Should Be          xpath=//h3[contains(text(),'EXPECTED TIME *')]          EXPECTED TIME *
+          Wait Until Element Is Visible          xpath=//p[contains(text(),'Expected Time')]
+          Element Should Be Enabled          xpath=//p[contains(text(),'Expected Time')]
+          Wait Until Element Is Visible          xpath=//h3[contains(text(),'PROJECT LENGTH *')]
+          Element Should Be Visible          xpath=//h3[contains(text(),'PROJECT LENGTH *')]
+          Element Text Should Be          xpath=//h3[contains(text(),'PROJECT LENGTH *')]          PROJECT LENGTH *
+          Wait Until Element Is Visible          xpath=//p[contains(text(),'Project Length')]
+          Element Should Be Enabled          xpath=//p[contains(text(),'Project Length')]
+          Wait Until Element Is Visible          xpath=//h3[contains(text(),'PRICING *')]
+          Element Should Be Visible          xpath=//h3[contains(text(),'PRICING *')]
+          Element Text Should Be          xpath=//h3[contains(text(),'PRICING *')]          PRICING *
+          Element Should Be Enabled          xpath=//label[contains(text(),'Hourly')]
+          Wait Until Element Is Visible          xpath=//label[contains(text(),'Hourly')]
+          Element Should Be Visible          xpath=//label[contains(text(),'Hourly')]
+          Element Text Should Be          xpath=//label[contains(text(),'Hourly')]          Hourly
+          Radio Button Should Be Set To          rateType          HOURLY
+          Wait Until Element Is Visible          xpath=//label[contains(text(),'Fixed')]
+          Element Should Be Visible          xpath=//label[contains(text(),'Fixed')]
+          Element Should Be Enabled          xpath=//label[contains(text(),'Fixed')]

@@ -243,7 +243,7 @@ post a contest
           Click Element          css=#postAJob
           Breadcrumb post a job
           Post a job header
-          Describe and attach section
+          Job description
           Select Category and Skills section
           Select Job Type section
           Scroll Element Into View          xpath=//h2[contains(text(),'Post a project?')]

@@ -95,7 +95,7 @@ Job Description
 
 Terms and Prices
           #Terms & Prices
-          Terms & Prices pages
+          Terms & Prices Contest page
           Clear Element Text          name=numberOfDays
           Input Text          name=numberOfDays          30
           ${prize}=          Generate Random String          2          [NUMBERS]
@@ -106,9 +106,11 @@ Terms and Prices
 Preview
           #review
           #Preview page
-          Log To Console          class=JobForm_postJobPreview__3Lqld
+          ${alert} =          Get Text          class=JobForm_postJobPreview__3Lqld
+          Log To Console          ${alert}
           Wait Until Element Is Visible          xpath=//h3[contains(text(),'Optional Upgrades')]
-          Log To Console          class=JobForm_optionalUpgrades__2B8zy
+          ${alert1} =          Get Text          class=JobForm_optionalUpgrades__2B8zy
+          Log To Console          ${alert1}
           Click Element          xpath=//button[contains(text(),'Contest')]
           Capture Page Screenshot          preview-contest{index}.png
           Wait Until Element Is Visible          xpath=//div[contains(text(),'Successfully Posted Job')]
