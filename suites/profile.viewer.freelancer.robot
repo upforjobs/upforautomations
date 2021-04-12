@@ -46,3 +46,9 @@ Go to business public profile
           Sleep          10
           #Console log
           LogoutKW
+
+Post a job page
+          Navheader Business
+          Wait Until Element Is Visible          id=postAJob
+          Click Element          id=postAJob
+          Breadcrumb post a job

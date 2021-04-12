@@ -32,25 +32,6 @@ Business Landing page
           Element Text Should Be          xpath://h3[contains(text(),'Up For Teams')]          Up For Teams
           Element Text Should Be          xpath://a[contains(text(),'team creator app')]          team creator app
 
-Congrats Contest
-          Sleep          3
-          Congrats Contest modal dialog not urgent
-          Click Element          id=Sealed
-          Click Element          id=Extent
-          Click Element          id=Private
-          Click Element          id=TopContest
-          Click Element          id=Highlight
-          Click Element          id=Urgent
-          Click Element          id=Featured
-          Click Element          id=Guaranteed
-          Click Element          id=Request to sign NDA
-          Capture Page Screenshot          BOOST-FEATURES-{index}.png
-          Element Should Be Enabled          xpath=//button[contains(text(),'Finish')]
-          Element Should Be Visible          xpath=//button[contains(text(),'Finish')]
-          Element Text Should Be          xpath=//button[contains(text(),'Finish')]          Finish
-          Click Button          xpath=//button[contains(text(),'Finish')]
-          Capture Page Screenshot          congrats-{index}.png
-
 Congrats Contest modal dialog Urgent
           Capture Page Screenshot          poroject-modal-dialog
           Wait Until Element Is Visible          class=PostAJobFinish_finishBody__2F2D1
@@ -479,17 +460,6 @@ Freelancer profile right container raw
           Element Text Should Be          xpath=//button[contains(.,'Add items')]          Add items
           Capture Element Screenshot          class=Profile_profileRightSideContainer__A6iXd
 
-Header Post a Job
-          Wait Until Element Is Visible          xpath://a[contains(text(),'Up For Jobs')]
-          Element Text Should Be          xpath://a[contains(text(),'Up For Jobs')]          Up For Jobs
-          Wait Until Element Is Visible          xpath://body/div[@id='root']/div[1]/section[1]/div[1]/a[2]
-          Element Text Should Be          xpath://body/div[@id='root']/div[1]/section[1]/div[1]/a[2]          Post a Job
-          Wait Until Element Is Visible          xpath://body/div[@id='root']/div[1]/section[1]/div[2]/h2[1]/span[1]
-          Element Text Should Be          xpath://body/div[@id='root']/div[1]/section[1]/div[2]/h2[1]          Post a Job
-          Wait Until Element Is Visible          xpath://p[contains(text(),'Post a job in four easy steps')]
-          Element Text Should Be          xpath://p[contains(text(),'Post a job in four easy steps')]          Post a job in four easy steps
-          Capture Page Screenshot          header-{index}.png
-
 ID Verification page
           Wait Until Element Is Visible          xpath=//h2[contains(text(),'ID Verification')]
           Capture Page Screenshot          ID-Verification-page-{index}.png
@@ -753,7 +723,6 @@ Navheader Unregistered
 New Profile Settings page
           Wait Until Element Is Visible          class:BreadCrumb_breadcrumbContainer__1e_Kg
           Capture Page Screenshot          BreadCrumb-{index}.png
-          #Wellcome
           Profile Settings page
 
 Open Chrome Browser
@@ -810,20 +779,6 @@ Portfolio modal
           Wait Until Element Is Visible          xpath=//div[1]/div[1]/div[2]/div[1]/div[4]/div[1]/div[2]/button[1]
           Element Should Be Visible          xpath=//div[1]/div[1]/div[2]/div[1]/div[4]/div[1]/div[2]/button[1]
           Element Text Should Be          xpath=//div[1]/div[1]/div[2]/div[1]/div[4]/div[1]/div[2]/button[1]          Cancel
-
-Post a Job Contest
-          1st step
-          2nd step
-          3rd step Contest
-          4th step Contest
-          5th step Preview job contest
-          Congrats Contest
-          #thank you page
-          Sleep          3
-          Click Element          xpath=//body/div[@id='root']/div[1]/div[1]/section[1]/img[1]
-          Scroll Element Into View          xpath=//body/div[@id='root']/div[1]/div[1]/section[1]/div[1]/p[1]
-          Capture Page Screenshot          finish-{index}.png
-          My jobs page
 
 Prelounch login
           Go To          ${PRELOUNCH}
@@ -1170,16 +1125,9 @@ Breadcrumb post a job
           Wait Until Element Is Visible          xpath=//a[contains(text(),'UpForJobs')]
           Element Should Be Visible          xpath=//a[contains(text(),'UpForJobs')]
           Element Text Should Be          xpath=//a[contains(text(),'UpForJobs')]          UpForJobs
-          Wait Until Element Is Visible          xpath=//body/div[@id='root']/div[1]/section[1]/div[1]/div[1]/div[1]/a[2]
-          Element Should Be Visible          xpath=//body/div[@id='root']/div[1]/section[1]/div[1]/div[1]/div[1]/a[2]
-          Element Text Should Be          xpath=//body/div[@id='root']/div[1]/section[1]/div[1]/div[1]/div[1]/a[2]          Post a Job
-
-Post a job header
-          Wait Until Element Is Visible          xpath=//h2[contains(text(),'Post a Job')]
-          Element Should Be Visible          xpath=//h2[contains(text(),'Post a Job')]
-          Element Text Should Be          xpath=//h2[contains(text(),'Post a Job')]          Post a Job
-          Wait Until Element Is Visible          xpath=//body/div[@id='root']/div[1]/section[1]/div[1]/div[2]/p[1]
-          Element Should Be Visible          xpath=//body/div[@id='root']/div[1]/section[1]/div[1]/div[2]/p[1]
+          Wait Until Element Is Visible          xpath=//body/div[@id='root']/div[1]/section[1]/div[1]/a[2]
+          Element Should Be Visible          xpath=//body/div[@id='root']/div[1]/section[1]/div[1]/a[2]
+          Element Text Should Be          xpath=//body/div[@id='root']/div[1]/section[1]/div[1]/a[2]          Post a Job
 
 UFJLogin
           Maximize Browser Window

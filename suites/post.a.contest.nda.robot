@@ -1,19 +1,11 @@
 *** Settings ***
-Documentation           in this test we are testing Login form
-...                     Landing page
-...                     post a job page
-...                     my jobs page
-...                     transaction page with paypal
-...                     logout
 Suite Setup             Open Testbrowser
 Suite Teardown          Close All Browsers
-Test Setup
+Resource                _keywords.txt
+Resource                _mysetup.txt
 Library                 SeleniumLibrary
 Library                 String
 Library                 XvfbRobot
-Resource                _mysetup.txt
-Resource                _keywords.txt
-Library                 Collections
 
 *** Variables ***
 ${TMP_PATH}             /tmp
@@ -72,12 +64,12 @@ Job Description
           ${random_title}=          Generate Random String          2          [LETTERS]
           Element Should Be Visible          id=jobTitle
           Element Should Be Enabled          id=jobTitle
-          Input Text          id=jobTitle          No: ${number_title} Testing Contest
+          Input Text          id=jobTitle          No: ${number_title} NDA Contest Testing
           Capture Page Screenshot          title-{index}.png
           Element Should Be Visible          id=jobDescription
           Element Should Be Enabled          id=jobDescription
           ${random_description}=          Generate Random String          20          [LETTERS]
-          Input Text          id=jobDescription          My page is based on scientific and belief announcements or publicationsy${number_title} ${random_title} ${description}
+          Input Text          id=jobDescription          My page is based on scientific and belief announcements or publicationsy ${number_title} ${random_title} ${description}
           Capture Page Screenshot          title-{index}.png
           Sleep          1
           ${id} =          Generate Random String          2          [NUMBERS]
@@ -93,7 +85,7 @@ Terms and Prices
           Clear Element Text          name=numberOfDays
           Input Text          name=numberOfDays          30
           ${prize}=          Generate Random String          1          [NUMBERS]
-          Input Text          name=prize          2${prize}
+          Input Text          name=prize          1${prize}
           Capture Page Screenshot          post-a-contest-{index}.png
           Click Element          xpath=//button[contains(text(),'Continue to Preview')]
 
@@ -105,6 +97,10 @@ Preview
           Wait Until Element Is Visible          xpath=//h3[contains(text(),'Optional Upgrades')]
           ${alert1} =          Get Text          class=JobForm_optionalUpgrades__2B8zy
           Log To Console          ${alert1}
+          #NDA Agreemenet
+          Wait Until Element Is Visible          xpath=//h2[contains(text(),'Request to sign NDA')]
+          Click Element          xpath=//h2[contains(text(),'Request to sign NDA')]
+          Wait Until Element Is Visible          xpath=//button[contains(text(),'Contest')]
           Click Element          xpath=//button[contains(text(),'Contest')]
           Capture Page Screenshot          preview-contest{index}.png
           Wait Until Element Is Visible          xpath=//div[contains(text(),'Successfully Posted Job')]
@@ -119,7 +115,6 @@ Transaction
           Element Should Be Visible          xpath=//div[contains(text(),'Submissions')]
           Element Text Should Be          xpath=//div[contains(text(),'Submissions')]          Submissions
           Capture Page Screenshot          single-job-page-contest{index}.png
-          #my jobs
           Wait Until Element Is Visible          id=myJobs
           Element Should Be Visible          id=myJobs
           Element Should Be Enabled          id=myJobs
@@ -164,11 +159,3 @@ Contest single job page
 
 Logout
           LogoutKW
-
-*** Keywords ***
-Open Chrome Browser
-          ${options}          Evaluate          sys.modules['selenium.webdriver'].ChromeOptions()          sys, selenium.webdriver
-          Call Method          ${options}          add_argument          --no-sandbox
-          ${prefs}          Create Dictionary          download.default_directory=${TMP_PATH}
-          Call Method          ${options}          add_experimental_option          prefs          ${prefs}
-          Create Webdriver          Chrome          chrome_options=${options}

@@ -11,10 +11,18 @@ Library                 String
 ${TMP_PATH}             /tmp
 
 *** Test Cases ***
+Loginufj
+          Maximize Browser Window
+          Go To          ${TESTURL}
+          Wait Until Element Is Visible          class=Login_headingText__2QdrP
+          Input Text          id=emailOrUserName          ufj
+          Input Text          id=password          ${ufjpass}
+          Submit Form
+
 Register business
           Hire KW
           #username
-          ${username} =          Generate Random String          5          [UPPER]
+          ${username} =          Generate Random String          3          [UPPER]
           ${username} =          Set Variable          ${username}
           Set Suite Variable          ${username}
           #email
@@ -24,7 +32,7 @@ Register business
           Input Text          name:email          ${radnom_email}
           Capture Page Screenshot          email-{index}.png
           Sleep          1
-          Input Text          name:username          ${username}
+          Input Text          name:username          ${business}${username}
           Capture Page Screenshot          username-{index}.png
           Sleep          1
           Input Password          name:password          ${password}
@@ -38,20 +46,19 @@ Login
           Click Element          xpath=//p[contains(.,'Sign In')]
           Login modal dialog
           Capture Page Screenshot          login-{index}.png
-          Input Text          name:emailOrUserName          ${username}
+          Input Text          name:emailOrUserName          ${business}${username}
           Input Text          name:password          ${password}
           Click Element          id:login
           Wait Until Element Is Not Visible          xpath://button[contains(text(),'Login')]
           Capture Page Screenshot          login-user-{index}.png
 
 Profile settings
-          New Profile Settings page
+          Profile Settings page
           Capture Page Screenshot          profile-settings-{index}.png
-          Input Text          id=firstName          ${username}
-          Input Text          id=lastName          ${username}
+          Input Text          id=firstName          ${business}${username}
+          Input Text          id=lastName          ${business}${username}
           Click Button          id=MALE
-          ${dob} =          Generate Random String          1          [NUMBERS]
-          Input Text          id=dateOfBirth          06-11-199${dob}
+          Input Text          id=dateOfBirth          06-11-1994
           Input Text          id=description          ${description}
           #Country
           Scroll Element Into View          id=language__fluency
@@ -69,14 +76,16 @@ Profile settings
           #language
           Scroll Element Into View          xpath=//button[contains(.,'Save')]
           Capture Page Screenshot          description-{index}.png
-          Input Text          css=.MultipleSelectSearch_input__34N1Q          English
+          Click Element          css=.MultipleSelectSearch_input__34N1Q
+          Input Text          css=.MultipleSelectSearch_input__34N1Q          Eng
+          Wait Until Element Is Visible          xpath=//div[contains(text(),'English')]
           Click Element          xpath=//div[contains(text(),'English')]
           Capture Page Screenshot          language-{index}.png
           Click Element          xpath=//p[contains(.,'Fluency')]
-          Click Element          xpath=//div[2]/div/div[4]          #Fluency Native
+          Click Element          xpath=//div[contains(text(),'Native')]          #Fluency Native
           Sleep          2
           Capture Page Screenshot          language-{index}.png
-          Click Element          xpath=//button[@type='submit']
+          Click Element          xpath=//button[contains(text(),'Save')]
           Wait Until Element Is Visible          xpath=//div[contains(text(),'Profile Saved Successfully')]
           ${alert-success} =          Get Text          xpath=//div[contains(text(),'Profile Saved Successfully')]
           Log To Console          ${alert-success}
@@ -85,8 +94,9 @@ Profile settings
 
 Upload Avatar Picture
           [Documentation]          In this test we are testing upload avatar picture.
-          Scroll Element Into View          xpath=//h2[contains(text(),'Profile Settings')]
-          Sleep          3
+          Scroll Element Into View          xpath=//h2[contains(text(),'Professional Settings')]
+          Wait Until Element Is Visible          xpath=//h2[contains(text(),'Professional Settings')]
+          Sleep          2
           ${id} =          Generate Random String          2          [NUMBERS]
           Choose File          name:add-photo          ${CURDIR}\\random\\${id}.jpg
           Capture Element Screenshot          name=add-photo

@@ -41,6 +41,7 @@ Register user
 Login user
           [Tags]          saveSettings
           Wait Until Element Is Visible          xpath=//p[contains(.,'Sign In')]
+          Element Should Be Visible          xpath=//p[contains(.,'Sign In')]
           Click Element          xpath=//p[contains(.,'Sign In')]
           Capture Page Screenshot          login-{index}.png
           Login modal dialog
@@ -154,8 +155,9 @@ Profile Settings
 
 Upload Avatar Picture
           [Documentation]          In this test we are testing upload avatar picture.
-          Scroll Element Into View          xpath=//h2[contains(text(),'Profile & Personal Settings')]
-          Sleep          3
+          Scroll Element Into View          xpath=//h2[contains(text(),'Professional Settings')]
+          Wait Until Element Is Visible          xpath=//h2[contains(text(),'Professional Settings')]
+          Sleep          2
           ${id} =          Generate Random String          2          [NUMBERS]
           Choose File          name:add-photo          ${CURDIR}\\random\\${id}.jpg
           Capture Element Screenshot          name=add-photo
@@ -164,8 +166,8 @@ Upload Avatar Picture
 
 Professional page
           [Tags]          saveSettings
-          Wait Until Element Is Visible          xpath=//h2[contains(text(),'Profile & Personal Settings')]
-          Scroll Element Into View          xpath=//h2[contains(text(),'Profile & Personal Settings')]
+          Wait Until Element Is Visible          xpath=//h2[contains(text(),'Professional Settings')]
+          Scroll Element Into View          xpath=//h2[contains(text(),'Professional Settings')]
           Click Link          /profile-settings/professional
           #Professional Settings
           Professional Settings page
@@ -175,12 +177,12 @@ Require fields
           Wait Until Element Is Visible          xpath=//div[contains(text(),'* Required')]
           Element Should Be Visible          xpath=//div[contains(text(),'* Required')]
           Element Text Should Be          xpath=//div[contains(text(),'* Required')]          * Required
-          Wait Until Element Is Visible          xpath=//div[contains(text(),'* required minimum 1 Professions')]
-          Element Should Be Visible          xpath=//div[contains(text(),'* required minimum 1 Professions')]
-          Element Text Should Be          xpath=//div[contains(text(),'* required minimum 1 Professions')]          * required minimum 1 Professions
-          Wait Until Element Is Visible          xpath=//div[contains(text(),'* required minimum 2 skill')]
-          Element Should Be Visible          xpath=//div[contains(text(),'* required minimum 2 skill')]
-          Element Text Should Be          xpath=//div[contains(text(),'* required minimum 2 skill')]          * required minimum 2 skill
+          Wait Until Element Is Visible          xpath=//div[contains(text(),'* Required minimum 1 Profession')]
+          Element Should Be Visible          xpath=//div[contains(text(),'* Required minimum 1 Profession')]
+          Element Text Should Be          xpath=//div[contains(text(),'* Required minimum 1 Profession')]          * Required minimum 1 Profession
+          Wait Until Element Is Visible          xpath=//div[contains(text(),'* Required minimum 2 skill')]
+          Element Should Be Visible          xpath=//div[contains(text(),'* Required minimum 2 skill')]
+          Element Text Should Be          xpath=//div[contains(text(),'* Required minimum 2 skill')]          * Required minimum 2 skill
           Wait Until Element Is Visible          xpath=//div[contains(text(),'Some items need your attention')]
           Element Should Be Visible          xpath=//div[contains(text(),'Some items need your attention')]
           Element Text Should Be          xpath=//div[contains(text(),'Some items need your attention')]          Some items need your attention
@@ -196,7 +198,7 @@ Test input
           Clear Element Text          id=rateAmount
           Input Text          id=rateAmount          ${radnom_amount}
           Capture Page Screenshot          rate-{index}.png
-          Input Text          id=tagline          ${no}${no} ${professionTitle}
+          Input Text          id=tagline          ${no}a${no} ${professionTitle}
           Click Element          xpath=//div[@id='profession']/div
           Wait Until Element Is Visible          xpath=//div[3]/div[1]/div[1]/div[2]/div[1]/div[2]
           Click Element          xpath=//div[3]/div[1]/div[1]/div[2]/div[1]/div[2]
@@ -205,16 +207,13 @@ Test input
           Wait Until Element Is Visible          xpath=//div[contains(text(),'Expertise')]
           Click Element          xpath=//div[contains(text(),'Expertise')]
           Capture Page Screenshot          expertise-{index}.png
-          Click Element          xpath=//p[contains(text(),'Programming & Software')]
+          Click Element          xpath=//div[2]/div[1]/div[1]/p[1]
           Capture Page Screenshot          1-{index}.png
-          Click Element          xpath=//p[contains(text(),'Networking, Hardware & System Admin')]
+          Click Element          xpath=//div[1]/div[2]/div[1]/div[2]/p[1]
           Capture Page Screenshot          2-{index}.png
-          Click Element          xpath=//p[contains(text(),'Information Security')]
-          Capture Page Screenshot          3-{index}.png
-          Click Element          xpath=//p[contains(text(),'QA & Testing')]
-          Capture Page Screenshot
           Sleep          1
           Click Element          xpath=//div[contains(text(),'Expertise')]
+          Capture Page Screenshot          closing-dropdown-expertise-{index}.png
           Input Text          xpath=//div[5]/div[1]/div[1]/div[1]/div[1]/input[1]          Selenium
           Sleep          1
           Click Element          //div[contains(text(),'Selenium Webdriver')]
