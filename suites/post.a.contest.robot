@@ -35,7 +35,7 @@ Post a job page
           Breadcrumb post a job
 
 Job Description
-          [Documentation]          Add Title and Description
+          [Documentation]          Create category
           Job Description page
           ${letter}          Generate Random String          1          [LETTERS]
           ${letter1}          Generate Random String          1          [LETTERS]
@@ -44,23 +44,37 @@ Job Description
           Scroll Element Into View          xpath=//p[contains(text(),'Start a contest?')]
           Click Element          xpath=//p[contains(text(),'Start a contest?')]
           Capture Page Screenshot          title-{index}.png
+          Scroll Element Into View          xpath=//h3[contains(text(),'JOB TITLE *')]
           Wait Until Element Is Visible          id=category
           Element Should Be Enabled          id=category
           Click Element          id=category
-          Wait Until Element Is Visible          xpath=//div[contains(text(),'Programming & Development')]
-          Click Element          xpath=//div[contains(text(),'Programming & Development')]
+          Wait Until Element Is Visible          xpath=//div[contains(text(),'Design & Art')]
+          Click Element          xpath=//div[contains(text(),'Design & Art')]
           Capture Page Screenshot          category-{index}.png
           Wait Until Element Is Visible          xpath=//p[contains(text(),'Sub Category')]
           Element Should Be Enabled          xpath=//p[contains(text(),'Sub Category')]
           Click Element          xpath=//p[contains(text(),'Sub Category')]
-          Wait Until Element Is Visible          xpath=//div[contains(text(),'Programming & Software')]
-          Click Element          xpath=//div[contains(text(),'Programming & Software')]
+          Wait Until Element Is Visible          xpath=//div[1]/div[2]/div[2]/div[1]/div[1]
+          Click Element          xpath=//div[1]/div[2]/div[2]/div[1]/div[1]
           Capture Page Screenshot          sub-category-{index}.png
           Wait Until Element Is Visible          xpath=//p[contains(text(),'Sub Category')]
           Element Should Be Enabled          xpath=//p[contains(text(),'Sub Category')]
           Click Element          xpath=//p[contains(text(),'Sub Category')]
-          Wait Until Element Is Visible          xpath=//div[contains(text(),'Web Development & Design')]
-          Click Element          xpath=//div[contains(text(),'Web Development & Design')]
+          Wait Until Element Is Visible          xpath=//div[1]/div[2]/div[2]/div[1]/div[2]
+          Click Element          xpath=//div[1]/div[2]/div[2]/div[1]/div[2]
+          Capture Page Screenshot          sub-category-{index}.png
+          Wait Until Element Is Visible          xpath=//p[contains(text(),'Sub Category')]
+          Element Should Be Enabled          xpath=//p[contains(text(),'Sub Category')]
+          Click Element          xpath=//p[contains(text(),'Sub Category')]
+          Wait Until Element Is Visible          xpath=//div[1]/div[2]/div[2]/div[1]/div[3]
+          Click Element          xpath=//div[1]/div[2]/div[2]/div[1]/div[3]
+          Capture Page Screenshot          sub-category-{index}.png
+          Wait Until Element Is Visible          xpath=//p[contains(text(),'Sub Category')]
+          Element Should Be Enabled          xpath=//p[contains(text(),'Sub Category')]
+          Click Element          xpath=//p[contains(text(),'Sub Category')]
+          Wait Until Element Is Visible          xpath=//div[1]/div[2]/div[2]/div[1]/div[4]
+          Click Element          xpath=//div[1]/div[2]/div[2]/div[1]/div[4]
+          Capture Page Screenshot          sub-category-{index}.png
           Click Element          class=fa-times
           Capture Page Screenshot          sub-category-{index}.png
           Wait Until Element Is Visible          id=skills
@@ -106,10 +120,11 @@ Preview
           ${alert1} =          Get Text          class=JobForm_optionalUpgrades__2B8zy
           Log To Console          ${alert1}
           Click Element          xpath=//button[contains(text(),'Contest')]
+          Sleep          1
           Capture Page Screenshot          preview-contest{index}.png
           Wait Until Element Is Visible          xpath=//div[contains(text(),'Successfully Posted Job')]
           Capture Element Screenshot          xpath=//div[contains(text(),'Successfully Posted Job')]
-          Click Element          xpath=//div[contains(text(),'Successfully Posted Job')]
+          #Click Element          xpath=//div[contains(text(),'Successfully Posted Job')]
 
 Transaction
           Wait Until Element Is Visible          xpath=//div[contains(text(),'Details')]

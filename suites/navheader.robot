@@ -18,6 +18,11 @@ ${TMP_PATH}             /tmp
 unregistered
           Maximize Browser Window
           Go To          ${TESTURL}
+          Wait Until Element Is Visible          class=Login_headingText__2QdrP
+          Input Text          id=emailOrUserName          ufj
+          Input Text          id=password          ${ufjpass}
+          Submit Form
+          Capture Page Screenshot          enterthe-website-{index}.png
           Navheader Unregistered
 
 business

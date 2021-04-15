@@ -539,8 +539,8 @@ Login modal
 
 Login modal dialog
           Capture Page Screenshot          login-modal-{index}.png
-          Wait Until Element Is Visible          class=Login_loginCard__2skrc
-          Element Should Be Visible          class=Login_loginCard__2skrc
+          #Wait Until Element Is Visible          class=Login_loginCard__2skrc
+          #Element Should Be Visible          class=Login_loginCard__2skrc
           Wait Until Element Is Visible          xpath=//div[contains(text(),'Signup')]
           Element Should Be Visible          xpath=//div[contains(text(),'Signup')]
           Element Text Should Be          xpath=//div[contains(text(),'Signup')]          Signup
@@ -659,9 +659,9 @@ Navheader Freelancer
           Wait Until Element Is Visible          class=Nav_inputWrapper__2N_eD
           Element Should Be Visible          class=Nav_inputWrapper__2N_eD
           Element Should Be Enabled          class=Nav_inputWrapper__2N_eD
-          Wait Until Element Is Visible          class=fa-search
-          Element Should Be Visible          class=fa-search
-          Element Should Be Enabled          class=fa-search
+          Wait Until Element Is Visible          name=search
+          Element Should Be Visible          name=search
+          Element Should Be Enabled          name=search
           Wait Until Element Is Visible          class=Nav_searchBox__3_6yM
           Element Should Be Visible          class=Nav_searchBox__3_6yM
           Element Should Be Enabled          class=Nav_searchBox__3_6yM
@@ -1132,7 +1132,6 @@ Breadcrumb post a job
 UFJLogin
           Maximize Browser Window
           Go To          ${TESTURL}
-          Wait Until Element Is Visible          class=Login_headingText__2QdrP
           Input Text          id=emailOrUserName          ufj
           Input Text          id=password          ${ufjpass}
           Submit Form
@@ -1248,3 +1247,64 @@ Terms & Prices Project page
           Wait Until Element Is Visible          xpath=//label[contains(text(),'Fixed')]
           Element Should Be Visible          xpath=//label[contains(text(),'Fixed')]
           Element Should Be Enabled          xpath=//label[contains(text(),'Fixed')]
+
+Upload submission kw
+          #breadcumb contest
+          Wait Until Element Is Visible          xpath=//a[contains(text(),'UpForJobs')]
+          Wait Until Element Is Enabled          xpath=//a[contains(text(),'UpForJobs')]
+          Element Should Be Visible          xpath=//a[contains(text(),'UpForJobs')]
+          Element Text Should Be          xpath=//a[contains(text(),'UpForJobs')]          UpForJobs
+          Wait Until Element Is Visible          xpath=//div[1]/div[1]/div[1]/a[2]
+          Wait Until Element Is Enabled          xpath=//div[1]/div[1]/div[1]/a[2]
+          Element Should Be Visible          xpath=//div[1]/div[1]/div[1]/a[2]
+          Element Text Should Be          xpath=//div[1]/div[1]/div[1]/a[2]          My Jobs
+          #single job post
+          Wait Until Element Is Visible          xpath=//div[contains(text(),'Details')]
+          Wait Until Element Is Enabled          xpath=//div[contains(text(),'Details')]
+          Element Should Be Visible          xpath=//div[contains(text(),'Details')]
+          Element Text Should Be          xpath=//div[contains(text(),'Details')]          Details
+          Wait Until Element Is Visible          xpath=//div[contains(text(),'Submissions')]
+          Wait Until Element Is Enabled          xpath=//div[contains(text(),'Submissions')]
+          Element Should Be Visible          xpath=//div[contains(text(),'Submissions')]
+          Element Text Should Be          xpath=//div[contains(text(),'Submissions')]          Submissions
+          ${description}=          Get Text          class=SingleJobPostDetail_jobDetailCard__1SBcL
+          Log To Console          ${description}
+          ${features}=          Get Text          class=SingleJobPostDetailFeature_featureCard__2SeFz
+          Log To Console          ${features}
+          Wait Until Element Is Visible          xpath=//button[contains(text(),'Upload your submission')]
+          Element Should Be Enabled          xpath=//button[contains(text(),'Upload your submission')]
+          Scroll Element Into View          xpath=//button[contains(text(),'Upload your submission')]
+          Click Element          xpath=//button[contains(text(),'Upload your submission')]
+          Input Text          id=amount          10
+          Input Text          id=description          ${description1}
+          Sleep          1
+          Scroll Element Into View          xpath=//button[contains(text(),'Apply')]
+          ${id} =          Generate Random String          2          [NUMBERS]
+          Element Should Be Enabled          id=uploadFiles
+          Choose File          id=uploadFiles          ${CURDIR}\\random\\${id}.jpg
+          Capture Page Screenshot          attached-files-{index}.png
+          Sleep          1
+          ${id1} =          Generate Random String          2          [NUMBERS]
+          Element Should Be Enabled          id=uploadFiles
+          Choose File          id=uploadFiles          ${CURDIR}\\random\\${id1}.jpg
+          Capture Page Screenshot          attached-files-{index}.png
+          Sleep          1
+          ${id2} =          Generate Random String          2          [NUMBERS]
+          Element Should Be Enabled          id=uploadFiles
+          Choose File          id=uploadFiles          ${CURDIR}\\random\\${id2}.jpg
+          Capture Page Screenshot          attached-files-{index}.png
+          Sleep          1
+          ${id3} =          Generate Random String          2          [NUMBERS]
+          Element Should Be Enabled          id=uploadFiles
+          Choose File          id=uploadFiles          ${CURDIR}\\random\\${id3}.jpg
+          Capture Page Screenshot          attached-files-{index}.png
+          Sleep          1
+          Click Element          xpath=//button[contains(text(),'Apply')]
+          Wait Until Element Is Visible          xpath=//div[contains(text(),'Submission Successful')]
+          Wait Until Element Is Enabled          xpath=//div[contains(text(),'Submission Successful')]
+          Element Should Be Visible          xpath=//div[contains(text(),'Submission Successful')]
+          Element Text Should Be          xpath=//div[contains(text(),'Submission Successful')]          Submission Successful
+          Capture Page Screenshot          Submission-Successful-{index}.png
+          Sleep          5
+          Wait Until Element Is Visible          xpath=//div[contains(text(),'Details')]
+          Click Element          xpath=//div[contains(text(),'Details')]

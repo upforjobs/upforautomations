@@ -33,7 +33,7 @@ Login password is incorrect
 
 Login - missing login details
           [Tags]          login
-          UFJLogin
+          Wait Until Element Is Visible          xpath=//p[contains(.,'Sign In')]
           Click Element          xpath=//p[contains(.,'Sign In')]
           Login modal dialog
           Click Button          id:login
@@ -50,8 +50,7 @@ Login - missing login details
 
 Login - User not found
           [Tags]          login
-          UFJLogin
-          Click Element          xpath=//p[contains(.,'Sign In')]
+          Wait Until Element Is Visible          xpath=//p[contains(.,'Sign In')]
           Login modal dialog
           Input Text          name=emailOrUserName          invalid
           Input Text          name:password          invalid
@@ -64,7 +63,7 @@ Login - User not found
 
 Login with FB
           [Tags]          login
-          UFJLogin
+          Wait Until Element Is Visible          xpath=//p[contains(.,'Sign In')]
           Click Element          xpath=//p[contains(.,'Sign In')]
           Login modal dialog
           Wait Until Element Is Visible          xpath=//div[@id='facebookLogin']
@@ -74,37 +73,34 @@ Login with FB
 
 Login with Google
           [Tags]          login
-          Maximize Browser Window
-          Go To          ${TESTURL}
           Click Element          xpath=//p[contains(.,'Sign In')]
           Login modal dialog
           Wait Until Element Is Visible          class=GoogleLogin_googleLogin__3meAy
           Click Element          class=GoogleLogin_googleLogin__3meAy
           Sleep          3
           Capture Page Screenshot          google-login-{index}.png
+          Switch Window          2
 
 Login with Linkedin
           [Tags]          login
-          Maximize Browser Window
-          Go To          ${TESTURL}
-          Click Element          xpath=//p[contains(.,'Sign In')]
+          Switch Window          1
           Login modal dialog
           Wait Until Element Is Visible          class=LinkedinLogin_linkedinLogin__2bBmo
           Click Element          class=LinkedinLogin_linkedinLogin__2bBmo
           Sleep          5
+          Switch Window          1
           Capture Page Screenshot          linkedin-login-{index}.png
 
 Login username - log out
           [Tags]          login
-          Login Freelancer KW
+          Login modal dialog
+          Input Text          name=emailOrUserName          Freelancer
+          Input Text          name=password          ${password}
+          Click Element          id=login
           LogoutKW
 
 Login email - log out
           [Tags]          login
-          Maximize Browser Window
-          Go To          ${TESTURL}
-          Wait Until Element Is Visible          xpath=//p[contains(.,'Sign In')]
-          Click Element          xpath=//p[contains(.,'Sign In')]
           Login modal dialog
           Input Text          name=emailOrUserName          ${ufjfreelancer}${gmail}
           Input Text          name=password          ${password}

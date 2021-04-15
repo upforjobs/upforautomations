@@ -28,7 +28,6 @@ Post a job page
           Wait Until Element Is Visible          id=postAJob
           Click Element          id=postAJob
           Breadcrumb post a job
-          Post a job header
           #Describe and attach section
 
 Job Description
@@ -96,8 +95,8 @@ Terms and Prices
           Element Should Be Visible          xpath=//div[contains(text(),'One-time Project')]
           Element Should Be Visible          xpath=//div[contains(text(),'Ongoing Project')]
           Click Element          xpath=//div[contains(text(),'One-time Project')]
-          ${numboffreelancers} =          Generate Random String          2          [NUMBERS]
-          Input Text          id=numberOfFreelancers          ${numboffreelancers} =
+          ${numboffreelancers} =          Generate Random String          1          [NUMBERS]
+          Input Text          id=numberOfFreelancers          1${numboffreelancers}
           Click Element          xpath=//p[contains(text(),'Experience Level')]
           Element Should Be Visible          xpath=//div[contains(text(),'Entry Level')]
           Element Should Be Visible          xpath=//div[contains(text(),'Intermediate')]
@@ -130,7 +129,9 @@ Preview
           ${jobinfo} =          Get Text          class=JobForm_postJobPreview__3Lqld
           Log To Console          ${jobinfo}
           Wait Until Element Is Visible          xpath=//h3[contains(text(),'Optional Upgrades')]
-          Log To Console          class=JobForm_optionalUpgrades__2B8zy
+          #${OptUp} =          Get Text          class=JobForm_optionalUpgrades__2B8zy
+          #Log To Console          ${OptUp}
+          Wait Until Element Is Visible          xpath=//h3[contains(text(),'Optional Upgrades')]
           Click Element          xpath=//button[contains(text(),'Project')]
           Capture Page Screenshot          preview-contest{index}.png
           Wait Until Element Is Visible          xpath=//div[contains(text(),'Successfully Posted Job')]

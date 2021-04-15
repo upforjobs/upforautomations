@@ -13,6 +13,12 @@ ${TMP_PATH}             /tmp
 
 *** Test Cases ***
 Login as freelancer
+          Maximize Browser Window
+          Go To          ${TESTURL}
+          Wait Until Element Is Visible          class=Login_headingText__2QdrP
+          Input Text          id=emailOrUserName          ufj
+          Input Text          id=password          ${ufjpass}
+          Submit Form
           Login Freelancer KW
 
 Find a job
@@ -35,10 +41,10 @@ Single job page
           #Input Text          id=amount          ${id}
           Input Text          id=amount          10
           Capture Page Screenshot          uploaded-file-{index}.png
-          Input Text          id=description           Hi, Freelancer! \ You are doing great, but why stop there? Continue bidding and increase your chances to get the right paq! We are here to make it easier for you. \
+          Input Text          id=description          Hi, Freelancer! \ You are doing great, but why stop there? Continue bidding and increase your chances to get the right paq! We are here to make it easier for you. \
           Element Should Be Enabled          xpath=//button[contains(.,'+ Upload files')]
           ${id} =          Generate Random String          2          [NUMBERS]
-          Choose File          id=uploadFiles           ${CURDIR}\\random\\${id}.jpg
+          Choose File          id=uploadFiles          ${CURDIR}\\random\\${id}.jpg
           Capture Page Screenshot          uploaded-file-{index}.png
           Click Element          xpath=//button[contains(text(),'Apply')]
           Capture Page Screenshot          uploaded-file-{index}.png
