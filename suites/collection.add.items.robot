@@ -33,15 +33,15 @@ Mini dashboard
           ...          Click on the Username to redirect user to My Profile page.
           #mini-dashboard
           #mode
-          Wait Until Element Is Visible          class=MiniDashboard_statusMode__2BWW7
-          Element Should Be Visible          class=MiniDashboard_statusMode__2BWW7
+          Wait Until Element Is Visible          class=MiniDashboard_miniDashboard__2g2df
+          Element Should Be Visible          class=MiniDashboard_miniDashboard__2g2df
           Element Text Should Be          xpath=//h4[contains(.,'You are logged in.')]          You are logged in.
           Element Text Should Be          xpath=//h4[contains(.,'Finance')]          Finance
           Element Text Should Be          xpath=//span[contains(.,'Balance:')]          Balance:
           Element Text Should Be          xpath=//h4[contains(.,'Complete your profile')]          Complete your profile
-          Element Text Should Be          xpath=//h4[contains(.,'My Jobs')]          My Jobs
+          #Element Text Should Be          xpath=//h4[contains(.,'My Jobs')]          My Jobs
           Element Text Should Be          xpath=//h4[contains(.,'My Profile Viewers')]          My Profile Viewers
-          Element Text Should Be          xpath=//h4[contains(.,'Mode:')]          Mode:
+          #Element Text Should Be          xpath=//h4[contains(.,'Mode:')]          Mode:
           Capture Page Screenshot          landing-page-{index}.png
           Click Link          /profile
           Sleep          1
@@ -103,31 +103,29 @@ Create Collection add 10 items
           ${random_description}          Generate Random String          5          [LETTERS]
           Input Text          id=description          No ${number_description} Collection ${description1} ${random_description}
           Capture Page Screenshot          description-{index}.png
-          #command
+          #Action
           #1
           Scroll Element Into View          xpath=//button[contains(.,'Add Collection')]
           ${id1} =          Generate Random String          1          [NUMBERS]
-          Choose File          id=fileUpload          ${CURDIR}\\random\\c0${id1}.jpg
+          Choose File          id=fileUpload          ${CURDIR}\\random\\c3${id1}.jpg
           Sleep          1
           ${id2} =          Generate Random String          1          [NUMBERS]
-          Choose File          id=fileUpload          ${CURDIR}\\random\\c0${id2}.jpg
+          Choose File          id=fileUpload          ${CURDIR}\\random\\c3${id2}.jpg
           Sleep          1
           ${id3} =          Generate Random String          1          [NUMBERS]
-          Choose File          id=fileUpload          ${CURDIR}\\random\\c0${id3}.jpg
+          Choose File          id=fileUpload          ${CURDIR}\\random\\c2${id3}.jpg
           Sleep          1
-          Scroll Element Into View          xpath=//button[contains(.,'Add Collection')]
+          Scroll Element Into View          xpath=//button[contains(text(),'Add Collection')]
           ${id4} =          Generate Random String          1          [NUMBERS]
           Choose File          id=fileUpload          ${CURDIR}\\random\\c2${id4}.jpg
           Sleep          1
-          Wait Until Element Is Visible          xpath=//button[contains(.,'Add Collection')]
+          Wait Until Element Is Visible          xpath=//button[contains(text(),'Add Collection')]
           Capture Page Screenshot          bedore-save-collection-{index}.png
-          Sleep          1
-          Click Element          xpath=//button[contains(.,'Add Collection')]
-          Sleep          1
+          Wait Until Element Is Enabled          xpath=//button[contains(text(),'Add Collection')]
+          Click Element          xpath=//button[contains(text(),'Add Collection')]
           Wait Until Element Is Visible          xpath=//div[contains(text(),'Successfully added collection')]
           ${alert} =          Get Text          xpath=//div[contains(text(),'Successfully added collection')]
           Log To Console          ${alert}
-          Wait Until Element Is Visible          xpath=//h2[contains(text(),'Portfolio Collections')]
           Capture Page Screenshot          my-profiel-{index}.png
           Click Element          xpath=//div[contains(text(),'Successfully added collection')]
 
@@ -175,6 +173,7 @@ Go to Collection
           Sleep          1
           #Choose File          id=fileUpload          ${CURDIR}\\random\\c31.jpg
           Scroll Element Into View          xpath=//button[contains(text(),'Update Collection')]
+          Click Element          xpath=//button[contains(text(),'Update Collection')]
           Capture Page Screenshot          10-items-{index}.png
           Wait Until Element Is Visible          xpath=//div[contains(text(),'* 10 images max')]
           Element Text Should Be          xpath=//div[contains(text(),'* 10 images max')]          * 10 images max

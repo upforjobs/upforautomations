@@ -44,7 +44,7 @@ Job Description
           Scroll Element Into View          xpath=//p[contains(text(),'Start a contest?')]
           Click Element          xpath=//p[contains(text(),'Start a contest?')]
           Capture Page Screenshot          title-{index}.png
-          Scroll Element Into View          xpath=//h3[contains(text(),'JOB TITLE *')]
+          Scroll Element Into View          xpath=//h3[contains(text(),'TITLE *')]
           Wait Until Element Is Visible          id=category
           Element Should Be Enabled          id=category
           Click Element          id=category

@@ -35,9 +35,11 @@ Find a job
           Element Should Be Enabled          xpath=//a[contains(text(),'Find A Job')]
           Radio Button Should Be Set To          jobType          All Jobs
           Select Radio Button          jobType          Contests
+          Sleep          5
           Wait Until Element Is Visible          xpath=//div[2]/div[2]/div[1]/a[1]/div[2]
           Click Element          xpath=//div[2]/div[2]/div[1]/a[1]/div[2]
           Capture Page Screenshot          find-a-job-{index}.png
+          Sleep          5
 
 Upload submission
           #breadcumb contest
@@ -62,6 +64,7 @@ Upload submission
           Log To Console          ${description}
           ${features}=          Get Text          class=SingleJobPostDetailFeature_featureCard__2SeFz
           Log To Console          ${features}
+          Sleep          2
           Wait Until Element Is Visible          xpath=//button[contains(text(),'Upload your submission')]
           Element Should Be Enabled          xpath=//button[contains(text(),'Upload your submission')]
           Scroll Element Into View          xpath=//button[contains(text(),'Upload your submission')]
@@ -86,8 +89,9 @@ Upload submission
           Click Element          xpath=//div[contains(text(),'Details')]
 
 Submission
-          Upload submission kw
-          Upload submission kw
+          Upload featured submission
+          Upload seald submission
+          Upload higlight submission
           Upload submission kw
           Upload submission kw
           Upload submission kw
