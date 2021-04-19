@@ -115,7 +115,8 @@ Preview
           Wait Until Element Is Visible          xpath=//h3[contains(text(),'Optional Upgrades')]
           ${alert1} =          Get Text          class=JobForm_optionalUpgrades__2B8zy
           Log To Console          ${alert1}
-          #NDA Agreemenet
+
+NDA Agreemenet
           Wait Until Element Is Visible          xpath=//h2[contains(text(),'Request to sign NDA')]
           Click Element          xpath=//h2[contains(text(),'Request to sign NDA')]
           Wait Until Element Is Visible          xpath=//button[contains(text(),'Contest')]
@@ -136,6 +137,8 @@ Transaction
           Element Should Be Visible          xpath=//div[contains(text(),'Submissions')]
           Element Text Should Be          xpath=//div[contains(text(),'Submissions')]          Submissions
           Capture Page Screenshot          single-job-page-contest{index}.png
+
+My Jobs
           Wait Until Element Is Visible          id=myJobs
           Element Should Be Visible          id=myJobs
           Element Should Be Enabled          id=myJobs
@@ -148,7 +151,8 @@ Transaction
           Element Should Be Visible          xpath=//section[1]/div[3]/div[2]/div[1]/div[2]
           Element Should Be Enabled          xpath=//section[1]/div[3]/div[2]/div[1]/div[2]
           Capture Page Screenshot          My-jobs-{index}.png
-          #notification
+
+Notification
           Wait Until Element Is Visible          id=notifications
           Element Should Be Visible          id=notifications
           Element Should Be Enabled          xpath=//a[@id='notifications']
@@ -166,6 +170,8 @@ Contest single job page
           Element Should Be Enabled          css=.Nav_profileImg__u9k60:nth-child(6) > .Avatar_avatar__container__6SBhX
           Click Element          css=.Nav_profileImg__u9k60:nth-child(6) > .Avatar_avatar__container__6SBhX
           Capture Page Screenshot          avatar-{index}.png
+
+Finances
           Wait Until Element Is Visible          css=#manageFinances
           Element Should Be Visible          xpath=//a[@id='manageFinances']
           Element Should Be Enabled          xpath=//a[@id='manageFinances']

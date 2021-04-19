@@ -79,7 +79,8 @@ Login with Google
           Click Element          class=GoogleLogin_googleLogin__3meAy
           Sleep          3
           Capture Page Screenshot          google-login-{index}.png
-          Switch Window          2
+          Switch Window          url=https://accounts.google.com/o/oauth2/auth/oauthchooseaccount?redirect_uri=storagerelay%3A%2F%2Fhttps%2Fsad-elion-b175c5.netlify.app%3Fid%3Dauth757503&response_type=permission%20id_token&scope=email%20profile%20openid&openid.realm&client_id=663330783537-5okvr8elnl8kkici28sl4et252k08b8b.apps.googleusercontent.com&ss_domain=https%3A%2F%2Fsad-elion-b175c5.netlify.app&prompt&fetch_basic_profile=true&gsiwebsdk=2&flowName=GeneralOAuthFlow
+          Capture Page Screenshot          google-login-{index}.png
 
 Login with Linkedin
           [Tags]          login
@@ -88,11 +89,14 @@ Login with Linkedin
           Wait Until Element Is Visible          class=LinkedinLogin_linkedinLogin__2bBmo
           Click Element          class=LinkedinLogin_linkedinLogin__2bBmo
           Sleep          5
-          Switch Window          1
           Capture Page Screenshot          linkedin-login-{index}.png
+          Switch Window          xpath=//h1[contains(text(),'Welcome Back')]
+          Capture Page Screenshot          name=csrfToken
 
 Login username - log out
           [Tags]          login
+          Wait Until Element Is Visible          xpath=//p[contains(.,'Sign In')]
+          Click Element          xpath=//p[contains(.,'Sign In')]
           Login modal dialog
           Input Text          name=emailOrUserName          Freelancer
           Input Text          name=password          ${password}
@@ -101,6 +105,8 @@ Login username - log out
 
 Login email - log out
           [Tags]          login
+          Wait Until Element Is Visible          xpath=//p[contains(.,'Sign In')]
+          Click Element          xpath=//p[contains(.,'Sign In')]
           Login modal dialog
           Input Text          name=emailOrUserName          ${ufjfreelancer}${gmail}
           Input Text          name=password          ${password}

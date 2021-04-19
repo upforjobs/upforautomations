@@ -4,6 +4,7 @@ ${BASEURL}              https://www.upforjobs.com/
 ${TESTURL}              https://sad-elion-b175c5.netlify.app/
 ${PRELOUNCH}            https://www.upforjobs.com
 #${TESTURL}             https://fervent-tesla-2846e8.netlify.app
+${BETA}                 https://beta.upforjobs.com/
 ${BROWSER}              Chrome
 #upforjibs
 ${ufj}                  ufj

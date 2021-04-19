@@ -50,7 +50,6 @@ Login user
           Click Element          id:login
           Wait Until Element Is Not Visible          xpath://button[contains(text(),'Login')]
           Capture Page Screenshot          login-user-{index}.png
-          Sleep          3
 
 Required fields
           [Documentation]          In this test we are verify and assert elements on the page
@@ -180,9 +179,9 @@ Require fields
           Wait Until Element Is Visible          xpath=//div[contains(text(),'* Required minimum 1 Profession')]
           Element Should Be Visible          xpath=//div[contains(text(),'* Required minimum 1 Profession')]
           Element Text Should Be          xpath=//div[contains(text(),'* Required minimum 1 Profession')]          * Required minimum 1 Profession
-          Wait Until Element Is Visible          xpath=//div[contains(text(),'* Required minimum 2 skill')]
-          Element Should Be Visible          xpath=//div[contains(text(),'* Required minimum 2 skill')]
-          Element Text Should Be          xpath=//div[contains(text(),'* Required minimum 2 skill')]          * Required minimum 2 skill
+          Wait Until Element Is Visible          xpath=//div[contains(text(),'* Required minimum 4 skills')]
+          Element Should Be Visible          xpath=//div[contains(text(),'* Required minimum 4 skills')]
+          Element Text Should Be          xpath=//div[contains(text(),'* Required minimum 4 skills')]          * Required minimum 4 skills
           Wait Until Element Is Visible          xpath=//div[contains(text(),'Some items need your attention')]
           Element Should Be Visible          xpath=//div[contains(text(),'Some items need your attention')]
           Element Text Should Be          xpath=//div[contains(text(),'Some items need your attention')]          Some items need your attention
@@ -220,6 +219,13 @@ Test input
           Sleep          1
           Input Text          xpath=//div[5]/div[1]/div[1]/div[1]/div[1]/input[1]          Automation
           Click Element          xpath=//div[contains(text(),'Test Automation')]
+          Sleep          1
+          Input Text          id=skills          r
+          Wait Until Element Is Visible          xpath=//div[1]/div[1]/div[1]/div[2]/div[5]
+          Click Element          xpath=//div[1]/div[1]/div[1]/div[2]/div[5]
+          Input Text          id=skills          p
+          Wait Until Element Is Visible          xpath=//div[1]/div[1]/div[1]/div[2]/div[5]
+          Click Element          xpath=//div[1]/div[1]/div[1]/div[2]/div[5]
           Sleep          1
           Click Button          id=submit
           Sleep          2

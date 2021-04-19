@@ -802,20 +802,20 @@ Professional Settings page
           Element Should Be Visible          xpath=//label[contains(text(),'Profession / Industry')]
           Element Text Should Be          xpath=//label[contains(text(),'Profession / Industry')]          Profession / Industry
           Element Should Be Enabled          id=professionTitle
-          Element Should Be Visible          xpath=//label[contains(text(),'Rate Per Hour')]
-          Element Text Should Be          xpath=//label[contains(text(),'Rate Per Hour')]          Rate Per Hour
+          Element Should Be Visible          xpath=//label[contains(text(),'Rate Per Hour *')]
+          Element Text Should Be          xpath=//label[contains(text(),'Rate Per Hour *')]          Rate Per Hour *
           Element Should Be Enabled          id=rateAmount
-          Element Should Be Visible          xpath=//p[contains(text(),'Tagline')]
-          Element Text Should Be          xpath=//p[contains(text(),'Tagline')]          Tagline
+          Element Should Be Visible          xpath=//p[contains(text(),'Tagline *')]
+          Element Text Should Be          xpath=//p[contains(text(),'Tagline *')]          Tagline *
           Element Should Be Enabled          id=tagline
           Element Should Be Visible          xpath=//div[3]/div[1]/label[1]
-          Element Text Should Be          xpath=//div[3]/div[1]/label[1]          Profession
+          Element Text Should Be          xpath=//div[3]/div[1]/label[1]          Profession *
           Element Should Be Enabled          xpath=//div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]
           Element Should Be Visible          xpath=//label[contains(text(),'Expertise')]
           Element Text Should Be          xpath=//label[contains(text(),'Expertise')]          Expertise
           Element Should Be Enabled          xpath=//div[2]/div[1]/div[4]/div[1]/div[1]/div[1]
           Element Should Be Visible          xpath=//label[contains(text(),'Skills')]
-          Element Text Should Be          xpath=//label[contains(text(),'Skills')]          Skills
+          Element Text Should Be          xpath=//label[contains(text(),'Skills')]          Skills *
           Element Should Be Enabled          xpath=//div[2]/div[1]/div[5]/div[1]/label[1]
           Element Should Be Enabled          css=#submit
           Element Should Be Visible          css=#submit
@@ -827,59 +827,59 @@ Profile Settings page
           Capture Page Screenshot          BreadCrumb-{index}.png
           #Wellcome
           #Personal settings
-          Wait Until Element Is Visible          xpath=//label[contains(text(),'First Name')]
-          Element Should Be Visible          xpath=//label[contains(text(),'First Name')]
-          Element Text Should Be          xpath=//label[contains(text(),'First Name')]          First Name
+          Wait Until Element Is Visible          xpath=//label[contains(text(),'First Name *')]
+          Element Should Be Visible          xpath=//label[contains(text(),'First Name *')]
+          Element Text Should Be          xpath=//label[contains(text(),'First Name *')]          First Name *
           Element Should Be Enabled          id=firstName
-          Wait Until Element Is Visible          xpath=//label[contains(text(),'Last Name')]
-          Element Should Be Visible          xpath=//label[contains(text(),'Last Name')]
-          Element Text Should Be          xpath=//label[contains(text(),'Last Name')]          Last Name
+          Wait Until Element Is Visible          xpath=//label[contains(text(),'Last Name *')]
+          Element Should Be Visible          xpath=//label[contains(text(),'Last Name *')]
+          Element Text Should Be          xpath=//label[contains(text(),'Last Name *')]          Last Name *
           Element Should Be Enabled          id=lastName
           Wait Until Element Is Visible          xpath=//label[contains(text(),'Username')]
           Element Should Be Visible          xpath=//label[contains(text(),'Username')]
           Element Text Should Be          xpath=//label[contains(text(),'Username')]          Username
           Element Should Be Enabled          xpath=//label[contains(text(),'Username')]
           Element Should Be Disabled          xpath=//form[1]/div[1]/div[2]/div[1]/input[1]
-          Wait Until Element Is Visible          xpath=//label[contains(text(),'Gender')]
-          Element Should Be Visible          xpath=//label[contains(text(),'Gender')]
-          Element Text Should Be          xpath=//label[contains(text(),'Gender')]          Gender
+          Wait Until Element Is Visible          xpath=//label[contains(text(),'Gender *')]
+          Element Should Be Visible          xpath=//label[contains(text(),'Gender *')]
+          Element Text Should Be          xpath=//label[contains(text(),'Gender *')]          Gender *
           Wait Until Element Is Visible          xpath=//label[contains(.,'Male')]
           Element Should Be Visible          xpath=//label[contains(.,'Male')]
           Element Text Should Be          xpath=//label[contains(.,'Male')]          Male
           Wait Until Element Is Visible          xpath=//label[contains(.,'Female')]
           Element Should Be Visible          xpath=//label[contains(.,'Female')]
           Element Text Should Be          xpath=//label[contains(.,'Female')]          Female
-          Wait Until Element Is Visible          xpath=//label[contains(text(),'Date Of Birth')]
-          Element Should Be Visible          xpath=//label[contains(text(),'Date Of Birth')]
-          Element Text Should Be          xpath=//label[contains(text(),'Date Of Birth')]          Date Of Birth
+          Wait Until Element Is Visible          xpath=//label[contains(text(),'Date Of Birth *')]
+          Element Should Be Visible          xpath=//label[contains(text(),'Date Of Birth *')]
+          Element Text Should Be          xpath=//label[contains(text(),'Date Of Birth *')]          Date Of Birth *
           Element Should Be Enabled          id:dateOfBirth
-          Wait Until Element Is Visible          xpath=//label[contains(text(),'Introduction')]
-          Element Should Be Visible          xpath=//label[contains(text(),'Introduction')]
-          Element Text Should Be          xpath=//label[contains(text(),'Introduction')]          Introduction
+          Wait Until Element Is Visible          xpath=//label[contains(text(),'Introduction *')]
+          Element Should Be Visible          xpath=//label[contains(text(),'Introduction *')]
+          Element Text Should Be          xpath=//label[contains(text(),'Introduction *')]          Introduction *
           Element Should Be Enabled          id:description
-          Wait Until Element Is Visible          xpath=//label[contains(text(),'Country')]
-          Element Should Be Visible          xpath=//label[contains(text(),'Country')]
-          Element Text Should Be          xpath=//label[contains(text(),'Country')]          Country
+          Wait Until Element Is Visible          xpath=//label[contains(text(),'Country *')]
+          Element Should Be Visible          xpath=//label[contains(text(),'Country *')]
+          Element Text Should Be          xpath=//label[contains(text(),'Country *')]          Country *
           Element Should Be Enabled          name:country
           Wait Until Element Is Visible          xpath=//label[contains(text(),'State')]
           Element Should Be Visible          xpath=//label[contains(text(),'State')]
           Element Text Should Be          xpath=//label[contains(text(),'State')]          State
           Element Should Be Enabled          id:state
-          Wait Until Element Is Visible          xpath=//label[contains(text(),'City')]
-          Element Should Be Visible          xpath=//label[contains(text(),'City')]
-          Element Text Should Be          xpath=//label[contains(text(),'City')]          City
+          Wait Until Element Is Visible          xpath=//label[contains(text(),'City *')]
+          Element Should Be Visible          xpath=//label[contains(text(),'City *')]
+          Element Text Should Be          xpath=//label[contains(text(),'City *')]          City *
           Element Should Be Enabled          id:city
           Wait Until Element Is Visible          xpath=//label[contains(text(),'Postal Code')]
           Element Should Be Visible          xpath=//label[contains(text(),'Postal Code')]
           Element Text Should Be          xpath=//label[contains(text(),'Postal Code')]          Postal Code
           Element Should Be Enabled          id:postal
-          Wait Until Element Is Visible          xpath=//label[contains(text(),'Address')]
-          Element Should Be Visible          xpath=//label[contains(text(),'Address')]
-          Element Text Should Be          xpath=//label[contains(text(),'Address')]          Address
+          Wait Until Element Is Visible          xpath=//label[contains(text(),'Address *')]
+          Element Should Be Visible          xpath=//label[contains(text(),'Address *')]
+          Element Text Should Be          xpath=//label[contains(text(),'Address *')]          Address *
           Element Should Be Enabled          id:street
-          Wait Until Element Is Visible          xpath=//label[contains(text(),'Languages')]
-          Element Should Be Visible          xpath=//label[contains(text(),'Languages')]
-          Element Text Should Be          xpath=//label[contains(text(),'Languages')]          Languages
+          Wait Until Element Is Visible          xpath=//label[contains(text(),'Languages *')]
+          Element Should Be Visible          xpath=//label[contains(text(),'Languages *')]
+          Element Text Should Be          xpath=//label[contains(text(),'Languages *')]          Languages *
           Element Should Be Enabled          id:language__name
           Element Should Be Enabled          id:language__fluency
           #Element Should Be Enabled          class=ProfileSettingLanguage_languageButton__1TdIX
