@@ -44,10 +44,13 @@ Job Description
           Scroll Element Into View          xpath=//p[contains(text(),'Start a contest?')]
           Click Element          xpath=//p[contains(text(),'Start a contest?')]
           Capture Page Screenshot          title-{index}.png
-          Scroll Element Into View          xpath=//h3[contains(text(),'TITLE *')]
+          Wait Until Element Is Visible          class=JobForm_chooseOneOfContests__1DVKC
+          Wait Until Element Is Visible          xpath=//h3[contains(text(),'Choose one of our most popular contests and post i')]
+          Element Text Should Be          xpath=//h3[contains(text(),'Choose one of our most popular contests and post i')]          Choose one of our most popular contests and post it in just one click. Hassle-Free job post.
+          Scroll Element Into View          xpath=//button[contains(text(),'Continue to Terms & Price')]
           Wait Until Element Is Visible          id=category
           Element Should Be Enabled          id=category
-          Click Element          id=category
+          Click Element          xpath=//p[contains(.,'Category')]
           Wait Until Element Is Visible          xpath=//div[contains(text(),'Design & Art')]
           Click Element          xpath=//div[contains(text(),'Design & Art')]
           Capture Page Screenshot          category-{index}.png

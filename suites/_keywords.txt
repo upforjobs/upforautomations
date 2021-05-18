@@ -497,16 +497,14 @@ Landing page request
 Login Business KW
           Wait Until Element Is Visible          xpath=//p[contains(.,'Sign In')]
           Click Element          xpath=//p[contains(.,'Sign In')]
-          Login modal dialog
-          Input Text          name=emailOrUserName          ${business}
+          Input Text          name=emailOrUserName          ${business}${gmail}
           Input Text          name=password          ${password}
           Click Element          id=login
 
 Login Freelancer KW
           Wait Until Element Is Visible          xpath=//p[contains(.,'Sign In')]
           Click Element          xpath=//p[contains(.,'Sign In')]
-          Login modal dialog
-          Input Text          name=emailOrUserName          Freelancer
+          Input Text          name=emailOrUserName          ufjfreelancer@gmail.com
           Input Text          name=password          ${password}
           Click Element          id=login
 
@@ -588,16 +586,16 @@ Logout modal
           Wait Until Element Is Visible          xpath=//button[contains(.,'Logout')]
 
 LogoutKW
+          [Documentation]          Logout Keyword is keyword to logout all users frm the application
           Wait Until Element Is Visible          css=.Nav_profileImg__u9k60:nth-child(6) > .Avatar_avatar__container__6SBhX
           Click Element          css=.Nav_profileImg__u9k60:nth-child(6) > .Avatar_avatar__container__6SBhX
           Capture Page Screenshot          click-avatar-picture-logout-{index}.png
-          Wait Until Element Is Visible          xpath=//h3[contains(.,'Logout')]
-          Click Element          xpath=//h3[contains(.,'Logout')]
+          Wait Until Element Is Visible          xpath=//h3[@id='logout']
+          Click Element          xpath=//h3[@id='logout']
           Capture Page Screenshot          click-avatar-picture-logout-{index}.png
           Logout modal
           Wait Until Element Is Visible          xpath=//button[contains(.,'Logout')]
           Click Element          xpath=//button[contains(.,'Logout')]
-          Sleep          3
           Wait Until Element Is Visible          xpath=//p[contains(.,'Sign In')]
           Capture Page Screenshot          logout-{index}.png
 
@@ -1032,7 +1030,6 @@ mini-dashboard
           Element Text Should Be          xpath://h4[contains(text(),'You are logged in.')]          You are logged in.
           Element Text Should Be          xpath://h4[contains(text(),'My Profile Viewers')]          My Profile Viewers
           Element Text Should Be          xpath://h4[contains(text(),'Complete your profile')]          Complete your profile
-          Element Text Should Be          xpath://h4[contains(text(),'My Jobs')]          My Jobs
           Element Text Should Be          xpath://h4[contains(text(),'Finance')]          Finance
           Element Text Should Be          xpath=//div[2]/div[1]/div[1]/div[1]/h4[1]          Mode:
           Capture Page Screenshot          landing-page-{index}.png
@@ -1174,9 +1171,9 @@ Job Description page
           Wait Until Element Is Visible          xpath=//form[1]/div[4]/div[2]/div[1]/label[1]
           Element Should Be Visible          xpath=//form[1]/div[4]/div[2]/div[1]/label[1]
           Element Should Be Enabled          id=upload
-          Wait Until Element Is Visible          xpath=//p[contains(text(),'Add files that can give an idea to freelancer what')]
-          Element Should Be Visible          xpath=//p[contains(text(),'Add files that can give an idea to freelancer what')]
-          Element Text Should Be          xpath=//p[contains(text(),'Add files that can give an idea to freelancer what')]          Add files that can give an idea to freelancer what do you want
+          Wait Until Element Is Visible          xpath=//p[contains(text(),'Add files that will explain your project in more d')]
+          Element Should Be Visible          xpath=//p[contains(text(),'Add files that will explain your project in more d')]
+          Element Text Should Be          xpath=//p[contains(text(),'Add files that will explain your project in more d')]          Add files that will explain your project in more detail.
           Wait Until Element Is Visible          xpath=//button[contains(text(),'Continue to Terms & Price')]
           Element Should Be Visible          xpath=//button[contains(text(),'Continue to Terms & Price')]
           Element Text Should Be          xpath=//button[contains(text(),'Continue to Terms & Price')]          Continue to Terms & Price
@@ -1186,9 +1183,9 @@ Terms & Prices Contest page
           Wait Until Element Is Visible          xpath=//button[contains(text(),'Terms & Prices')]
           Element Should Be Visible          xpath=//button[contains(text(),'Terms & Prices')]
           Element Text Should Be          xpath=//button[contains(text(),'Terms & Prices')]          Terms & Prices
-          Wait Until Element Is Visible          //h3[contains(text(),'NUMBER OF DAYS *')]
-          Element Should Be Visible          //h3[contains(text(),'NUMBER OF DAYS *')]
-          Element Text Should Be          //h3[contains(text(),'NUMBER OF DAYS *')]          NUMBER OF DAYS *
+          Wait Until Element Is Visible          xpath=//h3[contains(text(),'NUMBER OF DAYS *')]
+          Element Should Be Visible          xpath=//h3[contains(text(),'NUMBER OF DAYS *')]
+          Element Text Should Be          xpath=//h3[contains(text(),'NUMBER OF DAYS *')]          NUMBER OF DAYS *
           Wait Until Element Is Visible          xpath=//button[contains(text(),'1 Day')]
           Element Should Be Visible          xpath=//button[contains(text(),'1 Day')]
           Element Should Be Enabled          xpath=//button[contains(text(),'1 Day')]
@@ -1250,10 +1247,10 @@ Terms & Prices Project page
 
 Upload submission kw
           #breadcumb contest
-          Wait Until Element Is Visible          xpath=//a[contains(text(),'UpForJobs')]
-          Wait Until Element Is Enabled          xpath=//a[contains(text(),'UpForJobs')]
-          Element Should Be Visible          xpath=//a[contains(text(),'UpForJobs')]
-          Element Text Should Be          xpath=//a[contains(text(),'UpForJobs')]          UpForJobs
+          Wait Until Element Is Visible          xpath=//a[contains(text(),'Home')]
+          Wait Until Element Is Enabled          xpath=//a[contains(text(),'Home')]
+          Element Should Be Visible          xpath=//a[contains(text(),'Home')]
+          Element Text Should Be          xpath=//a[contains(text(),'Home')]          Home
           Wait Until Element Is Visible          xpath=//div[1]/div[1]/div[1]/a[2]
           Wait Until Element Is Enabled          xpath=//div[1]/div[1]/div[1]/a[2]
           Element Should Be Visible          xpath=//div[1]/div[1]/div[1]/a[2]
@@ -1305,6 +1302,7 @@ Upload submission kw
           Element Should Be Visible          xpath=//div[contains(text(),'Submission Successful')]
           Element Text Should Be          xpath=//div[contains(text(),'Submission Successful')]          Submission Successful
           Capture Page Screenshot          Submission-Successful-{index}.png
+          Click Element          xpath=//div[contains(text(),'Submission Successful')]
           Sleep          5
           Wait Until Element Is Visible          xpath=//div[contains(text(),'Details')]
           Click Element          xpath=//div[contains(text(),'Details')]

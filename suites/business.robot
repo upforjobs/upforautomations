@@ -22,7 +22,7 @@ register
           Input Text          name:email          ${ufjfreelancer}${gmail}
           Capture Page Screenshot          email-{index}.png
           Sleep          1
-          Input Text          name:username          Freelancer
+          Input Text          name:username          Business
           Capture Page Screenshot          username-{index}.png
           Sleep          1
           Input Password          name:password          ${password}
@@ -35,7 +35,7 @@ login
           Click Element          xpath=//p[contains(.,'Sign In')]
           Login modal dialog
           Capture Page Screenshot          login-{index}.png
-          Input Text          name:emailOrUserName          Freelancer
+          Input Text          name:emailOrUserName          Business
           Input Text          name:password          ${password}
           Click Element          id:login
           Wait Until Element Is Not Visible          xpath://button[contains(text(),'Login')]

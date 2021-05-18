@@ -47,13 +47,13 @@ Mini dashboard
           Sleep          1
           Capture Page Screenshot          profile-page-{index}.png
 
-Check required fielfs
+Check required fields
           Wait Until Element Is Visible          link=Add a new Collection
           Click Element          link=Add a new Collection
           #manage portfolio
-          Wait Until Element Is Visible          xpath=//h2[contains(text(),'Add a New Collection')]
-          Element Should Be Visible          xpath=//h2[contains(text(),'Add a New Collection')]
-          Element Text Should Be          xpath=//h2[contains(text(),'Add a New Collection')]          Add a New Collection
+          Wait Until Element Is Visible          xpath=//h2[contains(text(),'Add a new collection')]
+          Element Should Be Visible          xpath=//h2[contains(text(),'Add a new collection')]
+          Element Text Should Be          xpath=//h2[contains(text(),'Add a new collection')]          Add a new collection
           Wait Until Element Is Visible          id=title
           Element Should Be Visible          id=title
           Element Should Be Enabled          id=title
@@ -248,8 +248,10 @@ Delete Collections
           Delete Collection Modal Dialog
           Wait Until Element Is Visible          xpath=//button[contains(text(),'Delete')]
           Click Element          id=deleteCollectionButton
+          Wait Until Element Is Visible          xpath=//div[contains(text(),'Successfully deleted collection')]
+          Capture Element Screenshot          xpath=//div[contains(text(),'Successfully deleted collection')]
+          Click Element          xpath=//div[contains(text(),'Successfully deleted collection')]
           #Click Element
-          Sleep          2
           Capture Page Screenshot          delete-collection-{index}.png
           Delete Collection KW
           Sleep          2

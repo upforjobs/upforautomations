@@ -38,7 +38,7 @@ Job Description
           Capture Page Screenshot          title-{index}.png
           Wait Until Element Is Visible          id=category
           Element Should Be Enabled          id=category
-          Click Element          id=category
+          Click Element          xpath=//form[1]/div[4]/div[1]/div[1]/div[1]/div[1]
           Wait Until Element Is Visible          xpath=//div[contains(text(),'Programming & Development')]
           Click Element          xpath=//div[contains(text(),'Programming & Development')]
           Capture Page Screenshot          category-{index}.png

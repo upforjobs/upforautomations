@@ -26,12 +26,13 @@ Invalid password
           Click Element          xpath=//div[contains(text(),'Signup')]
           Sign in modal
           ${RANDOM} =          Generate Random String          4          [NUMBERS]
-          Input Text          name:email          short8-${RANDOM}-${email}
           Input Text          name:username          robot-delete
+          Input Text          name:email          short8-${RANDOM}-${email}
           Input Text          name:password          short8
           Click Element          css=.signUp
           Capture Page Screenshot          invalid-password-must-contain-{index}.png
           Element Text Should Be          xpath://div[contains(text(),'Password must contain min 8 characters: at least o')]          Password must contain min 8 characters: at least one lowercase letter, one uppercase letter, one numeric digit, and one special character
+          Element Text Should Be          xpath=//div[contains(text(),'Username should be minimum 3 characters')]          Username can contain letters (a-z), numbers (0-9), and underscore (_)
 
 Incorrect input fields
           [Tags]          register
@@ -45,10 +46,10 @@ Incorrect input fields
           Clear Element Text          name:username
           Clear Element Text          name:password
           Click Element          css=.signUp
-          Wait Until Element Is Visible          xpath=//div[contains(text(),'Username is a required field')]
+          Wait Until Element Is Visible          xpath=//div[contains(text(),'Username must not contain underscores at the begin')]
           Wait Until Element Is Visible          xpath=//div[contains(text(),'Email is a required field')]
           Wait Until Element Is Visible          xpath=//div[contains(text(),'Password is a required field')]
-          Element Text Should Be          xpath=//div[contains(text(),'Username is a required field')]          Username is a required field          #Email field is required
+          Element Text Should Be          xpath=//div[contains(text(),'Username must not contain underscores at the begin')]          Username must not contain underscores at the beginning or end          #Email field is required
           Element Text Should Be          xpath=//div[contains(text(),'Email is a required field')]          Email is a required field          #Password field is required
           Element Text Should Be          xpath=//div[contains(text(),'Password is a required field')]          Password is a required field          #Username field is required
           Capture Element Screenshot          class=SignUp_signupCard__8R2Z8
@@ -67,6 +68,19 @@ Incorrect Email format
           Element Text Should Be          xpath://div[contains(text(),'email must be a valid email')]          email must be a valid email          #Incorrect Email format
           Capture Element Screenshot          xpath://div[contains(text(),'email must be a valid email')]
           Capture Page Screenshot          email-must-be-a-valid-email-{index}.png
+
+Minimum characters
+          [Tags]          register
+          Maximize Browser Window
+          GoTo          ${TESTURL}
+          Click Element          xpath=//p[contains(.,'Sign In')]
+          Wait Until Element Is Visible          xpath=//div[contains(text(),'Signup')]
+          Click Element          xpath=//div[contains(text(),'Signup')]
+          Sign in modal
+          Input Text          name=username          1
+          Wait Until Element Is Visible          xpayh=//div[contains(text(),'Username should be minimum 3 characters')]
+          Element Should Be Visible          xpayh=//div[contains(text(),'Username should be minimum 3 characters')]
+          Element Text Should Be          xpayh=//div[contains(text(),'Username should be minimum 3 characters')]          Username should be minimum 3 characters
 
 Already taken username
           [Tags]          register

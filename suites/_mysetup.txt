@@ -1,9 +1,8 @@
 *** Variables ***
 # env:test
 ${BASEURL}              https://www.upforjobs.com/
-${TESTURL}              https://sad-elion-b175c5.netlify.app/
 ${PRELOUNCH}            https://www.upforjobs.com
-#${TESTURL}             https://fervent-tesla-2846e8.netlify.app
+${TESTURL}              https://test.upforjobs.com/
 ${BETA}                 https://beta.upforjobs.com/
 ${BROWSER}              Chrome
 #upforjibs
@@ -28,8 +27,8 @@ ${LastNameUser}          Stepanov
 ${newUser1}             korisnik
 ${user}                 Zarkotest
 ${business1}            Upforjobs
-${business}             Business
-${freelancer}           Freelancer
+${business}             www.development9
+${freelancer}           freelancer
 ${freelancer1}          Milostest
 ${freelancer2}          Patricktest
 ${freelancer3}          Osamatest

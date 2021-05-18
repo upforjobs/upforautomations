@@ -15,22 +15,18 @@ Library                 XvfbRobot
 ${TMP_PATH}             /tmp
 
 *** Test Cases ***
-unregistered
-          Maximize Browser Window
-          Go To          ${TESTURL}
-          Wait Until Element Is Visible          class=Login_headingText__2QdrP
-          Input Text          id=emailOrUserName          ufj
-          Input Text          id=password          ${ufjpass}
-          Submit Form
-          Capture Page Screenshot          enterthe-website-{index}.png
+Login
+          UFJLogin
+
+Unregistered
           Navheader Unregistered
 
-business
+Business
           Login Business KW
           Navheader Business
           LogoutKW
 
-freelancer
+Freelancer
           Login Freelancer KW
           Navheader Freelancer
           LogoutKW

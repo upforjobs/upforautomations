@@ -23,7 +23,7 @@ Register user
           [Tags]          saveSettings
           Get Hired KW
           #username
-          ${no} =          Generate Random String          3          [LETTERS]
+          ${no} =          Generate Random String          3          [NUMBERS]
           ${no} =          Set Variable          ${no}
           Set Suite Variable          ${no}
           #email
@@ -36,10 +36,13 @@ Register user
           Capture Page Screenshot          submit-{index}.png
           #Click Element          xpath://span[contains(text(),'×')]
           #Wait Until Element Is Not Visible          class:modal-body
-          Sleep          3
+          Sleep          5
+          Click Element          class=close
+          #          xpath=//span[contains(text(),'×')]
 
 Login user
           [Tags]          saveSettings
+          Sleep          5
           Wait Until Element Is Visible          xpath=//p[contains(.,'Sign In')]
           Element Should Be Visible          xpath=//p[contains(.,'Sign In')]
           Click Element          xpath=//p[contains(.,'Sign In')]
@@ -264,10 +267,9 @@ ID Verification
 Emails & Notifications
           Click Link          /profile-settings/notifications
           Capture Page Screenshot          email-and-notifications-{index}.png
-          Wait Until Element Is Visible          xpath=//h2[contains(text(),'Email & Notification')]
-          Element Should Be Visible          xpath=//h2[contains(text(),'Email & Notification')]
-          Element Text Should Be          xpath=//h2[contains(text(),'Email & Notification')]          Email & Notification
-          Element Should Be Enabled          xpath=//h2[contains(text(),'Email & Notification')]
+          Wait Until Element Is Visible          xpath=//h2[contains(text(),'Emails & Notifications')]
+          Element Should Be Visible          xpath=//h2[contains(text(),'Emails & Notifications')]
+          Element Text Should Be          xpath=//h2[contains(text(),'Emails & Notifications')]          Emails & Notifications
           Wait Until Element Is Visible          xpath=//div[contains(text(),'What Notifications You Want to Receive')]
           Element Should Be Visible          xpath=//div[contains(text(),'What Notifications You Want to Receive')]
           Element Text Should Be          xpath=//div[contains(text(),'What Notifications You Want to Receive')]          What Notifications You Want to Receive

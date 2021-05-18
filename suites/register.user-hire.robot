@@ -14,8 +14,13 @@ ${TMP_PATH}             /tmp
 *** Test Cases ***
 Register user
           [Tags]          register
+          Login
           Maximize Browser Window
           Go To          ${TESTURL}
+          Wait Until Element Is Visible          class=Login_headingText__2QdrP
+          Input Text          id=emailOrUserName          ufj
+          Input Text          id=password          ${ufjpass}
+          Submit Form
           Click Element          xpath://button[contains(text(),'Login')]
           Sleep          1
           Click Element          xpath://button[contains(text(),'Sign up')]

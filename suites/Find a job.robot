@@ -48,3 +48,5 @@ Single job page
           Capture Page Screenshot          uploaded-file-{index}.png
           Click Element          xpath=//button[contains(text(),'Apply')]
           Capture Page Screenshot          uploaded-file-{index}.png
+
+Submit Submission

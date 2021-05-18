@@ -12,8 +12,7 @@ ${TMP_PATH}             /tmp
 
 *** Test Cases ***
 Login with old password
-          Go To          ${TESTURL}
-          Maximize Browser Window
+          UFJLogin
           Click Element          xpath=//p[contains(.,'Sign In')]
           Login modal dialog
           Input Text          id=emailOrUserName          freelancer10
