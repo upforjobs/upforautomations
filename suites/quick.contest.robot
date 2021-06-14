@@ -12,12 +12,7 @@ ${TMP_PATH}             /tmp
 
 *** Test Cases ***
 Login
-          Maximize Browser Window
-          Go To          ${TESTURL}
-          Wait Until Element Is Visible          class=Login_headingText__2QdrP
-          Input Text          id=emailOrUserName          ufj
-          Input Text          id=password          ${ufjpass}
-          Submit Form
+          UFJLogin
           Login Business KW
 
 Post-job
@@ -35,10 +30,10 @@ Post-job
           ${random_title}=          Generate Random String          1          [LETTERS]
           Element Should Be Visible          id=jobTitle
           Element Should Be Enabled          id=jobTitle
-          Input Text          id=jobTitle          - \ No: ${number_title} Urgent Job Contest
+          Input Text          id=jobTitle          - \ No: ${number_title} need logo design for my company
           Capture Page Screenshot          post-a-job-{index}.png
           Wait Until Element Is Enabled          id=jobDescription
-          Input Text          id=jobDescription          If you are still not sure you have the best offers, check our Uprated freelancers, and invite them to apply for your project.
+          Input Text          id=jobDescription          Hi, BidFortune is company operating in the gov-tech space, and targeting US market. \ We are aiming at writing 1000-1200 word content pieces(regarding the contracting business) and looking to hire content writers for the same. \ Some of the competitors we have are: GovTribe, Federal Compass, Daltek Govwin - whose existing content we use for inspiration also. You might also want to check them, in case you are interested in working with us. \ We can start work, as soon as you want.
           Capture Page Screenshot          post-a-job-{index}.png
           Wait Until Element Is Visible          xpath=//button[contains(text(),'Continue to Terms & Price')]
           Wait Until Element Is Enabled          xpath=//button[contains(text(),'Continue to Terms & Price')]
@@ -111,6 +106,7 @@ My-jobs
           Click Element          xpath=//h4[contains(text(),'Finance')]
           Wait Until Element Is Visible          xpath=//a[contains(text(),'Transaction History')]
           Click Element          xpath=//a[contains(text(),'Transaction History')]
+          Sleep          2
           Wait Until Element Is Visible          xpath=//tbody/tr[1]/td[1]
           Capture Page Screenshot          Transaction-History-{index}.png
           LogoutKW

@@ -12,18 +12,13 @@ ${TMP_PATH}             /tmp
 
 *** Test Cases ***
 Login
-          Maximize Browser Window
-          Go To          ${TESTURL}
-          Wait Until Element Is Visible          class=Login_headingText__2QdrP
-          Input Text          id=emailOrUserName          ufj
-          Input Text          id=password          ${ufjpass}
-          Submit Form
+          UFJLogin
 
 Register user
           [Tags]          saveSettings
           Get Hired KW
           #username
-          ${no} =          Generate Random String          3          [NUMBERS]
+          ${no} =          Generate Random String          4          [LETTERS]
           ${no} =          Set Variable          ${no}
           Set Suite Variable          ${no}
           #email
@@ -610,6 +605,39 @@ Portfolio
           Click Element          xpath=//a[contains(text(),'Cancel')]
 
 Create Portfolio
+          Capture Page Screenshot          2nd-collection-{index}.png
+          Create collection KW
+          Wait Until Element Is Visible          xpath=//div[contains(text(),'Successfully added collection')]
+          ${alert} =          Get Text          xpath=//div[contains(text(),'Successfully added collection')]
+          Log To Console          ${alert}
+          Capture Page Screenshot          3rd-collection-{index}.png
+          Click Element          xpath=//div[contains(text(),'Successfully added collection')]
+          Create collection KW
+          Wait Until Element Is Visible          xpath=//div[contains(text(),'Successfully added collection')]
+          ${alert} =          Get Text          xpath=//div[contains(text(),'Successfully added collection')]
+          Log To Console          ${alert}
+          Capture Page Screenshot          4th-collection-{index}.png
+          Click Element          xpath=//div[contains(text(),'Successfully added collection')]
+          Create collection KW
+          Wait Until Element Is Visible          xpath=//div[contains(text(),'Successfully added collection')]
+          ${alert} =          Get Text          xpath=//div[contains(text(),'Successfully added collection')]
+          Log To Console          ${alert}
+          Capture Page Screenshot          5th-collection-{index}.png
+          Click Element          xpath=//div[contains(text(),'Successfully added collection')]
+          Create collection KW
+          Wait Until Element Is Visible          xpath=//div[contains(text(),'Successfully added collection')]
+          ${alert} =          Get Text          xpath=//div[contains(text(),'Successfully added collection')]
+          Log To Console          ${alert}
+          Capture Page Screenshot          6th-collection-{index}.png
+          Click Element          xpath=//div[contains(text(),'Successfully added collection')]
+          Scroll Element Into View          xpath=//div[1]/div[1]/div[1]/div[1]/div[2]/div[5]/div[1]/div[2]/a[1]
+          Create collection KW
+          Wait Until Element Is Visible          xpath=//div[contains(text(),'Successfully added collection')]
+          ${alert} =          Get Text          xpath=//div[contains(text(),'Successfully added collection')]
+          Log To Console          ${alert}
+          Capture Page Screenshot          6th-collection-{index}.png
+          Click Element          xpath=//div[contains(text(),'Successfully added collection')]
+          ####################
           Wait Until Element Is Visible          link=Add a new Collection
           Click Element          link=Add a new Collection
           ${number_title}          Generate Random String          1          [NUMBERS]

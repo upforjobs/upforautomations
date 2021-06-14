@@ -15,6 +15,8 @@ ${email}                @mailinator.com
 ${PAYPAL}               zarko.paypal2020@gmail.com
 ${PAYPALPASS}           Tester##99
 #Users
+${FBuser}               hknlysdwvg_1621328161@tfbnw.net
+${FBuserpass}           `          Password_1
 ${ufjfreelancer}          ufjfreelancer
 ${gmail}                @gmail.com
 ${freelancer_email}          @mailinator.com

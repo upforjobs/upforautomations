@@ -12,12 +12,7 @@ ${TMP_PATH}             /tmp
 
 *** Test Cases ***
 Login
-          Maximize Browser Window
-          Go To          ${TESTURL}
-          Wait Until Element Is Visible          class=Login_headingText__2QdrP
-          Input Text          id=emailOrUserName          ufj
-          Input Text          id=password          ${ufjpass}
-          Submit Form
+          UFJLogin
           Capture Page Screenshot          enterthe-website-{index}.png
           Login Freelancer KW
 
@@ -29,15 +24,15 @@ Find a job
           Element Should Be Visible          xpath=//a[contains(text(),'Home')]
           Element Text Should Be          xpath=//a[contains(text(),'Home')]          Home
           Element Should Be Enabled          xpath=//a[contains(text(),'Home')]
-          Wait Until Element Is Visible          xpath=//a[contains(text(),'Find A Job')]
-          Element Should Be Visible          xpath=//a[contains(text(),'Find A Job')]
-          Element Text Should Be          xpath=//a[contains(text(),'Find A Job')]          Find A Job
-          Element Should Be Enabled          xpath=//a[contains(text(),'Find A Job')]
+          Wait Until Element Is Visible          xpath=//section[1]/div[1]/div[1]/a[2]
+          Element Should Be Visible          xpath=//section[1]/div[1]/div[1]/a[2]
+          Element Text Should Be          xpath=//section[1]/div[1]/div[1]/a[2]          Find a Job
+          Element Should Be Enabled          xpath=//section[1]/div[1]/div[1]/a[2]
           Radio Button Should Be Set To          jobType          All Jobs
           Select Radio Button          jobType          Contests
-          Sleep          3
-          Wait Until Element Is Visible          xpath=//div[2]/div[2]/div[1]/a[1]/div[2]
-          Click Element          xpath=//div[2]/div[2]/div[1]/a[1]/div[2]
+          Sleep          5
+          Wait Until Element Is Visible          xpath=//div[2]/div[1]/a[1]/div[2]
+          Click Element          xpath=//div[2]/div[1]/a[1]/div[2]
           Capture Page Screenshot          find-a-job-{index}.png
           Sleep          3
 
