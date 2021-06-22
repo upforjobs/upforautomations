@@ -4,10 +4,14 @@ ${BASEURL}              https://www.upforjobs.com/
 ${PRELOUNCH}            https://www.upforjobs.com
 ${TESTURL}              https://test.upforjobs.com/
 ${BETA}                 https://beta.upforjobs.com/
+${ADMINPANEL}           https://test.upforjobs.com/admin
 ${BROWSER}              Chrome
 #upforjibs
 ${ufj}                  ufj
 ${ufjpass}              w_Cp}f@*PJtJVh2S
+#admin credentials test
+${adminemail}           evans@upforjobs.com
+${adminpassword}          Osama@2020!
 #Paypall users
 ${PAYPALUSER}           zarko.stepanov10@hotmail.com
 ${PAYPALPW}             Tester##99
