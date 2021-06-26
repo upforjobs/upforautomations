@@ -26,7 +26,7 @@ ${gmail}                @gmail.com
 ${freelancer_email}          @mailinator.com
 ${new_user}             Korisnik
 ${user1}                Zarkotest
-${CURDIR}               C:\\Users\\User\\Desktop\\
+#${CURDIR}               C:\\Users\\User\\Desktop\\
 #personal info
 ${nameUser}             Zarko
 ${LastNameUser}          Stepanov

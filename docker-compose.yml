@@ -2,12 +2,12 @@ version: '3.3'
 services:
     test:
         network_mode: host
-        image: robot
+        image: upforautomation-dev:latest
         # dockerfile: dockerfile
         # context: .
         shm_size: "256M"
         environment:
-            # TEST_SUITE: login.robot
+            TEST_SUITE: #login.robot
         volumes: [
            "$PWD/suites:/app/suites",
            "$PWD/scripts:/app/scripts",
