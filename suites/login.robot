@@ -16,7 +16,8 @@ ${TMP_PATH}       /tmp
 Login
     [Documentation]    Login to the platform Upforjobs
     UFJLogin
-    Sleep    2
+    Sleep    1
+    Submit Form
 
 Login password is incorrect
     [Documentation]    Negative test scenario
@@ -30,8 +31,8 @@ Login password is incorrect
     ...    - Capture page screenshot
     ...    - Click on the alert message to close an alert message
     [Tags]    login
-    Wait Until Element Is Visible    xpath=//p[contains(.,'Sign In')]
-    Click Element    xpath=//p[contains(.,'Sign In')]
+    Wait Until Element Is Visible    id=login
+    Click Element    id=login
     Login modal dialog
     Input Text    name=emailOrUserName    ${ufjfreelancer}
     Input Text    name=password    invalid
@@ -54,8 +55,8 @@ Login - missing login details
     ...    An alert message under the inputfields text should be
     ...    - Required
     [Tags]    login
-    Wait Until Element Is Visible    xpath=//p[contains(.,'Sign In')]
-    Click Element    xpath=//p[contains(.,'Sign In')]
+    Wait Until Element Is Visible    xpath=//div[@id='login']
+    Click Element    xpath=//div[@id='login']
     Click Button    id:login
     Capture Page Screenshot    login-details-{index}.png
     Wait Until Element Is Visible    id=emailUserError
@@ -66,7 +67,7 @@ Login - missing login details
     Element Should Be Visible    id=passwordError
     Element Text Should Be    id=passwordError    * Required
     Capture Element Screenshot    id=passwordError
-    Capture Element Screenshot    class=Login_loginCard__2skrc
+    Capture Element Screenshot    class=Login_loginCard__3VHjo
 
 At least 3 characters
     [Documentation]    Negative test scenario
@@ -123,6 +124,7 @@ Login with the username - log out
     Input Text    name=emailOrUserName    Freelancer
     Input Text    name=password    ${password}
     Click Element    id=login
+    Wait Until Element Is Visible    class=MiniDashboard_miniDashboard__2g2df
     LogoutKW
 
 Login with the email - log out
