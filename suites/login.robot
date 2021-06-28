@@ -6,7 +6,6 @@ Resource          _mysetup.txt
 Library           String
 Library           SeleniumLibrary
 Library           Collections
-Library           XvfbRobot
 Library           SeleniumLibrary
 
 *** Variables ***
