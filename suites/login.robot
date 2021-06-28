@@ -79,6 +79,7 @@ At least 3 characters
     Input Text    name=emailOrUserName    ${name}
     Input Text    name:password    ${name}
     Click Button    id:login
+    Sleep    1
     Capture Page Screenshot    login-details-{index}.png
     Wait Until Element Is Visible    xpath=//div[@id='emailUserError']
     Element Should Be Visible    xpath=//div[@id='emailUserError']
