@@ -939,7 +939,7 @@ Register modal dialog
     Element Should Be Visible    xpath=//form[1]/div[1]/p[1]
     Wait Until Element Is Visible    name=hire
     Element Text Should Be    xpath=//label[contains(text(),'hire')]    Hire
-    Element Text Should Be    css=.SignUp_checkboxWrap__2mSN5:nth-child(1) > label    Hire
+    Element Text Should Be    xpath=//form[1]/div[2]/div[1]/label[1]    Hire
     Element Text Should Be    xpath=//label[contains(text(),'get hired')]    Get Hired
     Wait Until Element Is Visible    css=.fa-user
     Element Should Be Visible    css=.fa-user
@@ -1133,7 +1133,7 @@ UFJLogin
     Input Text    id=password    ${ufjpass}
     Sleep    1
     Submit Form
-    Click Element     xpath=//button[@id='login']
+    Click Element    xpath=//button[@id='login']
 
 Job Description page
     Wait Until Element Is Visible    xpath=//button[contains(text(),'Job Description')]
