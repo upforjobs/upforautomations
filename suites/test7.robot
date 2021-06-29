@@ -15,7 +15,6 @@ ${TMP_PATH}       /tmp
 
 *** Test Cases ***
 doctor login - failure
-    [Tags]    doctor.password
     [Setup]
     Go To    ${TESTURL}
     Clear Element Text    name:email
@@ -33,7 +32,6 @@ doctor login - failure
     Capture Page Screenshot    doctor-login-failure-{index}.png
 
 doctor login - success
-    [Tags]    doctor.password
     [Setup]
     Go To    ${TESTURL}
     Clear Element Text    name:email
@@ -50,7 +48,6 @@ doctor login - success
 
 doctor change password - fail
     [Documentation]    assert and verify all messages when fail
-    [Tags]    doctor.password
     LoginDocKW
     Click Element    id:m_aside_left_offcanvas_toggle
     Click Element    xpath://span[contains(text(),'Profile')]
@@ -95,7 +92,6 @@ doctor change password - fail
     LogoutKW
 
 doctor change password - success
-    [Tags]    doctor.password
     [Setup]
     LoginDocKW
     Click Element    id:m_aside_left_offcanvas_toggle
@@ -117,7 +113,6 @@ doctor change password - success
     LogoutKW
 
 doctor login with old password - failure
-    [Tags]    doctor.password
     [Setup]
     Go To    ${TESTURL}
     Clear Element Text    name:email
@@ -132,7 +127,6 @@ doctor login with old password - failure
     Capture Page Screenshot    doctor-old-pass-failure-{index}.png
 
 doctor login with changed password - success
-    [Tags]    doctor.password
     [Setup]
     Go To    ${TESTURL}
     Clear Element Text    name:email

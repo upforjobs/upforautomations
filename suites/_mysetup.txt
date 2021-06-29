@@ -12,6 +12,9 @@ ${ufjpass}              w_Cp}f@*PJtJVh2S
 #admin credentials test
 ${adminemail}           evans@upforjobs.com
 ${adminpassword}          Osama@2020!
+#reports
+${reports}              upforautomation
+${reportspass}          upforautomation@!@#$
 #Paypall users
 ${PAYPALUSER}           zarko.stepanov10@hotmail.com
 ${PAYPALPW}             Tester##99

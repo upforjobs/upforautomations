@@ -6,7 +6,6 @@ Resource          _mysetup.txt
 Library           String
 Library           SeleniumLibrary
 Library           Collections
-Library           SeleniumLibrary
 
 *** Variables ***
 ${TMP_PATH}       /tmp
@@ -14,6 +13,7 @@ ${TMP_PATH}       /tmp
 *** Test Cases ***
 Login
     [Documentation]    Login to the platform Upforjobs
+    [Tags]    login
     UFJLogin
     Sleep    1
     Submit Form
@@ -74,6 +74,7 @@ At least 3 characters
     ...    - inut 2 letters
     ...    - alert message with the text
     ...    - Email or Username must be at least 3 characters
+    [Tags]    login
     Wait Until Element Is Enabled    name=emailOrUserName
     ${name} =    Generate Random String    2    [NUMBERS]
     Input Text    name=emailOrUserName    ${name}

@@ -859,17 +859,17 @@ Profile Settings page
     Element Should Be Visible    xpath=//label[contains(text(),'Country *')]
     Element Text Should Be    xpath=//label[contains(text(),'Country *')]    Country *
     Element Should Be Enabled    name:country
-    Wait Until Element Is Visible    xpath=//label[contains(text(),'State')]
-    Element Should Be Visible    xpath=//label[contains(text(),'State')]
-    Element Text Should Be    xpath=//label[contains(text(),'State')]    State
+    Wait Until Element Is Visible    xpath=//label[contains(text(),'State (Optional)')]
+    Element Should Be Visible    xpath=//label[contains(text(),'State (Optional)')]
+    Element Text Should Be    xpath=//label[contains(text(),'State (Optional)')]    State (Optional)
     Element Should Be Enabled    id:state
     Wait Until Element Is Visible    xpath=//label[contains(text(),'City *')]
     Element Should Be Visible    xpath=//label[contains(text(),'City *')]
     Element Text Should Be    xpath=//label[contains(text(),'City *')]    City *
     Element Should Be Enabled    id:city
-    Wait Until Element Is Visible    xpath=//label[contains(text(),'Postal Code')]
-    Element Should Be Visible    xpath=//label[contains(text(),'Postal Code')]
-    Element Text Should Be    xpath=//label[contains(text(),'Postal Code')]    Postal Code
+    Wait Until Element Is Visible    xpath=//label[contains(text(),'Postal Code (Optional)')]
+    Element Should Be Visible    xpath=//label[contains(text(),'Postal Code (Optional)')]
+    Element Text Should Be    xpath=//label[contains(text(),'Postal Code (Optional)')]    Postal Code (Optional)
     Element Should Be Enabled    id:postal
     Wait Until Element Is Visible    xpath=//label[contains(text(),'Address *')]
     Element Should Be Visible    xpath=//label[contains(text(),'Address *')]
