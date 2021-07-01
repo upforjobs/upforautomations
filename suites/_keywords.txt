@@ -172,8 +172,6 @@ Congrats Contest modal dialog not urgent
     #Element Should Be Visible    xpath=//body/div[3]/div[1]/div[1]/div[2]/p[1]    You can add features, invite freelancers later.
     Sleep    1
 
-Congrats Project
-
 Congrats Project modal dialog
     Capture Page Screenshot    poroject-modal-dialog
     Wait Until Element Is Visible    class=PostAJobFinish_finishBody__2F2D1
@@ -404,29 +402,6 @@ Delete Portfolio modal
     Wait Until Element Is Visible    xpath=//div[1]/div[1]/div[2]/div[1]/div[4]/div[1]/div[2]/button[1]
     Element Should Be Visible    xpath=//div[1]/div[1]/div[2]/div[1]/div[4]/div[1]/div[2]/button[1]
     Element Text Should Be    xpath=//div[1]/div[1]/div[2]/div[1]/div[4]/div[1]/div[2]/button[1]    Cancel
-
-Enter email
-    Prelounch login
-    Input Text    name:email    ${radnom_name}user${radnom_email}@mailinator.com
-    Capture Page Screenshot    pic-{index}.png
-    Press Keys    name:email    RETURN
-    Submit Form
-    Capture Page Screenshot    pic-{index}.png
-
-Footer
-    Element Should Be Visible    class:footerContainer
-    Element Should Be Visible    class:logoInfo
-    Element Text Should Be    xpath://h3[contains(text(),'UP FOR JOBS')]    UP FOR JOBS
-    Element Text Should Be    xpath://body/div[@id='root']/div[1]/section[1]/footer[1]/div[1]/div[1]/div[1]/p[1]    Do Good by Doing Good
-    Element Should Be Visible    class:footerCardWrapper
-    Element Should Be Visible    xpath://h2[contains(text(),'CATEGORIES')]
-    Element Text Should Be    xpath://h2[contains(text(),'CATEGORIES')]    CATEGORIES
-    Element Should Be Visible    xpath://h2[contains(text(),'ABOUT')]
-    Element Text Should Be    xpath://h2[contains(text(),'ABOUT')]    ABOUT
-    Element Should Be Visible    xpath://a[contains(text(),'Our Vision')]
-    Element Text Should Be    xpath://a[contains(text(),'Our Vision')]    Our Vision
-    Element Should Be Visible    xpath://div[2]/div[2]/a[2]
-    Element Text Should Be    xpath://div[2]/div[2]/a[2]    About Us
 
 Forgot Password modal dialog
     Element Should Be Visible    class:forgetPasswordCard
@@ -739,8 +714,8 @@ Open Chrome Browsers
     Create WebDriver    Chrome    chrome_options=${options}
 
 Open Testbrowser
-    ${system}=    Evaluate    platform.system()    platform
-    Run Keyword If    '${system}' == 'Linux'    Start Virtual Display    1920    1080
+    #${system}=    Evaluate    platform.system()    platform
+    #Run Keyword If    '${system}' == 'Linux'    Start Virtual Display    1920    1080
     Open Chrome Browser
 
 Portfolio Breadcrumbs
