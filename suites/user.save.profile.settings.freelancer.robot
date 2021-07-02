@@ -2,7 +2,6 @@
 Suite Setup       Open Testbrowser
 Suite Teardown    Close All Browsers
 Library           SeleniumLibrary
-Library           XvfbRobot
 Resource          _mysetup.txt
 Resource          _keywords.txt
 Library           String
@@ -22,6 +21,7 @@ Register user
     Wait Until Element Is Visible    xpath=//div[contains(text(),'Signup')]
     Click Element    xpath=//div[contains(text(),'Signup')]
     Sign in modal
+    Click Element    name=get-hired
     #username
     ${no} =    Generate Random String    4    [LETTERS]
     ${no} =    Set Variable    ${no}
@@ -122,7 +122,7 @@ Profile Settings
     Input Text    id=lastName    ${freelancer}${no}
     Click Button    id=MALE
     Input Text    id=dateOfBirth    06-11-1994
-    Input Text    id=description    ${description}
+    Input Text    id=description    ${description1} ${description}
     #Country
     Scroll Element Into View    id=language__fluency
     Click Element    name=country
@@ -131,8 +131,10 @@ Profile Settings
     Click Element    css=.DropDownSearch_item__5UoLs:nth-child(1)    #United States
     Wait Until Element Is Not Visible    xpath=//div[5]/div/label/div    #Country
     Element Should Not Be Visible    xpath=//div[5]/div/label/div
-    Input Text    id=state    Nevada
-    Input Text    id=city    Las Vegas
+    #Input Text    id=state    Nevada
+    Input Text    name=city    La
+    Wait Until Element Is Visible    xpath=//div[contains(text(),'Las Vegas')]
+    Click Element    xpath=//div[contains(text(),'Las Vegas')]
     Input Text    id=postal    postal
     Input Text    id=street    Random Street
     Element Should Be Enabled    css=.MultipleSelectSearch_input__34N1Q
@@ -157,7 +159,7 @@ Profile Settings
 
 Upload Avatar Picture
     [Documentation]    In this test we are testing upload avatar picture.
-    Scroll Element Into View    xpath=//h2[contains(text(),'Professional Settings')]
+    #Scroll Element Into View    xpath=//h2[contains(text(),'Professional Settings')]
     Wait Until Element Is Visible    xpath=//h2[contains(text(),'Professional Settings')]
     Sleep    2
     ${id} =    Generate Random String    2    [NUMBERS]

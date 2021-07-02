@@ -54,7 +54,7 @@ ${MASTERCARD_DEBIT}    5200 8282 8282 8210
 ${MASTERCARD_PREPAID}    5105 1051 0510 5100
 ${AMERICAN_EXPRESS_1}    3782 8224 6310 005
 ${AMERICAN_EXPRESS_2}    3714 4963 5398 431
-${description1}    Some keywords that may cause a page to load take an additional argument dont wait that is used to determine whether a new page is expected to load or not. By default, a page load is expected to happen whenever a link or image is clicked, or a form submitted.
+${description1}    porn kill killer raped raping rape fuck \ cockfoam cock vagina skype
 ${description}    I would keep the headlines in one color to be distinctive, having split like this can only make confusion. Slider arrows on the left and right could be downsized to 50-75% of this size and placed about 50px away of the carousel on each side. I vote for the carousel with wider boxes.
 #Social Links
 ${notconnected}    Not Connected

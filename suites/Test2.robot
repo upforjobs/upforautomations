@@ -1,6 +1,5 @@
 *** Settings ***
 Library           Collections
-Library           RequestsLibrary
 Resource          _mysetup.txt
 
 *** Test Cases ***
