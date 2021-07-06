@@ -5,7 +5,6 @@ Resource          _mysetup.txt
 Library           SeleniumLibrary
 Library           String
 Resource          _keywords.txt
-Library           XvfbRobot
 Library           Collections
 
 *** Variables ***

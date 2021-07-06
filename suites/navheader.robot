@@ -1,32 +1,31 @@
 *** Settings ***
-Documentation           In theis test
-...                     we are testin login form
-...                     nav header elements
-Suite Setup             Open Chrome Browsers
-Suite Teardown          Close All Browsers
-Resource                _keywords.txt
-Resource                _mysetup.txt
-Library                 SeleniumLibrary
-Library                 String
-Library                 Collections
-Library                 XvfbRobot
+Documentation     In theis test
+...               we are testin login form
+...               nav header elements
+Suite Setup       Open Chrome Browsers
+Suite Teardown    Close All Browsers
+Resource          _keywords.txt
+Resource          _mysetup.txt
+Library           SeleniumLibrary
+Library           String
+Library           Collections
 
 *** Variables ***
-${TMP_PATH}             /tmp
+${TMP_PATH}       /tmp
 
 *** Test Cases ***
 Login
-          UFJLogin
+    UFJLogin
 
 Unregistered
-          Navheader Unregistered
+    Navheader Unregistered
 
 Business
-          Login Business KW
-          Navheader Business
-          LogoutKW
+    Login Business KW
+    Navheader Business
+    LogoutKW
 
 Freelancer
-          Login Freelancer KW
-          Navheader Freelancer
-          LogoutKW
+    Login Freelancer KW
+    Navheader Freelancer
+    LogoutKW

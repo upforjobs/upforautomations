@@ -582,24 +582,10 @@ My jobs page
     Capture Page Screenshot    my-jobs-{index}.png
 
 Navheader Business
+    Sleep    5
     Wait Until Element Is Visible    id=nav-bar
     Element Should Be Visible    id=nav-bar
     #logo
-    Wait Until Element Is Visible    xpath=//div[2]/div[1]/a[1]/div[1]/img[1]
-    Element Should Be Visible    xpath=//div[2]/div[1]/a[1]/div[1]/img[1]
-    Element Should Be Enabled    xpath=//div[2]/div[1]/a[1]/div[1]/img[1]
-    #search
-    Wait Until Element Is Visible    class=Nav_inputWrapper__2N_eD
-    Element Should Be Visible    class=Nav_inputWrapper__2N_eD
-    Element Should Be Enabled    class=Nav_inputWrapper__2N_eD
-    Wait Until Element Is Visible    name=search
-    Element Should Be Visible    name=search
-    Element Should Be Enabled    name=search
-    Wait Until Element Is Visible    class=Nav_searchBox__3_6yM
-    Element Should Be Visible    class=Nav_searchBox__3_6yM
-    Element Should Be Enabled    class=Nav_searchBox__3_6yM
-    #nav-menu business
-    Wait Until Element Is Visible    class=Nav_menu__3YEAs
     Wait Until Element Is Visible    id=myJobs
     Element Should Be Visible    id=myJobs
     Element Should Be Enabled    id=myJobs
@@ -609,37 +595,27 @@ Navheader Business
     Wait Until Element Is Visible    id=notifications
     Element Should Be Visible    id=notifications
     Element Should Be Enabled    id=notifications
+    Wait Until Element Is Visible    id=startManageExpandBusinessBtn
+    Element Should Be Visible    id=startManageExpandBusinessBtn
+    Element Should Be Enabled    id=startManageExpandBusinessBtn
     #Switch
-    Wait Until Element Is Visible    id=switchUserEntity
-    Element Should Be Visible    id=switchUserEntity
-    Element Should Be Enabled    id=switchUserEntity
-    Element Text Should Be    id=switchUserEntity    Switch to Freelancer
+    Wait Until Element Is Visible    id=howItWorksBtn
+    Element Should Be Visible    id=howItWorksBtn
+    Element Should Be Enabled    id=howItWorksBtn
     #Post a Job
-    Wait Until Element Is Visible    id=postAJob
-    Element Should Be Visible    id=postAJob
-    Element Should Be Enabled    id=postAJob
-    Element Text Should Be    id=postAJob    Post a Job
+    Wait Until Element Is Visible    id=postAjobBtn
+    Element Should Be Visible    id=postAjobBtn
+    Element Should Be Enabled    id=postAjobBtn
+    Element Text Should Be    id=postAjobBtn    Post a Job
+    Element Should Be Visible    xpath=//a[@id='buyAnUpPaqBtn']
+    Element Should Be Enabled    xpath=//a[@id='buyAnUpPaqBtn']
+    Wait Until Element Is Visible    class=Avatar_avatar__container__6SBhX
     Capture Element Screenshot    id=nav-bar
 
 Navheader Freelancer
     Wait Until Element Is Visible    id=nav-bar
     Element Should Be Visible    id=nav-bar
     #logo
-    Wait Until Element Is Visible    xpath=//div[2]/div[1]/a[1]/div[1]/img[1]
-    Element Should Be Visible    xpath=//div[2]/div[1]/a[1]/div[1]/img[1]
-    Element Should Be Enabled    xpath=//div[2]/div[1]/a[1]/div[1]/img[1]
-    #search
-    Wait Until Element Is Visible    class=Nav_inputWrapper__2N_eD
-    Element Should Be Visible    class=Nav_inputWrapper__2N_eD
-    Element Should Be Enabled    class=Nav_inputWrapper__2N_eD
-    Wait Until Element Is Visible    name=search
-    Element Should Be Visible    name=search
-    Element Should Be Enabled    name=search
-    Wait Until Element Is Visible    class=Nav_searchBox__3_6yM
-    Element Should Be Visible    class=Nav_searchBox__3_6yM
-    Element Should Be Enabled    class=Nav_searchBox__3_6yM
-    #nav-menu freelancer
-    Wait Until Element Is Visible    class=Nav_menu__3YEAs
     Wait Until Element Is Visible    id=myJobs
     Element Should Be Visible    id=myJobs
     Element Should Be Enabled    id=myJobs
@@ -649,9 +625,22 @@ Navheader Freelancer
     Wait Until Element Is Visible    id=notifications
     Element Should Be Visible    id=notifications
     Element Should Be Enabled    id=notifications
+    Wait Until Element Is Visible    id=startManageExpandBusinessBtn
+    Element Should Be Visible    id=startManageExpandBusinessBtn
+    Element Should Be Enabled    id=startManageExpandBusinessBtn
     #Switch
-    Wait Until Element Is Visible    id=switchUserEntity
-    Element Should Be Visible    id=switchUserEntity
+    Wait Until Element Is Visible    id=howItWorksBtn
+    Element Should Be Visible    id=howItWorksBtn
+    Element Should Be Enabled    id=howItWorksBtn
+    #Post a Job
+    Wait Until Element Is Visible    id=findAjobBtn
+    Element Should Be Visible    id=findAjobBtn
+    Element Should Be Enabled    id=findAjobBtn
+    Element Text Should Be    id=findAjobBtn    Find a Job
+    Element Should Be Visible    xpath=//a[@id='buyAnUpPaqBtn']
+    Element Should Be Enabled    xpath=//a[@id='buyAnUpPaqBtn']
+    Wait Until Element Is Visible    class=Avatar_avatar__container__6SBhX
+    Capture Element Screenshot    id=nav-bar
     Element Should Be Enabled    id=switchUserEntity
     Element Text Should Be    id=switchUserEntity    Switch to Business
     #Post a Job
@@ -666,29 +655,29 @@ Navheader Unregistered
     Wait Until Element Is Visible    id=nav-bar
     Element Should Be Visible    id=nav-bar
     #logo
-    Wait Until Element Is Visible    xpath=//div[2]/div[1]/a[1]/div[1]/img[1]
-    Element Should Be Visible    xpath=//div[2]/div[1]/a[1]/div[1]/img[1]
-    Element Should Be Enabled    xpath=//div[2]/div[1]/a[1]/div[1]/img[1]
+    Wait Until Element Is Visible    xpath=//form[1]/div[1]/a[1]/img[1]
+    Element Should Be Visible    xpath=//form[1]/div[1]/a[1]/img[1]
+    Element Should Be Enabled    xpath=//form[1]/div[1]/a[1]/img[1]
     #search
-    Wait Until Element Is Visible    class=Nav_inputWrapper__2N_eD
-    Element Should Be Visible    class=Nav_inputWrapper__2N_eD
-    Element Should Be Enabled    class=Nav_inputWrapper__2N_eD
-    Wait Until Element Is Visible    xpath=//form[1]/div[2]/div[1]/div[1]/button[1]
-    Element Should Be Visible    xpath=//form[1]/div[2]/div[1]/div[1]/button[1]
-    Element Should Be Enabled    xpath=//form[1]/div[2]/div[1]/div[1]/button[1]
-    Wait Until Element Is Visible    class=Nav_searchBox__3_6yM
-    Element Should Be Visible    class=Nav_searchBox__3_6yM
-    Element Should Be Enabled    class=Nav_searchBox__3_6yM
+    #Wait Until Element Is Visible    xpath=//form[1]/div[1]/div[1]/div[1]/img[1]
+    #Element Should Be Visible    xpath=//form[1]/div[1]/div[1]/div[1]/img[1]
+    #Element Should Be Enabled    xpath=//form[1]/div[1]/div[1]/div[1]/img[1]
     #nav-menu
-    Wait Until Element Is Visible    id=howItWorks
-    Element Should Be Visible    id=howItWorks
-    Element Should Be Enabled    id=howItWorks
-    Wait Until Element Is Visible    id=postAJobLink
-    Element Should Be Visible    id=postAJobLink
-    Element Should Be Enabled    id=postAJobLink
-    Wait Until Element Is Visible    id=findAJobLink
-    Element Should Be Visible    id=findAJobLink
-    Element Should Be Enabled    id=findAJobLink
+    Wait Until Element Is Visible    id=startManageExpandBusinessBtn
+    Element Should Be Visible    id=startManageExpandBusinessBtn
+    Element Should Be Enabled    id=startManageExpandBusinessBtn
+    Wait Until Element Is Visible    id=findAjobBtn
+    Element Should Be Visible    id=findAjobBtn
+    Element Should Be Enabled    id=findAjobBtn
+    Wait Until Element Is Visible    id=howItWorksBtn
+    Element Should Be Visible    id=howItWorksBtn
+    Element Should Be Enabled    id=howItWorksBtn
+    Wait Until Element Is Visible    id=postAjobBtn
+    Element Should Be Visible    id=postAjobBtn
+    Element Should Be Enabled    id=postAjobBtn
+    Wait Until Element Is Visible    id=buyAnUpPaqBtn
+    Element Should Be Visible    id=buyAnUpPaqBtn
+    Element Should Be Enabled    id=buyAnUpPaqBtn
     Wait Until Element Is Visible    xpath=//p[contains(text(),'Sign In')]
     Element Should Be Visible    xpath=//p[contains(text(),'Sign In')]
     Element Should Be Enabled    xpath=//p[contains(text(),'Sign In')]

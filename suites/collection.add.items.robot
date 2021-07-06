@@ -8,8 +8,8 @@ Suite Teardown    Close All Browsers
 Library           SeleniumLibrary
 Resource          _keywords.txt
 Resource          _mysetup.txt
-Library           XvfbRobot
 Library           String
+Library           Colection
 
 *** Variables ***
 ${TMP_PATH}       /tmp
@@ -18,7 +18,7 @@ ${TMP_PATH}       /tmp
 Login
     Maximize Browser Window
     Go To    ${TESTURL}
-    Wait Until Element Is Visible    class=Login_headingText__2QdrP
+    Sleep    1
     Input Text    id=emailOrUserName    ufj
     Input Text    id=password    ${ufjpass}
     Submit Form
