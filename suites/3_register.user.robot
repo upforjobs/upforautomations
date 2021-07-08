@@ -32,13 +32,13 @@ Invalid password
     Capture Page Screenshot    invalid-password-must-contain-{index}.png
     Element Text Should Be    xpath://div[contains(text(),'Password must contain min 8 characters: at least o')]    Password must contain min 8 characters: at least one lowercase letter, one uppercase letter, one numeric digit, and one special character
     Element Text Should Be    xpath=//div[contains(text(),'Username should be minimum 3 characters')]    Username should be minimum 3 characters
-    Sleep    2
+    Sleep    1
 
 Minimum characters
     [Tags]    register
     Maximize Browser Window
     GoTo    ${TESTURL}
-    Click Element    xpath=//p[contains(.,'Sign In')]
+    Click Element    xpath=//p[contains(text(),'Sign In')]
     Wait Until Element Is Visible    xpath=//div[contains(text(),'Signup')]
     Click Element    xpath=//div[contains(text(),'Signup')]
     Sign in modal
@@ -48,9 +48,10 @@ Minimum characters
 
 Incorrect input fields
     [Tags]    register
-    Maximize Browser Window
+    #Maximize Browser Window
     GoTo    ${TESTURL}
-    #Click Element    xpath=//p[contains(.,'Sign In')]
+    Wait Until Element Is Visible    xpath=//p[contains(text(),'Sign In')]
+    Click Element    xpath=//p[contains(text(),'Sign In')]
     Wait Until Element Is Visible    xpath=//div[contains(text(),'Signup')]
     Click Element    xpath=//div[contains(text(),'Signup')]
     Sign in modal
@@ -64,17 +65,18 @@ Incorrect input fields
     Element Text Should Be    xpath=//div[contains(text(),'Username must not contain underscores at the begin')]    Username must not contain underscores at the beginning or end    #Email field is required
     Element Text Should Be    xpath=//div[contains(text(),'Email is a required field')]    Email is a required field    #Password field is required
     Element Text Should Be    xpath=//div[contains(text(),'Password is a required field')]    Password is a required field    #Username field is required
-    Capture Element Screenshot    class=SignUp_signupCard__8R2Z8
+    Capture Element Screenshot    class=SignUp_signupCard__2rF_W
     Capture Page Screenshot    incorrect-input-fields-{index}.png
 
 Username can contain
     [Tags]    register
-    Maximize Browser Window
+    #Maximize Browser Window
     GoTo    ${TESTURL}
-    Click Element    xpath=//p[contains(.,'Sign In')]
+    Click Element    xpath=//p[contains(text(),'Sign In')]
     Wait Until Element Is Visible    xpath=//div[contains(text(),'Signup')]
     Click Element    xpath=//div[contains(text(),'Signup')]
     Sign in modal
+    ${RANDOM} =    Generate Random String    2    [LETTERS]
     Input Text    name:username    %$@
     Input Text    name:email    short8-${RANDOM}-${email}
     Input Text    name:password    short8
@@ -87,22 +89,23 @@ Incorrect Email format
     [Tags]    register
     Maximize Browser Window
     GoTo    ${TESTURL}
-    Click Element    xpath=//p[contains(.,'Sign In')]
+    Click Element    xpath=//p[contains(text(),'Sign In')]
     Wait Until Element Is Visible    xpath=//div[contains(text(),'Signup')]
     Click Element    xpath=//div[contains(text(),'Signup')]
     Sign in modal
     Input Text    name:email    incorrect
     Click Element    css=.signUp
-    Element Text Should Be    xpath=//div[contains(text(),'email must be a valid email')]    Email must be a valid email    #Incorrect Email format
+    Wait Until Element Is Visible    xpath=//div[contains(text(),'email must be a valid email')]
+    Element Text Should Be    xpath=//div[contains(text(),'email must be a valid email')]    email must be a valid email    #Incorrect Email format
     Capture Element Screenshot    xpath=//div[contains(text(),'email must be a valid email')]
     Capture Page Screenshot    email-must-be-a-valid-email-{index}.png
-    Element Text Should Be    xpath=//div[contains(text(),'Username should be minimum 3 characters')]    Username should be minimum 3 characters
+    Element Text Should Be    xpath=//div[contains(text(),'Password is a required field')]    Password is a required field
 
 Already taken username
     [Tags]    register
     Maximize Browser Window
     GoTo    ${TESTURL}
-    Click Element    xpath=//p[contains(.,'Sign In')]
+    Click Element    xpath=//p[contains(text(),'Sign In')]
     Wait Until Element Is Visible    xpath=//div[contains(text(),'Signup')]
     Click Element    xpath=//div[contains(text(),'Signup')]
     Sign in modal
@@ -123,32 +126,32 @@ Already taken username
 Register with Google
     Maximize Browser Window
     GoTo    ${TESTURL}
-    Click Element    xpath=//p[contains(.,'Sign In')]
+    Click Element    xpath=//p[contains(text(),'Sign In')]
     Wait Until Element Is Visible    xpath=//div[contains(text(),'Signup')]
     Click Element    xpath=//div[contains(text(),'Signup')]
     Sign in modal
-    Click Element    xpath=//div[@id='googleLogin']
+    Click Element    id=googleLogin
     Sleep    3
     Capture Page Screenshot    reg-google-{index}.png
 
 Register with FB
     Maximize Browser Window
     GoTo    ${TESTURL}
-    Click Element    xpath=//p[contains(.,'Sign In')]
+    Click Element    xpath=//p[contains(text(),'Sign In')]
     Wait Until Element Is Visible    xpath=//div[contains(text(),'Signup')]
     Click Element    xpath=//div[contains(text(),'Signup')]
     Sign in modal
-    Click Element    xpath=//div[@id='facebookLogin']
+    Click Element    id=facebookLogin
     Sleep    3
     Capture Page Screenshot    reg-fb-{index}.png
 
 Register with Linkedin
     Maximize Browser Window
     GoTo    ${TESTURL}
-    Click Element    xpath=//p[contains(.,'Sign In')]
+    Click Element    xpath=//p[contains(text(),'Sign In')]
     Wait Until Element Is Visible    xpath=//div[contains(text(),'Signup')]
     Click Element    xpath=//div[contains(text(),'Signup')]
     Sign in modal
-    Click Element    xpath=//div[@id='linkedinLogin']
+    Click Element    id=linkedinLogin
     Sleep    3
     Capture Page Screenshot    reg-linked-{index}.png

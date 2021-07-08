@@ -31,9 +31,9 @@ Required field
     [Documentation]    Inthis test we are testing forgot modal dialog and * required field for the email
     [Tags]    forgot.password
     Click Element    xpath=//button[contains(text(),'Next')]
-    Wait Until Element Is Visible    xpath=//p[contains(text(),'Required!')]
-    Element Should Be Visible    xpath=//p[contains(text(),'Required!')]
-    Element Text Should Be    xpath=//p[contains(text(),'Required!')]    Required!
+    Wait Until Element Is Visible    xpath=//p[contains(text(),'*Required!')]
+    Element Should Be Visible    xpath=//p[contains(text(),'*Required!')]
+    Element Text Should Be    xpath=//p[contains(text(),'*Required!')]    *Required!
     Capture Element Screenshot    class=ForgetPassword_forgetPasswordContainer__2Vsj4
 
 Must be valid email
@@ -74,8 +74,12 @@ Valid email
     ...
     ...    Expected behavior is that element text Must be valid email should not appear and user should be able to see code modal dialogg
     [Tags]    forgot.password
-    Login modal dialog
+    Wait Until Element Is Visible    id=login
+    Click Element    id=login
     Click Element    id=forgotPassword
+    Wait Until Element Is Visible    xpath=//nav[@id='nav-bar']/div[1]/form[1]
+    Capture Page Screenshot    forgot-password-modal-dialog-{index}.png
+    Forgot Password modal
     Sleep    1
     Clear Element Text    id=email
     Sleep    3
@@ -101,9 +105,9 @@ Code Input required
     Sleep    1
     Code modal dialog
     Submit Form
-    Wait Until Element Is Visible    xpath=//p[contains(text(),'Required!')]
-    Element Should Be Visible    xpath=//p[contains(text(),'Required!')]
-    Element Text Should Be    xpath=//p[contains(text(),'Required!')]    Required!
+    Wait Until Element Is Visible    xpath=//p[contains(text(),'*Required!')]
+    Element Should Be Visible    xpath=//p[contains(text(),'*Required!')]
+    Element Text Should Be    xpath=//p[contains(text(),'*Required!')]    *Required!
     Capture Page Screenshot    class=EnterVerificationCode_verificationCard__28sBJ
 
 Code must be at most 6 characters
@@ -112,9 +116,9 @@ Code must be at most 6 characters
     ${code} =    Generate Random String    7    [LETTERS]
     ${code} =    Set Variable    ${code}
     Input Text    id=code    ${code}
-    Wait Until Element Is Visible    xpath=//p[contains(text(),'code must be at most 6 characters')]
-    Element Should Be Visible    xpath=//p[contains(text(),'code must be at most 6 characters')]
-    Element Text Should Be    xpath=//p[contains(text(),'code must be at most 6 characters')]    code must be at most 6 characters
+    Wait Until Element Is Visible    xpath=//p[contains(text(),'Code must be at most 6 characters')]
+    Element Should Be Visible    xpath=//p[contains(text(),'Code must be at most 6 characters')]
+    Element Text Should Be    xpath=//p[contains(text(),'Code must be at most 6 characters')]    Code must be at most 6 characters
     Capture Element Screenshot    class=EnterVerificationCode_verificationCard__28sBJ
 
 Code must be 6 alphanumeric keys
@@ -123,7 +127,7 @@ Code must be 6 alphanumeric keys
     ${code} =    Generate Random String    5    [LETTERS]
     ${code} =    Set Variable    ${code}
     Input Text    id=code    ${code}
-    Wait Until Element Is Visible    xpath=//p[contains(text(),'code must be at most 6 characters')]
-    Element Should Be Visible    xpath=//p[contains(text(),'code must be at most 6 characters')]
-    Element Text Should Be    xpath=//p[contains(text(),'code must be at most 6 characters')]    * Code must be 6 alphanumeric keys
+    Wait Until Element Is Visible    xpath=//p[contains(text(),'Code must be 6 alphanumeric keys')]
+    Element Should Be Visible    xpath=//p[contains(text(),'Code must be 6 alphanumeric keys')]
+    Element Text Should Be    xpath=//p[contains(text(),'Code must be 6 alphanumeric keys')]    Code must be 6 alphanumeric keys
     Capture Element Screenshot    class=EnterVerificationCode_verificationCard__28sBJ
