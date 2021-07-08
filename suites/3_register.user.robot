@@ -3,7 +3,6 @@ Suite Setup       Open Testbrowser
 Suite Teardown    Close All Browsers
 Test Setup
 Library           SeleniumLibrary
-Library           XvfbRobot
 Library           String
 Resource          _keywords.txt
 Resource          _mysetup.txt

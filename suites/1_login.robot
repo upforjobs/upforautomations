@@ -5,7 +5,6 @@ Resource          _keywords.txt
 Resource          _mysetup.txt
 Library           String
 Library           SeleniumLibrary
-Library           Collections
 
 *** Variables ***
 ${TMP_PATH}       /tmp
