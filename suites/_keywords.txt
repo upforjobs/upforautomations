@@ -472,13 +472,16 @@ Landing page request
 Login Business KW
     Wait Until Element Is Visible    xpath=//p[contains(.,'Sign In')]
     Click Element    xpath=//p[contains(.,'Sign In')]
+    Wait Until Element Is Visible    class=Login_loginCard__3VHjo
     Input Text    name=emailOrUserName    ${business}${gmail}
-    Input Text    name=password    ${password}
+    Input Text    id=password    ${password}
+    Element Should Not Be Visible    id=emailUserError
     Click Element    id=login
 
 Login Freelancer KW
     Wait Until Element Is Visible    xpath=//p[contains(.,'Sign In')]
     Click Element    xpath=//p[contains(.,'Sign In')]
+    Wait Until Element Is Visible    class=Login_loginCard__3VHjo
     Input Text    name=emailOrUserName    ufjfreelancer@gmail.com
     Input Text    name=password    ${password}
     Click Element    id=login
@@ -565,13 +568,14 @@ LogoutKW
     Wait Until Element Is Visible    class=Avatar_avatar__container__6SBhX
     Click Element    class=Avatar_avatar__container__6SBhX
     Capture Page Screenshot    click-avatar-picture-logout-{index}.png
+    Sleep    1
     Wait Until Element Is Visible    xpath=//h3[@id='logout']
     Click Element    xpath=//h3[@id='logout']
     Capture Page Screenshot    click-avatar-picture-logout-{index}.png
     Logout modal
-    Wait Until Element Is Visible    xpath=//button[contains(.,'Logout')]
-    Click Element    xpath=//button[contains(.,'Logout')]
-    Wait Until Element Is Visible    xpath=//div[@id='login']
+    Wait Until Element Is Visible    xpath=//button[contains(text(),'Logout')]
+    Click Element    xpath=//button[contains(text(),'Logout')]
+    Wait Until Element Is Visible    xpath=//button[contains(text(),'Logout')]
     Capture Page Screenshot    logout-{index}.png
 
 My jobs page
@@ -1097,7 +1101,9 @@ UFJLogin
     Input Text    id=password    ${ufjpass}
     Sleep    1
     Submit Form
+    Sleep    2
     Click Element    xpath=//button[@id='login']
+    Sleep    2
 
 Job Description page
     Wait Until Element Is Visible    xpath=//button[contains(text(),'Job Description')]
@@ -1461,3 +1467,42 @@ Upload higlight submission
     Sleep    5
     Wait Until Element Is Visible    xpath=//div[contains(text(),'Details')]
     Click Element    xpath=//div[contains(text(),'Details')]
+
+Forgot Password modal
+    Wait Until Element Is Visible    xpath=//nav[@id='nav-bar']/div[1]/form[1]
+    Element Should Be Visible    xpath=//nav[@id='nav-bar']/div[1]/form[1]
+    Wait Until Element Is Visible    class=ForgetPassword_goBackContainer__3ln3h
+    Element Should Be Visible    class=ForgetPassword_goBackContainer__3ln3h
+    Wait Until Element Is Visible    xpath=//h2[contains(text(),'Forgot Password?')]
+    Element Should Be Visible    xpath=//h2[contains(text(),'Forgot Password?')]
+    Element Text Should Be    xpath=//h2[contains(text(),'Forgot Password?')]    Forgot Password?
+    Wait Until Element Is Visible    xpath=//p[contains(text(),'Enter your email below')]
+    Element Should Be Visible    xpath=//p[contains(text(),'Enter your email below')]
+    Element Text Should Be    xpath=//p[contains(text(),'Enter your email below')]    Enter your email below
+    Wait Until Element Is Visible    id=email
+    Element Should Be Visible    id=email
+    Element Should Be Enabled    id=email
+    Wait Until Element Is Visible    xpath=//form[1]/div[3]/span[1]
+    Element Should Be Visible    xpath=//form[1]/div[3]/span[1]
+    Wait Until Element Is Visible    xpath=//button[contains(text(),'Next')]
+    Element Should Be Visible    xpath=//button[contains(text(),'Next')]
+    Element Should Be Enabled    xpath=//button[contains(text(),'Next')]
+    Capture Page Screenshot    forgot-password-modal-dialog-{index}.png
+
+Code modal dialog
+    Sleep    2
+    Wait Until Element Is Visible    class=EnterVerificationCode_verificationCard__28sBJ
+    Element Should Be Visible    class=EnterVerificationCode_verificationCard__28sBJ
+    Wait Until Element Is Visible    class=EnterVerificationCode_goBackContainer__3ZpjS
+    Element Should Be Visible    class=EnterVerificationCode_goBackContainer__3ZpjS
+    Wait Until Element Is Visible    xpath=//h2[contains(text(),'Enter Verification Code')]
+    Element Should Be Visible    xpath=//h2[contains(text(),'Enter Verification Code')]
+    Element Text Should Be    xpath=//h2[contains(text(),'Enter Verification Code')]    Enter Verification Code
+    Wait Until Element Is Visible    xpath=//p[contains(text(),'Enter the verification code you received on your r')]
+    Element Should Be Visible    xpath=//p[contains(text(),'Enter the verification code you received on your r')]
+    Element Text Should Be    xpath=//p[contains(text(),'Enter the verification code you received on your r')]    Enter the verification code you received on your registered email address.
+    Wait Until Element Is Visible    id=code
+    Element Should Be Enabled    id=code
+    Wait Until Element Is Visible    xpath=//button[contains(text(),'Reset Password')]
+    Element Should Be Enabled    xpath=//button[contains(text(),'Reset Password')]
+    Capture Element Screenshot    class=EnterVerificationCode_verificationCard__28sBJ

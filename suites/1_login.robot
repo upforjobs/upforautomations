@@ -16,7 +16,6 @@ Login
     [Tags]    login
     UFJLogin
     Sleep    1
-    Submit Form
 
 Login password is incorrect
     [Documentation]    Negative test scenario
@@ -107,6 +106,7 @@ Login - User not found
     Element Text Should Be    xpath://div[contains(text(),'User not found.')]    User not found.
     Capture Element Screenshot    xpath://div[contains(text(),'User not found.')]
     Sleep    1
+    Click Element    xpath://div[contains(text(),'User not found.')]
     Click Element    xpath=//div[contains(text(),'Signup')]
     Click Element    xpath=//div[contains(text(),'Login')]
 
@@ -146,6 +146,7 @@ Login with the email - log out
 
 Login with Google
     [Tags]    login
+    Sleep    2
     Click Element    xpath=//p[contains(.,'Sign In')]
     Login modal dialog
     Wait Until Element Is Visible    xpath=//p[contains(text(),'Gmail')]
@@ -159,6 +160,7 @@ Login with FB
     ...    Clicking on the Social button FB \ - login with FB Login modal dialog shpould be presented
     ...    - Capture page screenshot
     [Tags]    login
+    Sleep    1
     Wait Until Element Is Visible    xpath=//p[contains(text(),'Facebook')]
     Click Element    xpath=//p[contains(text(),'Facebook')]
     Sleep    2
@@ -166,6 +168,7 @@ Login with FB
 
 Login with Linkedin
     [Tags]    login
+    Sleep    1
     Login modal dialog
     Wait Until Element Is Visible    class=LinkedinLogin_linkedinLogin__2bBmo
     Click Element    class=LinkedinLogin_linkedinLogin__2bBmo
