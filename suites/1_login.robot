@@ -83,8 +83,6 @@ At least 3 characters
     Wait Until Element Is Visible    xpath=//div[@id='emailUserError']
     Element Should Be Visible    xpath=//div[@id='emailUserError']
     Element Text Should Be    xpath=//div[@id='emailUserError']    Email or Username must be at least 3 characters
-    Click Element    xpath=//div[contains(text(),'Signup')]
-    Click Element    xpath=//div[contains(text(),'Login')]
 
 Login - User not found
     [Documentation]    Negarive test scenario
@@ -93,12 +91,15 @@ Login - User not found
     ...    an alert message with the text should be presented
     ...    - user not found
     [Tags]    login
-    Delete All Cookies
-    Wait Until Element Is Visible    xpath=//p[contains(.,'Sign In')]
-    ${name} =    Generate Random String    8    [LETTERS]
-    Input Text    name=emailOrUserName    ${name}
-    Input Text    name=password    invalid
-    Click Button    id:login
+    Sleep    2
+    Clear Element Text    id=emailOrUserName
+    Sleep    1
+    ${name} =    Generate Random String    10    [LETTERS]
+    Input Text    id=emailOrUserName    ${name}
+    Sleep    1
+    Input Text    xpath=//input[@id='password']    ${name}
+    Sleep    1
+    Click Element    id=login
     Capture Page Screenshot    login-details-{index}.png
     Wait Until Element Is Visible    xpath://div[contains(text(),'User not found.')]
     Element Should Be Visible    xpath://div[contains(text(),'User not found.')]
@@ -106,7 +107,9 @@ Login - User not found
     Capture Element Screenshot    xpath://div[contains(text(),'User not found.')]
     Sleep    1
     Click Element    xpath://div[contains(text(),'User not found.')]
-    Click Element    xpath=//div[contains(text(),'Signup')]
+    Wait Until Element Is Visible    xpath=//p[contains(.,'Sign In')]
+    Click Element    xpath=//p[contains(.,'Sign In')]
+    Sleep    1
     Click Element    xpath=//div[contains(text(),'Login')]
 
 Login with the username - log out
@@ -120,6 +123,7 @@ Login with the username - log out
     [Tags]    login
     #Wait Until Element Is Visible    xpath=//p[contains(.,'Sign In')]
     #Click Element    xpath=//p[contains(.,'Sign In')]
+    Sleep    1
     Login modal dialog
     Input Text    name=emailOrUserName    Freelancer
     Input Text    name=password    ${password}
