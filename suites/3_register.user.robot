@@ -124,6 +124,7 @@ Already taken username
     Wait Until Element Is Not Visible    xpath://div[contains(text(),'Email or Username is taken')]
 
 Register with Google
+    [Tags]    register
     Maximize Browser Window
     GoTo    ${TESTURL}
     Click Element    xpath=//p[contains(text(),'Sign In')]
@@ -135,6 +136,7 @@ Register with Google
     Capture Page Screenshot    reg-google-{index}.png
 
 Register with FB
+    [Tags]    register
     Maximize Browser Window
     GoTo    ${TESTURL}
     Click Element    xpath=//p[contains(text(),'Sign In')]
@@ -146,6 +148,7 @@ Register with FB
     Capture Page Screenshot    reg-fb-{index}.png
 
 Register with Linkedin
+    [Tags]    register
     Maximize Browser Window
     GoTo    ${TESTURL}
     Click Element    xpath=//p[contains(text(),'Sign In')]
