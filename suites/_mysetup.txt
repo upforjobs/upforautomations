@@ -41,6 +41,8 @@ ${freelancer}     freelancer
 ${freelancer1}    Milostest
 ${freelancer2}    Patricktest
 ${freelancer3}    Osamatest
+#professional title
+${professionqa}    QA Software tester
 #milostest@mailinator.com
 ${password}       Password##99
 ${email_server}    https://www.mailinator.com/v3/#/#inboxpane

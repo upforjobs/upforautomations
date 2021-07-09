@@ -195,7 +195,7 @@ Test input
     ${professionTitle} =    Generate Random String    5    [LETTERS]
     ${professionTitle} =    Set Variable    ${professionTitle}
     Set Suite Variable    ${professionTitle}
-    Input Text    id=professionTitle    Freelancer ${professionTitle}
+    Input Text    id=professionTitle    ${professionqa} ${professionTitle}
     ${radnom_amount} =    Generate Random String    2    [NUMBERS]
     ${radnom_amount}=    Set Variable    ${radnom_amount}
     Set Suite Variable    ${radnom_amount}
@@ -204,39 +204,41 @@ Test input
     Capture Page Screenshot    rate-{index}.png
     Input Text    id=tagline    ${no}a${no} ${professionTitle}
     Click Element    xpath=//div[@id='profession']/div
-    Wait Until Element Is Visible    xpath=//div[3]/div[1]/div[1]/div[2]/div[1]/div[2]
-    Click Element    xpath=//div[3]/div[1]/div[1]/div[2]/div[1]/div[2]
+    Wait Until Element Is Visible    xpath=//div[contains(text(),'Programming & Tech')]
+    Click Element    xpath=//div[contains(text(),'Programming & Tech')]
     Capture Page Screenshot    profession-{index}.png
     Scroll Element Into View    id=submit
     Wait Until Element Is Visible    xpath=//div[contains(text(),'Expertise')]
     Click Element    xpath=//div[contains(text(),'Expertise')]
     Capture Page Screenshot    expertise-{index}.png
-    Click Element    xpath=//div[2]/div[1]/div[1]/p[1]
+    Click Element    xpath=//div[contains(text(),'QA & Testing')]
     Capture Page Screenshot    1-{index}.png
-    Click Element    xpath=//div[1]/div[2]/div[1]/div[2]/p[1]
+    Wait Until Element Is Visible    xpath=//div[contains(text(),'Expertise')]
+    Click Element    xpath=//div[contains(text(),'Expertise')]
+    Click Element    xpath=//div[contains(text(),'Web Development')]
     Capture Page Screenshot    2-{index}.png
     Sleep    1
-    Click Element    xpath=//div[contains(text(),'Expertise')]
     Capture Page Screenshot    closing-dropdown-expertise-{index}.png
-    Input Text    xpath=//div[5]/div[1]/div[1]/div[1]/div[1]/input[1]    Selenium
+    Input Text    id=skills    Selenium
     Sleep    1
-    Click Element    //div[contains(text(),'Selenium Webdriver')]
+    Click Element    xpath=//div[contains(text(),'Selenium Webdriver')]
     Sleep    1
     Input Text    xpath=//div[5]/div[1]/div[1]/div[1]/div[1]/input[1]    Automation
     Click Element    xpath=//div[contains(text(),'Test Automation')]
     Sleep    1
-    Input Text    id=skills    r
-    Wait Until Element Is Visible    xpath=//div[1]/div[1]/div[1]/div[2]/div[5]
-    Click Element    xpath=//div[1]/div[1]/div[1]/div[2]/div[5]
-    Input Text    id=skills    p
-    Wait Until Element Is Visible    xpath=//div[1]/div[1]/div[1]/div[2]/div[5]
-    Click Element    xpath=//div[1]/div[1]/div[1]/div[2]/div[5]
+    Input Text    id=skills    test
+    Wait Until Element Is Visible    xpath=//div[contains(text(),'Test Plan Writing')]
+    Click Element    xpath=//div[contains(text(),'Test Plan Writing')]
+    Input Text    id=skills    test
+    Wait Until Element Is Visible    xpath=//div[contains(text(),'Software Testing')]
+    Click Element    xpath=//div[contains(text(),'Software Testing')]
     Sleep    1
     Click Button    id=submit
     Sleep    2
-    ${alert-success} =    Get Text    xpath://div[contains(text(),'Profile Saved Successfully')]
+    ${alert-success} =    Get Text    xpath=//div[contains(text(),'Profile Saved Successfully')]
     Log To Console    ${alert-success}
     Capture Page Screenshot    professional-settings-{index}.png
+    Click Element    xpath=//div[contains(text(),'Profile Saved Successfully')]
 
 ID Verification
     Click Link    /profile-settings/identification

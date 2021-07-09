@@ -763,22 +763,26 @@ Prelounch login
     Capture Page Screenshot    after-submit-{index}.png
 
 Professional Settings page
+    [Documentation]    In this keyword we are testing, verify and assert all elements on the page
+    Wait Until Element Is Visible    xpath=//p[contains(text(),'To browse our best features, you will have to fill')]
+    Element Should Be Visible    xpath=//p[contains(text(),'To browse our best features, you will have to fill')]
+    Element Text Should Be    xpath=//p[contains(text(),'To browse our best features, you will have to fill')]    To browse our best features, you will have to fill in all the required (mandatory) fields.
     Element Should Be Visible    xpath=//h2[contains(text(),'Professional Settings')]
     Element Text Should Be    xpath=//h2[contains(text(),'Professional Settings')]    Professional Settings
     Element Should Be Visible    xpath=//label[contains(text(),'Profession / Industry')]
-    Element Text Should Be    xpath=//label[contains(text(),'Profession / Industry')]    Profession / Industry
+    Element Text Should Be    xpath=//label[contains(text(),'Profession / Industry (Optional)')]    Profession / Industry (Optional)
     Element Should Be Enabled    id=professionTitle
     Element Should Be Visible    xpath=//label[contains(text(),'Rate Per Hour *')]
     Element Text Should Be    xpath=//label[contains(text(),'Rate Per Hour *')]    Rate Per Hour *
     Element Should Be Enabled    id=rateAmount
-    Element Should Be Visible    xpath=//p[contains(text(),'Tagline *')]
-    Element Text Should Be    xpath=//p[contains(text(),'Tagline *')]    Tagline *
+    Element Should Be Visible    xpath=//body/div[@id='root']/div[1]/section[1]/div[2]/div[4]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]
+    Element Text Should Be    xpath=//body/div[@id='root']/div[1]/section[1]/div[2]/div[4]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]    Why You Should Hire Me *
     Element Should Be Enabled    id=tagline
     Element Should Be Visible    xpath=//div[3]/div[1]/label[1]
     Element Text Should Be    xpath=//div[3]/div[1]/label[1]    Profession *
     Element Should Be Enabled    xpath=//div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]
     Element Should Be Visible    xpath=//label[contains(text(),'Expertise')]
-    Element Text Should Be    xpath=//label[contains(text(),'Expertise')]    Expertise
+    Element Text Should Be    xpath=//label[contains(text(),'Expertise (Optional)')]    Expertise (Optional)
     Element Should Be Enabled    xpath=//div[2]/div[1]/div[4]/div[1]/div[1]/div[1]
     Element Should Be Visible    xpath=//label[contains(text(),'Skills')]
     Element Text Should Be    xpath=//label[contains(text(),'Skills')]    Skills *
