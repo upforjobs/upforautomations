@@ -16,17 +16,11 @@ ${TMP_PATH}       /tmp
 
 *** Test Cases ***
 Login
-    Maximize Browser Window
-    Go To    ${TESTURL}
-    Sleep    1
-    Input Text    id=emailOrUserName    ufj
-    Input Text    id=password    ${ufjpass}
-    Submit Form
+    UFJLogin
 
 Login user
     [Documentation]    In this test scenario we are testing Login user freelancer,input credentials Freelancer and Password##99
     ...    assert and verify elements in login modal dialog
-    UFJLogin
     Login Freelancer KW
 
 Mini dashboard

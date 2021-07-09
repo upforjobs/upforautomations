@@ -31,9 +31,9 @@ Required field
     [Documentation]    Inthis test we are testing forgot modal dialog and * required field for the email
     [Tags]    forgot.password
     Click Element    xpath=//button[contains(text(),'Next')]
-    Wait Until Element Is Visible    xpath=//p[contains(text(),'*Required!')]
-    Element Should Be Visible    xpath=//p[contains(text(),'*Required!')]
-    Element Text Should Be    xpath=//p[contains(text(),'*Required!')]    *Required!
+    Wait Until Element Is Visible    xpath=//p[contains(text(),'* Required!')]
+    Element Should Be Visible    xpath=//p[contains(text(),'* Required!')]
+    Element Text Should Be    xpath=//p[contains(text(),'* Required!')]    * Required!
     Capture Element Screenshot    class=ForgetPassword_forgetPasswordContainer__2Vsj4
 
 Must be valid email
@@ -105,9 +105,9 @@ Code Input required
     Sleep    1
     Code modal dialog
     Submit Form
-    Wait Until Element Is Visible    xpath=//p[contains(text(),'*Required!')]
-    Element Should Be Visible    xpath=//p[contains(text(),'*Required!')]
-    Element Text Should Be    xpath=//p[contains(text(),'*Required!')]    *Required!
+    Wait Until Element Is Visible    xpath=//p[contains(text(),'* Required!')]
+    Element Should Be Visible    xpath=//p[contains(text(),'* Required!')]
+    Element Text Should Be    xpath=//p[contains(text(),'* Required!')]    * Required!
     Capture Page Screenshot    class=EnterVerificationCode_verificationCard__28sBJ
 
 Code must be at most 6 characters

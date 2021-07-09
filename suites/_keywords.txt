@@ -473,14 +473,17 @@ Login Business KW
     Wait Until Element Is Visible    xpath=//p[contains(.,'Sign In')]
     Click Element    xpath=//p[contains(.,'Sign In')]
     Wait Until Element Is Visible    class=Login_loginCard__3VHjo
+    Wait Until Element Is Visible    name=emailOrUserName
     Input Text    name=emailOrUserName    ${business}${gmail}
+    Wait Until Element Is Visible    id=password
     Input Text    id=password    ${password}
-    Element Should Not Be Visible    id=emailUserError
     Click Element    id=login
 
 Login Freelancer KW
+    Sleep    1
     Wait Until Element Is Visible    xpath=//p[contains(.,'Sign In')]
     Click Element    xpath=//p[contains(.,'Sign In')]
+    Login modal dialog
     Wait Until Element Is Visible    class=Login_loginCard__3VHjo
     Input Text    name=emailOrUserName    ufjfreelancer@gmail.com
     Input Text    name=password    ${password}
@@ -514,9 +517,8 @@ Login modal
     Click Element    class:closeModal
 
 Login modal dialog
+    Sleep    1
     Capture Page Screenshot    login-modal-{index}.png
-    #Wait Until Element Is Visible    class=Login_loginCard__2skrc
-    #Element Should Be Visible    class=Login_loginCard__2skrc
     Wait Until Element Is Visible    xpath=//div[contains(text(),'Signup')]
     Element Should Be Visible    xpath=//div[contains(text(),'Signup')]
     Element Text Should Be    xpath=//div[contains(text(),'Signup')]    Signup
@@ -710,17 +712,6 @@ Open Testbrowser
     #${system}=    Evaluate    platform.system()    platform
     #Run Keyword If    '${system}' == 'Linux'    Start Virtual Display    1920    1080
     Open Chrome Browser
-
-Portfolio Breadcrumbs
-    Wait Until Element Is Visible    xpath=//div[1]/div[1]/div[1]/div[1]/a[1]
-    Element Should Be Visible    link=Up For Jobs
-    Element Text Should Be    xpath=//div[1]/div[1]/div[1]/div[1]/a[1]    Up For Jobs
-    Wait Until Element Is Visible    xpath=//div[1]/div[1]/div[1]/div[1]/a[2]
-    Element Should Be Visible    link=My Profile
-    Element Text Should Be    xpath=//div[1]/div[1]/div[1]/div[1]/a[2]    My Profile
-    Wait Until Element Is Visible    xpath=//div[1]/div[1]/div[1]/div[1]/a[3]
-    Element Should Be Visible    link=Manage Portfolio
-    Element Text Should Be    xpath=//div[1]/div[1]/div[1]/div[1]/a[3]    Manage Portfolio
 
 Portfolio modal
     Sleep    1

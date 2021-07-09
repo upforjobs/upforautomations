@@ -52,11 +52,13 @@ Login - missing login details
     ...    An alert message under the inputfields text should be
     ...    - Required
     [Tags]    login
+    Login modal dialog
     Wait Until Element Is Visible    xpath=//div[@id='login']
     Click Element    xpath=//div[@id='login']
     Click Button    id:login
     Capture Page Screenshot    login-details-{index}.png
     Wait Until Element Is Visible    id=emailUserError
+    Click Element    id-=rememberMe
     Element Should Be Visible    id=emailUserError
     Element Text Should Be    id=emailUserError    * Required    #Please enter login details
     Capture Element Screenshot    id=emailUserError
