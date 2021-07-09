@@ -161,9 +161,9 @@ Upload Avatar Picture
     [Documentation]    In this test we are testing upload avatar picture.
     #Scroll Element Into View    xpath=//h2[contains(text(),'Professional Settings')]
     Wait Until Element Is Visible    xpath=//h2[contains(text(),'Professional Settings')]
-    Sleep    2
-    ${id} =    Generate Random String    2    [NUMBERS]
-    Choose File    name:add-photo    ${CURDIR}\\random\\${id}.jpg
+    Sleep    1
+    ${id} =    Generate Random String    1    [NUMBERS]
+    Choose File    name:add-photo    ${CURDIR}\\random\\avatars\\0${id}.jpg
     Capture Element Screenshot    name=add-photo
     Sleep    2
     Capture Page Screenshot    capture-{index}.png
