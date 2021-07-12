@@ -112,22 +112,22 @@ Code Input required
 
 Code must be at most 6 characters
     [Tags]    forgot.password
-    Sleep    1
+    Sleep    2
     ${code} =    Generate Random String    7    [LETTERS]
     ${code} =    Set Variable    ${code}
     Input Text    id=code    ${code}
-    Wait Until Element Is Visible    xpath=//p[contains(text(),'Code must be at most 6 characters')]
-    Element Should Be Visible    xpath=//p[contains(text(),'Code must be at most 6 characters')]
-    Element Text Should Be    xpath=//p[contains(text(),'Code must be at most 6 characters')]    Code must be at most 6 characters
+    Wait Until Element Is Visible    xpath=//p[contains(text(),'* Code must be at most 6 characters')]
+    Element Should Be Visible    xpath=//p[contains(text(),'* Code must be at most 6 characters')]
+    Element Text Should Be    xpath=//p[contains(text(),'* Code must be at most 6 characters')]    * Code must be at most 6 characters
     Capture Element Screenshot    class=EnterVerificationCode_verificationCard__28sBJ
 
 Code must be 6 alphanumeric keys
     [Tags]    forgot.password
-    Sleep    1
+    Sleep    2
     ${code} =    Generate Random String    5    [LETTERS]
     ${code} =    Set Variable    ${code}
     Input Text    id=code    ${code}
-    Wait Until Element Is Visible    xpath=//p[contains(text(),'Code must be 6 alphanumeric keys')]
-    Element Should Be Visible    xpath=//p[contains(text(),'Code must be 6 alphanumeric keys')]
-    Element Text Should Be    xpath=//p[contains(text(),'Code must be 6 alphanumeric keys')]    Code must be 6 alphanumeric keys
+    Wait Until Element Is Visible    xpath=//p[contains(text(),'* Code must be 6 alphanumeric keys')]
+    Element Should Be Visible    xpath=//p[contains(text(),'* Code must be 6 alphanumeric keys')]
+    Element Text Should Be    xpath=//p[contains(text(),'* Code must be 6 alphanumeric keys')]    * Code must be 6 alphanumeric keys
     Capture Element Screenshot    class=EnterVerificationCode_verificationCard__28sBJ

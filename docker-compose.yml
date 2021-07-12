@@ -7,7 +7,7 @@ services:
         # context: .
         shm_size: "256M"
         environment:
-            TEST_SUITE: #login.robot
+            TEST_SUITE: #login.robot forgot.password.robot register.robot content.writing.contest.robot
         volumes: [
            "$PWD/suites:/app/suites",
            "$PWD/scripts:/app/scripts",

@@ -52,13 +52,14 @@ Login - missing login details
     ...    An alert message under the inputfields text should be
     ...    - Required
     [Tags]    login
+    Wait Until Element Is Visible    xpath=//p[contains(.,'Sign In')]
+    Click Element    xpath=//p[contains(.,'Sign In')]
     Login modal dialog
-    Wait Until Element Is Visible    xpath=//div[@id='login']
-    Click Element    xpath=//div[@id='login']
-    Click Button    id:login
+    Wait Until Element Is Visible    id=login
+    Click Element    id=login
     Capture Page Screenshot    login-details-{index}.png
     Wait Until Element Is Visible    id=emailUserError
-    Click Element    id-=rememberMe
+    Click Element    id=rememberMe
     Element Should Be Visible    id=emailUserError
     Element Text Should Be    id=emailUserError    * Required    #Please enter login details
     Capture Element Screenshot    id=emailUserError
@@ -123,8 +124,6 @@ Login with the username - log out
     ...    - assert Home page using nabar header keword
     ...    capture page screenshout and logout using keyword logout
     [Tags]    login
-    #Wait Until Element Is Visible    xpath=//p[contains(.,'Sign In')]
-    #Click Element    xpath=//p[contains(.,'Sign In')]
     Sleep    1
     Login modal dialog
     Input Text    name=emailOrUserName    Freelancer

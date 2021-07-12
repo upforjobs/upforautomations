@@ -1,37 +1,4 @@
 *** Keywords ***
-Business Landing page
-    Element Should Be Visible    xpath://body/div[@id='root']/div[1]/section[1]/section[1]/div[1]/div[2]/div[3]/a[1]
-    Element Text Should Be    xpath://body/div[@id='root']/div[1]/section[1]/section[1]/div[1]/div[2]/div[3]/a[1]    Post a Job
-    Element Should Be Visible    xpath://body/div[@id='root']/div[1]/section[1]/section[1]/div[2]/h2[1]
-    Element Text Should Be    xpath://body/div[@id='root']/div[1]/section[1]/section[1]/div[2]/h2[1]    Up Rated Freelancers
-    Element Should Be Visible    xpath://p[contains(text(),'Hire the Best of Up For Jobs')]
-    Element Text Should Be    xpath://p[contains(text(),'Hire the Best of Up For Jobs')]    Hire the Best of Up For Jobs
-    Element Should Be Visible    xpath://body/div[@id='root']/div[1]/section[1]/section[1]/div[2]/a[1]
-    Element Text Should Be    xpath://body/div[@id='root']/div[1]/section[1]/section[1]/div[2]/a[1]    View All
-    #social impact
-    Element Should Be Visible    xpath://body/div[@id='root']/div[1]/section[1]/section[1]/div[3]
-    Element Text Should Be    xpath://h2[contains(text(),'Make Social Impact!')]    Make Social Impact!
-    Element Should Be Visible    xpath://body/div[@id='root']/div[1]/section[1]/section[1]/div[3]/p[1]
-    Scroll Element Into View    xpath://body/div[@id='root']/div[1]/section[1]/section[1]/div[3]/p[1]
-    ${social} =    Get Text    xpath://body/div[@id='root']/div[1]/section[1]/section[1]/div[3]/p[1]
-    Log to console    ${social}
-    Capture Page Screenshot    social-impact-{index}.png
-    #Rcomended users
-    Element Text Should Be    xpath://body/div[@id='root']/div[1]/section[1]/section[1]/div[4]/h2[1]    Recommended Freelancers
-    Element Should Be Visible    xpath://body/div[@id='root']/div[1]/section[1]/section[1]/div[4]/div[1]
-    Capture Page Screenshot    RecommendedFreelancers-{index}.png
-    Element Text Should Be    xpath://body/div[@id='root']/div[1]/section[1]/section[1]/div[4]/a[1]    View All
-    #Success path
-    Element Should Be Visible    xpath://body/div[@id='root']/div[1]/section[1]/section[1]/section[1]/div[1]
-    Element Text Should Be    xpath://body/div[@id='root']/div[1]/section[1]/section[1]/section[1]/div[1]/div[1]/h2[1]    Success Path
-    Element Text Should Be    xpath://p[contains(text(),'We guide freelancers to success via:')]    We guide freelancers to success via:
-    Element Text Should Be    xpath://h3[contains(text(),'Up For Success')]    Up For Success
-    Element Text Should Be    xpath://body/div[@id='root']/div[1]/section[1]/section[1]/section[1]/div[1]/div[2]/div[1]/a[1]    blog
-    Element Text Should Be    xpath://h3[contains(text(),'Up For Vids')]    Up For Vids
-    Element Text Should Be    xpath://a[contains(text(),'videoblog')]    videoblog
-    Element Text Should Be    xpath://h3[contains(text(),'Up For Teams')]    Up For Teams
-    Element Text Should Be    xpath://a[contains(text(),'team creator app')]    team creator app
-
 Congrats Contest modal dialog Urgent
     Capture Page Screenshot    poroject-modal-dialog
     Wait Until Element Is Visible    class=PostAJobFinish_finishBody__2F2D1
@@ -472,11 +439,14 @@ Landing page request
 Login Business KW
     Wait Until Element Is Visible    xpath=//p[contains(.,'Sign In')]
     Click Element    xpath=//p[contains(.,'Sign In')]
+    Login modal dialog
     Wait Until Element Is Visible    class=Login_loginCard__3VHjo
+    Wait Until Element Is Enabled    xpath=//input[@id='emailOrUserName']
     Wait Until Element Is Visible    name=emailOrUserName
-    Input Text    name=emailOrUserName    ${business}${gmail}
+    Input Text    id=emailOrUserName    ${business}${gmail}
     Wait Until Element Is Visible    id=password
     Input Text    id=password    ${password}
+    Click Element    id=rememberMe
     Click Element    id=login
 
 Login Freelancer KW
@@ -485,6 +455,7 @@ Login Freelancer KW
     Click Element    xpath=//p[contains(.,'Sign In')]
     Login modal dialog
     Wait Until Element Is Visible    class=Login_loginCard__3VHjo
+    Click Element    xpath=//input[@id='rememberMe']
     Input Text    name=emailOrUserName    ufjfreelancer@gmail.com
     Input Text    name=password    ${password}
     Click Element    id=login
@@ -517,7 +488,7 @@ Login modal
     Click Element    class:closeModal
 
 Login modal dialog
-    Sleep    1
+    Sleep    2
     Capture Page Screenshot    login-modal-{index}.png
     Wait Until Element Is Visible    xpath=//div[contains(text(),'Signup')]
     Element Should Be Visible    xpath=//div[contains(text(),'Signup')]
@@ -567,10 +538,12 @@ Logout modal
 
 LogoutKW
     [Documentation]    Logout Keyword is keyword to logout all users frm the application
-    Wait Until Element Is Visible    class=Avatar_avatar__container__6SBhX
-    Click Element    class=Avatar_avatar__container__6SBhX
+    Sleep    5
+    Wait Until Element Is Visible    id=profileDropdown
+    Wait Until Element Is Enabled    id=profileDropdown
+    Click Element    id=profileDropdown
     Capture Page Screenshot    click-avatar-picture-logout-{index}.png
-    Sleep    1
+    Sleep    2
     Wait Until Element Is Visible    xpath=//h3[@id='logout']
     Click Element    xpath=//h3[@id='logout']
     Capture Page Screenshot    click-avatar-picture-logout-{index}.png
@@ -643,17 +616,11 @@ Navheader Freelancer
     Element Should Be Visible    id=findAjobBtn
     Element Should Be Enabled    id=findAjobBtn
     Element Text Should Be    id=findAjobBtn    Find a Job
-    Element Should Be Visible    xpath=//a[@id='buyAnUpPaqBtn']
-    Element Should Be Enabled    xpath=//a[@id='buyAnUpPaqBtn']
+    Element Should Be Visible    id=createAnUpPaqBtn
+    Element Should Be Enabled    id=createAnUpPaqBtn
     Wait Until Element Is Visible    class=Avatar_avatar__container__6SBhX
     Capture Element Screenshot    id=nav-bar
-    Element Should Be Enabled    id=switchUserEntity
-    Element Text Should Be    id=switchUserEntity    Switch to Business
     #Post a Job
-    Wait Until Element Is Visible    id=findAJob
-    Element Should Be Visible    id=findAJob
-    Element Should Be Enabled    id=findAJob
-    Element Text Should Be    id=findAJob    Find a Job
     Capture Element Screenshot    id=nav-bar
 
 Navheader Unregistered
@@ -855,34 +822,6 @@ Profile Settings page
     Element Text Should Be    xpath=//button[contains(text(),'Save')]    Save
     Element Should Be Enabled    xpath=//button[contains(text(),'Save')]
 
-Random Login
-    Go To    ${BASEURL}
-    ${random_name}    Generate Random String    10    [NUMBERS]
-    Input Text    name:name    ${random_name}
-    ${random_email}    Generate Random String    8    [NUMBERS]
-    Input Text    name:email    ${random_email}@mailinator.com
-    Submit Form
-    Wait Until Element Is Visible    class:ShareEmail_congratulationsContainer__2tuWi
-
-Raw Portfolio page
-    Wait Until Element Is Visible    xpath=//div[1]/div[1]/div[2]/div[1]/div[1]/div[1]
-    Element Should Be Visible    xpath=//div[1]/div[1]/div[2]/div[1]/div[1]/div[1]
-    Element Text Should Be    xpath=//div[1]/div[1]/div[2]/div[1]/div[1]/div[1]    Create Portfolio
-    #button
-    Wait Until Element Is Visible    xpath=//div[1]/div[1]/div[2]/div[1]/div[2]/button[1]
-    Element Should Be Visible    xpath=//div[1]/div[1]/div[2]/div[1]/div[2]/button[1]
-    Element Should Be Enabled    xpath=//div[1]/div[1]/div[2]/div[1]/div[2]/button[1]
-    Element Text Should Be    xpath=//div[1]/div[1]/div[2]/div[1]/div[2]/button[1]    Add Collection
-    Wait Until Element Is Visible    xpath=//div[1]/div[1]/div[2]/div[1]/div[3]/div[1]
-    Element Should Be Visible    xpath=//div[1]/div[1]/div[2]/div[1]/div[3]/div[1]
-    Element Text Should Be    xpath=//div[1]/div[1]/div[2]/div[1]/div[3]/div[1]    Saved Collections:
-    Wait Until Element Is Visible    xpath=//div[1]/div[1]/div[2]/div[1]/div[3]/div[3]
-    Element Should Be Visible    xpath=//div[1]/div[1]/div[2]/div[1]/div[3]/div[3]
-    Element Text Should Be    xpath=//div[1]/div[1]/div[2]/div[1]/div[3]/div[3]    No Collection found.
-    Wait Until Element Is Visible    xpath=//div[1]/div[1]/div[2]/div[1]/div[3]/div[4]
-    Element Should Be Visible    xpath=//div[1]/div[1]/div[2]/div[1]/div[3]/div[4]
-    Element Text Should Be    xpath=//div[1]/div[1]/div[2]/div[1]/div[3]/div[4]    Please upload files and add description to create a collection
-
 Register modal dialog
     Wait Until Element Is Visible    xpath=//div[contains(text(),'Signup')]
     Element Should Be Visible    xpath=//div[contains(text(),'Signup')]
@@ -984,78 +923,6 @@ Upload Avatar Picture
     Sleep    2
     Capture Page Screenshot    capture-{index}.png
 
-mini-dashboard
-    #Wait Until Element Is Visible    xpath://a[contains(text(),'Hi ${freelancer},')]
-    #Element Should Be Visible    xpath://a[contains(text(),'Hi ${freelancer},')]
-    #Element Text Should Be    xpath://a[contains(text(),'Hi ${freelancer},')]    Hi ${freelancer},
-    #Element Should Be Visible    class=MiniDashboard_statusMode__2BWW7
-    Wait Until Element Is Visible    xpath://h4[contains(text(),'You are logged in.')]
-    Element Text Should Be    xpath://h4[contains(text(),'You are logged in.')]    You are logged in.
-    Element Text Should Be    xpath://h4[contains(text(),'My Profile Viewers')]    My Profile Viewers
-    Element Text Should Be    xpath://h4[contains(text(),'Complete your profile')]    Complete your profile
-    Element Text Should Be    xpath://h4[contains(text(),'Finance')]    Finance
-    Element Text Should Be    xpath=//div[2]/div[1]/div[1]/div[1]/h4[1]    Mode:
-    Capture Page Screenshot    landing-page-{index}.png
-    Element Text Should Be    xpath://h4[contains(text(),'Finance')]    Finance
-    #Element Text Should Be    xpath://h4[contains(text(),'Bookmarks')]    Bookmarks
-
-prelounch
-    Prelounch login
-    Prelounch login
-    Prelounch login
-    Prelounch login
-    Prelounch login
-    Prelounch login
-    Prelounch login
-    Prelounch login
-    Prelounch login
-    Prelounch login
-    Prelounch login
-    Prelounch login
-    Prelounch login
-    Prelounch login
-    Prelounch login
-
-return email
-    Click Element    name:email
-    Input Text    name:email    ${radnom_name}${radnom_email}@mailinator.com
-    Capture Page Screenshot    pic-{index}.png
-    Press Keys    name:email    RETURN
-    Sleep    prelounch
-    Click Element    name:email
-    Input Text    name:email    2${radnom_name}${radnom_email}@mailinator.com
-    Capture Page Screenshot    pic-{index}.png
-    Press Keys    name:email    RETURN
-    Sleep    prelounch
-    Input Text    name:email    3${radnom_name}user${radnom_email}@mailinator.com
-    Capture Page Screenshot    pic-{index}.png
-    Press Keys    name:email    RETURN
-    Click Element    name:email
-    Input Text    name:email    4${radnom_name}user${radnom_email}@mailinator.com
-    Capture Page Screenshot    pic-{index}.png
-    Press Keys    name:email    RETURN
-    Input Text    name:email    5${radnom_name}user${radnom_email}@mailinator.com
-    Capture Page Screenshot    pic-{index}.png
-    Press Keys    name:email    RETURN
-    Click Element    name:email
-    Input Text    name:email    6${radnom_name}user${radnom_email}@mailinator.com
-    Capture Page Screenshot    pic-{index}.png
-    Press Keys    name:email    RETURN
-    Input Text    name:email    7${radnom_name}user${radnom_email}@mailinator.com
-    Capture Page Screenshot    pic-{index}.png
-    Press Keys    name:email    RETURN
-    Click Element    name:email
-    Input Text    name:email    8${radnom_name}user${radnom_email}@mailinator.com
-    Capture Page Screenshot    pic-{index}.png
-    Press Keys    name:email    RETURN
-    Input Text    name:email    9${radnom_name}user${radnom_email}@mailinator.com
-    Capture Page Screenshot    pic-{index}.png
-    Press Keys    name:email    RETURN
-    Click Element    name:email
-    Input Text    name:email    10${radnom_name}user${radnom_email}@mailinator.com
-    Capture Page Screenshot    pic-{index}.png
-    Press Keys    name:email    RETURN
-
 Sign in modal
     Register modal dialog
     Checkbox Should Be Selected    name=hire
@@ -1096,9 +963,9 @@ UFJLogin
     Input Text    id=password    ${ufjpass}
     Sleep    1
     Submit Form
-    Sleep    2
+    Sleep    1
     Click Element    xpath=//button[@id='login']
-    Sleep    2
+    Sleep    1
 
 Job Description page
     Wait Until Element Is Visible    xpath=//button[contains(text(),'Job Description')]
@@ -1501,3 +1368,32 @@ Code modal dialog
     Wait Until Element Is Visible    xpath=//button[contains(text(),'Reset Password')]
     Element Should Be Enabled    xpath=//button[contains(text(),'Reset Password')]
     Capture Element Screenshot    class=EnterVerificationCode_verificationCard__28sBJ
+
+Content Writing Contest card KW
+    Wait Until Element Is Visible    class=OneClickContestCard_oneClickContestCardInfo__s_MY-
+    Scroll Element Into View    xpath=//section[1]/div[1]/div[1]/div[2]/div[1]/form[1]/div[1]/button[1]
+    Element Should Be Visible    class=OneClickContestCard_oneClickContestCardInfo__s_MY-
+    Wait Until Element Is Visible    xpath=//h3[contains(text(),'Content Writing Contest')]
+    Element Should Be Visible    xpath=//h3[contains(text(),'Content Writing Contest')]
+    Element Text Should Be    xpath=//h3[contains(text(),'Content Writing Contest')]    Content Writing Contest
+    Wait Until Element Is Visible    xpath=//section[1]/div[1]/div[1]/div[2]/div[1]/form[1]/div[1]/div[1]/div[1]/p[1]
+    Element Should Be Visible    xpath=//section[1]/div[1]/div[1]/div[2]/div[1]/form[1]/div[1]/div[1]/div[1]/p[1]
+    Element Text Should Be    xpath=//section[1]/div[1]/div[1]/div[2]/div[1]/form[1]/div[1]/div[1]/div[1]/p[1]    Title
+    Element Should Be Enabled    xpath=//body/div[@id='root']/div[1]/section[1]/section[1]/div[1]/div[1]/div[2]/div[1]/form[1]/div[1]/div[1]/div[1]/input[1]
+    Wait Until Element Is Visible    xpath=//section[1]/div[1]/div[1]/div[2]/div[1]/form[1]/div[1]/div[1]/div[2]/p[1]
+    Element Should Be Visible    xpath=//section[1]/div[1]/div[1]/div[2]/div[1]/form[1]/div[1]/div[1]/div[2]/p[1]
+    Element Text Should Be    xpath=//section[1]/div[1]/div[1]/div[2]/div[1]/form[1]/div[1]/div[1]/div[2]/p[1]    Prize
+    Element Should Be Enabled    xpath=//body/div[@id='root']/div[1]/section[1]/section[1]/div[1]/div[1]/div[2]/div[1]/form[1]/div[1]/div[1]/div[2]/input[1]
+    Wait Until Element Is Visible    xpath=//section[1]/div[1]/div[1]/div[2]/div[1]/form[1]/div[1]/div[1]/div[3]/p[1]
+    Element Should Be Visible    xpath=//section[1]/div[1]/div[1]/div[2]/div[1]/form[1]/div[1]/div[1]/div[3]/p[1]
+    Element Text Should Be    xpath=//section[1]/div[1]/div[1]/div[2]/div[1]/form[1]/div[1]/div[1]/div[3]/p[1]    Days
+    Element Should Be Enabled    xpath=//body/div[@id='root']/div[1]/section[1]/section[1]/div[1]/div[1]/div[2]/div[1]/form[1]/div[1]/div[1]/div[3]/input[1]
+    Wait Until Element Is Visible    xpath=//section[1]/div[1]/div[1]/div[2]/div[1]/form[1]/div[1]/div[1]/div[4]/p[1]
+    Element Should Be Visible    xpath=//section[1]/div[1]/div[1]/div[2]/div[1]/form[1]/div[1]/div[1]/div[4]/p[1]
+    Element Text Should Be    xpath=//section[1]/div[1]/div[1]/div[2]/div[1]/form[1]/div[1]/div[1]/div[4]/p[1]    Description
+    Element Should Be Enabled    xpath=//body/div[@id='root']/div[1]/section[1]/section[1]/div[1]/div[1]/div[2]/div[1]/form[1]/div[1]/div[1]/div[4]/textarea[1]
+    Wait Until Element Is Visible    xpath=//section[1]/div[1]/div[1]/div[2]/div[1]/form[1]/div[1]/button[1]
+    Element Should Be Visible    xpath=//section[1]/div[1]/div[1]/div[2]/div[1]/form[1]/div[1]/button[1]
+    Element Text Should Be    xpath=//section[1]/div[1]/div[1]/div[2]/div[1]/form[1]/div[1]/button[1]    Build my contest
+    Capture Element Screenshot    class=OneClickContestCard_oneClickContestCardInfo__s_MY-
+    Capture Page Screenshot    OneClickContestCard-{index}.png
