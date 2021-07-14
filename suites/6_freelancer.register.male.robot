@@ -156,6 +156,7 @@ Profile Settings
     Log To Console    ${alert-success}
     Capture Element Screenshot    xpath://div[contains(text(),'Profile Saved Successfully')]
     Capture Page Screenshot    saved-profile-settings-{index}.png
+    Click Element    xpath=//div[contains(text(),'Profile Saved Successfully')]
 
 Upload Avatar Picture
     [Documentation]    In this test we are testing upload avatar picture.
@@ -163,8 +164,11 @@ Upload Avatar Picture
     Wait Until Element Is Visible    xpath=//h2[contains(text(),'Professional Settings')]
     Sleep    1
     ${id} =    Generate Random String    1    [NUMBERS]
-    Choose File    name:add-photo    ${CURDIR}\\random\\avatars\\0${id}.jpg
+    Choose File    name:add-photo    ${CURDIR}\\random\\avatars\\male\\0${id}.jpg
     Capture Element Screenshot    name=add-photo
+    Wait Until Element Is Visible    xpath=//div[contains(text(),'Profile Image Updated Successfully')]
+    Element Text Should Be    xpath=//div[contains(text(),'Profile Image Updated Successfully')]    Profile Image Updated Successfully
+    Click Element    xpath=//div[contains(text(),'Profile Image Updated Successfully')]
     Sleep    2
     Capture Page Screenshot    capture-{index}.png
 
@@ -282,182 +286,47 @@ Emails & Notifications
     Element Should Be Visible    xpath=//div[contains(text(),'Emails for active Jobs')]
     Element Text Should Be    xpath=//div[contains(text(),'Emails for active Jobs')]    Emails for active Jobs
     Element Should Be Enabled    xpath=//div[contains(text(),'Emails for active Jobs')]
-    Element Should Be Visible    xpath=//section[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/i[1]
-    Element Should Be Enabled    xpath=//section[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/i[1]
+    Element Should Be Visible    xpath=//div[1]/div[2]/div[1]/div[2]/i[1]
+    Element Should Be Enabled    xpath=//div[1]/div[2]/div[1]/div[2]/i[1]
     Wait Until Element Is Visible    xpath=//div[contains(text(),'Emails for similar Jobs')]
     Element Should Be Visible    xpath=//div[contains(text(),'Emails for similar Jobs')]
     Element Text Should Be    xpath=//div[contains(text(),'Emails for similar Jobs')]    Emails for similar Jobs
     Element Should Be Enabled    xpath=//div[contains(text(),'Emails for similar Jobs')]
-    Element Should Be Visible    xpath=//section[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/i[1]
-    Element Should Be Enabled    xpath=//section[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/i[1]
+    Element Should Be Visible    xpath=//div[1]/div[3]/div[1]/div[2]/i[1]
+    Element Should Be Enabled    xpath=//div[1]/div[3]/div[1]/div[2]/i[1]
     Wait Until Element Is Visible    xpath=//div[contains(text(),'Recommended Businesses')]
     Element Should Be Visible    xpath=//div[contains(text(),'Recommended Businesses')]
     Element Text Should Be    xpath=//div[contains(text(),'Recommended Businesses')]    Recommended Businesses
     Element Should Be Enabled    xpath=//div[contains(text(),'Recommended Businesses')]
-    Element Should Be Visible    xpath=//section[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/i[1]
-    Element Should Be Enabled    xpath=//section[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/i[1]
+    Element Should Be Visible    xpath=//div[1]/div[4]/div[1]/div[2]/i[1]
+    Element Should Be Enabled    xpath=//div[1]/div[4]/div[1]/div[2]/i[1]
     Wait Until Element Is Visible    xpath=//div[contains(text(),'UpRated Freelancer achieved notification')]
     Element Should Be Visible    xpath=//div[contains(text(),'UpRated Freelancer achieved notification')]
     Element Text Should Be    xpath=//div[contains(text(),'UpRated Freelancer achieved notification')]    UpRated Freelancer achieved notification
     Element Should Be Enabled    xpath=//div[contains(text(),'UpRated Freelancer achieved notification')]
-    Element Should Be Visible    xpath=//section[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/div[1]/div[1]/i[1]
-    Element Should Be Enabled    xpath=//section[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/div[1]/div[1]/i[1]
+    Element Should Be Visible    xpath=//div[1]/div[5]/div[1]/div[2]/i[1]
+    Element Should Be Enabled    xpath=//div[1]/div[5]/div[1]/div[2]/i[1]
     Wait Until Element Is Visible    xpath=//div[contains(text(),'Freelancer Reminder Email')]
     Element Should Be Visible    xpath=//div[contains(text(),'Freelancer Reminder Email')]
     Element Text Should Be    xpath=//div[contains(text(),'Freelancer Reminder Email')]    Freelancer Reminder Email
     Element Should Be Enabled    xpath=//div[contains(text(),'Freelancer Reminder Email')]
-    Element Should Be Visible    xpath=//section[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[6]/div[1]/div[1]/div[1]/i[1]
-    Element Should Be Enabled    xpath=//section[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[6]/div[1]/div[1]/div[1]/i[1]
+    Element Should Be Visible    xpath=//div[1]/div[6]/div[1]/div[2]/i[1]
+    Element Should Be Enabled    xpath=//div[1]/div[6]/div[1]/div[2]/i[1]
     Wait Until Element Is Visible    xpath=//div[contains(text(),'Digest Emails for Available Jobs')]
     Element Should Be Visible    xpath=//div[contains(text(),'Digest Emails for Available Jobs')]
     Element Text Should Be    xpath=//div[contains(text(),'Digest Emails for Available Jobs')]    Digest Emails for Available Jobs
     Element Should Be Enabled    xpath=//div[contains(text(),'Digest Emails for Available Jobs')]
-    Element Should Be Visible    xpath=//section[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[7]/div[1]/div[1]/div[1]/i[1]
-    Element Should Be Enabled    xpath=//section[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[7]/div[1]/div[1]/div[1]/i[1]
-    #dropdown
-    Click Element    class=ProfileEmailNotification_accordionToggle__2LkJT
-    Click Element    class=DropDown_head__uLqnn
-    Capture Page Screenshot    dropdown-{index}.png
-    Capture Element Screenshot    class=DropDown_list_container__2XJvT
-    Wait Until Element Is Visible    xpath=//div[contains(text(),'Instantly')]
-    Element Should Be Visible    xpath=//div[contains(text(),'Instantly')]
-    Element Text Should Be    xpath=//div[contains(text(),'Instantly')]    Instantly
-    Wait Until Element Is Visible    xpath=//div[contains(text(),'Every Hour')]
-    Element Should Be Visible    xpath=//div[contains(text(),'Every Hour')]
-    Element Text Should Be    xpath=//div[contains(text(),'Every Hour')]    Every Hour
-    Wait Until Element Is Visible    xpath=//section[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[2]/div[3]
-    Element Should Be Visible    xpath=//section[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[2]/div[3]
-    Element Text Should Be    xpath=//div[contains(text(),'Default')]    Default
-
-Social Links
-    Click Link    /profile-settings/social-links
-    Capture Page Screenshot    social-links-{index}.png
-    Wait Until Element Is Visible    xpath=//h2[contains(text(),'Social Links')]
-    Element Should Be Visible    xpath=//h2[contains(text(),'Social Links')]
-    Element Text Should Be    xpath=//h2[contains(text(),'Social Links')]    Social Links
-    Wait Until Element Is Visible    xpath=//section[1]/div[2]/div[3]/div[1]/div[1]/div[1]
-    Element Should Be Visible    xpath=//section[1]/div[2]/div[3]/div[1]/div[1]/div[1]
-    Element Text Should Be    xpath=//section[1]/div[2]/div[3]/div[1]/div[1]/div[1]    These are apps and websites you've connected with UpForJobs.
-    #fb
-    Wait Until Element Is Visible    xpath=//section[1]/div[2]/div[3]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/img[1]
-    Element Should Be Visible    xpath=//section[1]/div[2]/div[3]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/img[1]
-    Wait Until Element Is Visible    xpath=//section[1]/div[2]/div[3]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]
-    Element Should Be Visible    xpath=//section[1]/div[2]/div[3]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]
-    Element Text Should Be    xpath=//section[1]/div[2]/div[3]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]    ${notconnected}
-    Wait Until Element Is Visible    xpath=//section[1]/div[2]/div[3]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]
-    Element Should Be Visible    xpath=//section[1]/div[2]/div[3]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]
-    Element Text Should Be    xpath=//section[1]/div[2]/div[3]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]    ${fbsocial}
-    Wait Until Element Is Visible    xpath=//section[1]/div[2]/div[3]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/button[1]/div[1]
-    Element Should Be Visible    xpath=//section[1]/div[2]/div[3]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/button[1]/div[1]
-    Element Text Should Be    xpath=//section[1]/div[2]/div[3]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/button[1]/div[1]    Link Now
-    Element Should Be Enabled    xpath=//section[1]/div[2]/div[3]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/button[1]/div[1]
-    #instagram
-    Wait Until Element Is Visible    xpath=//section[1]/div[2]/div[3]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/img[1]
-    Element Should Be Visible    xpath=//section[1]/div[2]/div[3]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/img[1]
-    Wait Until Element Is Visible    xpath=//section[1]/div[2]/div[3]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]
-    Element Should Be Visible    xpath=//section[1]/div[2]/div[3]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]
-    Element Text Should Be    xpath=//section[1]/div[2]/div[3]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]    ${notconnected}
-    Wait Until Element Is Visible    xpath=//section[1]/div[2]/div[3]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[2]
-    Element Should Be Visible    xpath=//section[1]/div[2]/div[3]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[2]
-    Element Text Should Be    xpath=//section[1]/div[2]/div[3]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[2]    ${insocial}
-    Wait Until Element Is Visible    xpath=//section[1]/div[2]/div[3]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/button[1]/div[1]
-    Element Should Be Visible    xpath=//section[1]/div[2]/div[3]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/button[1]/div[1]
-    Element Text Should Be    xpath=//section[1]/div[2]/div[3]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/button[1]/div[1]    Link Now
-    Element Should Be Enabled    xpath=//section[1]/div[2]/div[3]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/button[1]/div[1]
-    #Linked In
-    Wait Until Element Is Visible    xpath=//section[1]/div[2]/div[3]/div[1]/div[1]/div[2]/div[2]/div[3]/div[1]/img[1]
-    Element Should Be Visible    xpath=//section[1]/div[2]/div[3]/div[1]/div[1]/div[2]/div[2]/div[3]/div[1]/img[1]
-    Wait Until Element Is Visible    xpath=//section[1]/div[2]/div[3]/div[1]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]
-    Element Should Be Visible    xpath=//section[1]/div[2]/div[3]/div[1]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]
-    Element Text Should Be    xpath=//section[1]/div[2]/div[3]/div[1]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]    ${notconnected}
-    Wait Until Element Is Visible    xpath=//section[1]/div[2]/div[3]/div[1]/div[1]/div[2]/div[2]/div[3]/div[1]/div[2]
-    Element Should Be Visible    xpath=//section[1]/div[2]/div[3]/div[1]/div[1]/div[2]/div[2]/div[3]/div[1]/div[2]
-    Element Text Should Be    xpath=//section[1]/div[2]/div[3]/div[1]/div[1]/div[2]/div[2]/div[3]/div[1]/div[2]    ${lnsocial}
-    Wait Until Element Is Visible    xpath=//section[1]/div[2]/div[3]/div[1]/div[1]/div[2]/div[2]/div[3]/div[1]/button[1]/div[1]
-    Element Should Be Visible    xpath=//section[1]/div[2]/div[3]/div[1]/div[1]/div[2]/div[2]/div[3]/div[1]/button[1]/div[1]
-    Element Text Should Be    xpath=//section[1]/div[2]/div[3]/div[1]/div[1]/div[2]/div[2]/div[3]/div[1]/button[1]/div[1]    Link Now
-    Element Should Be Enabled    xpath=//section[1]/div[2]/div[3]/div[1]/div[1]/div[2]/div[2]/div[3]/div[1]/button[1]/div[1]
-    #YouTube
-    Wait Until Element Is Visible    xpath=//section[1]/div[2]/div[3]/div[1]/div[1]/div[2]/div[2]/div[4]/div[1]/img[1]
-    Element Should Be Visible    xpath=//section[1]/div[2]/div[3]/div[1]/div[1]/div[2]/div[2]/div[4]/div[1]/img[1]
-    Wait Until Element Is Visible    xpath=//section[1]/div[2]/div[3]/div[1]/div[1]/div[2]/div[2]/div[4]/div[1]/div[1]
-    Element Should Be Visible    xpath=//section[1]/div[2]/div[3]/div[1]/div[1]/div[2]/div[2]/div[4]/div[1]/div[1]
-    Element Text Should Be    xpath=//section[1]/div[2]/div[3]/div[1]/div[1]/div[2]/div[2]/div[4]/div[1]/div[1]    ${notconnected}
-    Wait Until Element Is Visible    xpath=//section[1]/div[2]/div[3]/div[1]/div[1]/div[2]/div[2]/div[4]/div[1]/div[2]
-    Element Should Be Visible    xpath=//section[1]/div[2]/div[3]/div[1]/div[1]/div[2]/div[2]/div[4]/div[1]/div[2]
-    Element Text Should Be    xpath=//section[1]/div[2]/div[3]/div[1]/div[1]/div[2]/div[2]/div[4]/div[1]/div[2]    ${ytsocial}
-    Wait Until Element Is Visible    xpath=//section[1]/div[2]/div[3]/div[1]/div[1]/div[2]/div[2]/div[4]/div[1]/button[1]/div[1]
-    Element Should Be Visible    xpath=//section[1]/div[2]/div[3]/div[1]/div[1]/div[2]/div[2]/div[4]/div[1]/button[1]/div[1]
-    Element Text Should Be    xpath=//section[1]/div[2]/div[3]/div[1]/div[1]/div[2]/div[2]/div[4]/div[1]/button[1]/div[1]    Link Now
-    Element Should Be Enabled    xpath=//section[1]/div[2]/div[3]/div[1]/div[1]/div[2]/div[2]/div[4]/div[1]/button[1]/div[1]
-
-Payment Settings
-    Click Link    /profile-settings/payments
-    Capture Page Screenshot
-    Wait Until Element Is Visible    xpath=//h2[contains(text(),'Payment Settings')]
-    Element Should Be Visible    xpath=//h2[contains(text(),'Payment Settings')]
-    Element Text Should Be    xpath=//h2[contains(text(),'Payment Settings')]    Payment Settings
-    ${balance} =    Get Text    xpath=//section[1]/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]
-    Log To Console    ${balance}
-    Capture Element Screenshot    xpath=//section[1]/div[2]/div[3]/div[1]/div[1]
-    #Your Payment Methods & Settings
-    Wait Until Element Is Visible    xpath=//div[contains(text(),'Your Payment Methods & Settings')]
-    Element Should Be Visible    xpath=//div[contains(text(),'Your Payment Methods & Settings')]
-    Element Text Should Be    xpath=//div[contains(text(),'Your Payment Methods & Settings')]    Your Payment Methods & Settings
-    Wait Until Element Is Visible    xpath=//div[contains(text(),'Wallet')]
-    Element Should Be Visible    xpath=//div[contains(text(),'Wallet')]
-    Element Text Should Be    xpath=//div[contains(text(),'Wallet')]    Wallet
-    Wait Until Element Is Visible    xpath=//div[contains(text(),'your Current Balance is:')]
-    Element Should Be Visible    xpath=//div[contains(text(),'your Current Balance is:')]
-    Element Text Should Be    xpath=//div[contains(text(),'your Current Balance is:')]    your Current Balance is:
-    Wait Until Element Is Visible    xpath=//div[contains(text(),'Your payment methods')]
-    Element Should Be Visible    xpath=//div[contains(text(),'Your payment methods')]
-    Element Text Should Be    xpath=//div[contains(text(),'Your payment methods')]    Your payment methods
-    Wait Until Element Is Visible    xpath=//button[contains(text(),'Manage Finances')]
-    Element Should Be Visible    xpath=//button[contains(text(),'Manage Finances')]
-    Element Text Should Be    xpath=//button[contains(text(),'Manage Finances')]    Manage Finances
-    Element Should Be Enabled    xpath=//button[contains(text(),'Manage Finances')]
-    #paypal
-    Wait Until Element Is Visible    xpath=//section[1]/div[2]/div[3]/div[1]/div[1]/div[3]/div[2]/div[1]/img[1]
-    Element Should Be Visible    xpath=//section[1]/div[2]/div[3]/div[1]/div[1]/div[3]/div[2]/div[1]/img[1]
-    #american express
-    Wait Until Element Is Visible    xpath=//section[1]/div[2]/div[3]/div[1]/div[1]/div[3]/div[3]/div[1]/img[1]
-    Element Should Be Visible    xpath=//section[1]/div[2]/div[3]/div[1]/div[1]/div[3]/div[3]/div[1]/img[1]
-    #iPay
-    Wait Until Element Is Visible    xpath=//section[1]/div[2]/div[3]/div[1]/div[1]/div[3]/div[4]/div[1]/img[1]
-    Element Should Be Visible    xpath=//section[1]/div[2]/div[3]/div[1]/div[1]/div[3]/div[4]/div[1]/img[1]
-    #mastercard
-    Wait Until Element Is Visible    xpath=//section[1]/div[2]/div[3]/div[1]/div[1]/div[3]/div[5]/div[1]/img[1]
-    Element Should Be Visible    xpath=//section[1]/div[2]/div[3]/div[1]/div[1]/div[3]/div[5]/div[1]/img[1]
-    #visa
-    Wait Until Element Is Visible    xpath=//section[1]/div[2]/div[3]/div[1]/div[1]/div[3]/div[6]/div[1]/img[1]
-    Element Should Be Visible    xpath=//section[1]/div[2]/div[3]/div[1]/div[1]/div[3]/div[6]/div[1]/img[1]
-    #curecny type
-    Wait Until Element Is Visible    xpath=//div[contains(text(),'Currency Type')]
-    Element Should Be Visible    xpath=//div[contains(text(),'Currency Type')]
-    Element Text Should Be    xpath=//div[contains(text(),'Currency Type')]    Currency Type
-    #dropdown
-    Element Should Be Visible    xpath=//section[1]/div[2]/div[3]/div[1]/div[1]/div[4]/div[2]/div[1]
-    Element Should Be Enabled    xpath=//section[1]/div[2]/div[3]/div[1]/div[1]/div[4]/div[2]/div[1]
-    Scroll Element Into View    xpath=//button[contains(text(),'View History')]
-    Click Element    xpath=//section[1]/div[2]/div[3]/div[1]/div[1]/div[4]/div[2]/div[1]
-    Wait Until Element Is Visible    xpath=//section[1]/div[2]/div[3]/div[1]/div[1]/div[4]/div[2]/div[2]/div[2]/div[1]
-    Element Should Be Visible    xpath=//section[1]/div[2]/div[3]/div[1]/div[1]/div[4]/div[2]/div[2]/div[2]/div[1]
-    Element Text Should Be    xpath=//section[1]/div[2]/div[3]/div[1]/div[1]/div[4]/div[2]/div[2]/div[2]/div[1]    USD
-    Element Should Be Visible    xpath=//div[contains(text(),'EUR')]
-    Element Text Should Be    xpath=//div[contains(text(),'EUR')]    EUR
-    Element Should Be Visible    xpath=//div[contains(text(),'INR')]
-    Element Text Should Be    xpath=//div[contains(text(),'INR')]    INR
-    Capture Element Screenshot    xpath=//section[1]/div[2]/div[3]/div[1]/div[1]/div[4]/div[2]/div[2]
-    Click Element    xpath=//section[1]/div[2]/div[3]/div[1]/div[1]/div[4]/div[2]/div[2]/div[1]/img[1]
-    Sleep    1
-    #Payments & Transactions History
-    Wait Until Element Is Visible    xpath=//div[contains(text(),'Payments & Transactions History')]
-    Element Should Be Visible    xpath=//div[contains(text(),'Payments & Transactions History')]
-    Element Text Should Be    xpath=//div[contains(text(),'Payments & Transactions History')]    Payments & Transactions History
-    Wait Until Element Is Visible    xpath=//button[contains(text(),'View History')]
-    Element Should Be Enabled    xpath=//button[contains(text(),'View History')]
-    Element Text Should Be    xpath=//button[contains(text(),'View History')]    View History
+    Element Should Be Visible    xpath=//div[1]/div[7]/div[1]/div[2]/i[1]
+    Element Should Be Enabled    xpath=//div[1]/div[7]/div[1]/div[2]/i[1]
+    Wait Until Element Is Visible    xpath=//div[2]/div[3]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]
+    Element Should Be Visible    xpath=//div[2]/div[3]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]
+    Element Text Should Be    xpath=//div[2]/div[3]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]    Turn off all notifications
+    Element Should Be Visible    xpath=//div[1]/div[2]/div[2]/div[1]/div[2]/i[1]
+    Element Should Be Enabled    xpath=//div[1]/div[2]/div[2]/div[1]/div[2]/i[1]
+    Wait Until Element Is Visible    xpath=//p[contains(text(),'* for security and update notifications some email')]
+    Element Should Be Visible    xpath=//p[contains(text(),'* for security and update notifications some email')]
+    Element Text Should Be    xpath=//p[contains(text(),'* for security and update notifications some email')]    * for security and update notifications some emails can't be turned off
+    Element Should Be Enabled    xpath=//p[contains(text(),'* for security and update notifications some email')]
 
 Password & Security
     Click Link    /profile-settings/security
@@ -553,6 +422,21 @@ Password & Security
     Click Element    xpath=//section[1]/div[2]/div[3]/div[1]/div[1]/div[4]/div[4]/div[1]/button[1]/div[1]
     Scroll Element Into View    xpath=//p[contains(text(),'Phone Number')]
     Capture Element Screenshot    xpath=//section[1]/div[2]/div[3]/div[1]/div[1]/div[4]
+
+Social impact score
+    Navheader Freelancer
+    Wait Until Element Is Visible    id=profileDropdown
+    Click Element    id=profileDropdown
+    Wait Until Element Is Visible    id=socialImpactScores
+    Click Element    id=socialImpactScores
+    #Social Impact Score Page
+    Wait Until Element Is Visible    xpath=//h2[contains(text(),'Social Impact Scores')]
+    Element Should Be Visible    xpath=//h2[contains(text(),'Social Impact Scores')]
+    Element Text Should Be    xpath=//h2[contains(text(),'Social Impact Scores')]    Social Impact Scores
+    Wait Until Element Is Visible    xpath=//h2[contains(text(),'Sustainable Entrepreneurship Score')]
+    Element Should Be Visible    xpath=//h2[contains(text(),'Sustainable Entrepreneurship Score')]
+    Element Text Should Be    xpath=//h2[contains(text(),'Sustainable Entrepreneurship Score')]    Sustainable Entrepreneurship Score
+    Element Text Should Be    xpath=//body[1]/div[1]/div[1]/section[1]/div[2]/div[3]/div[1]/div[2]/div[1]/p[1]    Sustainable entrepreneurship is your continuing commitment to behave ethically and contribute to economic development while improving the quality of life of your workforce, their families, the local and global community as well as future generations.
 
 Side Main Menu
     Sleep    5
@@ -696,7 +580,7 @@ Post a Project
     3rd step Contest
     4th step page Project
 
-Logout again
+Logout
     [Tags]    saveSettings
     LogoutKW
 

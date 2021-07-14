@@ -59,6 +59,7 @@ ${AMERICAN_EXPRESS_2}    3714 4963 5398 431
 ${description1}    porn kill killer raped raping rape fuck \ cockfoam cock vagina skype
 ${description}    I would keep the headlines in one color to be distinctive, having split like this can only make confusion. Slider arrows on the left and right could be downsized to 50-75% of this size and placed about 50px away of the carousel on each side. I vote for the carousel with wider boxes.
 #Social Links
+${SustainableEntrepreneurship}    Sustainable entrepreneurship is your continuing commitment to behave ethically and contribute to economic development while improving the quality of life of your workforce, their families, the local and global community as well as future generations. As a Freelancer if you'll give a job to another freelancer, no matter what it is. You instantly will get a Sustainable Entrepreneurship score of 5 Stars! That score lasts for 4 months and you'll have to do it again else you'll go down to zero stars. If you do this 3 times sooner, your 5 starts will last for 1 year. Your current Sustainable Entrepreneurship Score is 5.0.
 ${notconnected}    Not Connected
 ${fbsocial}       Connect your Facebook profile with UpForJobs. Become more visible as a freelancer to your connections and increase your chances of getting the right offer.
 ${insocial}       Connect your Instagram profile with UpForJobs. Become more visible as a freelancer to your connections and increase your chances of getting the right offer.

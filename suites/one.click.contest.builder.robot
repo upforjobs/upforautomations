@@ -139,4 +139,5 @@ Post a One Click Contest Builder
     Click Element    xpath=//section[1]/div[1]/div[1]/div[2]/div[1]/form[1]/div[1]/button[1]
     Sleep    2
     Wait Until Element Is Visible    xpath=//button[contains(text(),'Pay $10.00 & Publish')]
+    Sleep    2
     #- this need to be fixed https://upforjobs.atlassian.net/browse/MU-876

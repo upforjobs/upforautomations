@@ -656,7 +656,7 @@ Navheader Unregistered
     Element Should Be Enabled    xpath=//p[contains(text(),'Sign In')]
 
 New Profile Settings page
-    Wait Until Element Is Visible    class:BreadCrumb_breadcrumbContainer__1e_Kg
+    Wait Until Element Is Visible    class=BreadCrumb_breadcrumbContainer__1e_Kg
     Capture Page Screenshot    BreadCrumb-{index}.png
     Profile Settings page
 
@@ -966,51 +966,6 @@ UFJLogin
     Sleep    1
     Click Element    xpath=//button[@id='login']
     Sleep    1
-
-Job Description page
-    Wait Until Element Is Visible    xpath=//button[contains(text(),'Job Description')]
-    Element Should Be Visible    xpath=//button[contains(text(),'Job Description')]
-    Element Text Should Be    xpath=//button[contains(text(),'Job Description')]    Job Description
-    Wait Until Element Is Visible    xpath=//h3[contains(text(),'JOB TYPE*')]
-    Element Should Be Visible    xpath=//h3[contains(text(),'JOB TYPE*')]
-    Element Text Should Be    xpath=//h3[contains(text(),'JOB TYPE*')]    JOB TYPE*
-    Wait Until Element Is Visible    xpath=//p[contains(text(),'Post a project?')]
-    Element Should Be Visible    xpath=//p[contains(text(),'Post a project?')]
-    Element Text Should Be    xpath=//p[contains(text(),'Post a project?')]    Post a project?
-    Wait Until Element Is Visible    xpath=//p[contains(text(),'Start a contest?')]
-    Element Should Be Visible    xpath=//p[contains(text(),'Start a contest?')]
-    Element Text Should Be    xpath=//p[contains(text(),'Start a contest?')]    Start a contest?
-    Wait Until Element Is Visible    xpath=//h3[contains(text(),'SELECT CATEGORY AND SUBCATEGORY *')]
-    Element Should Be Visible    xpath=//h3[contains(text(),'SELECT CATEGORY AND SUBCATEGORY *')]
-    Element Text Should Be    xpath=//h3[contains(text(),'SELECT CATEGORY AND SUBCATEGORY *')]    SELECT CATEGORY AND SUBCATEGORY *
-    Wait Until Element Is Visible    id=category
-    Element Should Be Visible    id=category
-    Element Should Be Enabled    id=category
-    Wait Until Element Is Visible    id=skills
-    Element Should Be Visible    id=skills
-    Element Should Be Enabled    id=skills
-    Wait Until Element Is Visible    xpath=//h3[contains(text(),'TITLE *')]
-    Element Should Be Visible    xpath=//h3[contains(text(),'TITLE *')]
-    Element Text Should Be    xpath=//h3[contains(text(),'TITLE *')]    TITLE *
-    Wait Until Element Is Visible    id=jobTitle
-    Element Should Be Visible    id=jobTitle
-    Element Should Be Enabled    id=jobTitle
-    Wait Until Element Is Visible    xpath=//h3[contains(text(),'DESCRIPTION *')]
-    Element Should Be Visible    xpath=//h3[contains(text(),'DESCRIPTION *')]
-    Element Text Should Be    xpath=//h3[contains(text(),'DESCRIPTION *')]    DESCRIPTION *
-    Wait Until Element Is Visible    id=jobDescription
-    Element Should Be Visible    id=jobDescription
-    Element Should Be Enabled    id=jobDescription
-    Wait Until Element Is Visible    xpath=//form[1]/div[4]/div[2]/div[1]/label[1]
-    Element Should Be Visible    xpath=//form[1]/div[4]/div[2]/div[1]/label[1]
-    Element Should Be Enabled    id=upload
-    Wait Until Element Is Visible    xpath=//p[contains(text(),'Add files that will explain your project in more d')]
-    Element Should Be Visible    xpath=//p[contains(text(),'Add files that will explain your project in more d')]
-    Element Text Should Be    xpath=//p[contains(text(),'Add files that will explain your project in more d')]    Add files that will explain your project in more detail.
-    Wait Until Element Is Visible    xpath=//button[contains(text(),'Continue to Terms & Price')]
-    Element Should Be Visible    xpath=//button[contains(text(),'Continue to Terms & Price')]
-    Element Text Should Be    xpath=//button[contains(text(),'Continue to Terms & Price')]    Continue to Terms & Price
-    Element Should Be Enabled    xpath=//button[contains(text(),'Continue to Terms & Price')]
 
 Terms & Prices Contest page
     Wait Until Element Is Visible    xpath=//button[contains(text(),'Terms & Prices')]
