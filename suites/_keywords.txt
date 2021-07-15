@@ -924,18 +924,30 @@ Upload Avatar Picture
     Capture Page Screenshot    capture-{index}.png
 
 Sign in modal
+    [Documentation]    this keyword can be userd only on sign up modal dialog
+    ...    asserting Sign up Modal dialog elements
+    ...    asserting text , element verifying that
+    ...    - checkboxwith name=hire is selected
+    ...    - checkboxwith name=get-hired is deselected
+    ...    - caputuring page screenshot
     Register modal dialog
     Checkbox Should Be Selected    name=hire
     Checkbox Should Not Be Selected    name=get-hired
     Capture Page Screenshot    signin-modal-{index}.png
 
 Get Hired modal
+    [Documentation]    this keyword can be userd only on sign up modal dialog
+    ...    asserting Sign up Modal dialog elements
+    ...    asserting text , element verifying that radiobutton with name=get-hired is selected
+    ...    caputuring page screenshot
     Register modal dialog
     Checkbox Should Be Selected    name=get-hired
     Checkbox Should Not Be Selected    name=hire
     Capture Page Screenshot    get-hire-modal-{index}.png
 
 Hire KW
+    [Documentation]    this keyword can be userd only on sign up modal dialog
+    ...    asserting text , element verifying that radiobutton with id=Hire is selected
     Wait Until Element Is Visible    id=hire
     Element Should Be Enabled    id=hire
     Element Text Should Be    id=hire    Hire
@@ -1289,3 +1301,42 @@ Content Writing Contest card KW
     Element Text Should Be    xpath=//section[1]/div[1]/div[1]/div[2]/div[1]/form[1]/div[1]/button[1]    Build my contest
     Capture Element Screenshot    class=OneClickContestCard_oneClickContestCardInfo__s_MY-
     Capture Page Screenshot    OneClickContestCard-{index}.png
+
+breadcrumbs My Profile
+    [Documentation]    This breadcrumbs can be used for both entitties
+    ...    asserting text Home / My profile
+    ...    - freelancer
+    ...    - employer
+    Sleep    2
+    Wait Until Element Is Visible    xpath=//a[contains(text(),'Home')]
+    Wait Until Element Is Enabled    xpath=//a[contains(text(),'Home')]
+    Element Should Be Visible    xpath=//a[contains(text(),'Home')]
+    Element Should Be Enabled    xpath=//a[contains(text(),'Home')]
+    Element Text Should Be    xpath=//a[contains(text(),'Home')]    Home
+    Wait Until Element Is Visible    xpath=//a[contains(text(),'My Profile')]
+    Wait Until Element Is Enabled    xpath=//a[contains(text(),'My Profile')]
+    Element Should Be Visible    xpath=//a[contains(text(),'My Profile')]
+    Element Should Be Enabled    xpath=//a[contains(text(),'My Profile')]
+    Element Text Should Be    xpath=//a[contains(text(),'My Profile')]    My Profile
+
+Freelancer My profileTabs
+    Wait Until Element Is Visible    xpath=//a[contains(text(),'My UpPaq')]
+    Wait Until Element Is Enabled    xpath=//a[contains(text(),'My UpPaq')]
+    Element Should Be Visible    xpath=//a[contains(text(),'My UpPaq')]
+    Element Should Be Enabled    xpath=//a[contains(text(),'My UpPaq')]
+    Element Text Should Be    xpath=//a[contains(text(),'My UpPaq')]    My UpPaq
+    Wait Until Element Is Visible    xpath=//a[contains(text(),'Create UpPaq')]
+    Wait Until Element Is Enabled    xpath=//a[contains(text(),'Create UpPaq')]
+    Element Should Be Visible    xpath=//a[contains(text(),'Create UpPaq')]
+    Element Should Be Enabled    xpath=//a[contains(text(),'Create UpPaq')]
+    Element Text Should Be    xpath=//a[contains(text(),'Create UpPaq')]    Create UpPaq
+    Wait Until Element Is Visible    xpath=//a[contains(text(),'Portfolio')]
+    Wait Until Element Is Enabled    xpath=//a[contains(text(),'Portfolio')]
+    Element Should Be Visible    xpath=//a[contains(text(),'Portfolio')]
+    Element Should Be Enabled    xpath=//a[contains(text(),'Portfolio')]
+    Element Text Should Be    xpath=//a[contains(text(),'Portfolio')]    Portfolio
+    Wait Until Element Is Visible    xpath=//a[contains(text(),'Reviews')]
+    Wait Until Element Is Enabled    xpath=//a[contains(text(),'Reviews')]
+    Element Should Be Visible    xpath=//a[contains(text(),'Reviews')]
+    Element Should Be Enabled    xpath=//a[contains(text(),'Reviews')]
+    Element Text Should Be    xpath=//a[contains(text(),'Reviews')]    Reviews

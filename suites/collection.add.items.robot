@@ -9,7 +9,6 @@ Library           SeleniumLibrary
 Resource          _keywords.txt
 Resource          _mysetup.txt
 Library           String
-Library           Colection
 
 *** Variables ***
 ${TMP_PATH}       /tmp
@@ -43,6 +42,11 @@ Mini dashboard
     Capture Page Screenshot    profile-page-{index}.png
 
 My profile page
+    #my profile page
+    breadcrumbs My Profile
+    Freelancer My profileTabs
+    Click Link    /profile/portfolio
+    Sleep    6
 
 Check required fields
     Wait Until Element Is Visible    link=Add a new Collection

@@ -11,6 +11,7 @@ ${TMP_PATH}       /tmp
 
 *** Test Cases ***
 Login to the website
+    [Documentation]    Login on the website usinf UFJLogin Keyword
     [Tags]    content.writing.contest
     UFJLogin
 
