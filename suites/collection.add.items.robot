@@ -39,8 +39,10 @@ Mini dashboard
     #Element Text Should Be    xpath=//h4[contains(.,'Mode:')]    Mode:
     Capture Page Screenshot    landing-page-{index}.png
     Click Link    /profile
-    Sleep    1
+    Sleep    3
     Capture Page Screenshot    profile-page-{index}.png
+
+My profile page
 
 Check required fields
     Wait Until Element Is Visible    link=Add a new Collection
