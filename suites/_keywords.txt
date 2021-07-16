@@ -1274,8 +1274,8 @@ Code modal dialog
     Capture Element Screenshot    class=EnterVerificationCode_verificationCard__28sBJ
 
 Content Writing Contest card KW
-    Wait Until Element Is Visible    class=OneClickContestCard_oneClickContestCardInfo__s_MY-
-    Scroll Element Into View    xpath=//section[1]/div[1]/div[1]/div[2]/div[1]/form[1]/div[1]/button[1]
+    Wait Until Element Is Visible    class=OneClickContestCard_oneClickContestCard__2srNk
+    #Scroll Element Into View    xpath=//section[1]/div[1]/div[1]/div[2]/div[1]/form[1]/div[1]/button[1]
     Element Should Be Visible    class=OneClickContestCard_oneClickContestCardInfo__s_MY-
     Wait Until Element Is Visible    xpath=//h3[contains(text(),'Content Writing Contest')]
     Element Should Be Visible    xpath=//h3[contains(text(),'Content Writing Contest')]
