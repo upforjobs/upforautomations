@@ -443,7 +443,7 @@ Login Business KW
     Wait Until Element Is Visible    class=Login_loginCard__3VHjo
     Wait Until Element Is Enabled    xpath=//input[@id='emailOrUserName']
     Wait Until Element Is Visible    name=emailOrUserName
-    Input Text    id=emailOrUserName    ${business}${gmail}
+    Input Text    id=emailOrUserName    ${business}    #${gmail}
     Wait Until Element Is Visible    id=password
     Input Text    id=password    ${password}
     Click Element    id=rememberMe
@@ -538,19 +538,18 @@ Logout modal
 
 LogoutKW
     [Documentation]    Logout Keyword is keyword to logout all users frm the application
-    Sleep    5
+    Sleep    1
     Wait Until Element Is Visible    id=profileDropdown
     Wait Until Element Is Enabled    id=profileDropdown
     Click Element    id=profileDropdown
     Capture Page Screenshot    click-avatar-picture-logout-{index}.png
-    Sleep    2
+    Sleep    1
     Wait Until Element Is Visible    xpath=//h3[@id='logout']
     Click Element    xpath=//h3[@id='logout']
     Capture Page Screenshot    click-avatar-picture-logout-{index}.png
     Logout modal
     Wait Until Element Is Visible    xpath=//button[contains(text(),'Logout')]
     Click Element    xpath=//button[contains(text(),'Logout')]
-    Wait Until Element Is Visible    xpath=//button[contains(text(),'Logout')]
     Capture Page Screenshot    logout-{index}.png
 
 My jobs page
