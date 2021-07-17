@@ -1339,3 +1339,30 @@ Freelancer My profileTabs
     Element Should Be Visible    xpath=//a[contains(text(),'Reviews')]
     Element Should Be Enabled    xpath=//a[contains(text(),'Reviews')]
     Element Text Should Be    xpath=//a[contains(text(),'Reviews')]    Reviews
+
+Go to the Notification KW
+    [Documentation]    In this keword user will go to the
+    ...    - notification
+    ...    - capture element screenashot
+    ...    - Click button "Mark all as read"
+    Wait Until Element Is Visible    id=notifications
+    Wait Until Element Is Enabled    id=notifications
+    Element Should Be Enabled    id=notifications
+    Click Element    id=notifications
+    Capture Page Screenshot    notification-{index}.png
+    Wait Until Element Is Visible    xpath=//section[1]/div[2]/div[2]/div[2]
+    Capture Element Screenshot    xpath=//section[1]/div[2]/div[2]/div[2]
+    Wait Until Element Is Visible    xpath=//button[contains(text(),'Mark all as read')]
+    Click Element    xpath=//button[contains(text(),'Mark all as read')]
+
+Go to the My Jobs KW
+    Wait Until Element Is Visible    id=myJobs
+    Wait Until Element Is Enabled    id=myJobs
+    Element Should Be Enabled    id=myJobs
+    Click Element    id=myJobs
+    Capture Page Screenshot    myJobs-{index}.png
+    Wait Until Element Is Visible    xpath=//section[1]/div[3]/div[2]/div[1]/div[2]
+    Capture Element Screenshot    xpath=//section[1]/div[3]/div[2]/div[1]/div[2]
+    ${contest} =    Get Text    xpath=//section[1]/div[3]/div[2]/div[1]/div[2]
+    Log To Console    ${contest}
+    Wait Until Element Is Visible    xpath=//section[1]/div[3]/div[2]/div[1]/div[2]/div[2]/a[1]

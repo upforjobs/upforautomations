@@ -144,31 +144,3 @@ Post a One Click Contest Builder
     Sleep    5
     #- this need to be fixed https://upforjobs.atlassian.net/browse/MU-876
     https://test.upforjobs.com/post-job?kind=CONTEST&title=Generate%20Content%20Writing%20Contest%20No:%2077035&numberOfDays=3&prize=10&description=I%20would%20keep%20the%20headlines%20in%20one%20color%20to%20be%20distinctive,%20having%20split%20like%20this%20can%20only%20make%20confusion.%20Slider%20arrows%20on%20the%20left%20and%20right%20could%20be%20downsized%20to%2050-75%%20of%20this%20size%20and%20placed%20about%2050px%20away%20of%20the%20carousel%20on%20each%20side.%20I%20vote%20for%20the%20carousel%20with%20wider%20boxes.&urgent=false&category=67445e03-3d19-4ec5-a6fb-773451ffc7bf&subCategories=30c79a1c-2984-484d-899d-4dda4680f053,733df6c5-2d93-41f8-ac8a-274506ec5bc8,1643a51f-e595-4e13-a7db-6c9c256c7529,b57e12d4-031a-428d-a94e-0288c0a5c266&skills=e83dfc18-767f-47b1-986a-1eb6ea65b6de,563be5d7-2f80-427c-9c35-337bab757517,fdd2cdac-1ebe-48b1-93e7-d00cb9f16510,67f3edc0-eabc-4cf5-b5d2-46af3a258242,3eaf6c74-0c9d-4533-8090-b637d08beb9b,28e1e08f-df28-43a0-887a-3d9a5164f3af,15f98ba8-dbb4-4581-b653-f2f7636a6235,11b0912c-f48c-4a31-9ef5-5d587ec8463c,86920e49-8a84-478c-b15b-f55da4750be4&isOnClickContest=true
-
-Post a OCCB registered user
-    [Tags]    content.writing.contest
-    Sleep    5
-    Login Business KW
-    Sleep    5
-    Navheader Business
-    Wait Until Element Is Visible    xpath=//section[1]/section[1]/div[2]/div[1]/div[2]/div[1]/form[1]/div[1]/button[1]
-    Scroll Element Into View    xpath=//section[1]/section[1]/div[2]/div[1]/div[2]/div[1]/form[1]/div[1]/button[1]
-    ${minimumrandomtitle} =    Generate Random String    5    [NUMBERS]
-    Input Text    xpath=//section[1]/section[1]/div[2]/div[1]/div[2]/div[1]/form[1]/div[1]/div[1]/div[1]/input[1]    Generated Content Writing Contest No: ${minimumrandomtitle}
-    Input Text    xpath=//section[1]/section[1]/div[2]/div[1]/div[2]/div[1]/form[1]/div[1]/div[1]/div[2]/input[1]    10
-    Input Text    name=numberOfDays    3
-    Input Text    xpath=//section[1]/section[1]/div[2]/div[1]/div[2]/div[1]/form[1]/div[1]/div[1]/div[4]/textarea[1]    ${description}
-    Capture Element Screenshot    class=OneClickContestCard_oneClickContestCardInfo__s_MY-
-    Wait Until Element Is Visible    xpath=//section[1]/section[1]/div[2]/div[1]/div[2]/div[1]/form[1]/div[1]/button[1]
-    Click Element    xpath=//section[1]/section[1]/div[2]/div[1]/div[2]/div[1]/form[1]/div[1]/button[1]
-    Sleep    10
-    Wait Until Element Is Visible    xpath=//button[contains(text(),'Pay $10.00 & Publish')]
-    Scroll Element Into View    xpath=//button[contains(text(),'Pay $10.00 & Publish')]
-    Sleep    5
-    Click Element    xpath=//button[contains(text(),'Pay $10.00 & Publish')]
-    Wait Until Element Is Visible    xpath=//p[contains(text(),'Your contest is posted successfully!')]
-    Element Should Be Visible    xpath=//p[contains(text(),'Your contest is posted successfully!')]
-    Element Should Be Enabled    xpath=//p[contains(text(),'Your contest is posted successfully!')]
-    Capture Element Screenshot    xpath=//p[contains(text(),'Your contest is posted successfully!')]
-    Click Element    xpath=//p[contains(text(),'Your contest is posted successfully!')]
-    LogoutKW
